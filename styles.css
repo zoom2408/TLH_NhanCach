@@ -26,7 +26,7 @@
       background: linear-gradient(to bottom, #021B79, #0575E6);
       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-      color: #1f1f1f;
+      color: #fff;
       height: 100vh;
       overflow-y: auto;
       box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
@@ -40,14 +40,14 @@
       font-size: 18px;
       margin-bottom: 16px;
       font-weight: 700;
-      color: #1f1f1f;
+      color: #fff;
     }
 
     /* simple sidebar links for cognitive psychology page */
     .sidebar a {
       display: block;
       padding: 8px 12px;
-      color: #1f1f1f;
+      color: #fff;
       text-decoration: none;
       border-left: 4px solid transparent;
       margin-bottom: 4px;
@@ -56,8 +56,8 @@
 
     .sidebar a:hover,
     .sidebar a.active {
-      background: rgba(255, 255, 255, 0.2);
-      border-left-color: rgb(113, 113, 113);
+      background: rgba(255, 247, 18, 0.2);
+      border-left-color: rgb(255, 200, 0);
     }
 
     .tree .submenu {
@@ -72,7 +72,7 @@
     .header {
       text-align: left;
       margin-bottom: 40px;
-      color: #1f1f1f;
+      color: #fff;
     }
 
     .header h1 {
