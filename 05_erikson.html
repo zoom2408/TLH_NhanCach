@@ -1,15 +1,1290 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-    <title>Erikson's Stages of Psychosocial Development</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuyết Phát Triển Tâm Lý Xã Hội Erik Erikson - Góc Nhìn Tâm Lý Học</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .comparison-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        .theory-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .ego-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .ego-card {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .ego-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stage-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            color: #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-card:nth-child(even) {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .stage-card:nth-child(3n) {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .stage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .stage-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stage-number {
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .crisis-box {
+            background: rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: 600;
+            text-align: center;
+            border: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .strength-box {
+            background: rgba(255,255,255,0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-style: italic;
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .clinical-application {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .research-box {
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .critique-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .identity-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .status-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .quiz-container {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: #e9ecef;
+            border-color: #6c757d;
+        }
+
+        .quiz-option.selected {
+            background: #007bff;
+            color: white;
+            border-color: #0056b3;
+        }
+
+        .quiz-option.correct {
+            background: #28a745;
+            color: white;
+            border-color: #1e7e34;
+        }
+
+        .quiz-option.incorrect {
+            background: #dc3545;
+            color: white;
+            border-color: #bd2130;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 15px 5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .case-study h4 {
+            color: #d63031;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.3);
+            border-radius: 25px;
+            height: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 25px;
+        }
+
+        .score-display {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .epigenetic-diagram {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ego-structure {
+                grid-template-columns: 1fr;
+            }
+            
+            .identity-status {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <h1>Erikson's Stages of Psychosocial Development</h1>
-        To be update soon.
-    </header>
-</body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Thuyết Phát Triển Tâm Lý Xã Hội</h1>
+            <p>Erik Erikson: Góc Nhìn Chuyên Sâu Từ Tâm Lý Học Phát Triển</p>
+        </div>
 
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showSection('theoretical-foundation')">Nền Tảng Lý Thuyết</button>
+            <button class="nav-btn" onclick="showSection('erikson-vs-freud')">So Sánh Freud</button>
+            <button class="nav-btn" onclick="showSection('ego-development')">Phát Triển Cái Tôi</button>
+            <button class="nav-btn" onclick="showSection('eight-stages')">8 Giai Đoạn</button>
+            <button class="nav-btn" onclick="showSection('identity-theory')">Lý Thuyết Bản Dạng</button>
+            <button class="nav-btn" onclick="showSection('clinical-applications')">Ứng Dụng Lâm Sàng</button>
+            <button class="nav-btn" onclick="showSection('research-critique')">Nghiên Cứu & Phê Bình</button>
+            <button class="nav-btn" onclick="showSection('advanced-cases')">Case Study Nâng Cao</button>
+            <button class="nav-btn" onclick="showSection('comprehensive-quiz')">Kiểm Tra Chuyên Sâu</button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="score-display" id="scoreDisplay" style="display: none;">
+            Điểm số: <span id="currentScore">0</span>/15
+        </div>
+
+        <!-- Nền Tảng Lý Thuyết -->
+        <div id="theoretical-foundation" class="content-section active">
+            <h2>🎯 Nền Tảng Lý Thuyết & Quan Điểm Cốt Lõi</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Nguyên Lý Biểu Sinh (Epigenetic Principle)</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong>"Mọi thứ phát triển đều có một kế hoạch mặt bằng (ground plan)"</strong> - Từ đây, các phần lớn lên và đạt đến thời điểm sinh trưởng mạnh nhất cho đến khi tất cả các phần đều trưởng thành và đạt được chức năng toàn vẹn trong một tổng thể.
+                </p>
+            </div>
+
+            <div class="epigenetic-diagram">
+                <h3>📊 Mô Hình Epigenetic của Erikson</h3>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <p><strong>Các cơ quan/bộ phận cơ thể con người ↔ Các khả năng xã hội cần thiết</strong></p>
+                    <ul style="text-align: left; margin: 15px 0; line-height: 2;">
+                        <li>Sự phát triển xảy ra theo <strong>thứ tự, giai đoạn</strong></li>
+                        <li>Mỗi giai đoạn phải được <strong>giải quyết hài lòng</strong></li>
+                        <li>Quá trình phát triển tiến bộ một cách <strong>trôi chảy</strong></li>
+                        <li>Các yếu tố của mọi giai đoạn đều <strong>hiện diện song song</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="highlight-box">
+                    <h3>🌍 Ảnh Hưởng Của Xã Hội</h3>
+                    <ul style="line-height: 2;">
+                        <li><strong>Yếu tố di truyền</strong> mang tính quyết định cơ bản</li>
+                        <li><strong>Xã hội và môi trường</strong> chi phối cách biểu lộ đặc điểm di truyền</li>
+                        <li><strong>Cái Tôi</strong> định hình trong môi trường văn hóa xã hội cụ thể</li>
+                        <li>Phụ thuộc vào: cách giáo dục, văn hóa, thể chế</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <h3>⚡ Khái Niệm Khủng Hoảng</h3>
+                    <ul style="line-height: 2;">
+                        <li><strong>Không phải thảm họa</strong> → Bước ngoặc cốt yếu</li>
+                        <li>Tăng cường <strong>tính dễ tổn thương</strong> và <strong>tiềm năng</strong></li>
+                        <li>Có khả năng mang lại <strong>sức mạnh</strong> hoặc <strong>kém thích nghi</strong></li>
+                        <li>Cái Tôi điều phối → Hình thành <strong>sức mạnh cơ bản</strong> hoặc <strong>bệnh lý</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- So Sánh với Freud -->
+        <div id="erikson-vs-freud" class="content-section">
+            <h2>⚖️ Erikson vs Freud: Psychosocial vs Psychosexual</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>🎭 SIGMUND FREUD</h3>
+                    <h4>Phát Triển Tâm-Tính Dục (Psychosexual)</h4>
+                    <ul style="line-height: 2; margin-top: 15px;">
+                        <li><strong>Tập trung:</strong> Năng lượng Libido</li>
+                        <li><strong>Thời gian:</strong> Chủ yếu 5 năm đầu đời</li>
+                        <li><strong>Động lực:</strong> Dục năng sinh học</li>
+                        <li><strong>Giai đoạn:</strong> 5 giai đoạn (oral, anal, phallic, latency, genital)</li>
+                        <li><strong>Yếu tố:</strong> Bản năng, vô thức</li>
+                        <li><strong>Cấu trúc:</strong> Id, Ego, Superego</li>
+                        <li><strong>Cắm chốt:</strong> Khi mâu thuẫn không giải quyết</li>
+                    </ul>
+                </div>
+                <div class="comparison-card" style="background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);">
+                    <h3>🌱 ERIK ERIKSON</h3>
+                    <h4>Phát Triển Tâm Lý-Xã Hội (Psychosocial)</h4>
+                    <ul style="line-height: 2; margin-top: 15px;">
+                        <li><strong>Tập trung:</strong> Tương tác xã hội</li>
+                        <li><strong>Thời gian:</strong> Suốt cuộc đời (từ sinh đến chết)</li>
+                        <li><strong>Động lực:</strong> Nhu cầu xã hội, văn hóa</li>
+                        <li><strong>Giai đoạn:</strong> 8 giai đoạn nối tiếp</li>
+                        <li><strong>Yếu tố:</strong> Môi trường, xã hội, văn hóa</li>
+                        <li><strong>Cấu trúc:</strong> Ego mạnh, thích nghi</li>
+                        <li><strong>Khủng hoảng:</strong> Cơ hội phát triển</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🔑 Những Đóng Góp Mới Của Erikson:</h3>
+                <ol style="line-height: 2; margin-left: 20px;">
+                    <li><strong>Mở rộng tầm nhìn:</strong> Từ tâm-tính dục sang tâm lý-xã hội</li>
+                    <li><strong>Kéo dài thời gian:</strong> Phát triển suốt đời thay vì chỉ thời thơ ấu</li>
+                    <li><strong>Nhấn mạnh Ego:</strong> Vai trò tích cực của Cái Tôi trong thích nghi</li>
+                    <li><strong>Tích cực hóa khủng hoảng:</strong> Từ mâu thuẫn thành cơ hội</li>
+                    <li><strong>Yếu tố văn hóa:</strong> Tầm quan trọng của bối cảnh xã hội</li>
+                    <li><strong>Phương pháp nghiên cứu:</strong> Kết hợp phân tâm với nhân chủng học</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Phát Triển Cái Tôi -->
+        <div id="ego-development" class="content-section">
+            <h2>🧩 Lý Thuyết Phát Triển Cái Tôi (Ego Development)</h2>
+            
+            <div class="clinical-application">
+                <h3>🎯 "Cái Tôi" Trong Thuyết Bản Dạng</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Cái tôi tạo ra <strong>bản dạng cá nhân</strong>, cảm giác "Tôi". Là <strong>trung tâm của nhân cách</strong> con người, 
+                    giúp cá nhân thích nghi với những khủng hoảng cuộc sống và không đánh mất tính cá nhân độc đáo 
+                    trước những tác động "san bằng" của xã hội.
+                </p>
+            </div>
+
+            <div class="ego-structure">
+                <div class="ego-card">
+                    <h4>🏃‍♂️ Cái Tôi Cơ Thể (Body Ego)</h4>
+                    <p>Nhận thức về cơ thể, khả năng vận động, và sự kiểm soát các chức năng sinh lý. Phát triển từ sơ sinh qua việc thành thạo các hoạt động cơ bản.</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Điều phối vận động</li>
+                        <li>Nhận thức không gian cơ thể</li>
+                        <li>Kiểm soát các chức năng sinh lý</li>
+                    </ul>
+                </div>
+                <div class="ego-card">
+                    <h4>⭐ Cái Tôi Lý Tưởng (Ego Ideal)</h4>
+                    <p>Hình ảnh về con người mà cá nhân muốn trở thành. Được hình thành từ các mô hình, giá trị và kỳ vọng xã hội.</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Mục tiêu và khát vọng</li>
+                        <li>Giá trị đạo đức</li>
+                        <li>Mô hình lý tưởng</li>
+                    </ul>
+                </div>
+                <div class="ego-card">
+                    <h4>🎭 Cái Tôi Bản Dạng (Ego Identity)</h4>
+                    <p>Cảm nhận về bản thân như một thực thể thống nhất, liên tục qua thời gian và nhất quán trong các tình huống khác nhau.</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Tính nhất quán cá nhân</li>
+                        <li>Tính liên tục trong thời gian</li>
+                        <li>Vai trò xã hội</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📈 Quá Trình Phát Triển Cái Tôi:</h3>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <p><strong>Thời thơ ấu:</strong> Cái tôi <em>mỏng manh, yếu đuối</em></p>
+                    <p style="margin: 10px 0;">↓</p>
+                    <p><strong>Tuổi vị thành niên:</strong> Cái tôi <em>hình thành bản sắc và sức mạnh</em></p>
+                    <p style="margin: 10px 0;">↓</p>
+                    <p><strong>Trưởng thành:</strong> Cái tôi <em>hợp nhất nhân cách, tổng hợp trải nghiệm</em></p>
+                </div>
+                <p style="font-style: italic; text-align: center; margin-top: 15px;">
+                    "Cái tôi hợp nhất những trải nghiệm hiện tại với bản dạng cá nhân quá khứ và hình ảnh bản thân được mong đợi trong tương lai"
+                </p>
+            </div>
+        </div>
+
+        <!-- 8 Giai Đoạn -->
+        <div id="eight-stages" class="content-section">
+            <h2>🌱 Tám Giai Đoạn Phát Triển Tâm Lý Xã Hội</h2>
+            
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">1</div>
+                    <h3>Sơ Sinh (0-18 tháng): Giai Đoạn Sát Nhập</h3>
+                </div>
+                <div class="crisis-box">TIN TƯỞNG vs MẤT LÒNG TIN</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Giác quan - môi miệng (Oral-sensory)</p>
+                <p><strong>Mối quan hệ chính:</strong> Mẹ/Người chăm sóc chính</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Niềm Hy Vọng - Tin tưởng rằng những căng thẳng sẽ kèm theo trải nghiệm dễ chịu</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Giai đoạn "đưa vào" từ môi trường. Hai phương thức sát nhập: (1) Nhận và chấp nhận những gì có sẵn, (2) "Lấy" những gì được "cho đi" từ người khác.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">2</div>
+                    <h3>Đầu Tuổi Thơ (18 tháng - 3 tuổi): Kiểm Soát Cơ Thể</h3>
+                </div>
+                <div class="crisis-box">TỰ TRỊ vs XẤU HỔ, NGHI NGỜ</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Hậu môn-ống tiểu-cơ bắp</p>
+                <p><strong>Mối quan hệ chính:</strong> Cha mẹ</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Ý Chí - Nỗ lực đạt tự chủ và bộc lộ bản thân</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Không chỉ khoái cảm từ hậu môn mà còn qua thành thạo các chức năng cơ thể: tiêu tiểu, đi, ném, giữ. Phát triển cảm thức kiểm soát bản thân và môi trường.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">3</div>
+                    <h3>Tuổi Chơi (3-5 tuổi): Khởi Xướng và Mục Đích</h3>
+                </div>
+                <div class="crisis-box">KHỞI XƯỚNG vs MẶC CẢM TỘI LỖI</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Sinh dục - vận động</p>
+                <p><strong>Mối quan hệ chính:</strong> Gia đình</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Mục Đích - Thiết lập mục tiêu, chiến đấu để thành công</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Không chỉ mặc cảm Oedipus. Phát triển vận động, kỹ năng ngôn ngữ, sự hiếu kỳ, trí tưởng tượng và khả năng đặt mục tiêu. Sự sáng tạo vs tội lỗi khi khởi xướng.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">4</div>
+                    <h3>Tuổi Đi Học (5-13 tuổi): Phát Triển Năng Lực</h3>
+                </div>
+                <div class="crisis-box">CẢM GIÁC HIỆU QUẢ vs CẢM GIÁC THUA KÉM</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Tiềm ẩn (Latency)</p>
+                <p><strong>Mối quan hệ chính:</strong> Bạn học, hàng xóm, thầy cô</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Thành Thạo - Tự tin sử dụng năng lực để giải quyết vấn đề</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Mở rộng quan hệ ngoài gia đình. Khát khao học hỏi mạnh mẽ, nỗ lực phát triển năng lực. Phát triển cảm giác hiệu quả hoặc vô dụng, thua kém.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">5</div>
+                    <h3>Vị Thành Niên (13-21 tuổi): Khủng Hoảng Bản Dạng</h3>
+                </div>
+                <div class="crisis-box">CẢM NHẬN BẢN DẠNG vs BỐI RỐI BẢN DẠNG</div>
+                <p><strong>Giai đoạn:</strong> Tiềm ẩn xã hội (Social Latency)</p>
+                <p><strong>Mối quan hệ chính:</strong> Các nhóm đồng đẳng</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Sự Trung Tín - Niềm tin vào hệ tư tưởng của mình</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Quan trọng nhất! Thích nghi vai trò qua thử và sai. Phá vỡ giới hạn, chuẩn mực để tìm bản dạng cái tôi. Hình thành mục tiêu, ý nghĩa, sứ mạng.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">6</div>
+                    <h3>Đầu Trưởng Thành (21-39 tuổi): Gắn Bó Thân Mật</h3>
+                </div>
+                <div class="crisis-box">GẮN BÓ vs CÔ LẬP</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Thỏa mãn tình dục thực sự qua mối quan hệ tin tưởng</p>
+                <p><strong>Mối quan hệ chính:</strong> Đối tượng thân mật, bạn bè</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Tình Yêu - Cống hiến trưởng thành vượt qua khác biệt giới tính</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Học cách hợp nhất bản dạng với người khác mà không mất chính mình. Thiết lập quan hệ thân mật, cảm giác gắn bó và tạo tác cho thế hệ sau.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">7</div>
+                    <h3>Tuổi Trưởng Thành (40-65 tuổi): Sáng Tạo và Đóng Góp</h3>
+                </div>
+                <div class="crisis-box">TẠO TÁC vs TRÌ TRỆ</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Sinh sản (Generativity)</p>
+                <p><strong>Mối quan hệ chính:</strong> Gia đình, đồng nghiệp, cộng đồng</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Chăm Sóc - Cam kết chăm sóc con người, sản phẩm, ý tưởng</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Phát triển khả năng sinh sản và đóng góp cho đời, chăm sóc thế hệ sau. Nếu không sản sinh được gì → rơi vào trì trệ, chán chường.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-header">
+                    <div class="stage-number">8</div>
+                    <h3>Tuổi Già (65+ tuổi): Nhìn Lại Cuộc Đời</h3>
+                </div>
+                <div class="crisis-box">TRỌN VẸN vs TUYỆT VỌNG</div>
+                <p><strong>Phương thức tâm tính dục:</strong> Sự thỏa mãn mở rộng</p>
+                <p><strong>Thách thức:</strong> Mất dần những khía cạnh quen thuộc của cuộc sống</p>
+                <div class="strength-box">💪 Sức mạnh cơ bản: Sự Khôn Ngoan - An nhiên nhìn lại cuộc đời và chấp nhận cái chết</div>
+                <p><strong>Đặc điểm chuyên sâu:</strong> Nhìn lại thành công và thất bại, cảm thấy hài lòng/trọn vẹn hay ân hận → chấp nhận quá khứ và vị trí của mình hoặc căm ghét bản thân.</p>
+            </div>
+        </div>
+
+        <!-- Lý Thuyết Bản Dạng -->
+        <div id="identity-theory" class="content-section">
+            <h2>🎭 Lý Thuyết Bản Dạng và Các Trạng Thái Bản Dạng</h2>
+            
+            <div class="clinical-application">
+                <h3>🔍 Khái Niệm Bản Dạng (Identity) Trong Tâm Lý Học</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Bản dạng không chỉ là "ai tôi là" mà còn là <strong>cảm giác liên tục về bản thân</strong> qua thời gian và tình huống. 
+                    Nó bao gồm <strong>vai trò, giá trị, mục tiêu</strong> và <strong>ý thức về tính độc đáo</strong> của cá nhân trong xã hội.
+                </p>
+            </div>
+
+            <div class="identity-status">
+                <div class="status-card">
+                    <h4>🎯 Identity Achievement (Đạt Được Bản Dạng)</h4>
+                    <p><strong>Đặc điểm:</strong> Đã trải qua khủng hoảng và cam kết với những lựa chọn cụ thể</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Tự khám phá các lựa chọn</li>
+                        <li>Cam kết rõ ràng với nghề nghiệp, giá trị</li>
+                        <li>Tự tin về quyết định của mình</li>
+                        <li>Linh hoạt khi gặp thách thức</li>
+                    </ul>
+                </div>
+                <div class="status-card">
+                    <h4>⏸️ Identity Moratorium (Hoãn Bản Dạng)</h4>
+                    <p><strong>Đặc điểm:</strong> Đang trong quá trình khám phá, chưa cam kết</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Tích cực khám phá các lựa chọn</li>
+                        <li>Chưa đưa ra cam kết cuối cùng</li>
+                        <li>Có thể lo âu nhưng tích cực</li>
+                        <li>Giai đoạn cần thiết cho phát triển</li>
+                    </ul>
+                </div>
+                <div class="status-card">
+                    <h4>❌ Identity Foreclosure (Đóng Cửa Bản Dạng)</h4>
+                    <p><strong>Đặc điểm:</strong> Cam kết mà không trải qua khủng hoảng/khám phá</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Chấp nhận vai trò do người khác đặt ra</li>
+                        <li>Không tự khám phá các lựa chọn</li>
+                        <li>Có thể ổn định nhưng thiếu tự chủ</li>
+                        <li>Nguy cơ khủng hoảng muộn</li>
+                    </ul>
+                </div>
+                <div class="status-card">
+                    <h4>🌀 Identity Diffusion (Khuếch Tán Bản Dạng)</h4>
+                    <p><strong>Đặc điểm:</strong> Không khám phá cũng không cam kết</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Thiếu hướng đi rõ ràng</li>
+                        <li>Không quan tâm đến tương lai</li>
+                        <li>Có thể bị động hoặc phản kháng</li>
+                        <li>Cần can thiệp và hỗ trợ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>📊 Các Yếu Tố Ảnh Hưởng Đến Phát Triển Bản Dạng:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 10px;">
+                        <strong>🏠 Gia đình</strong><br>
+                        Phong cách nuôi dạy, kỳ vọng, hỗ trợ
+                    </div>
+                    <div style="background: #f3e5f5; padding: 15px; border-radius: 10px;">
+                        <strong>👥 Bạn bè</strong><br>
+                        Áp lực đồng trang lứa, nhóm tham chiếu
+                    </div>
+                    <div style="background: #e8f5e8; padding: 15px; border-radius: 10px;">
+                        <strong>🌍 Văn hóa</strong><br>
+                        Giá trị xã hội, cơ hội, hạn chế
+                    </div>
+                    <div style="background: #fff3e0; padding: 15px; border-radius: 10px;">
+                        <strong>🧠 Cá nhân</strong><br>
+                        Khả năng nhận thức, tính cách
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ứng Dụng Lâm Sàng -->
+        <div id="clinical-applications" class="content-section">
+            <h2>🏥 Ứng Dụng Lâm Sàng và Trị Liệu</h2>
+            
+            <div class="clinical-application">
+                <h3>💊 Ứng Dụng Trong Tâm Lý Trị Liệu</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Lý thuyết Erikson cung cấp <strong>khung lý thuyết phát triển</strong> giúp nhà trị liệu hiểu 
+                    các vấn đề tâm lý trong bối cảnh <strong>phát triển suốt đời</strong> và <strong>tương tác xã hội</strong>.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+                <div class="research-box">
+                    <h4>🔍 Đánh Giá và Chẩn Đoán</h4>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Xác định giai đoạn phát triển</strong> hiện tại của thân chủ</li>
+                        <li><strong>Đánh giá các khủng hoảng</strong> chưa được giải quyết</li>
+                        <li><strong>Phân tích sức mạnh cơ bản</strong> đã phát triển</li>
+                        <li><strong>Hiểu bối cảnh xã hội</strong> ảnh hưởng đến vấn đề</li>
+                    </ul>
+                </div>
+                <div class="research-box">
+                    <h4>💡 Kế Hoạch Can Thiệp</h4>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Tăng cường sức mạnh cơ bản</strong> ở giai đoạn hiện tại</li>
+                        <li><strong>Giải quyết khủng hoảng</strong> chưa hoàn tất</li>
+                        <li><strong>Phát triển kỹ năng thích nghi</strong> xã hội</li>
+                        <li><strong>Tăng cường mạng lưới hỗ trợ</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h4>📋 Ứng Dụng Cụ Thể Theo Giai Đoạn:</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0;">
+                    <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px;">
+                        <strong>👶 Trẻ em (0-12 tuổi)</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Trị liệu gia đình</li>
+                            <li>Tăng cường gắn kết</li>
+                            <li>Phát triển kỹ năng</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px;">
+                        <strong>🧑‍🎓 Vị thành niên (13-18)</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Khám phá bản dạng</li>
+                            <li>Tư vấn nghề nghiệp</li>
+                            <li>Quản lý xung đột</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px;">
+                        <strong>👨‍💼 Người lớn (19-65)</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Trị liệu cặp đôi</li>
+                            <li>Tư vấn nghề nghiệp</li>
+                            <li>Quản lý stress</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 10px;">
+                        <strong>👴 Người cao tuổi (65+)</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Trị liệu hồi tưởng</li>
+                            <li>Chấp nhận mất mát</li>
+                            <li>Tìm ý nghĩa cuộc đời</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎯 Kỹ Thuật Trị Liệu Dựa Trên Erikson:</h3>
+                <ol style="line-height: 2; margin-left: 20px;">
+                    <li><strong>Life Review Therapy:</strong> Nhìn lại cuộc đời để tìm ý nghĩa</li>
+                    <li><strong>Identity Work:</strong> Khám phá và củng cố bản dạng</li>
+                    <li><strong>Developmental Psychoeducation:</strong> Giáo dục về phát triển</li>
+                    <li><strong>Social Skills Training:</strong> Tăng cường kỹ năng xã hội</li>
+                    <li><strong>Strength-Based Approach:</strong> Tập trung vào sức mạnh hiện có</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Nghiên Cứu & Phê Bình -->
+        <div id="research-critique" class="content-section">
+            <h2>📚 Nghiên Cứu Thực Nghiệm và Phê Bình Lý Thuyết</h2>
+            
+            <div class="comparison-grid">
+                <div class="research-box" style="background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); color: white;">
+                    <h3>✅ Bằng Chứng Hỗ Trợ</h3>
+                    <ul style="line-height: 2; margin-top: 15px;">
+                        <li><strong>Nghiên cứu dọc:</strong> Xác nhận tính ổn định của các giai đoạn</li>
+                        <li><strong>Cross-cultural studies:</strong> Phù hợp với nhiều văn hóa</li>
+                        <li><strong>Neuropsychology:</strong> Sự phát triển não bộ hỗ trợ lý thuyết</li>
+                        <li><strong>Identity research:</strong> Các trạng thái bản dạng được xác nhận</li>
+                        <li><strong>Clinical evidence:</strong> Hiệu quả trong trị liệu</li>
+                    </ul>
+                </div>
+                <div class="research-box" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                    <h3>⚠️ Hạn Chế và Phê Bình</h3>
+                    <ul style="line-height: 2; margin-top: 15px;">
+                        <li><strong>Thiếu tính cụ thể:</strong> Giai đoạn quá chung chung</li>
+                        <li><strong>Bias văn hóa:</strong> Phản ánh giá trị phương Tây</li>
+                        <li><strong>Khó kiểm chứng:</strong> Khái niệm trừu tượng</li>
+                        <li><strong>Bỏ qua cá thể:</strong> Không phải ai cũng theo trình tự</li>
+                        <li><strong>Thiếu cơ chế:</strong> Không giải thích cách phát triển</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="critique-section">
+                <h3>🔬 Những Nghiên Cứu Quan Trọng</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4>📊 Marcia's Identity Status</h4>
+                        <p>James Marcia (1966) phát triển 4 trạng thái bản dạng dựa trên Erikson, tạo công cụ đo lường cụ thể cho nghiên cứu thực nghiệm.</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4>🌍 Cross-Cultural Studies</h4>
+                        <p>Nghiên cứu đa văn hóa cho thấy một số giai đoạn phổ quát, nhưng biểu hiện khác nhau tùy văn hóa.</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <h4>🧠 Neuroscience Evidence</h4>
+                        <p>Nghiên cứu thần kinh học hỗ trợ việc phát triển não bộ liên quan đến các giai đoạn Erikson.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎯 Hướng Phát Triển Tương Lai:</h3>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li><strong>Tích hợp neuroscience:</strong> Kết hợp với nghiên cứu não bộ</li>
+                    <li><strong>Đo lường cụ thể:</strong> Phát triển công cụ đánh giá chính xác hơn</li>
+                    <li><strong>Đa văn hóa:</strong> Điều chỉnh cho phù hợp với các nền văn hóa khác</li>
+                    <li><strong>Công nghệ số:</strong> Ứng dụng trong môi trường số hóa</li>
+                    <li><strong>Liệu pháp mới:</strong> Phát triển can thiệp dựa trên bằng chứng</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Case Study Nâng Cao -->
+        <div id="advanced-cases" class="content-section">
+            <h2>🎯 Case Study Nâng Cao và Phân Tích Chuyên Sâu</h2>
+            
+            <div class="case-study">
+                <h4>🏢 Case 1: Khủng Hoảng Nghề Nghiệp - Anh Minh (35 tuổi)</h4>
+                <p><strong>Bối cảnh:</strong> Anh Minh là kỹ sư phần mềm thành công, nhưng gần đây cảm thấy công việc vô nghĩa. Anh bắt đầu nghi ngờ các lựa chọn nghề nghiệp và muốn chuyển sang giảng dạy, dù điều này có thể ảnh hưởng đến thu nhập và ổn định gia đình.</p>
+                
+                <p><strong>Phân tích tâm lý phát triển:</strong></p>
+                <ul style="line-height: 1.8; margin: 15px 0;">
+                    <li><strong>Giai đoạn hiện tại:</strong> Trưởng thành (Tạo tác vs Trì trệ)</li>
+                    <li><strong>Khủng hoảng cốt lõi:</strong> Cảm giác không đóng góp được gì có ý nghĩa</li>
+                    <li><strong>Yếu tố bản dạng:</strong> Có thể đang trải qua "Identity Moratorium" muộn</li>
+                    <li><strong>Ảnh hưởng từ giai đoạn trước:</strong> Bản dạng nghề nghiệp chưa được khám phá đầy đủ ở tuổi vị thành niên</li>
+                </ul>
+                
+                <p><strong>Can thiệp đề xuất:</strong></p>
+                <ol style="line-height: 1.8; margin-left: 20px;">
+                    <li>Khám phá ý nghĩa cá nhân của "tạo tác" và "đóng góp"</li>
+                    <li>Đánh giá các giá trị cốt lõi và mục tiêu dài hạn</li>
+                    <li>Thử nghiệm vai trò giảng dạy part-time</li>
+                    <li>Tư vấn gia đình về quá trình chuyển đổi</li>
+                </ol>
+            </div>
+
+            <div class="case-study">
+                <h4>💔 Case 2: Rối Loạn Gắn Kết - Chị Lan (28 tuổi)</h4>
+                <p><strong>Bối cảnh:</strong> Chị Lan liên tục gặp khó khăn trong các mối quan hệ tình cảm. Chị sợ cam kết, thường kết thúc mối quan hệ khi đã gần gũi. Có tiền sử gia đình ly tán, cha bỏ đi từ khi chị 5 tuổi.</p>
+                
+                <p><strong>Phân tích phát triển tâm lý:</strong></p>
+                <ul style="line-height: 1.8; margin: 15px 0;">
+                    <li><strong>Giai đoạn hiện tại:</strong> Đầu trưởng thành (Gắn bó vs Cô lập)</li>
+                    <li><strong>Vấn đề gốc:</strong> Khủng hoảng "Tin tưởng vs Mất lòng tin" chưa được giải quyết</li>
+                    <li><strong>Cơ chế phòng vệ:</strong> Tránh thân mật để bảo vệ khỏi bị bỏ rơi</li>
+                    <li><strong>Ảnh hưởng từ tuổi thơ:</strong> Mất gắn kết an toàn với cha</li>
+                </ul>
+                
+                <p><strong>Chiến lược trị liệu:</strong></p>
+                <ol style="line-height: 1.8; margin-left: 20px;">
+                    <li>Xây dựng lại niềm tin cơ bản trong mối quan hệ trị liệu</li>
+                    <li>Khám phá tác động của việc cha bỏ đi</li>
+                    <li>Phát triển kỹ năng gắn kết an toàn</li>
+                    <li>Thực hành duy trì quan hệ trong môi trường an toàn</li>
+                </ol>
+            </div>
+
+            <div class="case-study">
+                <h4>🎓 Case 3: Khủng Hoảng Bản Dạng Muộn - Em Thảo (22 tuổi)</h4>
+                <p><strong>Bối cảnh:</strong> Thảo vừa tốt nghiệp đại học ngành Kinh tế theo mong muốn của gia đình, nhưng phát hiện mình thực sự yêu thích nghệ thuật. Em cảm thấy bối rối về bản thân và tương lai, không biết mình thực sự là ai.</p>
+                
+                <p><strong>Phân tích dưới góc độ Identity Status:</strong></p>
+                <ul style="line-height: 1.8; margin: 15px 0;">
+                    <li><strong>Trạng thái trước:</strong> Identity Foreclosure (chấp nhận lựa chọn của gia đình)</li>
+                    <li><strong>Trạng thái hiện tại:</strong> Identity Moratorium (đang khám phá lại)</li>
+                    <li><strong>Cần thiết:</strong> Trải nghiệm khủng hoảng để đạt Identity Achievement</li>
+                    <li><strong>Yếu tố hỗ trợ:</strong> Tuổi trẻ, có thể khám phá</li>
+                </ul>
+                
+                <p><strong>Kế hoạch hỗ trợ:</strong></p>
+                <ol style="line-height: 1.8; margin-left: 20px;">
+                    <li>Tạo không gian an toàn để khám phá bản thân</li>
+                    <li>Thử nghiệm các hoạt động nghệ thuật</li>
+                    <li>Đối thoại với gia đình về quan điểm cá nhân</li>
+                    <li>Phát triển kế hoạch nghề nghiệp thực tế</li>
+                </ol>
+            </div>
+
+            <div class="case-study">
+                <h4>👵 Case 4: Trầm Cảm Cuối Đời - Bà Hương (72 tuổi)</h4>
+                <p><strong>Bối cảnh:</strong> Bà Hương vừa mất chồng sau 45 năm chung sống. Bà thường xuyên than phiền về những cơ hội đã bỏ lỡ, hối hận vì đã hy sinh sự nghiệp để chăm sóc gia đình, và cảm thấy cuộc đời mình "vô nghĩa".</p>
+                
+                <p><strong>Phân tích giai đoạn cuối đời:</strong></p>
+                <ul style="line-height: 1.8; margin: 15px 0;">
+                    <li><strong>Khủng hoảng:</strong> Tuyệt vọng đang chiếm ưu thế over Trọn vẹn</li>
+                    <li><strong>Trigger:</strong> Mất mát lớn (chồng) kích hoạt nhìn lại cuộc đời</li>
+                    <li><strong>Cognitive bias:</strong> Tập trung vào tiêu cực, bỏ qua tích cực</li>
+                    <li><strong>Mục tiêu:</strong> Phát triển "sự khôn ngoan" và chấp nhận</li>
+                </ul>
+                
+                <p><strong>Life Review Therapy:</strong></p>
+                <ol style="line-height: 1.8; margin-left: 20px;">
+                    <li>Xem xét lại toàn bộ cuộc đời một cách cân bằng</li>
+                    <li>Tìm ý nghĩa trong vai trò người mẹ, người vợ</li>
+                    <li>Kết nối với di sản mà bà để lại (con cháu)</li>
+                    <li>Chấp nhận những lựa chọn đã qua và tìm bình an</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Kiểm Tra Chuyên Sâu -->
+        <div id="comprehensive-quiz" class="content-section">
+            <h2>🧠 Kiểm Tra Kiến Thức Chuyên Sâu</h2>
+            
+            <div class="quiz-container">
+                <div class="quiz-question" data-question="1">
+                    <h3>Câu 1: Nguyên lý Epigenetic của Erikson cho rằng:</h3>
+                    <div class="quiz-option" data-answer="a">A. Mỗi giai đoạn phát triển hoàn toàn độc lập</div>
+                    <div class="quiz-option" data-answer="b">B. Sự phát triển có kế hoạch mặt bằng và các phần phát triển theo thứ tự</div>
+                    <div class="quiz-option" data-answer="c">C. Chỉ yếu tố di truyền quyết định phát triển</div>
+                    <div class="quiz-option" data-answer="d">D. Phát triển chỉ xảy ra ở tuổi thơ ấu</div>
+                </div>
+
+                <div class="quiz-question" data-question="2">
+                    <h3>Câu 2: Sự khác biệt chính giữa lý thuyết Erikson và Freud là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Erikson tập trung vào yếu tố xã hội, Freud tập trung vào tình dục</div>
+                    <div class="quiz-option" data-answer="b">B. Erikson nghiên cứu suốt đời, Freud chỉ nghiên cứu thời thơ ấu</div>
+                    <div class="quiz-option" data-answer="c">C. Erikson nhấn mạnh Ego tích cực, Freud nhấn mạnh xung đột vô thức</div>
+                    <div class="quiz-option" data-answer="d">D. Tất cả các đáp án trên</div>
+                </div>
+
+                <div class="quiz-question" data-question="3">
+                    <h3>Câu 3: Ba khía cạnh của Cái Tôi theo Erikson bao gồm:</h3>
+                    <div class="quiz-option" data-answer="a">A. Id, Ego, Superego</div>
+                    <div class="quiz-option" data-answer="b">B. Cái Tôi Cơ Thể, Cái Tôi Lý Tưởng, Cái Tôi Bản Dạng</div>
+                    <div class="quiz-option" data-answer="c">C. Ý thức, Tiền ý thức, Vô thức</div>
+                    <div class="quiz-option" data-answer="d">D. Thinking, Feeling, Behaving</div>
+                </div>
+
+                <div class="quiz-question" data-question="4">
+                    <h3>Câu 4: Giai đoạn "Social Latency" trong lý thuyết Erikson là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Tuổi đi học (5-13 tuổi)</div>
+                    <div class="quiz-option" data-answer="b">B. Vị thành niên (13-18 tuổi)</div>
+                    <div class="quiz-option" data-answer="c">C. Đầu trưởng thành (18-30 tuổi)</div>
+                    <div class="quiz-option" data-answer="d">D. Tuổi trưởng thành (31-60 tuổi)</div>
+                </div>
+
+                <div class="quiz-question" data-question="5">
+                    <h3>Câu 5: Identity Foreclosure có đặc điểm:</h3>
+                    <div class="quiz-option" data-answer="a">A. Đã trải qua khủng hoảng và cam kết</div>
+                    <div class="quiz-option" data-answer="b">B. Đang khám phá nhưng chưa cam kết</div>
+                    <div class="quiz-option" data-answer="c">C. Cam kết mà không trải qua khủng hoảng</div>
+                    <div class="quiz-option" data-answer="d">D. Không khám phá cũng không cam kết</div>
+                </div>
+
+                <div class="quiz-question" data-question="6">
+                    <h3>Câu 6: Trong case study về anh Minh (35 tuổi), vấn đề cốt lõi là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Bối rối bản dạng</div>
+                    <div class="quiz-option" data-answer="b">B. Cô lập xã hội</div>
+                    <div class="quiz-option" data-answer="c">C. Trì trệ trong tạo tác</div>
+                    <div class="quiz-option" data-answer="d">D. Tuyệt vọng cuối đời</div>
+                </div>
+
+                <div class="quiz-question" data-question="7">
+                    <h3>Câu 7: Giai đoạn "sát nhập" (incorporation) trong lý thuyết Erikson đề cập đến:</h3>
+                    <div class="quiz-option" data-answer="a">A. Tuổi chơi (3-5 tuổi)</div>
+                    <div class="quiz-option" data-answer="b">B. Sơ sinh (0-18 tháng)</div>
+                    <div class="quiz-option" data-answer="c">C. Đầu tuổi thơ (18 tháng - 3 tuổi)</div>
+                    <div class="quiz-option" data-answer="d">D. Tuổi đi học (5-13 tuổi)</div>
+                </div>
+
+                <div class="quiz-question" data-question="8">
+                    <h3>Câu 8: Sức mạnh cơ bản "Sự trung tín" (Fidelity) được phát triển khi giải quyết thành công khủng hoảng:</h3>
+                    <div class="quiz-option" data-answer="a">A. Tự trị vs Xấu hổ</div>
+                    <div class="quiz-option" data-answer="b">B. Khởi xướng vs Tội lỗi</div>
+                    <div class="quiz-option" data-answer="c">C. Cảm nhận bản dạng vs Bối rối bản dạng</div>
+                    <div class="quiz-option" data-answer="d">D. Gắn bó vs Cô lập</div>
+                </div>
+
+                <div class="quiz-question" data-question="9">
+                    <h3>Câu 9: Trong ứng dụng lâm sàng, Life Review Therapy chủ yếu được sử dụng cho:</h3>
+                    <div class="quiz-option" data-answer="a">A. Trẻ em có vấn đề hành vi</div>
+                    <div class="quiz-option" data-answer="b">B. Vị thành niên khủng hoảng bản dạng</div>
+                    <div class="quiz-option" data-answer="c">C. Người trẻ có vấn đề gắn kết</div>
+                    <div class="quiz-option" data-answer="d">D. Người cao tuổi trầm cảm</div>
+                </div>
+
+                <div class="quiz-question" data-question="10">
+                    <h3>Câu 10: Theo Erikson, vai trò của xã hội trong phát triển cá nhân là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Hoàn toàn quyết định phát triển</div>
+                    <div class="quiz-option" data-answer="b">B. Không có ảnh hưởng gì</div>
+                    <div class="quiz-option" data-answer="c">C. Chi phối cách biểu lộ đặc điểm di truyền</div>
+                    <div class="quiz-option" data-answer="d">D. Chỉ quan trọng ở tuổi vị thành niên</div>
+                </div>
+
+                <div class="quiz-question" data-question="11">
+                    <h3>Câu 11: Khái niệm "Ground Plan" trong nguyên lý Epigenetic có nghĩa là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Kế hoạch giáo dục cho trẻ</div>
+                    <div class="quiz-option" data-answer="b">B. Kế hoạch mặt bằng cho sự phát triển</div>
+                    <div class="quiz-option" data-answer="c">C. Địa điểm phát triển</div>
+                    <div class="quiz-option" data-answer="d">D. Thời gian biểu phát triển</div>
+                </div>
+
+                <div class="quiz-question" data-question="12">
+                    <h3>Câu 12: Phê bình chính đối với lý thuyết Erikson là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Quá tập trung vào yếu tố sinh học</div>
+                    <div class="quiz-option" data-answer="b">B. Thiếu tính cụ thể và khó kiểm chứng</div>
+                    <div class="quiz-option" data-answer="c">C. Chỉ áp dụng cho nam giới</div>
+                    <div class="quiz-option" data-answer="d">D. Bỏ qua vai trò của gia đình</div>
+                </div>
+
+                <div class="quiz-question" data-question="13">
+                    <h3>Câu 13: Trong case về chị Lan (28 tuổi), vấn đề gốc rễ được xác định là:</h3>
+                    <div class="quiz-option" data-answer="a">A. Khủng hoảng bản dạng chưa giải quyết</div>
+                    <div class="quiz-option" data-answer="b">B. Khủng hoảng tin tưởng vs mất lòng tin chưa giải quyết</div>
+                    <div class="quiz-option" data-answer="c">C. Khủng hoảng tự trị vs xấu hổ</div>
+                    <div class="quiz-option" data-answer="d">D. Khủng hoảng khởi xướng vs tội lỗi</div>
+                </div>
+
+                <div class="quiz-question" data-question="14">
+                    <h3>Câu 14: "Generativity" trong giai đoạn trưởng thành đề cập đến:</h3>
+                    <div class="quiz-option" data-answer="a">A. Khả năng sinh sản về mặt sinh học</div>
+                    <div class="quiz-option" data-answer="b">B. Khả năng tạo ra và đóng góp cho thế hệ sau</div>
+                    <div class="quiz-option" data-answer="c">C. Khả năng kiếm tiền</div>
+                    <div class="quiz-option" data-answer="d">D. Khả năng lãnh đạo</div>
+                </div>
+
+                <div class="quiz-question" data-question="15">
+                    <h3>Câu 15: Ý nghĩa của "khủng hoảng" trong lý thuyết Erikson là gì?</h3>
+                    <div class="quiz-option" data-answer="a">A. Thảm họa cần tránh</div>
+                    <div class="quiz-option" data-answer="b">B. Bước ngoặc cốt yếu với tiềm năng phát triển</div>
+                    <div class="quiz-option" data-answer="c">C. Dấu hiệu bệnh tật</div>
+                    <div class="quiz-option" data-answer="d">D. Giai đoạn tạm thời cần vượt qua</div>
+                </div>
+
+                <button class="submit-btn" onclick="checkAnswers()">Kiểm Tra Đáp Án</button>
+                <button class="submit-btn" onclick="resetQuiz()" style="background: #6c757d; display: none;" id="resetBtn">Làm Lại</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Đáp án đúng cho 15 câu hỏi chuyên sâu
+        const correctAnswers = {
+            1: 'b', 2: 'd', 3: 'b', 4: 'b', 5: 'c',
+            6: 'c', 7: 'b', 8: 'c', 9: 'd', 10: 'c',
+            11: 'b', 12: 'b', 13: 'b', 14: 'b', 15: 'b'
+        };
+
+        let currentScore = 0;
+        let quizCompleted = false;
+
+        // Hiển thị section
+        function showSection(sectionId) {
+            // Ẩn tất cả sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Bỏ active khỏi tất cả nút
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Hiển thị section được chọn
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Thêm active cho nút được chọn
+            event.target.classList.add('active');
+            
+            // Cập nhật progress bar
+            updateProgress(sectionId);
+        }
+
+        // Cập nhật thanh tiến trình
+        function updateProgress(sectionId) {
+            const sections = ['theoretical-foundation', 'erikson-vs-freud', 'ego-development', 'eight-stages', 'identity-theory', 'clinical-applications', 'research-critique', 'advanced-cases', 'comprehensive-quiz'];
+            const currentIndex = sections.indexOf(sectionId);
+            const progress = ((currentIndex + 1) / sections.length) * 100;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Xử lý click option quiz
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('quiz-option') && !quizCompleted) {
+                const question = e.target.closest('.quiz-question');
+                const options = question.querySelectorAll('.quiz-option');
+                
+                // Bỏ chọn tất cả options trong câu hỏi này
+                options.forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Chọn option được click
+                e.target.classList.add('selected');
+            }
+        });
+
+        // Kiểm tra đáp án
+        function checkAnswers() {
+            if (quizCompleted) return;
+            
+            let score = 0;
+            
+            for (let i = 1; i <= 15; i++) {
+                const question = document.querySelector(`[data-question="${i}"]`);
+                const selectedOption = question.querySelector('.quiz-option.selected');
+                const options = question.querySelectorAll('.quiz-option');
+                
+                if (selectedOption) {
+                    const selectedAnswer = selectedOption.getAttribute('data-answer');
+                    
+                    options.forEach(option => {
+                        const answer = option.getAttribute('data-answer');
+                        if (answer === correctAnswers[i]) {
+                            option.classList.add('correct');
+                        } else if (option.classList.contains('selected') && answer !== correctAnswers[i]) {
+                            option.classList.add('incorrect');
+                        }
+                    });
+                    
+                    if (selectedAnswer === correctAnswers[i]) {
+                        score++;
+                    }
+                } else {
+                    // Highlight correct answer even if not selected
+                    options.forEach(option => {
+                        if (option.getAttribute('data-answer') === correctAnswers[i]) {
+                            option.classList.add('correct');
+                        }
+                    });
+                }
+            }
+            
+            currentScore = score;
+            quizCompleted = true;
+            
+            // Hiển thị điểm
+            document.getElementById('currentScore').textContent = score;
+            document.getElementById('scoreDisplay').style.display = 'block';
+            
+            // Hiển thị nút làm lại
+            document.getElementById('resetBtn').style.display = 'inline-block';
+            
+            // Vô hiệu hóa nút kiểm tra
+            event.target.disabled = true;
+            
+            // Đánh giá kết quả
+            setTimeout(() => {
+                if (score >= 13) {
+                    alert('🏆 Xuất sắc! Bạn đã thành thạo lý thuyết Erikson ở mức chuyên gia!');
+                } else if (score >= 11) {
+                    alert('🌟 Rất tốt! Bạn có hiểu biết sâu sắc về lý thuyết Erikson!');
+                } else if (score >= 8) {
+                    alert('👍 Tốt! Bạn đã nắm được những khái niệm chính!');
+                } else {
+                    alert('📚 Cần ôn tập thêm! Hãy đọc lại tài liệu và thử lần nữa!');
+                }
+            }, 500);
+        }
+
+        // Reset quiz
+        function resetQuiz() {
+            quizCompleted = false;
+            currentScore = 0;
+            
+            // Reset tất cả options
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Ẩn điểm và nút reset
+            document.getElementById('scoreDisplay').style.display = 'none';
+            document.getElementById('resetBtn').style.display = 'none';
+            
+            // Kích hoạt lại nút kiểm tra
+            document.querySelector('.submit-btn').disabled = false;
+        }
+
+        // Khởi tạo
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress('theoretical-foundation');
+        });
+    </script>
+</body>
 </html>
