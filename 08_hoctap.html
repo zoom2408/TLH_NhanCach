@@ -1,18 +1,898 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học tập</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Các Thuyết Học Tập - Bài Giảng Tương Tác</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .theory-section {
+            margin-bottom: 2rem;
+        }
+
+        .theory-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .theory-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .theory-content {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .step {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+        }
+
+        .diagram {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .psychology-connection {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        .psychology-connection h3 {
+            color: #d35400;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .question h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .options {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .option {
+            padding: 0.8rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #4CAF50;
+            background: #f0f8f0;
+        }
+
+        .option.selected {
+            border-color: #4CAF50;
+            background: #e8f5e8;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 1rem 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        .case-study h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .interactive-element {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 2px dashed #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-element:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-        <h1>Học tập</h1>
-        To be updated soon!
-    </header>
-</body>
+    <div class="header">
+        <h1>🧠 Các Thuyết Học Tập</h1>
+        <p>Hành trình khám phá cơ chế học tập của con người</p>
+        <p><em>Ths. Lê Thị Hương Giang - Tâm lý học Nhân cách</em></p>
+    </div>
 
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('intro')">🎯 Giới thiệu</button>
+            <button class="tab-button" onclick="showTab('classical')">🔔 Điều kiện hóa Cổ điển</button>
+            <button class="tab-button" onclick="showTab('operant')">⚡ Điều kiện hóa Thao tác</button>
+            <button class="tab-button" onclick="showTab('social')">👥 Học tập Xã hội</button>
+            <button class="tab-button" onclick="showTab('psychology')">🧠 Góc nhìn Tâm lý học</button>
+            <button class="tab-button" onclick="showTab('quiz')">📝 Kiểm tra</button>
+        </div>
+
+        <!-- Giới thiệu -->
+        <div id="intro" class="tab-content active">
+            <div class="theory-section">
+                <div class="theory-header">
+                    <h2>🎯 Học tập là gì?</h2>
+                    <p>Khám phá bản chất của quá trình học tập</p>
+                </div>
+                <div class="theory-content">
+                    <p><strong>Học tập (Learning)</strong> là <span class="highlight">sự thay đổi hành vi của sinh vật do kinh nghiệm</span>.</p>
+                    
+                    <h3>🚫 Những hành vi KHÔNG cần học tập:</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <h4>🧬 Phản xạ bẩm sinh</h4>
+                            <p>Các phản ứng tự động có sẵn từ khi sinh</p>
+                        </div>
+                        <div class="step">
+                            <h4>📈 Lớn lên và trưởng thành</h4>
+                            <p>Quá trình phát triển tự nhiên theo tuổi tác</p>
+                        </div>
+                        <div class="step">
+                            <h4>🐾 Bản năng</h4>
+                            <p>Hành vi được lập trình sẵn trong gen</p>
+                        </div>
+                    </div>
+
+                    <div class="diagram">
+                        <h3>🔗 Học tập Liên tưởng (Associative Learning)</h3>
+                        <p><strong>Định nghĩa:</strong> Học rằng các sự kiện nhất định xảy ra cùng nhau</p>
+                        <div class="interactive-element" onclick="showExample('association')">
+                            <strong>💡 Ví dụ tương tác:</strong> Nhấp để xem ví dụ về liên tưởng!
+                        </div>
+                        <div id="association-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #e3f2fd; border-radius: 10px;">
+                            <p><strong>Ví dụ:</strong> Khi nghe tiếng chuông trường → Liên tưởng đến giờ ra chơi → Cảm thấy vui vẻ</p>
+                        </div>
+                    </div>
+
+                    <div class="case-study">
+                        <h4>📚 Case Study: Học tập trong cuộc sống</h4>
+                        <p>Một em học sinh ban đầu sợ toán học. Sau khi được giáo viên khuyến khích và giải thích dễ hiểu, em dần cảm thấy hứng thú với môn học này. Đây là ví dụ của quá trình học tập thay đổi thái độ và hành vi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Điều kiện hóa Cổ điển -->
+        <div id="classical" class="tab-content">
+            <div class="theory-section">
+                <div class="theory-header">
+                    <h2>🔔 Điều kiện hóa Cổ điển (Classical Conditioning)</h2>
+                    <p>Ivan Pavlov & John B. Watson</p>
+                </div>
+                <div class="theory-content">
+                    <p><strong>Định nghĩa:</strong> Một kiểu học tập mà trong đó một <span class="highlight">kích thích trung tính</span>, sau khi được ghép đôi với một <span class="highlight">kích thích không điều kiện</span> bắt đầu kích hoạt một phản ứng tương tự.</p>
+
+                    <div class="diagram">
+                        <h3>🐕 Thí nghiệm kinh điển của Pavlov</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <h4>1. Trước điều kiện hóa</h4>
+                                <p>🥘 Thức ăn → 💧 Tiết nước bọt</p>
+                                <p>🔔 Chuông → ❌ Không phản ứng</p>
+                            </div>
+                            <div class="step">
+                                <h4>2. Trong quá trình</h4>
+                                <p>🔔 Chuông + 🥘 Thức ăn</p>
+                                <p>→ 💧 Tiết nước bọt</p>
+                            </div>
+                            <div class="step">
+                                <h4>3. Sau điều kiện hóa</h4>
+                                <p>🔔 Chuông → 💧 Tiết nước bọt</p>
+                                <p>(Không cần thức ăn)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📋 Các khái niệm quan trọng:</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <h4>🎯 Sự thu nhận (Acquisition)</h4>
+                            <p>Giai đoạn học tập ban đầu, tạo mối liên hệ giữa kích thích trung tính và kích thích không điều kiện</p>
+                        </div>
+                        <div class="step">
+                            <h4>🔥 Sự dập tắt (Extinction)</h4>
+                            <p>Khi kích thích có điều kiện được thực hiện một mình, phản ứng có điều kiện sẽ chấm dứt</p>
+                        </div>
+                    </div>
+
+                    <div class="case-study">
+                        <h4>📚 Case Study: Phòng khám nha sĩ</h4>
+                        <p><strong>Tình huống:</strong> Một đứa trẻ ban đầu không sợ tiếng máy khoan nha sĩ. Nhưng sau vài lần đi khám và cảm thấy đau, trẻ bắt đầu sợ hãi ngay khi nghe tiếng máy khoan.</p>
+                        <p><strong>Phân tích:</strong></p>
+                        <ul>
+                            <li>Kích thích không điều kiện: Cảm giác đau</li>
+                            <li>Kích thích trung tính ban đầu: Tiếng máy khoan</li>
+                            <li>Kích thích có điều kiện: Tiếng máy khoan (sau khi được ghép với đau)</li>
+                            <li>Phản ứng có điều kiện: Sợ hãi khi nghe tiếng máy khoan</li>
+                        </ul>
+                    </div>
+
+                    <div class="psychology-connection">
+                        <h3>🧠 Kết nối với Tâm lý học</h3>
+                        <p><strong>Ứng dụng trong trị liệu:</strong> Kỹ thuật khử nhạy cảm có hệ thống sử dụng nguyên lý điều kiện hóa cổ điển để điều trị các chứng sợ hãi (phobia).</p>
+                        <p><strong>Trong phát triển cảm xúc:</strong> Nhiều phản ứng cảm xúc của chúng ta được hình thành thông qua điều kiện hóa cổ điển trong thời thơ ấu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Điều kiện hóa Thao tác -->
+        <div id="operant" class="tab-content">
+            <div class="theory-section">
+                <div class="theory-header">
+                    <h2>⚡ Điều kiện hóa Thao tác (Operant Conditioning)</h2>
+                    <p>B.F. Skinner</p>
+                </div>
+                <div class="theory-content">
+                    <p><strong>Nguyên lý cốt lõi:</strong> <span class="highlight">Sự củng cố (Reinforcement)</span> một hành vi ngay sau khi nó diễn ra làm tăng khả năng lặp lại của hành vi đó.</p>
+                    
+                    <div class="diagram">
+                        <h3>🔄 Quy trình Điều kiện hóa Thao tác</h3>
+                        <p><strong>Công thức:</strong> Sinh vật làm một điều gì đó → Được củng cố bởi môi trường → Lặp lại hành vi</p>
+                        <p><em>Theo Skinner, hầu hết hành vi của con người được học thông qua điều kiện hóa thao tác</em></p>
+                    </div>
+
+                    <h3>🏗️ Định hình Hành vi (Shaping)</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <h4>🎯 Phương pháp "Đúng dần"</h4>
+                            <p>Thực thể được củng cố khi hành vi ngày càng "đúng dần", đạt độ chính xác cao hơn</p>
+                        </div>
+                        <div class="step">
+                            <h4>🐦 Ví dụ: Chim bồ câu</h4>
+                            <p>Định hình hành vi cho chim bồ câu xoay vòng bằng cách củng cố từng bước nhỏ</p>
+                        </div>
+                        <div class="step">
+                            <h4>👶 Ví dụ: Trẻ em</h4>
+                            <p>Dạy trẻ chậm phát triển mặc quần áo qua nhiều bước nhỏ</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-element" onclick="showExample('skinner-box')">
+                        <h4>🧪 Khám phá Skinner Box</h4>
+                        <p>Nhấp để tìm hiểu về thiết bị thí nghiệm nổi tiếng!</p>
+                    </div>
+                    <div id="skinner-box-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #f3e5f5; border-radius: 10px;">
+                        <h4>📦 Skinner Box</h4>
+                        <p><strong>Cấu trúc:</strong> Hộp có đèn, cần gạt, máy phân phối thức ăn/nước, và lưới điện</p>
+                        <p><strong>Cách hoạt động:</strong> Chuột ấn cần gạt → Nhận thức ăn → Tăng hành vi ấn cần gạt</p>
+                        <p><strong>Ý nghĩa:</strong> Chứng minh tầm quan trọng của củng cố trong việc hình thành hành vi</p>
+                    </div>
+
+                    <div class="case-study">
+                        <h4>📚 Case Study: Hệ thống điểm thưởng trong lớp học</h4>
+                        <p><strong>Tình huống:</strong> Một giáo viên sử dụng hệ thống điểm thưởng để khuyến khích học sinh hoàn thành bài tập đúng hạn.</p>
+                        <p><strong>Phân tích:</strong></p>
+                        <ul>
+                            <li>Hành vi mục tiêu: Nộp bài đúng hạn</li>
+                            <li>Củng cố tích cực: Điểm thưởng</li>
+                            <li>Kết quả: Tăng tỷ lệ học sinh nộp bài đúng hạn</li>
+                            <li>Định hình: Dần dần nâng cao chất lượng bài tập</li>
+                        </ul>
+                    </div>
+
+                    <div class="psychology-connection">
+                        <h3>🧠 Kết nối với Tâm lý học</h3>
+                        <p><strong>Liệu pháp hành vi:</strong> Sử dụng nguyên lý củng cố để điều chỉnh hành vi có vấn đề.</p>
+                        <p><strong>Giáo dục:</strong> Hệ thống thưởng phạt trong trường học dựa trên nguyên lý này.</p>
+                        <p><strong>Tâm lý tổ chức:</strong> Chế độ khen thưởng nhân viên để tăng hiệu suất làm việc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Học tập Xã hội -->
+        <div id="social" class="tab-content">
+            <div class="theory-section">
+                <div class="theory-header">
+                    <h2>👥 Học tập Xã hội (Social Learning)</h2>
+                    <p>Albert Bandura</p>
+                </div>
+                <div class="theory-content">
+                    <p><strong>Ý tưởng cốt lõi:</strong> Con người không những học tập qua trải nghiệm trực tiếp mà <span class="highlight">đa số những gì con người học được là thông qua quan sát người khác</span>.</p>
+
+                    <div class="diagram">
+                        <h3>🔺 Mô hình Nhân quả Tương hỗ của Bandura</h3>
+                        <div style="text-align: center; margin: 2rem 0;">
+                            <div style="display: inline-block; padding: 1rem; background: #e8f5e8; border-radius: 10px; margin: 0.5rem;">
+                                <strong>Hành vi (Behavior)</strong>
+                            </div>
+                            <div style="margin: 1rem 0;">⬇️ ⬆️</div>
+                            <div style="display: flex; justify-content: space-between; max-width: 600px; margin: 0 auto;">
+                                <div style="padding: 1rem; background: #fff3e0; border-radius: 10px;">
+                                    <strong>Yếu tố cá nhân</strong><br>
+                                    (Nhận thức, cảm xúc, sinh học)
+                                </div>
+                                <div style="padding: 1rem 2rem;">⬅️ ➡️</div>
+                                <div style="padding: 1rem; background: #f3e5f5; border-radius: 10px;">
+                                    <strong>Yếu tố môi trường</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📝 4 Yếu tố của Học tập Xã hội</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <h4>👁️ 1. Chú ý (Attention)</h4>
+                            <p>Những yếu tố gì ảnh hưởng đến sự chú ý?</p>
+                        </div>
+                        <div class="step">
+                            <h4>🧠 2. Ghi nhớ (Retention)</h4>
+                            <p>Biểu tượng hóa - lời nói/không lời</p>
+                        </div>
+                        <div class="step">
+                            <h4>🎭 3. Thực hiện hành vi (Reproduction)</h4>
+                            <p>Khả năng tái hiện hành vi đã quan sát</p>
+                        </div>
+                        <div class="step">
+                            <h4>💪 4. Động lực (Motivation)</h4>
+                            <p>Có động lực để thực hiện hành vi hay không?</p>
+                        </div>
+                    </div>
+
+                    <div class="interactive-element" onclick="showExample('media-influence')">
+                        <h4>📺 Ảnh hưởng của Media</h4>
+                        <p>Nhấp để xem ví dụ về học tập qua quan sát từ media!</p>
+                    </div>
+                    <div id="media-influence-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #e1f5fe; border-radius: 10px;">
+                        <h4>📱 Ví dụ: Học tập qua Social Media</h4>
+                        <p><strong>Quan sát:</strong> Xem video hướng dẫn nấu ăn trên YouTube</p>
+                        <p><strong>Chú ý:</strong> Tập trung vào các bước làm bánh</p>
+                        <p><strong>Ghi nhớ:</strong> Nhớ công thức và kỹ thuật</p>
+                        <p><strong>Thực hiện:</strong> Tự làm bánh theo hướng dẫn</p>
+                        <p><strong>Động lực:</strong> Muốn ăn bánh ngon hoặc khoe với bạn bè</p>
+                    </div>
+
+                    <div class="case-study">
+                        <h4>📚 Case Study: Thí nghiệm Búp bê Bobo</h4>
+                        <p><strong>Thí nghiệm:</strong> Bandura cho trẻ em xem người lớn đánh búp bê Bobo, sau đó quan sát hành vi của trẻ.</p>
+                        <p><strong>Kết quả:</strong> Trẻ em bắt chước hành vi hung hãn mà họ đã quan sát được.</p>
+                        <p><strong>Ý nghĩa:</strong> Chứng minh rằng học tập có thể xảy ra thông qua quan sát mà không cần trải nghiệm trực tiếp hay củng cố.</p>
+                    </div>
+
+                    <div class="psychology-connection">
+                        <h3>🧠 Kết nối với Tâm lý học</h3>
+                        <p><strong>Tâm lý phát triển:</strong> Giải thích cách trẻ em học được các kỹ năng xã hội và ngôn ngữ.</p>
+                        <p><strong>Tâm lý xã hội:</strong> Lý thuyết về ảnh hưởng của nhóm đồng trang lứa và vai trò mẫu mực.</p>
+                        <p><strong>Tâm lý lâm sàng:</strong> Sử dụng trong liệu pháp mô hình (modeling therapy) để điều trị các rối loạn hành vi.</p>
+                        <p><strong>Giáo dục:</strong> Tầm quan trọng của giáo viên làm hình mẫu tích cực cho học sinh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Góc nhìn Tâm lý học -->
+        <div id="psychology" class="tab-content">
+            <div class="theory-section">
+                <div class="theory-header">
+                    <h2>🧠 Góc nhìn Tâm lý học về Học tập</h2>
+                    <p>Tích hợp và ứng dụng</p>
+                </div>
+                <div class="theory-content">
+                    <h3>🏛️ Vị trí trong Tâm lý học Nhân cách</h3>
+                    <div class="diagram">
+                        <p>Các thuyết học tập thuộc nhóm <span class="highlight">"Thuyết Hành vi"</span> trong Tâm lý học Nhân cách, cùng với:</p>
+                        <div class="process-steps">
+                            <div class="step">🧠 Tâm lý chiều sâu</div>
+                            <div class="step">👤 Tâm lý học cá nhân</div>
+                            <div class="step">❤️ Nhân văn</div>
+                            <div class="step">🌟 Hiện sinh</div>
+                            <div class="step">🧮 Nhận thức</div>
+                            <div class="step">📊 Đặc nét nhân cách</div>
+                        </div>
+                    </div>
+
+                    <h3>🔗 Quan điểm về Nhân cách của Thuyết Hành vi</h3>
+                    <div class="psychology-connection">
+                        <h4>💡 Quan điểm cốt lõi:</h4>
+                        <ul>
+                            <li><strong>Môi trường quyết định hành vi:</strong> Nhân cách được hình thành chủ yếu qua học tập và kinh nghiệm</li>
+                            <li><strong>Hành vi có thể đo lường:</strong> Tập trung vào những gì quan sát được thay vì các quá trình nội tâm</li>
+                            <li><strong>Khả năng thay đổi:</strong> Nhân cách có thể được điều chỉnh thông qua các kỹ thuật học tập</li>
+                            <li><strong>Tính khoa học:</strong> Sử dụng phương pháp thực nghiệm để nghiên cứu hành vi</li>
+                        </ul>
+                    </div>
+
+                    <h3>🎯 Ứng dụng trong các lĩnh vực Tâm lý học</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <h4>🏥 Tâm lý lâm sàng</h4>
+                            <p>Liệu pháp hành vi, điều trị phobia, rối loạn lo âu</p>
+                        </div>
+                        <div class="step">
+                            <h4>🎓 Tâm lý giáo dục</h4>
+                            <p>Phương pháp dạy học, quản lý lớp học</p>
+                        </div>
+                        <div class="step">
+                            <h4>👶 Tâm lý phát triển</h4>
+                            <p>Hiểu quá trình học tập ở trẻ em</p>
+                        </div>
+                        <div class="step">
+                            <h4>🏢 Tâm lý tổ chức</h4>
+                            <p>Đào tạo nhân viên, thay đổi văn hóa công ty</p>
+                        </div>
+                        <div class="step">
+                            <h4>👥 Tâm lý xã hội</h4>
+                            <p>Ảnh hưởng của media, thay đổi thái độ xã hội</p>
+                        </div>
+                        <div class="step">
+                            <h4>🎮 Tâm lý nhận thức</h4>
+                            <p>Nghiên cứu quá trình học tập và trí nhớ</p>
+                        </div>
+                    </div>
+
+                    <div class="case-study">
+                        <h4>📚 Case Study tích hợp: Điều trị chứng sợ nói trước đám đông</h4>
+                        <p><strong>Vấn đề:</strong> Một sinh viên sợ nói trước đám đông do trải nghiệm xấu trong quá khứ.</p>
+                        <p><strong>Phân tích đa chiều:</strong></p>
+                        <ul>
+                            <li><strong>Điều kiện hóa cổ điển:</strong> Nói trước đám đông → Cảm giác xấu hổ → Sợ hãi</li>
+                            <li><strong>Điều kiện hóa thao tác:</strong> Tránh nói → Giảm lo âu (củng cố tiêu cực)</li>
+                            <li><strong>Học tập xã hội:</strong> Quan sát người khác thành công → Học cách mới</li>
+                        </ul>
+                        <p><strong>Liệu pháp tích hợp:</strong> Khử nhạy cảm + Kỹ thuật mô hình + Củng cố tích cực</p>
+                    </div>
+
+                    <div class="interactive-element" onclick="showExample('integration')">
+                        <h4>🔄 Tích hợp ba thuyết trong thực tế</h4>
+                        <p>Nhấp để xem ví dụ về cách ba thuyết hoạt động cùng nhau!</p>
+                    </div>
+                    <div id="integration-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #fff8e1; border-radius: 10px;">
+                        <h4>🏃‍♂️ Ví dụ: Học lái xe</h4>
+                        <p><strong>Điều kiện hóa cổ điển:</strong> Tiếng còi xe → Căng thẳng → Phản xạ phanh</p>
+                        <p><strong>Điều kiện hóa thao tác:</strong> Lái đúng → Khen ngợi → Tăng hành vi đúng</p>
+                        <p><strong>Học tập xã hội:</strong> Quan sát giáo viên lái xe → Bắt chước kỹ thuật</p>
+                        <p><em>Cả ba quá trình xảy ra đồng thời trong việc học lái xe!</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-container">
+                <h2>📝 Kiểm tra kiến thức - Các Thuyết Học tập</h2>
+                <p>10 câu hỏi về khái niệm và case study</p>
+                
+                <div id="quiz-questions">
+                    <div class="question">
+                        <h3>Câu 1: Theo định nghĩa, học tập là gì?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Sự thay đổi theo tuổi tác của sinh vật</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Sự thay đổi hành vi của sinh vật do kinh nghiệm</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Các phản xạ bẩm sinh của con người</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Quá trình phát triển tự nhiên của cơ thể</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 2: Trong thí nghiệm của Pavlov, sau khi điều kiện hóa, tiếng chuông được gọi là gì?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Kích thích không điều kiện</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Kích thích có điều kiện</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Kích thích trung tính</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Phản ứng không điều kiện</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 3: Nguyên lý cốt lõi của điều kiện hóa thao tác là gì?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Ghép đôi hai kích thích</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Củng cố hành vi để tăng khả năng lặp lại</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Quan sát và bắt chước</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Liên tưởng giữa các sự kiện</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 4: Case Study - Một đứa trẻ sợ chó sau khi bị chó cắn. Đây là ví dụ của loại học tập nào?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, true)">A. Điều kiện hóa cổ điển</div>
+                            <div class="option" onclick="selectOption(this, false)">B. Điều kiện hóa thao tác</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Học tập xã hội</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Bản năng tự nhiên</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 5: Theo Bandura, 4 yếu tố của học tập xã hội không bao gồm yếu tố nào?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Chú ý (Attention)</div>
+                            <div class="option" onclick="selectOption(this, false)">B. Ghi nhớ (Retention)</div>
+                            <div class="option" onclick="selectOption(this, true)">C. Dập tắt (Extinction)</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Động lực (Motivation)</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 6: Phương pháp "định hình hành vi" (shaping) thuộc về thuyết nào?</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Điều kiện hóa cổ điển</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Điều kiện hóa thao tác</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Học tập xã hội</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Học tập liên tưởng</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 7: Case Study - Trẻ em học cách đánh răng bằng cách xem bố mẹ làm. Đây là ví dụ của:</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Điều kiện hóa cổ điển</div>
+                            <div class="option" onclick="selectOption(this, false)">B. Điều kiện hóa thao tác</div>
+                            <div class="option" onclick="selectOption(this, true)">C. Học tập xã hội</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Phản xạ bẩm sinh</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 8: Khi một kích thích có điều kiện được thực hiện một mình và phản ứng có điều kiện chấm dứt, quá trình này được gọi là:</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Sự thu nhận (Acquisition)</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Sự dập tắt (Extinction)</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Sự củng cố (Reinforcement)</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Sự định hình (Shaping)</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 9: Case Study - Một nhân viên làm việc chăm chỉ hơn sau khi được tăng lương. Đây là ví dụ của:</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Điều kiện hóa cổ điển</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Điều kiện hóa thao tác</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Học tập xã hội</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Dập tắt hành vi</div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Câu 10: Mô hình "Nhân quả Tương hỗ" của Bandura bao gồm mối quan hệ giữa:</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, false)">A. Kích thích và phản ứng</div>
+                            <div class="option" onclick="selectOption(this, false)">B. Hành vi và củng cố</div>
+                            <div class="option" onclick="selectOption(this, true)">C. Hành vi, yếu tố cá nhân và yếu tố môi trường</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Quan sát và bắt chước</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="submitQuiz()">🎯 Nộp bài</button>
+                <button class="btn" onclick="resetQuiz()" style="background: #f44336;">🔄 Làm lại</button>
+
+                <div id="quiz-result" class="quiz-results" style="display: none;">
+                    <h3>🎉 Kết quả của bạn</h3>
+                    <p id="score-text"></p>
+                    <p id="feedback-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab management
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Interactive examples
+        function showExample(type) {
+            const element = document.getElementById(type + '-example');
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+                element.style.animation = 'fadeIn 0.5s ease';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+
+        // Quiz functionality
+        let selectedAnswers = [];
+        let quizSubmitted = false;
+
+        function selectOption(option, isCorrect) {
+            if (quizSubmitted) return;
+
+            const question = option.parentElement.parentElement;
+            const questionIndex = Array.from(question.parentElement.children).indexOf(question);
+            
+            // Remove previous selection
+            const options = question.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Select current option
+            option.classList.add('selected');
+            selectedAnswers[questionIndex] = isCorrect;
+        }
+
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            quizSubmitted = true;
+            let correctAnswers = 0;
+            
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((question, index) => {
+                const options = question.querySelectorAll('.option');
+                options.forEach(option => {
+                    const isCorrect = option.onclick.toString().includes('true');
+                    if (isCorrect) {
+                        option.classList.add('correct');
+                    } else if (option.classList.contains('selected')) {
+                        option.classList.add('incorrect');
+                    }
+                });
+                
+                if (selectedAnswers[index] === true) {
+                    correctAnswers++;
+                }
+            });
+
+            // Show results
+            const resultDiv = document.getElementById('quiz-result');
+            const scoreText = document.getElementById('score-text');
+            const feedbackText = document.getElementById('feedback-text');
+            
+            const percentage = (correctAnswers / 10) * 100;
+            scoreText.textContent = `Điểm số: ${correctAnswers}/10 (${percentage}%)`;
+            
+            if (percentage >= 80) {
+                feedbackText.textContent = '🌟 Xuất sắc! Bạn đã nắm vững các thuyết học tập!';
+                feedbackText.style.color = '#4CAF50';
+            } else if (percentage >= 60) {
+                feedbackText.textContent = '👍 Khá tốt! Hãy ôn lại một số khái niệm.';
+                feedbackText.style.color = '#FF9800';
+            } else {
+                feedbackText.textContent = '📚 Cần cố gắng thêm! Hãy đọc lại bài giảng.';
+                feedbackText.style.color = '#F44336';
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            quizSubmitted = false;
+            selectedAnswers = [];
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            document.getElementById('quiz-result').style.display = 'none';
+        }
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.theory-section, .question, .step').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
 </html>
