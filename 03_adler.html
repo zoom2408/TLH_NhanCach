@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carl Jung & Tâm Lý Học Phân Tích</title>
+    <title>Alfred Adler & Tâm Lý Học Cá Nhân</title>
     <style>
         * {
             margin: 0;
@@ -12,70 +12,72 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298, #4a6fa5);
-            color: white;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
             overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        .hero {
+        .header {
             text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><radialGradient id="grad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:rgb(74,111,165);stop-opacity:0.3" /><stop offset="100%" style="stop-color:rgb(30,60,114);stop-opacity:0.8" /></radialGradient></defs><rect width="1200" height="600" fill="url(%23grad)"/></svg>');
-            background-size: cover;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             margin-bottom: 30px;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            animation: slideDown 1s ease-out;
         }
 
-        .nav-pills {
+        .header h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .navigation {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 15px;
-            margin: 40px 0;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .nav-pill {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.3);
+        .nav-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 30px;
             color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            font-weight: bold;
         }
 
-        .nav-pill:hover, .nav-pill.active {
-            background: rgba(255,255,255,0.2);
-            border-color: #ff6b6b;
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .content-section {
             display: none;
-            padding: 40px 0;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             animation: fadeIn 0.5s ease-out;
         }
 
@@ -83,233 +85,200 @@
             display: block;
         }
 
-        .card {
-            background: rgba(255,255,255,0.1);
+        .section-title {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .concept-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             margin: 20px 0;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            color: white;
             transition: transform 0.3s ease;
         }
 
-        .card:hover {
+        .concept-card:hover {
             transform: translateY(-5px);
         }
 
-        .psyche-diagram {
-            display: flex;
-            justify-content: center;
-            margin: 40px 0;
+        .concept-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
-        .iceberg {
+        .adler-info {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .adler-portrait {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .timeline {
             position: relative;
-            width: 300px;
-            height: 400px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .consciousness {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 100px;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.5);
+        .timeline-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: slideIn 0.6s ease-out;
         }
 
-        .personal-unconscious {
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 120px;
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(68,160,141,0.5);
+        .quiz-container {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
         }
 
-        .collective-unconscious {
-            position: absolute;
-            top: 180px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 280px;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             font-weight: bold;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            transform: translateX(10px);
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .diagram {
             text-align: center;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.5);
+            margin: 30px 0;
         }
 
-        .archetype-grid {
+        .superiority-pyramid {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(to top, #ff6b6b, #feca57, #48cae4);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .birth-order-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
 
-        .archetype-card {
-            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,154,158,0.2));
+        .birth-order-card {
+            background: white;
             border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid rgba(255,107,107,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .archetype-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
-        }
-
-        .archetype-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .personality-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .personality-type {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
             padding: 20px;
             text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .personality-type:hover {
-            background: rgba(255,255,255,0.2);
+        .birth-order-card:hover {
             transform: scale(1.05);
         }
 
-        .quiz-container {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .question {
-            margin-bottom: 20px;
-        }
-
-        .question h3 {
+        .birth-order-card h4 {
+            color: #667eea;
             margin-bottom: 15px;
-            color: #ff6b6b;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .option {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            padding: 12px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .option:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .option.selected {
-            background: rgba(255,107,107,0.3);
-            border-color: #ff6b6b;
-        }
-
-        .option.correct {
-            background: rgba(76,175,80,0.3);
-            border-color: #4caf50;
-        }
-
-        .option.incorrect {
-            background: rgba(244,67,54,0.3);
-            border-color: #f44336;
         }
 
         .case-study {
-            background: linear-gradient(135deg, rgba(156,39,176,0.2), rgba(233,30,99,0.2));
+            background: #f8f9fa;
             border-radius: 15px;
             padding: 25px;
             margin: 20px 0;
-            border-left: 5px solid #e91e63;
+            border-left: 5px solid #28a745;
         }
 
-        .btn {
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            border: none;
+        .interactive-element {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
             cursor: pointer;
-            font-size: 1rem;
             transition: all 0.3s ease;
-            margin: 10px 5px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
-        }
-
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
+        .interactive-element:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 4px;
-            overflow: hidden;
             margin: 20px 0;
+            overflow: hidden;
         }
 
-        .progress {
+        .progress-fill {
             height: 100%;
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
             width: 0%;
-            transition: width 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes fadeIn {
@@ -317,681 +286,502 @@
             to { opacity: 1; }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .floating {
-            animation: pulse 2s ease-in-out infinite;
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .adler-info {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
             
-            .personality-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .header h1 {
+                font-size: 2rem;
             }
             
-            .nav-pills {
-                flex-direction: column;
-                align-items: center;
+            .birth-order-grid {
+                grid-template-columns: 1fr;
             }
+        }
+
+        .score-display {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="container">
-            <h1>🧠 Carl Jung & Tâm Lý Học Phân Tích</h1>
-            <p>Khám phá thế giới sâu thẳm của tâm trí con người theo Carl Gustav Jung</p>
-            
-            <div class="nav-pills">
-                <div class="nav-pill active" onclick="showSection('intro')">Giới Thiệu</div>
-                <div class="nav-pill" onclick="showSection('structure')">Cấu Trúc Nhân Cách</div>
-                <div class="nav-pill" onclick="showSection('archetypes')">Nguyên Mẫu</div>
-                <div class="nav-pill" onclick="showSection('types')">Kiểu Tâm Lý</div>
-                <div class="nav-pill" onclick="showSection('complexes')">Phức Cảm</div>
-                <div class="nav-pill" onclick="showSection('quiz')">Kiểm Tra</div>
-                <div class="nav-pill" onclick="showSection('case-study')">Case Study</div>
-            </div>
-        </div>
+    <div class="score-display">
+        <strong>Điểm Quiz: <span id="score">0</span></strong>
     </div>
 
     <div class="container">
-        <!-- Giới thiệu -->
+        <div class="header">
+            <h1>🧠 Alfred Adler & Tâm Lý Học Cá Nhân</h1>
+            <p>Khám phá thế giới tâm lý học thông qua lý thuyết tiên phong của Alfred Adler</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showSection('intro')">Giới Thiệu</button>
+            <button class="nav-btn" onclick="showSection('concepts')">Khái Niệm Chính</button>
+            <button class="nav-btn" onclick="showSection('birth-order')">Thứ Tự Sinh</button>
+            <button class="nav-btn" onclick="showSection('therapy')">Phương Pháp Trị Liệu</button>
+            <button class="nav-btn" onclick="showSection('quiz')">Quiz</button>
+            <button class="nav-btn" onclick="showSection('case-study')">Case Study</button>
+        </div>
+
+        <!-- Phần Giới Thiệu -->
         <div id="intro" class="content-section active">
-            <div class="card">
-                <h2>📚 Carl Gustav Jung (1875-1961)</h2>
-                <p>Carl Jung là nhà tâm lý học và tâm thần học người Thụy Sĩ, người sáng lập ra trường phái <strong>Tâm lý học phân tích</strong>. Ông là học trò của Freud nhưng sau đó đã phát triển những lý thuyết riêng về cấu trúc tâm trí con người.</p>
-                
-                <h3>🎯 Những đóng góp chính:</h3>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Vô thức tập thể</strong> - khái niệm cách mạng về tâm trí con người</li>
-                    <li><strong>Nguyên mẫu</strong> - những hình ảnh ẩn tàng trong vô thức</li>
-                    <li><strong>Các kiểu tâm lý</strong> - cơ sở cho MBTI hiện đại</li>
-                    <li><strong>Phức cảm</strong> - những cụm cảm xúc trong vô thức</li>
-                    <li><strong>Quá trình cá biệt hóa</strong> - con đường trở thành chính mình</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>🔑 Khái niệm cốt lõi: Psyche (Tâm trí)</h3>
-                <p>Trong tâm lý học phân tích, <strong>Psyche</strong> là tổng thể nhân cách, bao gồm tất cả những suy nghĩ, cảm xúc, hành vi có ý thức và vô thức của con người.</p>
-                <p>Jung tin rằng con người sinh ra đã có một nhân cách toàn vẹn và thống nhất. Trong suốt cuộc đời, chúng ta phải phát triển sự toàn vẹn này đến mức cao nhất của sự cá biệt hóa, hài hòa và gắn kết.</p>
-            </div>
-        </div>
-
-        <!-- Cấu trúc nhân cách -->
-        <div id="structure" class="content-section">
-            <div class="card">
-                <h2>🏗️ Cấu Trúc Nhân Cách theo Jung</h2>
-                <p>Jung chia tâm trí con người thành 3 mức độ chính:</p>
-
-                <div class="psyche-diagram">
-                    <div class="iceberg floating">
-                        <div class="consciousness">
-                            <div>
-                                <div style="font-size: 12px;">Ý THỨC</div>
-                                <div style="font-size: 10px;">EGO</div>
-                            </div>
+            <h2 class="section-title">Alfred Adler (1870-1937)</h2>
+            
+            <div class="adler-info">
+                <div>
+                    <h3>🎯 Cuộc đời và sự nghiệp</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>1870:</strong> Sinh ra tại Áo, con thứ 2 trong gia đình có 7 anh chị em
                         </div>
-                        <div class="personal-unconscious">
-                            <div>
-                                <div style="font-size: 12px;">VÔ THỨC</div>
-                                <div style="font-size: 10px;">CÁ NHÂN</div>
-                            </div>
+                        <div class="timeline-item">
+                            <strong>Thời thơ ấu:</strong> Trải qua nhiều khó khăn về sức khỏe (bệnh còi xương, viêm phổi)
                         </div>
-                        <div class="collective-unconscious">
-                            <div>
-                                <div style="font-size: 12px;">VÔ THỨC TẬP THỂ</div>
-                                <div style="font-size: 10px;">NGUYÊN MẪU</div>
-                            </div>
+                        <div class="timeline-item">
+                            <strong>1895:</strong> Trở thành bác sĩ, chuyên về tâm thần học
+                        </div>
+                        <div class="timeline-item">
+                            <strong>1902-1911:</strong> Hợp tác với Freud tại Hội Tâm lý học Vienna
+                        </div>
+                        <div class="timeline-item">
+                            <strong>1911:</strong> "Chia tay" Freud và thành lập Hội Tâm Lý Học Cá Nhân
                         </div>
                     </div>
                 </div>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiByeD0iMTUiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KPGVsbGlwc2UgY3g9IjE0MCIgY3k9IjExMCIgcng9IjgiIHJ5PSIxMiIgZmlsbD0iIzMzMyIvPgo8ZWxsaXBzZSBjeD0iMTYwIiBjeT0iMTEwIiByeD0iOCIgcnk9IjEyIiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMzAgMTQwIFExNTAgMTUwIDE3MCA0MCIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iODAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KPHRleHQgeD0iMTUwIiB5PSIyNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5BbGZyZWQgQWRsZXI8L3RleHQ+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF9saW5lYXJfMV8xIiB4MT0iMCIgeTE9IjAiIHgyPSIzMDAiIHkyPSIzMDAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzY2N2VlYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" alt="Alfred Adler" class="adler-portrait">
             </div>
 
-            <div class="card">
-                <h3>🌟 1. Ý Thức (Consciousness) - EGO</h3>
-                <p><strong>Cái Tôi (Ego)</strong> là trung tâm của ý thức, là chủ thể của tất cả hoạt động có ý thức:</p>
-                <ul style="margin-left: 20px;">
-                    <li>Tổ chức và sắp xếp nội dung ý thức</li>
-                    <li>Quyết định điều gì được phép vào ý thức</li>
-                    <li>Duy trì bản dạng cá nhân và tính liên tục</li>
-                    <li>Vận hành trên nguyên lý thực tế</li>
-                </ul>
+            <div class="concept-card">
+                <h3>🌟 Triết lý cốt lõi</h3>
+                <p><em>"Mục tiêu của tâm hồn con người là chinh phục, hoàn thiện, yên ổn, tính ưu việt. Mọi đứa trẻ đều phải đối mặt với rất nhiều trở ngại trong cuộc sống đến nỗi không đứa trẻ nào lớn lên mà không phấn đấu vì một ý nghĩa quan trọng nào đó."</em></p>
             </div>
 
-            <div class="card">
-                <h3>🌊 2. Vô Thức Cá Nhân (Personal Unconscious)</h3>
-                <p>Chứa những nội dung đã từng có ý thức nhưng bị lãng quên hoặc bị đẩy xuống:</p>
-                <ul style="margin-left: 20px;">
-                    <li>Ký ức bị lãng quên</li>
-                    <li>Những trải nghiệm bị đè nén</li>
-                    <li>Các phức cảm cá nhân</li>
-                    <li>Những khía cạnh bị từ chối của bản thân</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>🌌 3. Vô Thức Tập Thể (Collective Unconscious)</h3>
-                <p>Khái niệm cách mạng của Jung - kho chứa những hình ảnh ẩn tàng từ xa xưa:</p>
-                <ul style="margin-left: 20px;">
-                    <li>Thừa hưởng từ tổ tiên loài người</li>
-                    <li>Chứa các nguyên mẫu (archetypes)</li>
-                    <li>Giống nhau ở tất cả con người</li>
-                    <li>Ví dụ: sợ rắn, sợ bóng tối, sợ độ cao</li>
-                </ul>
+            <div class="interactive-element" onclick="showFact()">
+                <h3>💡 Nhấn để khám phá thực tế thú vị về Adler!</h3>
+                <p id="factText">Adler đã vượt qua chính cảm giác tự ti của mình để trở thành một nhà tâm lý học vĩ đại!</p>
             </div>
         </div>
 
-        <!-- Nguyên mẫu -->
-        <div id="archetypes" class="content-section">
-            <div class="card">
-                <h2>🎭 Các Nguyên Mẫu (Archetypes)</h2>
-                <p>Nguyên mẫu là những hình ảnh ẩn tàng, có sẵn trong vô thức tập thể. Chúng ảnh hưởng mạnh mẽ đến cách chúng ta nhận thức và hành xử.</p>
+        <!-- Phần Khái Niệm Chính -->
+        <div id="concepts" class="content-section">
+            <h2 class="section-title">🎯 Các Khái Niệm Chính</h2>
+            
+            <div class="concept-card">
+                <h3>1. Phấn đấu để vượt trội (Striving for Superiority)</h3>
+                <p>Động lực duy nhất đằng sau hành vi của con người là sự phấn đấu để thành công hay để vượt trội. Đây là động lực bẩm sinh thúc đẩy con người phát triển.</p>
             </div>
 
-            <div class="archetype-grid">
-                <div class="archetype-card">
-                    <span class="archetype-icon">🎭</span>
-                    <h3>Persona (Mặt Nạ)</h3>
-                    <p>Những đặc điểm mà cá nhân thể hiện với xã hội. Cần thiết để tồn tại trong xã hội nhưng không phải bản chất thật.</p>
-                    <strong>Ví dụ:</strong> Bác sĩ, giáng viên, luật sư
+            <div class="diagram">
+                <div class="superiority-pyramid">
+                    <div style="text-align: center;">
+                        <div>VUỢt TRỘI</div>
+                        <div style="font-size: 0.8em;">↑</div>
+                        <div style="font-size: 0.8em;">Phấn đấu</div>
+                    </div>
                 </div>
-
-                <div class="archetype-card">
-                    <span class="archetype-icon">🌑</span>
-                    <h3>Shadow (Bóng Tối)</h3>
-                    <p>Tất cả những đặc tính mà con người không thừa nhận, cố gắng che dấu. Cũng là nguồn sức sống và sáng tạo.</p>
-                    <strong>Thử thách:</strong> Nhận ra và chấp nhận bóng tối
-                </div>
-
-                <div class="archetype-card">
-                    <span class="archetype-icon">💝</span>
-                    <h3>Anima (♂→♀)</h3>
-                    <p>Tính nữ trong người nam. Tương ứng với maternal Eros: tình yêu, cảm xúc, sự chăm sóc.</p>
-                    <strong>Ảnh hưởng:</strong> Cảm xúc và khí sắc ở nam giới
-                </div>
-
-                <div class="archetype-card">
-                    <span class="archetype-icon">⚔️</span>
-                    <h3>Animus (♀→♂)</h3>
-                    <p>Tính nam trong người nữ. Tương ứng với paternal Logos: lý trí, suy nghiệm, khả năng đánh giá.</p>
-                    <strong>Ảnh hưởng:</strong> Suy luận và lý giải ở nữ giới
-                </div>
-
-                <div class="archetype-card">
-                    <span class="archetype-icon">✨</span>
-                    <h3>Self (Bản Ngã)</h3>
-                    <p>Thành phần quan trọng nhất - tâm điểm của toàn bộ nhân cách. Mục tiêu của quá trình cá biệt hóa.</p>
-                    <strong>Khái niệm:</strong> Sự thống nhất và toàn vẹn
-                </div>
+                <p><em>Kim tự tháp động lực của Adler</em></p>
             </div>
 
-            <div class="card">
-                <h3>💫 Trích dẫn nổi tiếng của Jung:</h3>
-                <blockquote style="font-style: italic; font-size: 1.2rem; text-align: center; margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
-                    "Khi animus và anima gặp nhau, animus rút thanh kiếm quyền lực của mình và anima phóng ra chất độc của ảo ảnh và sự quyến rũ của cô ấy"
-                </blockquote>
+            <div class="concept-card">
+                <h3>2. Cảm giác tự ti và sự bù trừ (Inferiority & Compensation)</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>🔸 <strong>Cảm giác tự ti:</strong> Bình thường và lành mạnh, tạo động lực phát triển</li>
+                    <li>🔸 <strong>Phức cảm tự ti:</strong> Bệnh lý, gây cảm giác bất lực và không thể phát triển</li>
+                    <li>🔸 <strong>Phức cảm tự tôn:</strong> Bù trừ quá mức, dẫn đến kiêu căng và hạ bệ người khác</li>
+                </ul>
+            </div>
+
+            <div class="concept-card">
+                <h3>3. Cảm thức cộng đồng (Social Interest)</h3>
+                <p><em>"Tất cả những thất bại - rối loạn tâm lý, tội phạm, nghiện rượu, trẻ em có vấn đề - đều là vì họ thiếu cảm thức cộng đồng."</em> - Alfred Adler</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>4. Phong cách sống (Lifestyle)</h3>
+                <p>Cách thức độc đáo mà mỗi cá nhân vận dụng để đạt được mục tiêu và đương đầu với các vấn đề của cuộc sống. Được hình thành từ tuổi thơ và ảnh hưởng đến toàn bộ cuộc đời.</p>
             </div>
         </div>
 
-        <!-- Kiểu tâm lý -->
-        <div id="types" class="content-section">
-            <div class="card">
-                <h2>🧭 Các Kiểu Tâm Lý</h2>
-                <p>Jung mô tả 2 thái độ cơ bản và 4 chức năng tâm lý, tạo nên 8 kiểu tâm lý khác nhau:</p>
-            </div>
-
-            <div class="card">
-                <h3>🔄 Hai Thái Độ Cơ Bản:</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
-                    <div style="background: rgba(255,107,107,0.2); padding: 20px; border-radius: 10px;">
-                        <h4>🔍 Hướng Nội (Introversion)</h4>
-                        <p>Năng lượng tập trung vào thế giới bên trong, chủ quan. Thích suy nghiệm, rút lui vào trong.</p>
-                    </div>
-                    <div style="background: rgba(255,193,7,0.2); padding: 20px; border-radius: 10px;">
-                        <h4>🌟 Hướng Ngoại (Extraversion)</h4>
-                        <p>Năng lượng hướng ra thế giới khách quan bên ngoài. Thích tương tác với người và sự vật.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>⚙️ Bốn Chức Năng Tâm Lý:</h3>
-                <div class="personality-grid">
-                    <div class="personality-type" onclick="showTypeInfo('thinking')">
-                        <h4>🧠 Tư Duy</h4>
-                        <p>Thinking</p>
-                        <small>Hiểu và giải quyết vấn đề</small>
-                    </div>
-                    <div class="personality-type" onclick="showTypeInfo('feeling')">
-                        <h4>❤️ Cảm Xúc</h4>
-                        <p>Feeling</p>
-                        <small>Đánh giá giá trị</small>
-                    </div>
-                    <div class="personality-type" onclick="showTypeInfo('sensing')">
-                        <h4>👁️ Cảm Giác</h4>
-                        <p>Sensing</p>
-                        <small>Nhận thức qua giác quan</small>
-                    </div>
-                    <div class="personality-type" onclick="showTypeInfo('intuition')">
-                        <h4>🔮 Trực Giác</h4>
-                        <p>Intuition</p>
-                        <small>Nhận thức không rõ nguồn gốc</small>
-                    </div>
-                </div>
-            </div>
-
-            <div id="type-info" style="margin-top: 20px;"></div>
-
-            <div class="card">
-                <h3>📊 Ma Trận 8 Kiểu Tâm Lý:</h3>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; font-size: 0.9rem;">
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; text-align: center; border-radius: 8px;">Extraverted Thinking</div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; text-align: center; border-radius: 8px;">Extraverted Feeling</div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; text-align: center; border-radius: 8px;">Extraverted Sensing</div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; text-align: center; border-radius: 8px;">Extraverted Intuition</div>
-                    <div style="background: rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 8px;">Introverted Thinking</div>
-                    <div style="background: rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 8px;">Introverted Feeling</div>
-                    <div style="background: rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 8px;">Introverted Sensing</div>
-                    <div style="background: rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 8px;">Introverted Intuition</div>
-                </div>
-                <p><em>💡 Lưu ý: Đây là cơ sở cho hệ thống MBTI hiện đại!</em></p>
-            </div>
-        </div>
-
-        <!-- Phức cảm -->
-        <div id="complexes" class="content-section">
-            <div class="card">
-                <h2>🌪️ Phức Cảm (Complexes)</h2>
-                <p>Phức cảm là những cảm xúc, suy nghĩ, ký ức có liên quan đến nhau kết thành khối trong tâm trí vô thức.</p>
-                
-                <div style="background: rgba(255,107,107,0.2); padding: 20px; margin: 20px 0; border-radius: 10px; border-left: 5px solid #ff6b6b;">
-                    <h3>🎯 Đặc điểm của Phức Cảm:</h3>
-                    <ul style="margin-left: 20px;">
-                        <li>Như những "nhân cách nhỏ" trong nhân cách tổng thể</li>
-                        <li>Vận hành riêng rẽ, tự trị khi chưa ý thức</li>
-                        <li>Kiểm soát suy nghĩ và hành vi của cá nhân</li>
-                        <li><strong>"Cá nhân không có phức cảm, chính phức cảm chiếm hữu cá nhân"</strong></li>
+        <!-- Phần Thứ Tự Sinh -->
+        <div id="birth-order" class="content-section">
+            <h2 class="section-title">👶 Thứ Tự Sinh Trong Gia Đình</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">Vị trí trong gia đình tạo ra những điều kiện sống khác nhau và định hình nhân cách</p>
+            
+            <div class="birth-order-grid">
+                <div class="birth-order-card" style="border-top: 5px solid #e74c3c;">
+                    <h4>👑 Con cả</h4>
+                    <p><strong>Đặc điểm:</strong></p>
+                    <ul style="text-align: left;">
+                        <li>Từng được độc sủng</li>
+                        <li>Trải nghiệm "mất ngôi"</li>
+                        <li>Có khuynh hướng bảo thủ</li>
+                        <li>Thích quyền lực và trách nhiệm</li>
+                        <li>Hay lo lắng và cầu toàn</li>
                     </ul>
                 </div>
 
-                <h3>📋 Các loại Phức Cảm phổ biến:</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-                    <div style="background: rgba(244,67,54,0.2); padding: 15px; border-radius: 10px;">
-                        <h4>💰 Phức cảm tiền</h4>
-                        <p>Ám ảnh về tiền bạc, thành công vật chất</p>
-                    </div>
-                    <div style="background: rgba(156,39,176,0.2); padding: 15px; border-radius: 10px;">
-                        <h4>👨‍👩‍👧‍👦 Phức cảm Oedipus</h4>
-                        <p>Mối quan hệ phức tạp với bố mẹ</p>
-                    </div>
-                    <div style="background: rgba(255,152,0,0.2); padding: 15px; border-radius: 10px;">
-                        <h4>👩 Phức cảm mẹ</h4>
-                        <p>Ảnh hưởng quá mức của hình ảnh mẹ</p>
-                    </div>
-                    <div style="background: rgba(63,81,181,0.2); padding: 15px; border-radius: 10px;">
-                        <h4>😔 Phức cảm tự ti</h4>
-                        <p>Cảm giác thấp kém, không đủ giá trị</p>
-                    </div>
+                <div class="birth-order-card" style="border-top: 5px solid #f39c12;">
+                    <h4>🏃 Con thứ hai</h4>
+                    <p><strong>Đặc điểm:</strong></p>
+                    <ul style="text-align: left;">
+                        <li>Luôn có người cạnh tranh</li>
+                        <li>Tính cạnh tranh cao</li>
+                        <li>Hoài bão và lạc quan</li>
+                        <li>Dễ hợp tác</li>
+                        <li>Có thể phát triển cảm giác thua kém</li>
+                    </ul>
                 </div>
 
-                <div style="background: rgba(76,175,80,0.2); padding: 20px; margin: 20px 0; border-radius: 10px;">
-                    <h3>✨ Phức Cảm Tích Cực:</h3>
-                    <p>Không phải tất cả phức cảm đều tiêu cực! Phức cảm tích cực là nguồn cảm hứng thúc đẩy con người đạt được những thành tích vượt bật.</p>
-                    <p><strong>Ví dụ:</strong> Niềm đam mê hội họa, đam mê cái đẹp, đam mê khoa học...</p>
+                <div class="birth-order-card" style="border-top: 5px solid #27ae60;">
+                    <h4>👶 Con út</h4>
+                    <p><strong>Đặc điểm:</strong></p>
+                    <ul style="text-align: left;">
+                        <li>Được cưng chiều nhất</li>
+                        <li>Có khuynh hướng lạc quan</li>
+                        <li>Thích được chú ý</li>
+                        <li>Có thể phụ thuộc vào người khác</li>
+                        <li>Động lực mạnh mẽ nếu không bị nuông chiều quá</li>
+                    </ul>
                 </div>
 
-                <h3>🎯 Mục tiêu của Tâm lý học phân tích:</h3>
-                <p>Giải thể phức cảm để giải phóng cá nhân khỏi sự chuyên chế của phức cảm, giúp con người đạt được sự tự do và phát triển toàn diện.</p>
+                <div class="birth-order-card" style="border-top: 5px solid #8e44ad;">
+                    <h4>🌟 Con một</h4>
+                    <p><strong>Đặc điểm:</strong></p>
+                    <ul style="text-align: left;">
+                        <li>Trung tâm của sự chú ý</li>
+                        <li>Tương tác chủ yếu với người lớn</li>
+                        <li>Trưởng thành sớm</li>
+                        <li>Có thể gặp khó khăn trong quan hệ xã hội</li>
+                        <li>Xu hướng cầu toàn cao</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Quiz -->
-        <div id="quiz" class="content-section">
-            <div class="card">
-                <h2>🧠 Kiểm Tra Kiến Thức</h2>
-                <p>Hãy kiểm tra sự hiểu biết của bạn về tâm lý học phân tích của Carl Jung!</p>
-                
-                <div class="progress-bar">
-                    <div class="progress" id="quiz-progress"></div>
+        <!-- Phần Phương Pháp Trị Liệu -->
+        <div id="therapy" class="content-section">
+            <h2 class="section-title">🔬 Phương Pháp Lượng Giá & Trị Liệu</h2>
+            
+            <div class="concept-card">
+                <h3>1. Hồi ức tuổi thơ (Early Recollections)</h3>
+                <p>Những ký ức tuổi thơ phản ánh phong cách sống hiện tại. Không quan trọng là thật hay tưởng tượng, quan trọng là cách cá nhân nhận thức về chúng.</p>
+                <div class="interactive-element" onclick="showEarlyMemoryExample()">
+                    <p>💭 Nhấn để xem ví dụ phân tích ký ức tuổi thơ của Adler</p>
                 </div>
-                <div id="quiz-score" style="text-align: center; font-weight: bold;"></div>
+            </div>
+
+            <div class="concept-card">
+                <h3>2. Chòm sao gia đình (Family Constellation)</h3>
+                <p>Phân tích thứ tự sinh, giới tính anh chị em, khoảng cách tuổi, không khí gia đình để hiểu phong cách sống.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>3. Phân tích giấc mơ</h3>
+                <p>Giấc mơ là cầu nối giữa phong cách sống và những khó khăn hiện tại, biểu hiện giải pháp phù hợp với cá nhân.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>4. Kỹ thuật trị liệu</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>🎭 <strong>Sắm vai (Role Playing):</strong> Thực hành hành vi mới</li>
+                    <li>🎬 <strong>Hành động như thể (Acting As If):</strong> Thay đổi hành vi để thay đổi cảm xúc</li>
+                    <li>🔍 <strong>Quan sát và phát hiện (Catching Oneself):</strong> Nhận thức về các mẫu hành vi tiêu cực</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Phần Quiz -->
+        <div id="quiz" class="content-section">
+            <h2 class="section-title">🧩 Quiz Kiểm Tra Kiến Thức</h2>
+            
+            <div class="quiz-container">
+                <div class="question">Câu 1: Theo Adler, động lực chính của con người là gì?</div>
+                <div class="option" onclick="selectAnswer(this, false)">A. Theo đuổi khoái cảm</div>
+                <div class="option" onclick="selectAnswer(this, true)">B. Phấn đấu để vượt trội</div>
+                <div class="option" onclick="selectAnswer(this, false)">C. Tránh đau khổ</div>
+                <div class="option" onclick="selectAnswer(this, false)">D. Tìm kiếm an toàn</div>
             </div>
 
             <div class="quiz-container">
-                <div class="question">
-                    <h3>Câu 1: Theo Jung, cấu trúc tâm trí con người gồm mấy mức độ?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectAnswer(this, false)">A. 2 mức độ</div>
-                        <div class="option" onclick="selectAnswer(this, true)">B. 3 mức độ</div>
-                        <div class="option" onclick="selectAnswer(this, false)">C. 4 mức độ</div>
-                        <div class="option" onclick="selectAnswer(this, false)">D. 5 mức độ</div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h3>Câu 2: Vô thức tập thể chứa đựng điều gì?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectAnswer(this, false)">A. Ký ức cá nhân</div>
-                        <div class="option" onclick="selectAnswer(this, true)">B. Các nguyên mẫu</div>
-                        <div class="option" onclick="selectAnswer(this, false)">C. Cảm xúc hiện tại</div>
-                        <div class="option" onclick="selectAnswer(this, false)">D. Suy nghĩ có ý thức</div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h3>Câu 3: Shadow (Bóng tối) đại diện cho điều gì?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectAnswer(this, false)">A. Chỉ những đặc tính tiêu cực</div>
-                        <div class="option" onclick="selectAnswer(this, true)">B. Những đặc tính bị từ chối và cả tiềm năng sáng tạo</div>
-                        <div class="option" onclick="selectAnswer(this, false)">C. Ký ức thời thơ ấu</div>
-                        <div class="option" onclick="selectAnswer(this, false)">D. Mặt nạ xã hội</div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h3>Câu 4: Có bao nhiêu chức năng tâm lý cơ bản theo Jung?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectAnswer(this, false)">A. 2</div>
-                        <div class="option" onclick="selectAnswer(this, false)">B. 3</div>
-                        <div class="option" onclick="selectAnswer(this, true)">C. 4</div>
-                        <div class="option" onclick="selectAnswer(this, false)">D. 8</div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h3>Câu 5: Persona là gì?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectAnswer(this, true)">A. Mặt nạ xã hội</div>
-                        <div class="option" onclick="selectAnswer(this, false)">B. Bản thể thật</div>
-                        <div class="option" onclick="selectAnswer(this, false)">C. Vô thức cá nhân</div>
-                        <div class="option" onclick="selectAnswer(this, false)">D. Bóng tối</div>
-                    </div>
-                </div>
-
-                <button class="btn" onclick="showQuizResults()">Xem Kết Quả</button>
-                <div id="quiz-result" class="result" style="display: none;"></div>
+                <div class="question">Câu 2: Phức cảm tự ti hình thành khi nào?</div>
+                <div class="option" onclick="selectAnswer(this, false)">A. Khi sinh ra</div>
+                <div class="option" onclick="selectAnswer(this, true)">B. Khi không thể bù trừ và vượt qua cảm giác thua kém</div>
+                <div class="option" onclick="selectAnswer(this, false)">C. Khi gặp thất bại</div>
+                <div class="option" onclick="selectAnswer(this, false)">D. Khi thiếu tình yêu thương</div>
             </div>
 
-            <div class="card">
-                <h3>🎯 Câu hỏi Tư duy Phản biện:</h3>
-                <div style="background: rgba(255,193,7,0.2); padding: 20px; border-radius: 10px;">
-                    <p><strong>Tình huống:</strong> Một người luôn thể hiện mình rất tự tin và mạnh mẽ trước mặt mọi người, nhưng trong những giấc mơ thường xuyên xuất hiện hình ảnh mình yếu đuối và sợ hãi.</p>
-                    <p><strong>Câu hỏi:</strong> Theo lý thuyết Jung, hiện tượng này có thể giải thích như thế nào? Liên quan đến nguyên mẫu nào?</p>
-                    <button class="btn" onclick="toggleAnswer('critical-answer')">Xem Giải Thích</button>
-                    <div id="critical-answer" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                        <p><strong>Giải thích:</strong> Đây là ví dụ điển hình về <strong>Persona</strong> và <strong>Shadow</strong>. Persona (mặt nạ xã hội) thể hiện hình ảnh mạnh mẽ, tự tin, trong khi Shadow (bóng tối) chứa những khía cạnh yếu đuối bị đè nén. Giấc mơ là cách vô thức cân bằng, thể hiện những gì bị che giấu trong đời thực.</p>
-                    </div>
-                </div>
+            <div class="quiz-container">
+                <div class="question">Câu 3: Theo lý thuyết thứ tự sinh, con cả thường có đặc điểm gì?</div>
+                <div class="option" onclick="selectAnswer(this, true)">A. Thích quyền lực và trách nhiệm</div>
+                <div class="option" onclick="selectAnswer(this, false)">B. Tính cạnh tranh cao</div>
+                <div class="option" onclick="selectAnswer(this, false)">C. Thích được chú ý</div>
+                <div class="option" onclick="selectAnswer(this, false)">D. Hay lạc quan</div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="question">Câu 4: Cảm thức cộng đồng là gì?</div>
+                <div class="option" onclick="selectAnswer(this, false)">A. Sợ hãi xã hội</div>
+                <div class="option" onclick="selectAnswer(this, true)">B. Quan tâm và đóng góp cho cộng đồng</div>
+                <div class="option" onclick="selectAnswer(this, false)">C. Muốn được xã hội chấp nhận</div>
+                <div class="option" onclick="selectAnswer(this, false)">D. Tuân thủ quy tắc xã hội</div>
+            </div>
+
+            <div class="quiz-container">
+                <div class="question">Câu 5: Hồi ức tuổi thơ trong trị liệu Adler có ý nghĩa gì?</div>
+                <div class="option" onclick="selectAnswer(this, false)">A. Tìm nguyên nhân sang chấn</div>
+                <div class="option" onclick="selectAnswer(this, true)">B. Phản ánh phong cách sống hiện tại</div>
+                <div class="option" onclick="selectAnswer(this, false)">C. Khôi phục ký ức bị mất</div>
+                <div class="option" onclick="selectAnswer(this, false)">D. Hiểu quan hệ với cha mẹ</div>
             </div>
         </div>
 
-        <!-- Case Study -->
+        <!-- Phần Case Study -->
         <div id="case-study" class="content-section">
-            <div class="card">
-                <h2>📊 Case Study: Phân Tích Tâm Lý</h2>
-                <p>Hãy áp dụng lý thuyết Jung để phân tích các tình huống thực tế!</p>
-            </div>
-
+            <h2 class="section-title">📋 Case Study</h2>
+            
             <div class="case-study">
-                <h3>🎭 Case Study 1: Anna - Giáo viên Tiểu Học</h3>
-                <p><strong>Bối cảnh:</strong> Anna, 35 tuổi, là một giáo viên tiểu học được học trò và đồng nghiệp yêu mến. Cô luôn tỏ ra kiên nhẫn, dịu dàng và quan tâm đến học sinh. Tuy nhiên, ở nhà, Anna thường cảm thấy kiệt sức và bực tức với những việc nhỏ nhặt.</p>
+                <h3>🔍 Trường hợp 1: Minh - Học sinh 16 tuổi</h3>
+                <p><strong>Bối cảnh:</strong> Minh là con cả trong gia đình có 3 anh em. Gần đây em cảm thấy lo lắng và căng thẳng vì áp lực học tập. Em luôn muốn làm mọi việc hoàn hảo và sợ làm thất vọng cha mẹ.</p>
                 
-                <p><strong>Triệu chứng:</strong></p>
-                <ul>
-                    <li>Thường xuyên có giấc mơ về việc la hét với học sinh</li>
-                    <li>Cảm thấy mệt mỏi sau mỗi ngày làm việc</li>
-                    <li>Khó bày tỏ cảm xúc thật với gia đình</li>
-                    <li>Đôi khi có những suy nghĩ "độc ác" về học sinh nghịch ngợm</li>
-                </ul>
-
-                <h4>🤔 Câu hỏi phân tích:</h4>
-                <ol>
-                    <li>Xác định Persona và Shadow của Anna</li>
-                    <li>Giải thích tại sao Anna cảm thấy kiệt sức?</li>
-                    <li>Giấc mơ của Anna thể hiện điều gì?</li>
-                    <li>Đưa ra lời khuyên để Anna cân bằng được tâm lý</li>
-                </ol>
-
-                <button class="btn" onclick="toggleAnswer('case1-answer')">Xem Phân Tích</button>
-                <div id="case1-answer" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                    <h4>📝 Phân tích theo Jung:</h4>
-                    <p><strong>Persona:</strong> Giáo viên hoàn hảo - kiên nhẫn, dịu dàng, quan tâm học sinh</p>
-                    <p><strong>Shadow:</strong> Những cảm xúc tiêu cực, sự bực tức, mong muốn la hét</p>
-                    <p><strong>Nguyên nhân kiệt sức:</strong> Anna đè nén quá nhiều cảm xúc để duy trì Persona, tạo căng thẳng nội tâm</p>
-                    <p><strong>Ý nghĩa giấc mơ:</strong> Vô thức đang cân bằng bằng cách thể hiện Shadow bị đè nén</p>
-                    <p><strong>Lời khuyên:</strong> Anna cần nhận ra và chấp nhận Shadow, tìm cách thể hiện cảm xúc thật một cách lành mạnh, không cần luôn là "giáo viên hoàn hảo"</p>
+                <p><strong>Hồi ức tuổi thơ:</strong> "Em nhớ khi 5 tuổi, em đã cố gắng giúp mẹ chăm sóc em trai nhỏ. Em cảm thấy mình rất quan trọng và có trách nhiệm."</p>
+                
+                <div class="interactive-element" onclick="showAnalysis1()">
+                    <p>🔍 Nhấn để xem phân tích theo lý thuyết Adler</p>
+                    <div id="analysis1" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                        <strong>Phân tích:</strong>
+                        <ul>
+                            <li><strong>Thứ tự sinh:</strong> Con cả - có khuynh hướng chịu trách nhiệm và muốn kiểm soát</li>
+                            <li><strong>Phong cách sống:</strong> Hoàn hảo chủ nghĩa, cần được công nhận</li>
+                            <li><strong>Cảm giác tự ti:</strong> Sợ thất vọng người khác, không đáp ứng kỳ vọng</li>
+                            <li><strong>Hướng trị liệu:</strong> Giúp em hiểu rằng giá trị bản thân không phụ thuộc vào thành tích hoàn hảo</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="case-study">
-                <h3>⚖️ Case Study 2: David - Luật sư Thành Công</h3>
-                <p><strong>Bối cảnh:</strong> David, 42 tuổi, là một luật sư thành công với thu nhập cao. Anh được biết đến là người logic, lý trí và luôn đưa ra quyết định dựa trên phân tích. Tuy nhiên, David gặp khó khăn trong các mối quan hệ cá nhân.</p>
+                <h3>🔍 Trường hợp 2: An - Nhân viên văn phòng 28 tuổi</h3>
+                <p><strong>Bối cảnh:</strong> An là con thứ hai, luôn cảm thấy bị che khuất bởi anh trai xuất sắc. Trong công việc, An rất cạnh tranh và khó hợp tác với đồng nghiệp.</p>
                 
-                <p><strong>Vấn đề:</strong></p>
-                <ul>
-                    <li>Vợ phàn nàn anh "lạnh lùng" và "không hiểu cảm xúc"</li>
-                    <li>Con gái tuổi teen tránh nói chuyện với bố</li>
-                    <li>David không hiểu tại sao logic không giải quyết được mọi vấn đề</li>
-                    <li>Thỉnh thoảng có những cơn giận dữ bất thường</li>
-                </ul>
-
-                <h4>🤔 Câu hỏi phân tích:</h4>
-                <ol>
-                    <li>Chức năng nổi trội của David là gì?</li>
-                    <li>Chức năng nào bị bỏ quên/đè nén?</li>
-                    <li>Giải thích hiện tượng "cơn giận bất thường"</li>
-                    <li>Làm thế nào David có thể phát triển toàn diện hơn?</li>
-                </ol>
-
-                <button class="btn" onclick="toggleAnswer('case2-answer')">Xem Phân Tích</button>
-                <div id="case2-answer" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                    <h4>📝 Phân tích theo Jung:</h4>
-                    <p><strong>Chức năng nổi trội:</strong> Thinking (Tư duy) - David phụ thuộc quá nhiều vào logic</p>
-                    <p><strong>Chức năng bị đè nén:</strong> Feeling (Cảm xúc) - David không phát triển khả năng hiểu và thể hiện cảm xúc</p>
-                    <p><strong>Cơn giận bất thường:</strong> Cảm xúc bị đè nén quá lâu sẽ bùng nổ khi tích tụ quá nhiều</p>
-                    <p><strong>Hướng phát triển:</strong> David cần học cách nhận biết và thể hiện cảm xúc, phát triển empathy, cân bằng giữa lý trí và cảm xúc trong các mối quan hệ</p>
+                <p><strong>Hồi ức tuổi thơ:</strong> "Tôi nhớ mình luôn cố gắng chạy nhanh hơn anh để được bố mẹ khen, nhưng anh luôn thắng."</p>
+                
+                <div class="interactive-element" onclick="showAnalysis2()">
+                    <p>🔍 Nhấn để xem phân tích theo lý thuyết Adler</p>
+                    <div id="analysis2" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                        <strong>Phân tích:</strong>
+                        <ul>
+                            <li><strong>Thứ tự sinh:</strong> Con thứ hai - tính cạnh tranh cao nhưng có thể dẫn đến cảm giác thua kém</li>
+                            <li><strong>Phong cách sống:</strong> Cần chứng minh bản thân, khó hợp tác</li>
+                            <li><strong>Thiếu cảm thức cộng đồng:</strong> Tập trung vào cạnh tranh cá nhân thay vì hợp tác</li>
+                            <li><strong>Hướng trị liệu:</strong> Phát triển cảm thức cộng đồng, hiểu giá trị của hợp tác</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="case-study">
-                <h3>🎨 Case Study 3: Maria - Nghệ sĩ Trực Giác</h3>
-                <p><strong>Bối cảnh:</strong> Maria, 28 tuổi, là một họa sĩ tài năng. Cô có khả năng "cảm nhận" được cảm xúc của người khác và tạo ra những tác phẩm nghệ thuật sâu sắc. Tuy nhiên, Maria gặp khó khăn trong việc quản lý cuộc sống hàng ngày.</p>
-                
-                <p><strong>Đặc điểm:</strong></p>
-                <ul>
-                    <li>Thường có "linh cảm" chính xác về người khác</li>
-                    <li>Sáng tác dựa trên cảm hứng đột ngột</li>
-                    <li>Hay quên các việc cụ thể: hẹn hò, hóa đơn, deadline</li>
-                    <li>Cảm thấy khó khăn với những công việc chi tiết</li>
-                    <li>Thường "bay bổng" trong thế giới ý tưởng</li>
-                </ul>
-
-                <h4>🤔 Câu hỏi phân tích:</h4>
-                <ol>
-                    <li>Maria thuộc kiểu tâm lý nào theo Jung?</li>
-                    <li>Chức năng nào cần được phát triển thêm?</li>
-                    <li>Làm thế nào Maria có thể cân bằng cuộc sống?</li>
-                </ol>
-
-                <button class="btn" onclick="toggleAnswer('case3-answer')">Xem Phân Tích</button>
-                <div id="case3-answer" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                    <h4>📝 Phân tích theo Jung:</h4>
-                    <p><strong>Kiểu tâm lý:</strong> Introverted Intuition với Feeling thứ cấp</p>
-                    <p><strong>Ưu điểm:</strong> Khả năng nhận thức sâu sắc, sáng tạo, empathy cao</p>
-                    <p><strong>Chức năng cần phát triển:</strong> Sensing (Cảm giác) - chú ý đến chi tiết thực tế</p>
-                    <p><strong>Lời khuyên:</strong> Maria cần tạo thói quen, sử dụng lịch trình, nhờ người khác hỗ trợ các công việc chi tiết, nhưng vẫn giữ được không gian cho sự sáng tạo trực giác</p>
-                </div>
+            <div class="interactive-element" onclick="createOwnCase()">
+                <h3>💡 Tạo Case Study của riêng bạn</h3>
+                <p>Nhấn để tự phân tích một trường hợp theo lý thuyết Adler</p>
             </div>
         </div>
     </div>
 
     <script>
         let currentSection = 'intro';
-        let quizAnswers = [];
-        let quizScore = 0;
+        let score = 0;
+        let totalQuestions = 5;
+        let answeredQuestions = 0;
+
+        const facts = [
+            "Adler từng bị bệnh còi xương và viêm phổi khi nhỏ, nhưng đã vượt qua để trở thành bác sĩ!",
+            "Ông là người đầu tiên đưa ra khái niệm 'phức cảm tự ti' - một thuật ngữ phổ biến ngày nay.",
+            "Adler tin rằng những khuyết tật về thể chất có thể trở thành động lực mạnh mẽ để phát triển.",
+            "Ông đã 'chia tay' Freud vì không đồng ý về tầm quan trọng của tình dục trong tâm lý học.",
+            "Lý thuyết thứ tự sinh của Adler vẫn được nghiên cứu và ứng dụng rộng rãi ngày nay."
+        ];
 
         function showSection(sectionId) {
-            // Hide all sections
+            // Ẩn tất cả sections
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Remove active class from all nav pills
-            document.querySelectorAll('.nav-pill').forEach(pill => {
-                pill.classList.remove('active');
+            // Ẩn tất cả nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
             
-            // Show selected section
+            // Hiển thị section được chọn
             document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to selected nav pill
             event.target.classList.add('active');
             
             currentSection = sectionId;
+            updateProgress();
         }
 
-        function showTypeInfo(type) {
-            const infoDiv = document.getElementById('type-info');
-            let content = '';
-            
-            switch(type) {
-                case 'thinking':
-                    content = `
-                        <div class="card">
-                            <h3>🧠 Chức năng Tư Duy (Thinking)</h3>
-                            <p>Tìm cách hiểu mọi thứ, kết nối ý tưởng để đi đến khái niệm chung hoặc giải pháp.</p>
-                            <ul>
-                                <li><strong>Extraverted Thinking:</strong> Tập trung vào logic bên ngoài, hệ thống, quy tắc</li>
-                                <li><strong>Introverted Thinking:</strong> Phân tích nội tâm, tìm hiểu nguyên lý sâu xa</li>
-                            </ul>
-                        </div>
-                    `;
-                    break;
-                case 'feeling':
-                    content = `
-                        <div class="card">
-                            <h3>❤️ Chức năng Cảm Xúc (Feeling)</h3>
-                            <p>Đánh giá giá trị của sự việc/ý tưởng: đẹp hay xấu, hứng thú hay chán ngắt.</p>
-                            <ul>
-                                <li><strong>Extraverted Feeling:</strong> Quan tâm đến hòa hợp xã hội, cảm xúc của người khác</li>
-                                <li><strong>Introverted Feeling:</strong> Giá trị nội tâm, nguyên tắc cá nhân</li>
-                            </ul>
-                        </div>
-                    `;
-                    break;
-                case 'sensing':
-                    content = `
-                        <div class="card">
-                            <h3>👁️ Chức năng Cảm Giác (Sensing)</h3>
-                            <p>Nhận thức qua giác quan: nhìn, nghe, nếm, chạm, ngửi.</p>
-                            <ul>
-                                <li><strong>Extraverted Sensing:</strong> Tập trung vào thế giới thực tế hiện tại</li>
-                                <li><strong>Introverted Sensing:</strong> So sánh với kinh nghiệm quá khứ</li>
-                            </ul>
-                        </div>
-                    `;
-                    break;
-                case 'intuition':
-                    content = `
-                        <div class="card">
-                            <h3>🔮 Chức năng Trực Giác (Intuition)</h3>
-                            <p>Nhận thức không rõ nguồn gốc - "giác quan thứ 6".</p>
-                            <ul>
-                                <li><strong>Extraverted Intuition:</strong> Khám phá khả năng trong thế giới bên ngoài</li>
-                                <li><strong>Introverted Intuition:</strong> Thấu hiểu sâu xa, tầm nhìn tương lai</li>
-                            </ul>
-                        </div>
-                    `;
-                    break;
-            }
-            
-            infoDiv.innerHTML = content;
+        function updateProgress() {
+            const sections = ['intro', 'concepts', 'birth-order', 'therapy', 'quiz', 'case-study'];
+            const currentIndex = sections.indexOf(currentSection);
+            const progress = ((currentIndex + 1) / sections.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showFact() {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('factText').textContent = randomFact;
         }
 
         function selectAnswer(element, isCorrect) {
-            // Remove previous selections in this question
-            const question = element.closest('.question');
-            question.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // Mark current selection
-            element.classList.add('selected');
-            
-            // Store answer
-            const questionIndex = Array.from(document.querySelectorAll('.question')).indexOf(question);
-            quizAnswers[questionIndex] = isCorrect;
-        }
-
-        function showQuizResults() {
-            quizScore = 0;
-            const questions = document.querySelectorAll('.question');
-            
-            questions.forEach((question, index) => {
-                const options = question.querySelectorAll('.option');
-                options.forEach(option => {
-                    const isCorrect = option.onclick.toString().includes('true');
-                    if (option.classList.contains('selected')) {
-                        if (isCorrect) {
-                            option.classList.add('correct');
-                            quizScore++;
-                        } else {
-                            option.classList.add('incorrect');
-                        }
-                    } else if (isCorrect) {
-                        option.classList.add('correct');
-                    }
-                    option.onclick = null; // Disable further clicks
-                });
+            // Vô hiệu hóa tất cả options trong câu hỏi này
+            const options = element.parentNode.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option === element) {
+                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
+                } else if (option.onclick.toString().includes('true')) {
+                    option.classList.add('correct');
+                }
             });
 
-            // Update progress bar
-            const progressPercent = (quizScore / questions.length) * 100;
-            document.getElementById('quiz-progress').style.width = progressPercent + '%';
-            
-            // Show score
-            document.getElementById('quiz-score').textContent = `Điểm: ${quizScore}/${questions.length} (${Math.round(progressPercent)}%)`;
-            
-            // Show result
-            const resultDiv = document.getElementById('quiz-result');
-            let resultText = '';
-            let resultClass = '';
-            
-            if (quizScore === questions.length) {
-                resultText = '🎉 Xuất sắc! Bạn đã hiểu rõ lý thuyết Jung!';
-                resultClass = 'background: rgba(76,175,80,0.3); border: 2px solid #4caf50;';
-            } else if (quizScore >= questions.length * 0.7) {
-                resultText = '👏 Tốt! Bạn có hiểu biết khá tốt về Jung.';
-                resultClass = 'background: rgba(255,193,7,0.3); border: 2px solid #ffc107;';
+            if (isCorrect) {
+                score++;
+                element.innerHTML += ' ✅';
             } else {
-                resultText = '📚 Hãy xem lại tài liệu để hiểu rõ hơn nhé!';
-                resultClass = 'background: rgba(244,67,54,0.3); border: 2px solid #f44336;';
+                element.innerHTML += ' ❌';
             }
-            
-            resultDiv.innerHTML = `<div style="${resultClass} padding: 15px; border-radius: 10px;">${resultText}</div>`;
-            resultDiv.style.display = 'block';
-        }
 
-        function toggleAnswer(id) {
-            const element = document.getElementById(id);
-            if (element.style.display === 'none') {
-                element.style.display = 'block';
-            } else {
-                element.style.display = 'none';
-            }
-        }
+            answeredQuestions++;
+            document.getElementById('score').textContent = score + '/' + totalQuestions;
 
-        // Add some interactive animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.card, .archetype-card, .case-study').forEach(card => {
-                observer.observe(card);
-            });
-        });
-
-        // Add floating animation to psyche diagram
-        setInterval(() => {
-            const elements = document.querySelectorAll('.consciousness, .personal-unconscious, .collective-unconscious');
-            elements.forEach((el, index) => {
+            if (answeredQuestions === totalQuestions) {
                 setTimeout(() => {
-                    el.style.transform += ' translateY(-5px)';
-                    setTimeout(() => {
-                        el.style.transform = el.style.transform.replace(' translateY(-5px)', '');
-                    }, 1000);
-                }, index * 200);
-            });
-        }, 4000);
+                    let message = '';
+                    if (score === totalQuestions) {
+                        message = '🎉 Xuất sắc! Bạn đã nắm vững lý thuyết Adler!';
+                    } else if (score >= totalQuestions * 0.8) {
+                        message = '👏 Rất tốt! Bạn hiểu khá tốt về tâm lý học cá nhân!';
+                    } else if (score >= totalQuestions * 0.6) {
+                        message = '📚 Cần học thêm! Hãy xem lại các khái niệm chính.';
+                    } else {
+                        message = '💪 Đừng nản lòng! Hãy đọc lại bài giảng và thử lại.';
+                    }
+                    alert(message);
+                }, 500);
+            }
+        }
+
+        function showEarlyMemoryExample() {
+            alert(`Ví dụ phân tích ký ức tuổi thơ của Adler:
+
+"Tôi nhớ khi còn nhỏ, tôi phải đi qua một nghĩa trang trên đường đến trường. Chỉ có tôi mới nhìn thấy nó và cảm thấy sợ hãi."
+
+Phân tích: Ký ức này phản ánh:
+- Cảm giác cô đơn và khác biệt
+- Sự đối mặt với nỗi sợ cái chết
+- Động lực vượt qua thử thách
+- Phong cách sống dũng cảm đối mặt với khó khăn
+
+Ký ức này giải thích tại sao Adler lại quan tâm đến việc giúp người khác vượt qua những khó khăn tâm lý.`);
+        }
+
+        function showAnalysis1() {
+            const analysis = document.getElementById('analysis1');
+            if (analysis.style.display === 'none') {
+                analysis.style.display = 'block';
+            } else {
+                analysis.style.display = 'none';
+            }
+        }
+
+        function showAnalysis2() {
+            const analysis = document.getElementById('analysis2');
+            if (analysis.style.display === 'none') {
+                analysis.style.display = 'block';
+            } else {
+                analysis.style.display = 'none';
+            }
+        }
+
+        function createOwnCase() {
+            const userCase = prompt(`Hãy tạo một case study của riêng bạn:
+
+Nhập thông tin cơ bản về một người (có thể là bạn hoặc ai đó bạn biết):
+- Tuổi và giới tính
+- Thứ tự sinh trong gia đình
+- Một vấn đề tâm lý họ đang gặp phải
+- Một ký ức tuổi thơ
+
+Ví dụ: "Nam, 25 tuổi, con út, hay lo lắng về tương lai, nhớ lúc nhỏ luôn được anh chị bảo vệ"`);
+
+            if (userCase) {
+                let analysis = "Phân tích theo lý thuyết Adler:\n\n";
+                
+                if (userCase.toLowerCase().includes('con cả') || userCase.toLowerCase().includes('con đầu')) {
+                    analysis += "- Thứ tự sinh: Con cả thường có khuynh hướng lãnh đạo và chịu trách nhiệm\n";
+                } else if (userCase.toLowerCase().includes('con thứ hai') || userCase.toLowerCase().includes('con thứ 2')) {
+                    analysis += "- Thứ tự sinh: Con thứ hai thường có tính cạnh tranh cao\n";
+                } else if (userCase.toLowerCase().includes('con út')) {
+                    analysis += "- Thứ tự sinh: Con út thường được cưng chiều và có thể phụ thuộc\n";
+                } else if (userCase.toLowerCase().includes('con một')) {
+                    analysis += "- Thứ tự sinh: Con một thường trưởng thành sớm và có xu hướng hoàn hảo\n";
+                }
+
+                if (userCase.toLowerCase().includes('lo lắng') || userCase.toLowerCase().includes('sợ')) {
+                    analysis += "- Có thể có phức cảm tự ti, cần tăng cường tự tin\n";
+                }
+
+                if (userCase.toLowerCase().includes('bảo vệ') || userCase.toLowerCase().includes('giúp đỡ')) {
+                    analysis += "- Ký ức tuổi thơ cho thấy có thể thiếu tính độc lập\n";
+                }
+
+                analysis += "\nHướng trị liệu có thể bao gồm:\n";
+                analysis += "- Phát triển cảm thức cộng đồng\n";
+                analysis += "- Tăng cường tự tin và khả năng tự lập\n";
+                analysis += "- Thay đổi phong cách sống tiêu cực";
+
+                alert(analysis);
+            }
+        }
+
+        // Khởi tạo
+        updateProgress();
+        
+        // Tự động chuyển slide sau 30 giây nếu không có tương tác
+        let autoSlideTimer;
+        function resetAutoSlideTimer() {
+            clearTimeout(autoSlideTimer);
+            autoSlideTimer = setTimeout(() => {
+                const sections = ['intro', 'concepts', 'birth-order', 'therapy', 'quiz', 'case-study'];
+                const currentIndex = sections.indexOf(currentSection);
+                const nextIndex = (currentIndex + 1) % sections.length;
+                showSection(sections[nextIndex]);
+                document.querySelector(`[onclick="showSection('${sections[nextIndex]}')"]`).classList.add('active');
+            }, 30000);
+        }
+
+        // Lắng nghe các tương tác để reset timer
+        document.addEventListener('click', resetAutoSlideTimer);
+        document.addEventListener('scroll', resetAutoSlideTimer);
+        
+        resetAutoSlideTimer();
     </script>
 </body>
 </html>
