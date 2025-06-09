@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường Phái Tâm Lý Học Nhân Cách & Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab {
+            padding: 15px 30px;
+            margin: 0 5px;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .tab.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .theory-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .theory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .theory-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hierarchy-pyramid {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pyramid-level {
+            width: 100%;
+            height: 60px;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .pyramid-level:hover {
+            transform: scale(1.05);
+        }
+
+        .level-1 { background: #e74c3c; width: 90%; }
+        .level-2 { background: #f39c12; width: 75%; }
+        .level-3 { background: #2ecc71; width: 60%; }
+        .level-4 { background: #3498db; width: 45%; }
+        .level-5 { background: #9b59b6; width: 30%; }
+
+        .quiz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .options {
+            margin-top: 15px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .id-ego-superego {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .psychological-component {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .psychological-component:hover {
+            transform: translateY(-5px);
+        }
+
+        .id-component {
+            border-top: 5px solid #e74c3c;
+        }
+
+        .ego-component {
+            border-top: 5px solid #3498db;
+        }
+
+        .superego-component {
+            border-top: 5px solid #9b59b6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .theory-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-container {
+                flex-wrap: wrap;
+            }
+            
+            .id-ego-superego {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Các Trường Phái Tâm Lý Học Nhân Cách</h1>
+            <p>Tổng hợp lý thuyết và kiểm tra kiến thức qua case study</p>
+        </div>
+
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('overview')">📚 Tổng Quan</button>
+            <button class="tab" onclick="showTab('theories')">🎯 Các Lý Thuyết</button>
+            <button class="tab" onclick="showTab('quiz')">❓ Quiz Case Study</button>
+            <button class="tab" onclick="showTab('results')">📊 Kết Quả</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="content">
+            <h2>🎯 Các Trường Phái Chính</h2>
+            
+            <div class="chart-container">
+                <h3>📈 Biểu Đồ Tương Quan Các Lý Thuyết</h3>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 20px 0;">
+                    <div style="background: linear-gradient(45deg, #FF6B6B, #4ECDC4); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h4>Phân Tâm Học</h4>
+                        <p>Freud, Jung</p>
+                        <p>🔍 Vô thức</p>
+                    </div>
+                    <div style="background: linear-gradient(45deg, #45B7D1, #96CEB4); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h4>Học Tập</h4>
+                        <p>Pavlov, Skinner, Bandura</p>
+                        <p>🎯 Hành vi</p>
+                    </div>
+                    <div style="background: linear-gradient(45deg, #F7B32B, #FD79A8); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h4>Nhân Văn</h4>
+                        <p>Maslow, Rogers</p>
+                        <p>🌟 Tự hiện thực</p>
+                    </div>
+                    <div style="background: linear-gradient(45deg, #A8E6CF, #74B9FF); color: white; padding: 20px; border-radius: 15px; text-align: center;">
+                        <h4>Cá Nhân</h4>
+                        <p>Adler</p>
+                        <p>🎪 Xã hội</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>🏗️ Cấu Trúc Nhân Cách theo Freud</h3>
+                <div class="id-ego-superego">
+                    <div class="psychological-component id-component">
+                        <h4>ID (Cái Ấy)</h4>
+                        <p>🔥 Bản năng</p>
+                        <p>💨 Nguyên tắc khoái lạc</p>
+                        <p>🌙 Vô thức hoàn toàn</p>
+                    </div>
+                    <div class="psychological-component ego-component">
+                        <h4>EGO (Cái Tôi)</h4>
+                        <p>⚖️ Thực tế</p>
+                        <p>🧭 Cân bằng ID & Superego</p>
+                        <p>☀️ Ý thức</p>
+                    </div>
+                    <div class="psychological-component superego-component">
+                        <h4>SUPEREGO (Cái Siêu Tôi)</h4>
+                        <p>👼 Đạo đức</p>
+                        <p>📏 Lý tưởng & lương tâm</p>
+                        <p>🌅 Tiền ý thức & ý thức</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theories Tab -->
+        <div id="theories" class="content hidden">
+            <h2>📖 Chi Tiết Các Lý Thuyết</h2>
+            
+            <div class="theory-grid">
+                <div class="theory-card">
+                    <h3>🧐 Phân Tâm Học (Freud)</h3>
+                    <ul>
+                        <li><strong>Cấu trúc:</strong> Id, Ego, Superego</li>
+                        <li><strong>Cơ chế phòng vệ:</strong> Dồn nén, phóng chiếu, chuyển di</li>
+                        <li><strong>Phát triển:</strong> Các giai đoạn tâm-tính dục</li>
+                        <li><strong>Libido:</strong> Năng lượng tâm trí</li>
+                        <li><strong>Ứng dụng:</strong> Phân tích giấc mơ, liệu pháp tâm lý</li>
+                    </ul>
+                </div>
+
+                <div class="theory-card">
+                    <h3>🎯 Tâm Lý Học Cá Nhân (Adler)</h3>
+                    <ul>
+                        <li><strong>Phấn đấu:</strong> Vượt trội hay thành công</li>
+                        <li><strong>Mối quan tâm xã hội:</strong> Cảm thức cộng đồng</li>
+                        <li><strong>Phong cách sống:</strong> Cách tiếp cận cuộc sống</li>
+                        <li><strong>Thứ tự sinh:</strong> Ảnh hưởng trong gia đình</li>
+                        <li><strong>Ứng dụng:</strong> Tư vấn, trị liệu gia đình</li>
+                    </ul>
+                </div>
+
+                <div class="theory-card">
+                    <h3>🌟 Nhân Văn (Maslow)</h3>
+                    <div class="hierarchy-pyramid">
+                        <div class="pyramid-level level-5">Tự Hiện Thực Hóa</div>
+                        <div class="pyramid-level level-4">Tự Trọng</div>
+                        <div class="pyramid-level level-3">Tình Yêu & Thuộc Về</div>
+                        <div class="pyramid-level level-2">An Toàn</div>
+                        <div class="pyramid-level level-1">Sinh Lý</div>
+                    </div>
+                </div>
+
+                <div class="theory-card">
+                    <h3>🔄 Các Thuyết Học Tập</h3>
+                    <ul>
+                        <li><strong>Điều kiện hóa cổ điển (Pavlov):</strong> Kích thích - phản ứng</li>
+                        <li><strong>Điều kiện hóa thao tác (Skinner):</strong> Củng cố và hình phạt</li>
+                        <li><strong>Học tập xã hội (Bandura):</strong> Quan sát và bắt chước</li>
+                        <li><strong>Quan điểm:</strong> Nhân cách = tổ hợp hành vi</li>
+                        <li><strong>Ứng dụng:</strong> Thay đổi hành vi, giáo dục</li>
+                    </ul>
+                </div>
+
+                <div class="theory-card">
+                    <h3>🧩 Lý Thuyết Đặc Nét</h3>
+                    <ul>
+                        <li><strong>Big Five:</strong> Cởi mở, Tận tâm, Hướng ngoại, Dễ chịu, Kiểm soát cảm xúc</li>
+                        <li><strong>Ổn định:</strong> Các đặc nét tương đối cố định</li>
+                        <li><strong>Đo lường:</strong> Thang đánh giá tâm lý</li>
+                        <li><strong>Dự đoán:</strong> Hành vi trong các tình huống</li>
+                        <li><strong>Ứng dụng:</strong> Tuyển dụng, phát triển cá nhân</li>
+                    </ul>
+                </div>
+
+                <div class="theory-card">
+                    <h3>🤔 Hiện Sinh & Nhận Thức</h3>
+                    <ul>
+                        <li><strong>Hiện sinh:</strong> Ý nghĩa, tự do lựa chọn, trách nhiệm</li>
+                        <li><strong>Nhận thức:</strong> Suy nghĩ ảnh hưởng cảm xúc và hành vi</li>
+                        <li><strong>Tập trung:</strong> Hiện tại và tương lai</li>
+                        <li><strong>Mục tiêu:</strong> Tự chủ và tăng trưởng</li>
+                        <li><strong>Ứng dụng:</strong> Liệu pháp nhận thức-hành vi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Tab -->
+        <div id="quiz" class="content hidden">
+            <h2>❓ Quiz Case Study - 20 Câu Hỏi</h2>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="quiz-container">
+                <div id="questionContainer">
+                    <!-- Questions will be dynamically loaded here -->
+                </div>
+                
+                <div class="quiz-nav">
+                    <button class="btn btn-primary" id="prevBtn" onclick="previousQuestion()" disabled>⬅️ Câu Trước</button>
+                    <span id="questionNumber">Câu 1/20</span>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Câu Tiếp ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Tab -->
+        <div id="results" class="content hidden">
+            <h2>📊 Kết Quả Quiz</h2>
+            <div id="resultsContainer">
+                <p>Vui lòng hoàn thành quiz để xem kết quả!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz questions based on case studies from PDFs
+        const questions = [
+            {
+                id: 1,
+                question: "Theo case study về Minh (30 tuổi, sợ thất bại, ngượng ngùng), điều gì thể hiện rõ nhất 'phong cách sống' theo Adler?",
+                case: "Minh luôn trốn tránh vấn đề, sợ thất bại, làm việc quá sức. Hồi ức: mẹ bế em trai thay vì Minh khi trời mưa.",
+                options: [
+                    "Luôn làm việc quá sức ngày đêm",
+                    "Tránh giao tiếp xã hội và im lặng khi có người khác",
+                    "Nghi ngờ người yêu và không cho phép tình cảm tiến triển", 
+                    "Giấc mơ về việc tổ chức tiệc và bị từ chối"
+                ],
+                correct: 1,
+                explanation: "Theo Adler, phong cách sống thể hiện qua cách cá nhân đối phó với các vấn đề. Việc tránh giao tiếp xã hội cho thấy Minh đã phát triển một phong cách sống né tránh để bảo vệ bản thân."
+            },
+            {
+                id: 2,
+                question: "Trong lý thuyết Freud, cơ chế phòng vệ nào được thể hiện khi một người nói 'anh ta muốn làm trung tâm vũ trụ' về đồng nghiệp tự tin?",
+                case: "A sâu trong lòng muốn được chú ý nhưng luôn tránh né, sợ thành spotlight. Khi thấy đồng nghiệp tự tin, A nói: 'anh ta muốn làm trung tâm vũ trụ'.",
+                options: [
+                    "Dồn nén (Repression)",
+                    "Phóng chiếu (Projection)",
+                    "Chuyển di (Displacement)",
+                    "Thăng hoa (Sublimation)"
+                ],
+                correct: 1,
+                explanation: "Phóng chiếu là việc gán những xung năng không chấp nhận được của bản thân cho người khác. A phóng chiếu mong muốn được chú ý của mình lên đồng nghiệp."
+            },
+            {
+                id: 3,
+                question: "Theo thang bậc nhu cầu Maslow, một người lo lắng về việc mất việc làm đang bị cản trở ở cấp độ nào?",
+                case: "Lan có việc làm ổn định nhưng liên tục lo lắng về khả năng bị sa thải, điều này ảnh hưởng đến khả năng xây dựng mối quan hệ và phát triển bản thân.",
+                options: [
+                    "Nhu cầu sinh lý",
+                    "Nhu cầu an toàn", 
+                    "Nhu cầu tình yêu và thuộc về",
+                    "Nhu cầu tự trọng"
+                ],
+                correct: 1,
+                explanation: "Nhu cầu an toàn bao gồm an toàn công việc và tài chính. Khi bị cản trở ở cấp này, người ta khó tiến lên các nhu cầu cao hơn như tình yêu thuộc về."
+            },
+            {
+                id: 4,
+                question: "Trong điều kiện hóa cổ điển của Pavlov, nếu tiếng chuông (CS) được rung trước khi cho thức ăn (UCS) nhiều lần, chó sẽ tiết nước dãi khi nghe chuông. Đây là ví dụ về:",
+                case: "Thí nghiệm: Chuông rung → Cho thức ăn → Chó tiết nước dãi. Sau nhiều lần, chỉ cần chuông rung, chó đã tiết nước dãi.",
+                options: [
+                    "Sự thu nhận (Acquisition)",
+                    "Sự dập tắt (Extinction)", 
+                    "Khôi phục tự phát",
+                    "Khái quát hóa kích thích"
+                ],
+                correct: 0,
+                explanation: "Sự thu nhận là giai đoạn học tập ban đầu trong điều kiện hóa cổ điển, khi mối liên hệ giữa kích thích trung tính và kích thích không điều kiện được hình thành."
+            },
+            {
+                id: 5,
+                question: "Theo học thuyết học tập xã hội của Bandura, yếu tố nào quan trọng nhất trong việc trẻ em học hành vi bạo lực?",
+                case: "Trẻ em xem video game bạo lực và sau đó bắt chước những hành vi tương tự trong cuộc sống thực.",
+                options: [
+                    "Trẻ được thưởng khi bạo lực",
+                    "Trẻ quan sát và bắt chước mô hình",
+                    "Trẻ bị phạt khi không bạo lực",
+                    "Trẻ có gen bạo lực"
+                ],
+                correct: 1,
+                explanation: "Học tập xã hội nhấn mạnh vai trò của quan sát và bắt chước. Trẻ em học hành vi thông qua việc quan sát các mô hình (model) trong môi trường."
+            },
+            {
+                id: 6,
+                question: "Trong cấu trúc nhân cách của Freud, thành phần nào hoạt động theo 'nguyên tắc khoái lạc'?",
+                case: "Một người luôn muốn thỏa mãn ngay lập tức các ham muốn mà không quan tâm đến hậu quả hay đạo đức.",
+                options: [
+                    "Id (Cái Ấy)",
+                    "Ego (Cái Tôi)",
+                    "Superego (Cái Siêu Tôi)",
+                    "Preconscious (Tiền ý thức)"
+                ],
+                correct: 0,
+                explanation: "Id hoạt động theo nguyên tắc khoái lạc (pleasure principle), tìm cách thỏa mãn ngay lập tức các nhu cầu và ham muốn mà không quan tâm đến thực tế hay đạo đức."
+            },
+            {
+                id: 7,
+                question: "Theo Adler, 'cảm thức cộng đồng' (social interest) thể hiện qua đặc điểm nào?",
+                case: "Nam luôn tham gia các hoạt động từ thiện, quan tâm đến lợi ích chung của cộng đồng hơn là lợi ích cá nhân.",
+                options: [
+                    "Phấn đấu để vượt trội cá nhân",
+                    "Quan tâm đến phúc lợi của người khác và cộng đồng",
+                    "Tránh né các mối quan hệ xã hội",
+                    "Tập trung vào thành công cá nhân"
+                ],
+                correct: 1,
+                explanation: "Cảm thức cộng đồng theo Adler là khả năng quan tâm đến phúc lợi của người khác và toàn thể cộng đồng, thể hiện sự trưởng thành về mặt tâm lý."
+            },
+            {
+                id: 8,
+                question: "Cơ chế phòng vệ 'dồn nén' (repression) trong case nào dưới đây?",
+                case: "Sau tai nạn nghiêm trọng, Hoa hoàn toàn không nhớ gì về sự kiện đó dù bác sĩ xác nhận não bộ không bị tổn thương.",
+                options: [
+                    "Hoa cố tình không muốn nhớ lại",
+                    "Hoa vô thức đẩy ký ức đau khổ xuống tầng vô thức",
+                    "Hoa bị mất trí nhớ do chấn thương não",
+                    "Hoa đang nói dối về việc không nhớ"
+                ],
+                correct: 1,
+                explanation: "Dồn nén là cơ chế vô thức đẩy những ký ức, suy nghĩ đau khổ xuống tầng vô thức để bảo vệ ego khỏi sự lo âu."
+            },
+            {
+                id: 9,
+                question: "Trong điều kiện hóa thao tác của Skinner, việc tăng tần suất hành vi bằng cách loại bỏ kích thích khó chịu được gọi là:",
+                case: "Mỗi khi con làm bài tập xong, mẹ sẽ không la mắng con nữa. Kết quả: con làm bài tập nhiều hơn.",
+                options: [
+                    "Củng cố tích cực",
+                    "Củng cố tiêu cực", 
+                    "Hình phạt tích cực",
+                    "Hình phạt tiêu cực"
+                ],
+                correct: 1,
+                explanation: "Củng cố tiêu cực là việc loại bỏ kích thích khó chịu (việc la mắng) để tăng tần suất hành vi mong muốn (làm bài tập)."
+            },
+            {
+                id: 10,
+                question: "Theo Maslow, đặc điểm nào thể hiện người đạt đến mức 'tự hiện thực hóa'?",
+                case: "Dr. An là bác sĩ thành đạt, có gia đình hạnh phúc, và vẫn không ngừng học hỏi để phát triển bản thân, cống hiến cho xã hội.",
+                options: [
+                    "Có nhiều tiền và danh tiếng",
+                    "Thỏa mãn đầy đủ các nhu cầu cơ bản",
+                    "Phát triển tối đa tiềm năng và cống hiến ý nghĩa",
+                    "Được mọi người yêu quý và tôn trọng"
+                ],
+                correct: 2,
+                explanation: "Tự hiện thực hóa là việc phát triển tối đa tiềm năng bản thân và tìm thấy ý nghĩa trong cuộc sống, thường thông qua việc cống hiến cho điều gì đó lớn hơn bản thân."
+            },
+            {
+                id: 11,
+                question: "Cơ chế phòng vệ 'chuyển di' (displacement) được thể hiện trong tình huống nào?",
+                case: "Sau khi bị sếp mắng ở công ty, Tuấn về nhà và la hét với vợ con dù họ không làm gì sai.",
+                options: [
+                    "Tuấn dồn nén cảm xúc không thể hiện ra",
+                    "Tuấn chuyển hướng cảm xúc từ sếp sang gia đình",
+                    "Tuấn phóng chiếu cảm xúc lên người khác",
+                    "Tuấn thăng hoa cảm xúc tiêu cực thành tích cực"
+                ],
+                correct: 1,
+                explanation: "Chuyển di là việc chuyển hướng cảm xúc từ đối tượng gây ra (sếp) sang đối tượng an toàn hơn (gia đình) do không thể đối đầu trực tiếp."
+            },
+            {
+                id: 12,
+                question: "Theo lý thuyết Big Five, người có điểm số cao ở 'Openness to Experience' thường có đặc điểm:",
+                case: "Mai luôn tò mò về những ý tưởng mới, thích khám phá văn hóa khác biệt và sáng tạo trong công việc.",
+                options: [
+                    "Thích sự ổn định và quen thuộc",
+                    "Cởi mở với trải nghiệm mới và sáng tạo",
+                    "Tập trung vào thực tế và cụ thể",
+                    "Thận trọng với những thay đổi"
+                ],
+                correct: 1,
+                explanation: "Openness to Experience (Cởi mở với trải nghiệm) đặc trưng bởi sự tò mò, sáng tạo, và sẵn sàng khám phá những ý tưởng và trải nghiệm mới."
+            },
+            {
+                id: 13,
+                question: "Trong case study về Minh, giấc mơ 'tổ chức tiệc nhưng không ai thích' phản ánh điều gì theo tâm lý học cá nhân?",
+                case: "Minh mơ thấy tổ chức tiệc, mọi người không thích và anh cười lớn nói 'không ai thích ở bên tôi'.",
+                options: [
+                    "Mong muốn được chấp nhận nhưng sợ bị từ chối",
+                    "Muốn trở thành trung tâm chú ý",
+                    "Ghét việc tổ chức các hoạt động xã hội",
+                    "Không quan tâm đến ý kiến người khác"
+                ],
+                correct: 0,
+                explanation: "Giấc mơ phản ánh mâu thuẫn nội tâm: mong muốn được kết nối xã hội nhưng sợ bị từ chối, thể hiện phong cách sống né tránh của Minh."
+            },
+            {
+                id: 14,
+                question: "Theo Freud, giai đoạn nào trong phát triển tâm-tính dục mà trẻ tập trung libido vào việc học tập và phát triển kỹ năng?",
+                case: "Bé Hạnh 8 tuổi không còn quan tâm nhiều đến các vấn đề tình dục mà tập trung vào học tập, thể thao và kết bạn.",
+                options: [
+                    "Giai đoạn miệng (Oral)",
+                    "Giai đoạn hậu môn (Anal)", 
+                    "Giai đoạn tiềm ẩn (Latency)",
+                    "Giai đoạn sinh dục (Genital)"
+                ],
+                correct: 2,
+                explanation: "Giai đoạn tiềm ẩn (6-12 tuổi) là lúc libido được đầu tư vào việc phát triển kỹ năng, học tập thông qua cơ chế thăng hoa."
+            },
+            {
+                id: 15,
+                question: "Hành vi học tập quan sát trong thí nghiệm búp bê Bobo của Bandura chứng minh điều gì?",
+                case: "Trẻ em xem người lớn đánh búp bê Bobo hung hãn, sau đó trẻ cũng đánh búp bê một cách tương tự khi được cho chơi.",
+                options: [
+                    "Trẻ em có bản năng bạo lực tự nhiên",
+                    "Trẻ em học hành vi thông qua quan sát và bắt chước",
+                    "Trẻ em chỉ học khi được thưởng phạt",
+                    "Hành vi bạo lực là do di truyền"
+                ],
+                correct: 1,
+                explanation: "Thí nghiệm chứng minh rằng trẻ em có thể học hành vi mới chỉ thông qua quan sát, không cần trải qua trực tiếp việc thưởng phạt."
+            },
+            {
+                id: 16,
+                question: "Theo quan điểm của thuyết học tập về nhân cách, điều gì là quan trọng nhất?",
+                case: "Hạnh từ nhỏ sống trong gia đình nghiêm khắc, được khen khi ngoan và bị phạt khi nghịch ngợm. Bây giờ cô ấy rất tuân thủ quy tắc.",
+                options: [
+                    "Gen di truyền quyết định tính cách",
+                    "Kinh nghiệm học tập và môi trường định hình hành vi",
+                    "Ý thức và vô thức chi phối nhân cách",
+                    "Bản năng tự nhiên của con người"
+                ],
+                correct: 1,
+                explanation: "Thuyết học tập cho rằng nhân cách được hình thành thông qua các trải nghiệm học tập và tương tác với môi trường, đặc biệt qua thưởng phạt."
+            },
+            {
+                id: 17,
+                question: "Superego trong lý thuyết Freud có chức năng chính là gì?",
+                case: "Khi muốn làm điều gì đó, Lan luôn nghĩ 'Điều này có đúng không? Mẹ sẽ nghĩ gì?' và cảm thấy tội lỗi nếu vi phạm nguyên tắc đạo đức.",
+                options: [
+                    "Thỏa mãn các ham muốn tức thì",
+                    "Đại diện cho các tiêu chuẩn đạo đức và lý tưởng",
+                    "Cân bằng giữa thực tế và ham muốn",
+                    "Lưu trữ ký ức vô thức"
+                ],
+                correct: 1,
+                explanation: "Superego đại diện cho lương tâm và ego lý tưởng, chứa các tiêu chuẩn đạo đức được nội hóa từ cha mẹ và xã hội."
+            },
+            {
+                id: 18,
+                question: "Trong trường hợp Minh (case study Adler), yếu tố nào từ tuổi thơ có thể giải thích hành vi hiện tại?",
+                case: "Minh là con cả, khi 3 tuổi có em trai. Ký ức: mẹ bế Minh lên khi mưa nhưng nhớ ra em trai nên đặt Minh xuống để bế em.",
+                options: [
+                    "Trauma tâm lý do tai nạn",
+                    "Cảm giác bị mất đi vị trí đặc biệt và sự chú ý",
+                    "Rối loạn di truyền về lo âu",
+                    "Thiếu giáo dục từ gia đình"
+                ],
+                correct: 1,
+                explanation: "Theo Adler, vị trí trong gia đình và trải nghiệm bị 'truất ngôi' khi có em trai có thể tạo ra cảm giác tự ti và ảnh hưởng đến phong cách sống."
+            },
+            {
+                id: 19,
+                question: "Cơ chế phòng vệ 'thăng hoa' (sublimation) được thể hiện khi:",
+                case: "Hoàng có xu hướng bạo lực từ nhỏ nhưng đã trở thành võ sĩ chuyên nghiệp thành công và được tôn trọng.",
+                options: [
+                    "Chuyển năng lượng tiêu cực thành hoạt động tích cực được xã hội chấp nhận",
+                    "Dồn nén hoàn toàn các xung động bạo lực",
+                    "Phóng chiếu xu hướng bạo lực lên người khác",
+                    "Chối bỏ việc từng có xu hướng bạo lực"
+                ],
+                correct: 0,
+                explanation: "Thăng hoa là việc chuyển hóa năng lượng từ các xung động không được chấp nhận thành các hoạt động tích cực và có giá trị xã hội."
+            },
+            {
+                id: 20,
+                question: "Theo lý thuyết hiện sinh, yếu tố nào quan trọng nhất trong phát triển nhân cách?",
+                case: "Sau khi trải qua khủng hoảng cuộc sống, Phương quyết định theo đuổi ước mơ trở thành giáo viên dù lương thấp vì cô cảm thấy đó là ý nghĩa cuộc đời mình.",
+                options: [
+                    "Các trải nghiệm vô thức từ tuổi thơ",
+                    "Sự lựa chọn tự do và tìm kiếm ý nghĩa",
+                    "Điều kiện hóa từ môi trường",
+                    "Các nhu cầu sinh học cơ bản"
+                ],
+                correct: 1,
+                explanation: "Lý thuyết hiện sinh nhấn mạnh tự do lựa chọn, trách nhiệm cá nhân và việc tìm kiếm ý nghĩa trong cuộc sống là những yếu tố quan trọng nhất."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizCompleted = false;
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.remove('hidden');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Initialize quiz if quiz tab is selected
+            if (tabName === 'quiz' && currentQuestion === 0) {
+                initQuiz();
+            }
+        }
+
+        function initQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizCompleted = false;
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            if (currentQuestion >= questions.length) {
+                completeQuiz();
+                return;
+            }
+
+            const question = questions[currentQuestion];
+            const container = document.getElementById('questionContainer');
+            
+            container.innerHTML = `
+                <div class="question">
+                    <h3>Câu ${currentQuestion + 1}: ${question.question}</h3>
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #2196f3;">
+                        <strong>📖 Case Study:</strong><br>
+                        ${question.case}
+                    </div>
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option" onclick="selectOption(${index})" data-index="${index}">
+                                ${String.fromCharCode(65 + index)}. ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Update progress
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('questionNumber').textContent = `Câu ${currentQuestion + 1}/${questions.length}`;
+            
+            // Update buttons
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').textContent = currentQuestion === questions.length - 1 ? 'Hoàn Thành 🎯' : 'Câu Tiếp ➡️';
+        }
+
+        function selectOption(optionIndex) {
+            // Remove previous selections
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Select current option
+            const selectedOption = document.querySelector(`[data-index="${optionIndex}"]`);
+            selectedOption.classList.add('selected');
+            
+            // Store answer
+            userAnswers[currentQuestion] = optionIndex;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            } else {
+                completeQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+
+        function completeQuiz() {
+            quizCompleted = true;
+            calculateResults();
+            showTab('results');
+            
+            // Update tab to show results
+            document.querySelector('.tab:last-child').click();
+        }
+
+        function calculateResults() {
+            let correct = 0;
+            let results = [];
+
+            questions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correct;
+                if (isCorrect) correct++;
+                
+                results.push({
+                    question: question.question,
+                    userAnswer: userAnswer !== undefined ? question.options[userAnswer] : 'Không trả lời',
+                    correctAnswer: question.options[question.correct],
+                    isCorrect: isCorrect,
+                    explanation: question.explanation
+                });
+            });
+
+            const percentage = Math.round((correct / questions.length) * 100);
+            let performance = '';
+            let color = '';
+            
+            if (percentage >= 90) {
+                performance = 'Xuất sắc! 🌟';
+                color = '#4CAF50';
+            } else if (percentage >= 80) {
+                performance = 'Rất tốt! 👏';
+                color = '#2196F3';
+            } else if (percentage >= 70) {
+                performance = 'Tốt! 👍';
+                color = '#FF9800';
+            } else if (percentage >= 60) {
+                performance = 'Khá! 📚';
+                color = '#FFC107';
+            } else {
+                performance = 'Cần cố gắng thêm! 💪';
+                color = '#F44336';
+            }
+
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = `
+                <div class="score-card" style="background: ${color};">
+                    <h2>${performance}</h2>
+                    <div style="font-size: 3em; margin: 20px 0;">${correct}/${questions.length}</div>
+                    <div style="font-size: 1.5em;">${percentage}% chính xác</div>
+                </div>
+                
+                <div style="background: white; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h3>📊 Phân Tích Chi Tiết</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                        <div style="text-align: center; padding: 20px; background: #f0f8ff; border-radius: 10px;">
+                            <div style="font-size: 2em; color: #4CAF50;">✅</div>
+                            <div><strong>Đúng:</strong> ${correct} câu</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: #fff0f0; border-radius: 10px;">
+                            <div style="font-size: 2em; color: #F44336;">❌</div>
+                            <div><strong>Sai:</strong> ${questions.length - correct} câu</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: #f8f8f8; border-radius: 10px;">
+                            <div style="font-size: 2em; color: #2196F3;">📈</div>
+                            <div><strong>Tỷ lệ:</strong> ${percentage}%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 15px; padding: 20px; margin: 20px 0;">
+                    <h3>📋 Chi Tiết Từng Câu</h3>
+                    ${results.map((result, index) => `
+                        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin: 10px 0; ${result.isCorrect ? 'border-left: 4px solid #4CAF50; background: #f1f8e9;' : 'border-left: 4px solid #F44336; background: #fef7f7;'}">
+                            <div style="font-weight: bold; margin-bottom: 10px;">
+                                ${result.isCorrect ? '✅' : '❌'} Câu ${index + 1}: ${result.question}
+                            </div>
+                            <div style="margin: 8px 0;">
+                                <strong>Bạn chọn:</strong> <span style="color: ${result.isCorrect ? '#4CAF50' : '#F44336'};">${result.userAnswer}</span>
+                            </div>
+                            ${!result.isCorrect ? `
+                                <div style="margin: 8px 0;">
+                                    <strong>Đáp án đúng:</strong> <span style="color: #4CAF50;">${result.correctAnswer}</span>
+                                </div>
+                            ` : ''}
+                            <div style="margin: 10px 0; padding: 10px; background: #f9f9f9; border-radius: 5px; font-style: italic;">
+                                <strong>💡 Giải thích:</strong> ${result.explanation}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <button class="btn btn-primary" onclick="restartQuiz()" style="padding: 15px 30px; font-size: 1.1em;">
+                        🔄 Làm Lại Quiz
+                    </button>
+                </div>
+            `;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizCompleted = false;
+            showTab('quiz');
+            // Reset quiz tab to active
+            document.querySelectorAll('.tab')[2].click();
+            initQuiz();
+        }
+
+        // Initialize the app
+        window.onload = function() {
+            showTab('overview');
+        };
+    </script>
+</body>
+</html>
