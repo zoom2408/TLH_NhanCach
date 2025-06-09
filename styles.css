@@ -19,12 +19,13 @@
     .sidebar {
       width: 280px;
       padding: 20px;
-      background: #00416A;
+      background: #0575E6;
       /* fallback for old browsers */
-      background: -webkit-linear-gradient(to bottom, #FFE000, #799F0C, #00416A);
+      background: -webkit-linear-gradient(to bottom, #021B79, #0575E6);
       /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to bottom, #FFE000, #799F0C, #00416A);
+      background: linear-gradient(to bottom, #021B79, #0575E6);
       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
       color: #1f1f1f;
       height: 100vh;
       overflow-y: auto;
