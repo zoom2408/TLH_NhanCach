@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tâm lý học nhân cách - Buổi 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .lesson-header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson-header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson-header p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .objectives {
+            background: linear-gradient(135deg, #ff7e79 0%, #ff6b6b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 10px 0;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .tab {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 25px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+            min-width: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .tab.completed {
+            border-color: #00b894;
+        }
+
+        .tab.completed::after {
+            content: "✓";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #00b894;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content Sections */
+        .content-area {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .interactive-quiz {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .question {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #fff;
+        }
+
+        .question h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .reflection-area {
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            min-height: 100px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .reflection-input {
+            width: 100%;
+            min-height: 80px;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: #333;
+            resize: vertical;
+            outline: none;
+        }
+
+        .theory-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .theory-card {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .theory-card:hover {
+            transform: scale(1.05);
+        }
+
+        .activity-section {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .timer {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #00b894, #00a085);
+            height: 100%;
+            border-radius: 25px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 5px solid #fff;
+        }
+
+        .homework-section {
+            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .personality-position {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+        }
+
+        .quiz-option.selected {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .tab-container {
+                flex-direction: column;
+            }
+            
+            .tab {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .theory-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .lesson-header h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* Navigation buttons in content */
+        .content-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-info {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="lesson-header">
+            <h1>🧠 Tâm lý học nhân cách</h1>
+            <p><strong>Buổi 1:</strong> Giới thiệu về nhân cách và học thuyết nhân cách</p>
+            <p>Giảng viên: ThS. Lê Thị Hương Giang</p>
+            
+            <div class="objectives">
+                <h3>🎯 Mục tiêu bài học</h3>
+                <ul style="text-align: left; margin: 15px 0; padding-left: 20px;">
+                    <li>Cung cấp kiến thức cơ bản về nhân cách và các học thuyết chính</li>
+                    <li>Giải thích các đặc điểm chính trong nhân cách con người</li>
+                    <li>Phân tích đặc điểm nhân cách bản thân và người khác</li>
+                    <li>Nhận biết và suy tư về "học thuyết" của bản thân về con người</li>
+                </ul>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <div class="tab-container">
+                <div class="tab active" onclick="switchTab(1)" id="tab1">
+                    <div>📍 Giới thiệu</div>
+                    <small>Vị trí TLH nhân cách</small>
+                </div>
+                <div class="tab" onclick="switchTab(2)" id="tab2">
+                    <div>💡 Định nghĩa</div>
+                    <small>Khái niệm nhân cách</small>
+                </div>
+                <div class="tab" onclick="switchTab(3)" id="tab3">
+                    <div>🎭 Học thuyết</div>
+                    <small>Các nhóm lý thuyết</small>
+                </div>
+                <div class="tab" onclick="switchTab(4)" id="tab4">
+                    <div>🤔 Suy nghiệm</div>
+                    <small>Hoạt động cá nhân</small>
+                </div>
+                <div class="tab" onclick="switchTab(5)" id="tab5">
+                    <div>🎯 Kiểm tra</div>
+                    <small>Quiz kiến thức</small>
+                </div>
+                <div class="tab" onclick="switchTab(6)" id="tab6">
+                    <div>📝 Bài tập</div>
+                    <small>Về nhà</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Tab 1: Giới thiệu -->
+            <div class="tab-content active" id="content1">
+                <h2>📍 Vị trí của Tâm lý học nhân cách trong Tâm lý học</h2>
+                <div class="personality-position">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Tập trung vào một cá nhân toàn vẹn</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="background: rgba(102, 126, 234, 0.2); padding: 15px; border-radius: 10px; border: 2px solid #667eea;">
+                            <strong>TLH Nhân cách</strong><br>
+                            <small>Nghiên cứu cá nhân toàn diện</small>
+                        </div>
+                        <div style="background: rgba(102, 126, 234, 0.05); padding: 15px; border-radius: 10px;">TLH Xã hội</div>
+                        <div style="background: rgba(102, 126, 234, 0.05); padding: 15px; border-radius: 10px;">TLH Nhận thức</div>
+                        <div style="background: rgba(102, 126, 234, 0.05); padding: 15px; border-radius: 10px;">TLH Phát triển</div>
+                        <div style="background: rgba(102, 126, 234, 0.05); padding: 15px; border-radius: 10px;">TLH Giới tính</div>
+                        <div style="background: rgba(102, 126, 234, 0.05); padding: 15px; border-radius: 10px;">TLH Sinh lý học</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(102, 126, 234, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3>🔍 Các câu hỏi nghiên cứu chính:</h3>
+                    <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Điều gì khiến con người hành xử theo cách của họ?</li>
+                        <li>Họ có ý thức được những gì họ đang làm không?</li>
+                        <li>Hành vi của họ có bị ảnh hưởng bởi những động lực vô thức?</li>
+                        <li>Nhân cách phát triển như thế nào?</li>
+                        <li>Điều gì khiến một số người phát triển rối loạn tâm lý?</li>
+                    </ul>
+                </div>
+
+                <div class="content-navigation">
+                    <div class="nav-info">Phần 1/6</div>
+                    <button class="btn" onclick="switchTab(2)">Tiếp theo ➡️</button>
+                </div>
+            </div>
+
+            <!-- Tab 2: Định nghĩa -->
+            <div class="tab-content" id="content2">
+                <h2>💡 Khái niệm nhân cách (Personality)</h2>
+                
+                <div class="definition-box">
+                    <h3>📚 Định nghĩa từ điển:</h3>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Trạng thái là một con người</li>
+                        <li>Các đặc điểm và phẩm chất hình thành nên tính cách đặc biệt của một người</li>
+                        <li>Tổng tất cả các đặc điểm thể lý, tinh thần, tình cảm và xã hội của một người</li>
+                    </ul>
+                </div>
+
+                <div class="definition-box">
+                    <h3>🔬 Định nghĩa trong Tâm lý học:</h3>
+                    <p style="margin: 10px 0; font-size: 1.1em;"><strong>Nhân cách là một khuôn mẫu của những đặc nét (trait) tương đối cố định và những đặc điểm riêng biệt mang lại tính nhất quán và tính cá nhân cho hành vi của một người</strong></p>
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 15px 0;">
+                        <em>"Nhân cách là một khuôn mẫu đặc điểm về suy nghĩ, cảm xúc và hành vi, cùng với các cơ chế tâm lý đằng sau khuôn mẫu ấy của một cá nhân"</em>
+                        <br><strong>- Funder, 1997</strong>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <h3>🎯 Đặc điểm chính của nhân cách:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 15px 0;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                            <strong>Tính nhất quán</strong><br>
+                            <small>Ổn định qua thời gian</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                            <strong>Tính cá nhân</strong><br>
+                            <small>Độc đáo cho mỗi người</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                            <strong>Tính dự đoán</strong><br>
+                            <small>Có thể dự báo hành vi</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                            <strong>Tính tổng hợp</strong><br>
+                            <small>Bao gồm suy nghĩ, cảm xúc, hành vi</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-navigation">
+                    <button class="btn" onclick="switchTab(1)">⬅️ Trước</button>
+                    <div class="nav-info">Phần 2/6</div>
+                    <button class="btn" onclick="switchTab(3)">Tiếp theo ➡️</button>
+                </div>
+            </div>
+
+            <!-- Tab 3: Học thuyết -->
+            <div class="tab-content" id="content3">
+                <h2>🎭 Các nhóm học thuyết nhân cách</h2>
+                
+                <div class="theory-cards">
+                    <div class="theory-card" onclick="showTheoryDetail('psychoanalysis')">
+                        <h3>🔍 Tâm lý chiều sâu</h3>
+                        <p>Phân tâm học, tâm lý học phân tích</p>
+                        <small>Freud, Jung, Adler</small>
+                    </div>
+                    <div class="theory-card" onclick="showTheoryDetail('individual')">
+                        <h3>👤 Tâm lý học cá nhân</h3>
+                        <p>Alfred Adler</p>
+                        <small>Ý chí quyền lực, mặc cảm</small>
+                    </div>
+                    <div class="theory-card" onclick="showTheoryDetail('humanistic')">
+                        <h3>🌟 Nhân văn</h3>
+                        <p>Carl Rogers</p>
+                        <small>Tự hiện thực hóa</small>
+                    </div>
+                    <div class="theory-card" onclick="showTheoryDetail('existential')">
+                        <h3>🤔 Hiện sinh</h3>
+                        <p>Ý nghĩa cuộc sống</p>
+                        <small>Viktor Frankl</small>
+                    </div>
+                    <div class="theory-card" onclick="showTheoryDetail('learning')">
+                        <h3>📚 Học tập</h3>
+                        <p>Hành vi học tập</p>
+                        <small>Pavlov, Skinner</small>
+                    </div>
+                    <div class="theory-card" onclick="showTheoryDetail('cognitive')">
+                        <h3>🧮 Nhận thức</h3>
+                        <p>Quá trình tư duy</p>
+                        <small>Beck, Ellis</small>
+                    </div>
+                </div>
+
+                <div id="theoryDetails" class="hidden" style="margin-top: 20px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;">
+                    <div id="theoryContent"></div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
+                    <h3>⚡ Điều quan trọng về các học thuyết:</h3>
+                    <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Tất cả đều phản ánh quá trình sống, trải nghiệm tuổi thơ, triết lý sống của tác giả</li>
+                        <li>Không có học thuyết nào là toàn năng</li>
+                        <li>Nhiều học thuyết góp vào những mảnh ghép khác nhau để hiểu về nhân cách</li>
+                        <li>Mỗi học thuyết có điểm mạnh và hạn chế riêng</li>
+                    </ul>
+                </div>
+
+                <div class="content-navigation">
+                    <button class="btn" onclick="switchTab(2)">⬅️ Trước</button>
+                    <div class="nav-info">Phần 3/6</div>
+                    <button class="btn" onclick="switchTab(4)">Tiếp theo ➡️</button>
+                </div>
+            </div>
+
+            <!-- Tab 4: Suy nghiệm -->
+            <div class="tab-content" id="content4">
+                <div class="activity-section">
+                    <h2>🤔 Hoạt động suy nghiệm về quan điểm bản thân</h2>
+                    <p style="margin-bottom: 20px;"><strong>Hãy trả lời các câu hỏi sau về con người bằng cảm nhận và ngôn từ riêng của bạn:</strong></p>
+                    
+                    <div class="timer">⏰ Thời gian cá nhân: 5 phút</div>
+                    <div class="timer">👥 Thảo luận nhóm: 15 phút</div>
+
+                    <div class="question">
+                        <h4>1. Con người là gì? Họ tốt hay xấu?</h4>
+                        <p>Họ sinh ra vốn đã tốt hay xấu chưa? Họ có thể tự kiểm soát bản thân hay chịu sự kiểm soát bởi một cái gì khác từ bên ngoài? Điều gì là động cơ thúc đẩy họ?</p>
+                        <textarea class="reflection-input" placeholder="Viết suy nghĩ của bạn ở đây..." id="reflection1"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h4>2. Nam tính và nữ tính</h4>
+                        <p>Bạn giải thích như thế nào về nam tính và nữ tính? Những khác biệt giữa nam và nữ có phải là do sinh học? Do các yếu tố xã hội? Do sự khác biệt về chủng tộc, đạo đức hay là do học tập mà có?</p>
+                        <textarea class="reflection-input" placeholder="Viết suy nghĩ của bạn ở đây..." id="reflection2"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h4>3. Con người học tập như thế nào?</h4>
+                        <p>Có những phương thức học tập khác nhau hay không?</p>
+                        <textarea class="reflection-input" placeholder="Viết suy nghĩ của bạn ở đây..." id="reflection3"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h4>4. Nhân cách phát triển như thế nào?</h4>
+                        <p>Nhân cách được định hình sẵn hay là do học tập? Các loại nhân cách khác nhau có thể phân biệt được dựa trên những biểu lộ bằng hành vi không?</p>
+                        <textarea class="reflection-input" placeholder="Viết suy nghĩ của bạn ở đây..." id="reflection4"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h4>5. Con người có thể thay đổi được không?</h4>
+                        <p>Họ thay đổi như thế nào? Có tác nhân gì bên ngoài khiến họ thay đổi hay là sự thay đổi đã xuất phát từ bên trong con người?</p>
+                        <textarea class="reflection-input" placeholder="Viết suy nghĩ của bạn ở đây..." id="reflection5"></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h4>6. Thế nào là sự lệch lạc về mặt xã hội?</h4>
+                        <p>Ai là người quyết định một việc gì đó là lệch lạc hay không lệch lạc? Việc gì có thể làm hoặc nên làm đối với các lệch lạc ấy? Những hành vi nào (của bản thân và của người khác) mà bạn thấy có thể chấp nhận được và không thể chấp nhận được?</p>
+                        <textarea class="reflection-input" placeholder="Viết suy nghĩa của bạn ở đây..." id="reflection6"></textarea>
+                    </div>
+
+                    <button class="btn" onclick="completeReflection()">✅ Hoàn thành suy nghiệm</button>
+                </div>
+
+                <div class="content-navigation">
+                    <button class="btn" onclick="switchTab(3)">⬅️ Trước</button>
+                    <div class="nav-info">Phần 4/6</div>
+                    <button class="btn" onclick="switchTab(5)">Tiếp theo ➡️</button>
+                </div>
+            </div>
+
+            <!-- Tab 5: Quiz -->
+            <div class="tab-content" id="content5">
+                <div class="interactive-quiz">
+                    <h2>🎯 Kiểm tra kiến thức</h2>
+                    
+                    <div class="question">
+                        <h4>Câu 1: Nhân cách trong tâm lý học được định nghĩa là gì?</h4>
+                        <div class="quiz-option" onclick="selectOption(this, false, 0)">A. Chỉ là các đặc điểm thể chất của con người</div>
+                        <div class="quiz-option" onclick="selectOption(this, true, 0)">B. Khuôn mẫu đặc điểm về suy nghĩ, cảm xúc và hành vi cùng với các cơ chế tâm lý</div>
+                        <div class="quiz-option" onclick="selectOption(this, false, 0)">C. Chỉ là cách con người hành xử trong xã hội</div>
+                        <div class="quiz-option" onclick="selectOption(this, false, 0)">D. Tất cả các câu trên đều sai</div>
+                    </div>
+
+                    <div class="question">
+                        <h4>Câu 2: Tâm lý học nhân cách tập trung vào điều gì?</h4>
+                        <div class="quiz-option" onclick="selectOption(this, false, 1)">A. Chỉ nghiên cứu hành vi xã hội</div>
+                        <div class="quiz-option" onclick="selectOption(this, true, 1)">B. Một cá nhân toàn vẹn</div>
+                        <div class="quiz-option" onclick="selectOption(this, false, 1)">C. Chỉ nghiên cứu quá trình nhận thức</div>
+                        <div class="quiz-option" onclick="selectOption(this, false, 1)">D. Chỉ nghiên cứu sự phát triển</div>
+                    </div>
+
+                    <div class="question">
+                        <h4>Câu 3: Các học thuyết nhân cách phản ánh điều gì?</h4>
+                        <div class="quiz-option" onclick="selectOption(this, false, 2)">A. Chỉ phản ánh kiến thức khoa học</div>
+                        <div class="quiz-option" onclick="selectOption(this, true, 2)">B. Quá trình sống, trải nghiệm tuổi thơ, triết lý sống của tác giả</div>
+                        <div class="quiz-option" onclick="selectOption(this, false, 2)">C. Chỉ phản ánh văn hóa phương Tây</div>
+                        <div class="quiz-option" onclick="selectOption(this, false, 2)">D. Chỉ phản ánh quan điểm hiện đại</div>
+                    </div>
+
+                    <button class="btn" onclick="checkQuizAnswers()">📊 Kiểm tra đáp án</button>
+                    <div id="quizResults" class="hidden" style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;"></div>
+                </div>
+
+                <div class="content-navigation">
+                    <button class="btn" onclick="switchTab(4)">⬅️ Trước</button>
+                    <div class="nav-info">Phần 5/6</div>
+                    <button class="btn" onclick="switchTab(6)">Tiếp theo ➡️</button>
+                </div>
+            </div>
+
+            <!-- Tab 6: Bài tập về nhà -->
+            <div class="tab-content" id="content6">
+                <div class="homework-section">
+                    <h2>📝 Bài tập về nhà</h2>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <h3>📋 Nhiệm vụ cá nhân:</h3>
+                        <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.8;">
+                            <li>✍️ Hoàn thành các câu hỏi suy nghiệm về quan điểm bản thân về con người</li>
+                            <li>📖 Đọc bài viết "Lý thuyết của bản thân về hành vi con người"</li>
+                            <li>📚 Đọc bài cho buổi 2 - Phân tâm học cổ điển</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <h3>👥 Tiểu luận nhóm (5-6 người):</h3>
+                        <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.8;">
+                            <li>🎬 Chọn và phân tích nhân cách 1 nhân vật trong 1 tác phẩm điện ảnh/văn học</li>
+                            <li>📊 Sử dụng 1 học thuyết nhân cách làm chủ đạo</li>
+                            <li>🔍 Có thể dùng các lý thuyết tâm lý khác để mở rộng</li>
+                            <li>⭐ Lượng giá chéo các thành viên trong nhóm (theo mẫu)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <h3>💡 Gợi ý chọn nhân vật:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                                <strong>Điện ảnh</strong><br>
+                                <small>Joker, Forrest Gump, Hermione, Tony Stark...</small>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                                <strong>Văn học</strong><br>
+                                <small>Tấm, Thúy Kiều, Harry Potter, Elizabeth Bennet...</small>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                                <strong>Anime/Manga</strong><br>
+                                <small>Naruto, Light Yagami, Senku Ishigami...</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn" onclick="downloadHomeworkTemplate()">📥 Tải mẫu bài tập</button>
+                    <button class="btn" onclick="showGroupFormation()">👥 Hướng dẫn lập nhóm</button>
+                </div>
+
+                <div class="content-navigation">
+                    <button class="btn" onclick="switchTab(5)">⬅️ Trước</button>
+                    <div class="nav-info">Phần 6/6 - Hoàn thành!</div>
+                    <button class="btn" onclick="completeCourse()">🎉 Hoàn thành bài học</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 1;
+        let quizAnswers = [];
+        let completedTabs = [];
+
+        // Tab switching function
+        function switchTab(tabNumber) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content and tab
+            document.getElementById('content' + tabNumber).classList.add('active');
+            document.getElementById('tab' + tabNumber).classList.add('active');
+            
+            currentTab = tabNumber;
+            updateProgress();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function updateProgress() {
+            const progress = (currentTab / 6) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function markTabCompleted(tabNumber) {
+            if (!completedTabs.includes(tabNumber)) {
+                completedTabs.push(tabNumber);
+                document.getElementById('tab' + tabNumber).classList.add('completed');
+            }
+        }
+
+        function showTheoryDetail(theory) {
+            const theories = {
+                'psychoanalysis': {
+                    title: '🔍 Tâm lý chiều sâu (Phân tâm học)',
+                    content: 'Nghiên cứu các động lực vô thức chi phối hành vi con người. Freud là người tiên phong với lý thuyết về Id, Ego, Superego và các giai đoạn phát triển tâm lý tình dục. Jung phát triển thêm về vô thức tập thể và các nguyên mẫu.'
+                },
+                'individual': {
+                    title: '👤 Tâm lý học cá nhân (Alfred Adler)',
+                    content: 'Tập trung vào ý chí quyền lực, mặc cảm tự ti và phong cách sống cá nhân. Adler tin rằng con người được thúc đẩy bởi động lực xã hội và khát vọng vượt qua mặc cảm. Mỗi người có một phong cách sống độc đáo được hình thành từ tuổi thơ.'
+                },
+                'humanistic': {
+                    title: '🌟 Tâm lý học nhân văn (Carl Rogers)',
+                    content: 'Nhấn mạnh khả năng tự hiện thực hóa của con người. Rogers tin rằng con người vốn tốt đẹp và có xu hướng phát triển tích cực khi được tôn trọng và hiểu biết. Điều kiện tích cực vô điều kiện là nền tảng cho sự phát triển lành mạnh.'
+                },
+                'existential': {
+                    title: '🤔 Tâm lý học hiện sinh',
+                    content: 'Tập trung vào ý nghĩa cuộc sống, sự lựa chọn tự do và trách nhiệm cá nhân. Con người tự tạo ra ý nghĩa cho cuộc sống của mình. Viktor Frankl phát triển liệu pháp ý nghĩa (logotherapy) dựa trên nguyên lý này.'
+                },
+                'learning': {
+                    title: '📚 Các thuyết học tập',
+                    content: 'Nhân cách được hình thành qua quá trình học tập và củng cố. Con người là sản phẩm của môi trường và kinh nghiệm học tập. Bao gồm học tập cổ điển (Pavlov), học tập thao tác (Skinner), và học tập xã hội (Bandura).'
+                },
+                'cognitive': {
+                    title: '🧮 Tâm lý học nhận thức',
+                    content: 'Tập trung vào cách thức con người xử lý thông tin, suy nghĩ và ra quyết định. Nhân cách được hiểu qua các quá trình nhận thức như niềm tin, suy nghĩ tự động, và cách giải thích sự kiện.'
+                }
+            };
+
+            const theoryData = theories[theory];
+            if(theoryData) {
+                document.getElementById('theoryContent').innerHTML = `
+                    <h3>${theoryData.title}</h3>
+                    <p style="margin-top: 10px; font-size: 1.1em; line-height: 1.6;">${theoryData.content}</p>
+                `;
+                document.getElementById('theoryDetails').classList.remove('hidden');
+                
+                // Smooth scroll to theory details
+                document.getElementById('theoryDetails').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        function selectOption(element, isCorrect, questionIndex) {
+            // Remove previous selection in the same question
+            const siblings = element.parentNode.querySelectorAll('.quiz-option');
+            siblings.forEach(sibling => sibling.classList.remove('selected'));
+            
+            // Add selection to clicked option
+            element.classList.add('selected');
+            
+            // Store answer
+            quizAnswers[questionIndex] = isCorrect;
+        }
+
+        function checkQuizAnswers() {
+            let correctAnswers = 0;
+            let totalQuestions = 3;
+            
+            quizAnswers.forEach(answer => {
+                if(answer) correctAnswers++;
+            });
+
+            const percentage = totalQuestions > 0 ? (correctAnswers / totalQuestions * 100).toFixed(1) : 0;
+            let resultMessage = '';
+            
+            if(percentage >= 80) {
+                resultMessage = `🎉 Xuất sắc! Bạn đạt ${correctAnswers}/${totalQuestions} câu đúng (${percentage}%)`;
+            } else if(percentage >= 60) {
+                resultMessage = `👍 Khá tốt! Bạn đạt ${correctAnswers}/${totalQuestions} câu đúng (${percentage}%)`;
+            } else {
+                resultMessage = `📚 Cần ôn tập thêm! Bạn đạt ${correctAnswers}/${totalQuestions} câu đúng (${percentage}%)`;
+            }
+
+            document.getElementById('quizResults').innerHTML = resultMessage;
+            document.getElementById('quizResults').classList.remove('hidden');
+            
+            markTabCompleted(5);
+        }
+
+        function completeReflection() {
+            // Check if user filled at least some reflections
+            let filledReflections = 0;
+            for(let i = 1; i <= 6; i++) {
+                const reflection = document.getElementById('reflection' + i);
+                if(reflection && reflection.value.trim().length > 10) {
+                    filledReflections++;
+                }
+            }
+            
+            if(filledReflections >= 3) {
+                alert('🎉 Tuyệt vời! Bạn đã hoàn thành phần suy nghiệm. Hãy so sánh câu trả lời của mình với bạn bè trong nhóm để thấy sự khác biệt và giống nhau trong cách nhìn về con người.');
+                markTabCompleted(4);
+                switchTab(5);
+            } else {
+                alert('📝 Vui lòng hoàn thành ít nhất 3 câu hỏi suy nghiệm trước khi tiếp tục.');
+            }
+        }
+
+        function downloadHomeworkTemplate() {
+            alert('📥 Chức năng tải xuống mẫu bài tập sẽ được cung cấp bởi giảng viên. Vui lòng liên hệ ThS. Lê Thị Hương Giang để nhận mẫu bài tập chi tiết.');
+        }
+
+        function showGroupFormation() {
+            alert('👥 Hướng dẫn lập nhóm:\n\n1. Tạo nhóm 5-6 người\n2. Chọn một nhân vật thú vị\n3. Phân công nhiệm vụ:\n   - 1 người nghiên cứu lý thuyết chính\n   - 2-3 người phân tích nhân vật\n   - 1-2 người chuẩn bị thuyết trình\n4. Lên lịch họp nhóm định kỳ\n5. Chuẩn bị mẫu đánh giá chéo');
+        }
+
+        function completeCourse() {
+            markTabCompleted(6);
+            
+            const completedCount = completedTabs.length;
+            let message = `🎉 Chúc mừng! Bạn đã hoàn thành bài học về Tâm lý học nhân cách.\n\n`;
+            message += `📊 Tiến độ hoàn thành: ${completedCount}/6 phần\n\n`;
+            message += `🎯 Những điều cần nhớ:\n`;
+            message += `• Nhân cách là khuôn mẫu ổn định về suy nghĩ, cảm xúc và hành vi\n`;
+            message += `• Có nhiều góc nhìn khác nhau về nhân cách\n`;
+            message += `• Mỗi học thuyết đều có điểm mạnh riêng\n`;
+            message += `• Quan điểm cá nhân về con người rất quan trọng\n\n`;
+            message += `📝 Đừng quên làm bài tập về nhà và chuẩn bị cho buổi học tiếp theo!`;
+            
+            alert(message);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            markTabCompleted(1); // Mark first tab as completed when viewed
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'ArrowLeft' && currentTab > 1) {
+                switchTab(currentTab - 1);
+            } else if(e.key === 'ArrowRight' && currentTab < 6) {
+                switchTab(currentTab + 1);
+            }
+        });
+
+        // Auto-mark tabs as completed when visited
+        function switchTab(tabNumber) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content and tab
+            document.getElementById('content' + tabNumber).classList.add('active');
+            document.getElementById('tab' + tabNumber).classList.add('active');
+            
+            currentTab = tabNumber;
+            updateProgress();
+            
+            // Mark as completed when visited
+            markTabCompleted(tabNumber);
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

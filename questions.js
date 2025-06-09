@@ -1,884 +1,732 @@
 const allQuestions = [
-  //Câu hỏi trong Demo test
+  // Nhân cách (Personality) - Tâm lý học 
   {
-    q: "Một nhà nghiên cứu tiến hành một cuộc khảo sát để kiểm tra xem liệu một chương trình can thiệp tâm lý có làm giảm lo âu ở sinh viên hay không. Giả thuyết không (null hypothesis) được đặt ra là 'chương trình không có tác dụng'. Sau khi phân tích dữ liệu, nhà nghiên cứu thấy rằng nhóm sinh viên tham gia chương trình có mức độ lo âu thấp hơn so với nhóm không tham gia, và quyết định bác bỏ giả thuyết không. Tuy nhiên, trên thực tế, chương trình không có tác dụng trong việc giảm lo âu. Tình huống này là ví dụ về:",
+    q: "Nhân cách (personality) theo định nghĩa tâm lý học là gì?",
     opts: [
-      "Lỗi loại II (Lỗi không bác bỏ giả thuyết không khi nó sai).",
-      "Lỗi loại I (Lỗi bác bỏ giả thuyết không khi nó đúng).",
-      "Giả thuyết đặt ra không phù hợp.",
-      "Không có đáp án nào đúng."
+      "Một đặc điểm sinh học di truyền",
+      "Khuôn mẫu đặc điểm suy nghĩ, cảm xúc và hành vi nhất quán của một cá nhân",
+      "Tổng số hành vi mà cá nhân thực hiện trong đời",
+      "Những phẩm chất do môi trường tạo nên"
     ],
     ans: 1,
-    explain: "Đây là lỗi loại I vì nhà nghiên cứu đã bác bỏ giả thuyết không khi nó thực sự đúng."
+    explain: "Nhân cách là khuôn mẫu các đặc điểm về suy nghĩ, cảm xúc và hành vi tạo nên tính cá nhân và nhất quán của một người."
   },
   {
-    q: "Khi thực hiện một kiểm định giả thuyết, nếu giá trị p nhỏ hơn mức ý nghĩa 0.05, điều này có nghĩa là gì?",
+    q: "Theo Freud, cấu trúc nhân cách gồm mấy thành phần cơ bản?",
     opts: [
-      "Chấp nhận giả thuyết không",
-      "Bác bỏ giả thuyết không",
-      "Dữ liệu không có ý nghĩa thống kê",
-      "Dữ liệu có phân phối chuẩn"
+      "2 thành phần: Cái tôi và Bản ngã",
+      "3 thành phần: Id, Ego, Superego",
+      "4 thành phần: Ý thức, tiền ý thức, vô thức, bản năng",
+      "2 thành phần: Bản năng và lý trí"
     ],
     ans: 1,
-    explain: "Khi p-value < 0.05, chúng ta bác bỏ giả thuyết không."
+    explain: "Freud cho rằng nhân cách gồm 3 thành phần: Id (cái ấy), Ego (cái tôi) và Superego (cái siêu tôi)."
   },
   {
-    q: "Một phân phối lệch phải (positively skewed) có đặc điểm gì?",
+    q: "Id (cái ấy) theo Freud vận hành theo nguyên tắc nào?",
     opts: [
-      "Đuôi bên phải dài hơn đuôi bên trái",
-      "Đuôi bên trái dài hơn đuôi bên phải",
-      "Trung bình nhỏ hơn trung vị",
-      "Trung bình bằng trung vị"
+      "Nguyên tắc đạo đức",
+      "Nguyên tắc hiện thực",
+      "Nguyên tắc khoái lạc",
+      "Nguyên tắc xã hội"
+    ],
+    ans: 2,
+    explain: "Id vận hành theo nguyên tắc khoái lạc, luôn muốn thỏa mãn nhu cầu ngay lập tức."
+  },
+  {
+    q: "Theo Erik Erikson, sự phát triển nhân cách diễn ra qua mấy giai đoạn chính?",
+    opts: [
+      "5 giai đoạn",
+      "8 giai đoạn",
+      "3 giai đoạn",
+      "10 giai đoạn"
+    ],
+    ans: 1,
+    explain: "Thuyết Erikson nhấn mạnh 8 giai đoạn phát triển tâm lý xã hội từ sơ sinh đến già."
+  },
+  {
+    q: "Khủng hoảng tâm lý xã hội đầu tiên của Erikson là gì?",
+    opts: [
+      "Tự trị vs. Xấu hổ/Nghi ngờ",
+      "Tin tưởng vs. Mất lòng tin",
+      "Gắn bó vs. Cô lập",
+      "Khởi xướng vs. Mặc cảm tội lỗi"
+    ],
+    ans: 1,
+    explain: "Giai đoạn đầu tiên là Tin tưởng vs. Mất lòng tin, quyết định bởi sự chăm sóc của người nuôi dưỡng."
+  },
+  {
+    q: "Thang bậc nhu cầu của Maslow có bao nhiêu tầng chính?",
+    opts: [
+      "3 tầng",
+      "4 tầng",
+      "5 tầng",
+      "6 tầng"
+    ],
+    ans: 2,
+    explain: "Maslow xây dựng tháp nhu cầu gồm 5 tầng từ nhu cầu cơ bản đến nhu cầu hiện thực hóa bản thân."
+  },
+  {
+    q: "Theo Maslow, nhu cầu nào cần được thỏa mãn trước?",
+    opts: [
+      "Nhu cầu tự trọng",
+      "Nhu cầu thể lý (ăn, uống, ngủ...)",
+      "Nhu cầu thuộc về",
+      "Nhu cầu thẩm mỹ"
+    ],
+    ans: 1,
+    explain: "Nhu cầu thể lý (ăn, uống, ngủ...) là cơ bản và cần thỏa mãn trước các nhu cầu cao hơn."
+  },
+  {
+    q: "Theo Carl Rogers, yếu tố nào không phải là điều kiện cần để giúp con người phát triển tối ưu?",
+    opts: [
+      "Thấu cảm",
+      "Trừng phạt",
+      "Chân thật (congruence)",
+      "Quan tâm tích cực vô điều kiện"
+    ],
+    ans: 1,
+    explain: "Rogers nhấn mạnh 3 điều kiện cần: thấu cảm, chân thật, quan tâm tích cực vô điều kiện. Trừng phạt không phải là yếu tố phát triển tối ưu."
+  },
+  {
+    q: "Trong học thuyết của Carl Jung, vô thức tập thể (collective unconscious) chứa đựng điều gì?",
+    opts: [
+      "Ký ức tuổi thơ cá nhân",
+      "Những nguyên mẫu (archetype) di truyền của nhân loại",
+      "Các trải nghiệm ý thức",
+      "Ký ức bị dồn nén"
+    ],
+    ans: 1,
+    explain: "Vô thức tập thể chứa các nguyên mẫu – mô hình tâm lý được di truyền và chung cho nhân loại."
+  },
+  {
+    q: "Nguyên mẫu Shadow (Bóng tối) của Jung là gì?",
+    opts: [
+      "Mặt xã hội của bản thân",
+      "Tổng hợp những phẩm chất tiêu cực mà ta không muốn thừa nhận",
+      "Hình ảnh lý tưởng về bản thân",
+      "Khía cạnh lý trí và đạo đức"
+    ],
+    ans: 1,
+    explain: "Shadow là tập hợp những đặc tính mà cá nhân cố gắng che giấu, bao gồm cả tiêu cực và đôi khi là tiềm năng sáng tạo."
+  },
+  {
+    q: "Theo Adler, động lực cơ bản của con người là gì?",
+    opts: [
+      "Tìm kiếm khoái lạc",
+      "Phấn đấu để vượt trội hoặc thành công",
+      "Thỏa mãn các nhu cầu sinh lý",
+      "Tránh né đau khổ"
+    ],
+    ans: 1,
+    explain: "Adler cho rằng động lực chính là sự phấn đấu để vượt trội hoặc đạt được thành công nhằm bù trừ cho cảm giác tự ti."
+  },
+  {
+    q: "Cảm thức cộng đồng trong học thuyết của Adler là gì?",
+    opts: [
+      "Khả năng hợp tác, quan tâm đến lợi ích xã hội",
+      "Tính cá nhân mạnh mẽ",
+      "Khả năng thích nghi với gia đình",
+      "Ý chí tự do cá nhân"
     ],
     ans: 0,
-    explain: "Phân phối lệch phải có đuôi bên phải dài hơn đuôi bên trái."
+    explain: "Cảm thức cộng đồng là khả năng cảm thông, hợp tác, quan tâm tới người khác – thước đo sức khỏe tinh thần."
   },
   {
-    q: "Đối với ANOVA hai yếu tố trong Jamovi, bước nào sau đây là cần thiết để kiểm tra tính đồng nhất của phương sai khi có yếu tố lặp?",
+    q: "Theo học thuyết hành vi, nhân cách hình thành chủ yếu qua gì?",
     opts: [
-      "Sử dụng Mauchly's Test cho Sphericity",
-      "Thực hiện Shapiro-Wilk Test",
-      "Chọn chỉ số Collinearity",
-      "Kiểm tra phương sai đồng nhất với Homogeneity"
+      "Di truyền",
+      "Trải nghiệm và học tập từ môi trường",
+      "Suy nghĩ tích cực",
+      "Các giá trị tôn giáo"
+    ],
+    ans: 1,
+    explain: "Học thuyết hành vi xem nhân cách là kết quả của quá trình học tập, điều kiện hóa và củng cố từ môi trường."
+  },
+  {
+    q: "Khái niệm 'điều kiện hóa cổ điển' (classical conditioning) gắn với nhà khoa học nào?",
+    opts: [
+      "John B. Watson",
+      "Carl Rogers",
+      "Ivan Pavlov",
+      "Albert Bandura"
+    ],
+    ans: 2,
+    explain: "Ivan Pavlov là người nghiên cứu điều kiện hóa cổ điển qua thí nghiệm với chó."
+  },
+  {
+    q: "Khái niệm 'học tập xã hội' (social learning) nhấn mạnh vai trò của gì?",
+    opts: [
+      "Di truyền",
+      "Trừng phạt",
+      "Quan sát và bắt chước người khác",
+      "Trải nghiệm tuổi thơ"
+    ],
+    ans: 2,
+    explain: "Học tập xã hội nhấn mạnh quá trình học qua quan sát, bắt chước hành vi của người khác (Albert Bandura)."
+  },
+  {
+    q: "Theo Freud, cơ chế phòng vệ là gì?",
+    opts: [
+      "Phản ứng có ý thức khi gặp nguy hiểm",
+      "Chiến lược vô thức của Ego nhằm giảm lo âu, bảo vệ bản thân",
+      "Cách đối phó của Superego với Id",
+      "Một loại hành vi thích nghi xã hội"
+    ],
+    ans: 1,
+    explain: "Cơ chế phòng vệ là chiến lược vô thức của Ego giúp giảm lo âu và bảo vệ cá nhân khỏi xung đột tâm lý."
+  },
+  {
+    q: "Theo Rogers, điều gì xảy ra khi trải nghiệm thực tế và self-concept không hòa hợp?",
+    opts: [
+      "Lo âu và phản ứng phòng vệ xuất hiện",
+      "Cá nhân phát triển tốt hơn",
+      "Tự trọng tăng lên",
+      "Quan tâm tích cực vô điều kiện xuất hiện"
     ],
     ans: 0,
-    explain: "Mauchly's Test dùng để kiểm tra Sphericity trong ANOVA với yếu tố lặp."
+    explain: "Khi self-concept và trải nghiệm không hòa hợp, cá nhân dễ sinh lo âu và phát triển phản ứng phòng vệ."
   },
   {
-    q: "Trong một nghiên cứu đánh giá hiệu quả của chương trình can thiệp giảm stress nơi làm việc, 40 nhân viên được chia thành hai nhóm: nhóm can thiệp và nhóm kiểm soát. Mức độ stress được đo ở 3 thời điểm. Tương tác nào sau đây trong Mixed ANOVA là quan trọng nhất để kiểm tra giả thuyết trên?",
+    q: "Thứ tự sinh trong gia đình (theo Adler) có ảnh hưởng gì tới nhân cách?",
     opts: [
-      "Tác động chính của thời gian (main effect of time)",
-      "Tác động chính của nhóm (main effect of group)",
-      "Tương tác giữa nhóm và thời gian (group × time interaction)",
-      "Sai số ngẫu nhiên (random error)"
-    ],
-    ans: 2,
-    explain: "Tương tác group × time quan trọng nhất để xem sự thay đổi stress theo thời gian có khác nhau giữa nhóm."
-  },
-  {
-    q: "Trong Jamovi, biểu đồ nào giúp bạn kiểm tra dữ liệu có tồn tại outlier hay không?",
-    opts: [
-      "Scatter plot",
-      "Box plot",
-      "Line plot",
-      "Histogram"
+      "Không ảnh hưởng",
+      "Ảnh hưởng đến phong cách sống và các đặc điểm nhân cách",
+      "Chỉ ảnh hưởng đến học tập",
+      "Chỉ ảnh hưởng đến sức khỏe thể chất"
     ],
     ans: 1,
-    explain: "Box plot là công cụ tốt nhất để phát hiện outlier."
+    explain: "Adler cho rằng thứ tự sinh (con cả, con giữa, con út, con một) ảnh hưởng tới cách ứng xử và phát triển nhân cách."
   },
   {
-    q: "Trong một nghiên cứu về sự hài lòng của khách hàng đối với hai sản phẩm khác nhau, các khách hàng đã thực hiện cả independent sample t-test và paired sample t-test. Sau khi phân tích, nhà nghiên cứu nhận thấy dữ liệu không tuân theo phân phối chuẩn và có phương sai không đồng nhất. Nhà nghiên cứu nên:",
+    q: "Theo Freud, cắm chốt (fixation) trong các giai đoạn phát triển tâm-tính dục dẫn đến?",
     opts: [
-      "Thực hiện phân tích hồi quy để kiểm tra mối quan hệ giữa sự hài lòng và các biến số khác.",
-      "Sử dụng t-test Welch cho dữ liệu độc lập và paired sample t-test cho dữ liệu cùng nhóm.",
-      "Chỉ thực hiện phương pháp phi tham số Mann-Whitney U test cho dữ liệu khác nhóm và Wilcoxon signed-rank test cho dữ liệu cùng nhóm.",
-      "Áp dụng phương pháp chuyển đổi dữ liệu cho cả hai biến độc lập và phụ thuộc."
+      "Nhân cách cứng nhắc và các vấn đề tâm lý sau này",
+      "Sự phát triển trí tuệ vượt trội",
+      "Quan hệ xã hội rộng",
+      "Khả năng tự trị tốt hơn"
     ],
-    ans: 2,
-    explain: "Khi dữ liệu không đáp ứng giả định, nên dùng kiểm định phi tham số."
+    ans: 0,
+    explain: "Cắm chốt ở một giai đoạn phát triển làm nhân cách cứng nhắc, dễ gặp rối loạn tâm lý khi trưởng thành."
   },
   {
-    q: "Một nhà nghiên cứu muốn đánh giá hiệu quả của một chương trình trị liệu hành vi trong việc giảm mức độ trầm cảm ở người trưởng thành. Họ thu thập dữ liệu về điểm số trầm cảm của 40 người tham gia trước và sau khi hoàn thành chương trình trị liệu. Kiểm định thống kê nào nên được sử dụng?",
+    q: "Tóm tắt, điểm chung của các học thuyết nhân cách là gì?",
     opts: [
-      "Kiểm định ANOVA một chiều với cùng nhóm.",
-      "Kiểm định t-test cho 2 nhóm độc lập.",
-      "Kiểm định t-test cho cùng nhóm.",
-      "Hồi quy tuyến tính."
+      "Mỗi học thuyết đưa ra một góc nhìn khác nhau về con người, không có học thuyết nào là toàn năng",
+      "Chỉ học thuyết Freud là đúng",
+      "Chỉ học thuyết hành vi là đúng",
+      "Tất cả đều phủ nhận vai trò của môi trường"
     ],
-    ans: 2,
-    explain: "Paired t-test phù hợp để so sánh trước-sau trên cùng nhóm."
+    ans: 0,
+    explain: "Các học thuyết nhân cách bổ sung lẫn nhau, mỗi lý thuyết giải thích một khía cạnh, không có học thuyết nào là toàn năng."
   },
+  // Các câu hỏi khác về nâng cao nhận thức và kỹ năng sống
   {
-    q: "Trong một phân tích one-way ANOVA, bạn nhận được giá trị F = 4.67 với mức p-value là 0.002 và với tổng độ tự do (df) là 30. Trong đó, độ tự do giữa các nhóm (between group) là 2 và độ tự do trong các nhóm (within group) là 28. Bạn có thể kết luận điều gì?",
+    q: "Trong một ca lâm sàng, thân chủ luôn đổ lỗi cho người khác về thất bại của mình. Theo Freud, đây là cơ chế phòng vệ nào?",
     opts: [
-      "Biến thiên giữa các nhóm thấp hơn biến thiên trong các nhóm, cho thấy không có sự khác biệt đáng kể giữa các nhóm.",
-      "Biến thiên giữa các nhóm lớn hơn biến thiên trong các nhóm, cho thấy có sự khác biệt có ý nghĩa thống kê giữa ít nhất một cặp nhóm.",
-      "Biến thiên giữa các nhóm và biến thiên trong các nhóm đều không đủ để đưa ra kết luận về sự khác biệt giữa các nhóm.",
-      "Giá trị F thấp cho thấy rằng không cần thực hiện phân tích post-hoc trong ANOVA."
-    ],
-    ans: 1,
-    explain: "F có ý nghĩa thống kê (p < 0.05) cho thấy có ít nhất một cặp nhóm khác biệt."
-  },
-  {
-    q: "Cách tốt nhất và phổ biến nhất để tăng sức mạnh thống kê cho một nghiên cứu là gì?",
-    opts: [
-      "Giảm kích thước mẫu để dễ kiểm soát dữ liệu hơn.",
-      "Giảm mức ý nghĩa (alpha) từ 0.05 xuống 0.01 để chặt chẽ hơn trong thống kê.",
-      "Tăng kích thước mẫu và giảm sai số đo lường.",
-      "Luôn sử dụng kiểm định phi tham số để tránh sai số."
-    ],
-    ans: 2,
-    explain: "Tăng kích thước mẫu là cách hiệu quả nhất để tăng power."
-  },
-  {
-    q: "Trong một phân tích ANOVA hai chiều (Two-Way ANOVA), giá trị p của hiệu ứng tương tác (interaction effect) nhỏ hơn 0.05 cho biết điều gì?",
-    opts: [
-      "Cả hai yếu tố đều có ảnh hưởng độc lập lên biến phụ thuộc.",
-      "Có một sự tương tác có ý nghĩa giữa hai yếu tố ảnh hưởng đến biến phụ thuộc.",
-      "Các nhóm trong các yếu tố khác nhau có phương sai đồng nhất.",
-      "Không có sự khác biệt đáng kể giữa các nhóm trong các yếu tố."
+      "Dồn nén",
+      "Phóng chiếu",
+      "Thoái lui",
+      "Chuyển di"
     ],
     ans: 1,
-    explain: "P-value < 0.05 cho tương tác có nghĩa là sự tương tác giữa hai yếu tố có ý nghĩa."
+    explain: "Phóng chiếu là khi cá nhân gán các đặc điểm hoặc cảm xúc không chấp nhận được của bản thân cho người khác."
   },
   {
-    q: "Trong phân tích tương quan, một hệ số tương quan Pearson r = -0.78 cho biết điều gì về mối quan hệ giữa hai biến?",
+    q: "Một bệnh nhân luôn lý giải việc đi trễ là do kẹt xe, mặc dù nguyên nhân thật là không muốn đi làm. Cơ chế phòng vệ nào thể hiện ở đây?",
     opts: [
-      "Hai biến có mối quan hệ đồng biến chặt chẽ.",
-      "Hai biến có mối quan hệ nghịch biến trung bình.",
-      "Không có mối quan hệ nào giữa hai biến.",
-      "Hai biến có mối quan hệ nghịch biến mạnh."
+      "Lý trí hóa (rationalization)",
+      "Dồn nén (repression)",
+      "Phóng chiếu (projection)",
+      "Thăng hoa (sublimation)"
+    ],
+    ans: 0,
+    explain: "Lý trí hóa là giải thích một hành vi không thể chấp nhận được bằng lý do nghe có vẻ hợp lý, tránh đối mặt với động cơ thực."
+  },
+  {
+    q: "Trong liệu pháp thân chủ trọng tâm của Rogers, yếu tố nào quan trọng nhất giúp thân chủ thay đổi tích cực?",
+    opts: [
+      "Phán xét đúng sai của nhà trị liệu",
+      "Truy vấn mạnh mẽ",
+      "Quan tâm tích cực vô điều kiện",
+      "Đưa ra lời khuyên liên tục"
+    ],
+    ans: 2,
+    explain: "Quan tâm tích cực vô điều kiện là thái độ nền tảng giúp thân chủ cảm thấy được chấp nhận và an toàn để khám phá bản thân."
+  },
+  {
+    q: "Một trẻ em bị căng thẳng do sắp có em, bỗng nhiên lại đòi bú bình như hồi nhỏ. Đây là hiện tượng gì?",
+    opts: [
+      "Dồn nén",
+      "Thoái lui",
+      "Hình thành phản ứng",
+      "Phủ nhận"
+    ],
+    ans: 1,
+    explain: "Thoái lui là quay lại hành vi của giai đoạn phát triển trước khi đối diện stress hoặc lo âu."
+  },
+  {
+    q: "Kỹ thuật nào thường được sử dụng trong phân tâm học để tiếp cận vô thức của thân chủ?",
+    opts: [
+      "Phỏng vấn hành vi",
+      "Liên tưởng tự do",
+      "Thang đo trắc nghiệm khách quan",
+      "Phản hồi sinh học"
+    ],
+    ans: 1,
+    explain: "Liên tưởng tự do cho phép thân chủ nói tự do những gì xuất hiện trong tâm trí, giúp nhà trị liệu phát hiện các xung năng vô thức."
+  },
+  {
+    q: "Khi thân chủ mô tả giấc mơ có nhiều hình ảnh lặp lại, nhà trị liệu Jung sẽ quan tâm đến yếu tố nào?",
+    opts: [
+      "Các nguyên mẫu (archetype)",
+      "Điều kiện hóa",
+      "Mức độ củng cố",
+      "Hành vi quan sát"
+    ],
+    ans: 0,
+    explain: "Jung chú trọng giải mã các nguyên mẫu xuất hiện trong giấc mơ vì đây là biểu hiện của vô thức tập thể."
+  },
+  {
+    q: "Liệu pháp hành vi áp dụng kỹ thuật nào để giúp trị liệu chứng ám sợ (phobia)?",
+    opts: [
+      "Giải thích giấc mơ",
+      "Tiếp xúc hệ thống (systematic desensitization)",
+      "Phân tích bản ngã",
+      "Vai trò nhóm"
+    ],
+    ans: 1,
+    explain: "Tiếp xúc hệ thống là kỹ thuật giúp dần dần làm quen với đối tượng gây sợ, từ đó giảm dần cảm xúc sợ hãi."
+  },
+  {
+    q: "Case: Một thân chủ liên tục hoài nghi bản thân và né tránh các cơ hội mới. Theo Adler, cần đánh giá yếu tố nào trước tiên?",
+    opts: [
+      "Cảm giác tự ti và cách bù trừ",
+      "Ý nghĩa của giấc mơ",
+      "Quan sát hành vi",
+      "Kiểm tra sự hòa hợp của self"
+    ],
+    ans: 0,
+    explain: "Adler nhấn mạnh cảm giác tự ti và động lực bù trừ là trung tâm hình thành nhân cách, cần được khám phá đầu tiên."
+  },
+  {
+    q: "Một sinh viên sắp tốt nghiệp, do lo lắng về tương lai nên bắt đầu nghiện game và trì hoãn làm luận văn. Theo Erikson, đây là khủng hoảng của giai đoạn nào?",
+    opts: [
+      "Tin tưởng vs. Mất lòng tin",
+      "Gắn bó vs. Cô lập",
+      "Cảm nhận bản dạng vs. Bối rối bản dạng",
+      "Tạo tác vs. Trì trệ"
+    ],
+    ans: 2,
+    explain: "Giai đoạn vị thành niên/trưởng thành trẻ là lúc hình thành bản dạng cá nhân, dễ bối rối khi đối diện với chuyển tiếp lớn."
+  },
+  {
+    q: "Trong trị liệu tâm lý, đánh giá 'tính hòa hợp' (congruence) giữa self-concept và trải nghiệm thực có ý nghĩa gì?",
+    opts: [
+      "Đánh giá sự thành thật với bản thân của thân chủ",
+      "Kiểm tra trí nhớ",
+      "Đo động lực học tập",
+      "Phân biệt các phong cách sống"
+    ],
+    ans: 0,
+    explain: "Tính hòa hợp thể hiện mức độ self-concept phản ánh đúng thực tế trải nghiệm, là chỉ báo sức khỏe tâm lý theo Rogers."
+  },
+  {
+    q: "Trắc nghiệm nào dưới đây KHÔNG phải là phương pháp đo lường gián tiếp (projective test) trong tâm lý học nhân cách?",
+    opts: [
+      "Rorschach inkblot test",
+      "Thematic Apperception Test (TAT)",
+      "Trắc nghiệm Big Five",
+      "Test vẽ người"
+    ],
+    ans: 2,
+    explain: "Big Five là trắc nghiệm khách quan, còn các phương pháp kia là đo lường gián tiếp dựa trên sự diễn giải tự do."
+  },
+  {
+    q: "Case: Một người trưởng thành rất sợ bị chỉ trích, thường 'đi trước một bước' để tự chê trách mình trước khi người khác làm điều đó. Cơ chế phòng vệ nào có thể liên quan?",
+    opts: [
+      "Hình thành phản ứng (reaction formation)",
+      "Phóng chiếu",
+      "Chuyển di",
+      "Dồn nén"
+    ],
+    ans: 0,
+    explain: "Hình thành phản ứng là hành vi thể hiện cảm xúc/đặc điểm đối lập với cảm xúc thật bị dồn nén."
+  },
+  {
+    q: "Trong các liệu pháp nhân vị trọng tâm, kỹ thuật phản chiếu (reflection) có mục đích gì?",
+    opts: [
+      "Làm thân chủ cảm thấy được lắng nghe và hiểu",
+      "Phân tích logic hành vi",
+      "Đưa ra nhận xét chuyên môn",
+      "Dẫn dắt thân chủ nhận lỗi"
+    ],
+    ans: 0,
+    explain: "Phản chiếu giúp thân chủ nhận ra cảm xúc, thúc đẩy sự tự nhận thức và cảm giác được đồng cảm."
+  },
+  {
+    q: "Một nhà trị liệu giúp thân chủ nhận diện và đối diện với Shadow (Bóng tối) theo cách tiếp cận của Jung. Đây là mục tiêu của tiến trình gì?",
+    opts: [
+      "Đồng nhất hóa bản ngã",
+      "Thống hợp cá nhân (individuation)",
+      "Thăng hoa",
+      "Phân tích hành vi"
+    ],
+    ans: 1,
+    explain: "Thống hợp cá nhân là quá trình hợp nhất các phần vô thức và ý thức, giúp cá nhân phát triển toàn diện."
+  },
+  {
+    q: "Case: Thân chủ kể rằng thường mơ thấy bị mất kiểm soát, ngã vào bóng tối. Nhà trị liệu nên chú ý điều gì khi phân tích giấc mơ theo Freud?",
+    opts: [
+      "Nội dung tiềm ẩn (latent content) của giấc mơ",
+      "Hành vi quan sát",
+      "Mức độ tuân thủ luật lệ",
+      "Ý nghĩa thực tế"
+    ],
+    ans: 0,
+    explain: "Freud quan tâm đến nội dung tiềm ẩn trong giấc mơ, là những xung năng bị dồn nén xuất hiện qua biểu tượng."
+  },
+  {
+    q: "Một người thành đạt nhưng liên tục cảm thấy không hài lòng, không biết mục tiêu sống là gì. Theo Maslow, đây có thể là biểu hiện của gì?",
+    opts: [
+      "Thiếu nhu cầu an toàn",
+      "Khủng hoảng bản dạng",
+      "Thiếu sự hiện thực hóa bản thân (self-actualization)",
+      "Thiếu thốn tình cảm"
+    ],
+    ans: 2,
+    explain: "Theo Maslow, khi không cảm thấy ý nghĩa dù đã có thành tựu, cá nhân có thể chưa đạt đến mức hiện thực hóa bản thân."
+  },
+  {
+    q: "Trong tâm lý học cá nhân của Adler, phương pháp lượng giá 'hồi ức tuổi thơ' có ý nghĩa gì?",
+    opts: [
+      "Xác định các yếu tố di truyền",
+      "Tìm hiểu về phong cách sống hiện tại qua cách diễn giải ký ức",
+      "Đo chỉ số IQ",
+      "Phân tích cấu trúc gia đình"
+    ],
+    ans: 1,
+    explain: "Adler tin rằng cách ta nhớ và diễn giải ký ức tuổi thơ phản ánh phong cách sống và vấn đề hiện tại."
+  },
+  {
+    q: "Trị liệu nhận thức-hành vi (CBT) khác với phân tâm học ở điểm nào?",
+    opts: [
+      "Tập trung vào quá khứ và vô thức",
+      "Nhấn mạnh thay đổi tư duy, hành vi ở hiện tại",
+      "Giải thích giấc mơ",
+      "Sử dụng phân tích tự do"
+    ],
+    ans: 1,
+    explain: "CBT tập trung thay đổi nhận thức và hành vi ở hiện tại, không đi sâu vào vô thức như phân tâm học."
+  },
+  {
+    q: "Một thân chủ luôn nghĩ 'tôi không làm được gì ra hồn', nhà trị liệu hành vi có thể sử dụng phương pháp nào?",
+    opts: [
+      "Sửa chữa nhận thức (cognitive restructuring)",
+      "Kể lại giấc mơ",
+      "Phân tích động cơ tiềm ẩn",
+      "Đánh giá qua test vẽ người"
+    ],
+    ans: 0,
+    explain: "Sửa chữa nhận thức giúp thân chủ nhận diện và thay đổi các suy nghĩ tiêu cực, phi lý."
+  },
+  {
+    q: "Case: Một thân chủ nam có hành vi kiểm soát mạnh mẽ với bạn đời, song luôn cảm thấy lo sợ bị bỏ rơi. Theo phân tâm học, đây có thể liên quan đến xung đột ở giai đoạn nào?",
+    opts: [
+      "Giai đoạn môi miệng (oral stage)",
+      "Giai đoạn hậu môn (anal stage)",
+      "Giai đoạn cơ quan sinh dục (phallic stage)",
+      "Giai đoạn tiềm ẩn"
+    ],
+    ans: 0,
+    explain: "Xung đột gắn bó và sợ bị bỏ rơi có thể bắt nguồn từ những thiếu thốn/bất an trong giai đoạn môi miệng theo Freud."
+  },
+  {
+    q: "Nhà trị liệu muốn đánh giá mức độ 'quan tâm xã hội' của một người, nên ưu tiên tìm hiểu qua phương pháp nào?",
+    opts: [
+      "Phỏng vấn về trải nghiệm hợp tác và cảm thông",
+      "Test IQ",
+      "Phân tích giấc mơ",
+      "Đo độ nhạy cảm cảm giác"
+    ],
+    ans: 0,
+    explain: "Quan tâm xã hội được đánh giá tốt nhất qua phỏng vấn các trải nghiệm hợp tác, hỗ trợ, cảm thông với người khác."
+  },
+  {
+    q: "Case: Một thân chủ luôn có động lực học hỏi mạnh mẽ, không ngại thử thách, dễ cảm thấy 'flow' khi làm việc. Theo Maslow, thân chủ này có đặc điểm gì?",
+    opts: [
+      "Đạt tới nhu cầu tự trọng",
+      "Hướng tới hiện thực hóa bản thân",
+      "Đang ở mức nhu cầu an toàn",
+      "Có phức cảm tự ti"
+    ],
+    ans: 1,
+    explain: "Động lực học hỏi, cảm giác 'flow' và không ngừng phát triển là biểu hiện điển hình của nhu cầu hiện thực hóa bản thân."
+  },
+  {
+    q: "Trong liệu pháp phân tích của Jung, thuật ngữ 'phức cảm' (complex) chỉ điều gì?",
+    opts: [
+      "Tập hợp các hành vi lặp lại",
+      "Nhóm cảm xúc, suy nghĩ liên quan, chi phối hành vi cá nhân",
+      "Các cơ chế phòng vệ",
+      "Mục tiêu của bản ngã"
+    ],
+    ans: 1,
+    explain: "Phức cảm là nhóm cảm xúc, ý nghĩ mạnh chi phối hành vi và ý thức, thường được hình thành trong vô thức cá nhân."
+  },
+  {
+    q: "Một trong những mục tiêu của trị liệu thân chủ trọng tâm là gì?",
+    opts: [
+      "Giúp thân chủ đạt sự tự nhận thức và tự chấp nhận chính mình",
+      "Tìm hiểu nguyên mẫu",
+      "Giải thích động cơ tiềm ẩn",
+      "Tăng sức mạnh bản ngã"
+    ],
+    ans: 0,
+    explain: "Liệu pháp của Rogers hướng tới sự tự nhận thức, tự chấp nhận và phát triển tự do cá nhân."
+  },
+  {
+    q: "Phương pháp nào sau đây là kỹ thuật đặc trưng của trị liệu phân tâm học?",
+    opts: [
+      "Tiếp xúc hệ thống",
+      "Liên tưởng tự do",
+      "Tạo lập hợp đồng trị liệu",
+      "Đánh giá mức độ tự trị"
+    ],
+    ans: 1,
+    explain: "Liên tưởng tự do là phương pháp then chốt để tiếp cận các xung năng và ký ức vô thức."
+  },
+  {
+    q: "Trắc nghiệm TAT (Thematic Apperception Test) đánh giá điều gì?",
+    opts: [
+      "Chỉ số trí tuệ",
+      "Động lực, xung năng, mối quan hệ chủ đạo của nhân cách",
+      "Mức độ phức cảm",
+      "Hành vi quan sát được"
+    ],
+    ans: 1,
+    explain: "TAT giúp khám phá động lực, xung đột nội tâm qua các câu chuyện mà cá nhân tạo ra từ tranh vẽ."
+  },
+  // Các câu hỏi về ca lâm sàng và ứng dụng thực tế
+  {
+    q: "Hoàng, 30 tuổi, có vợ và 2 con, làm kế toán nhưng cảm thấy chán nản và muốn theo đuổi đam mê hội họa từ nhỏ. Theo Freud, xung đột nội tâm của Hoàng thể hiện rõ nhất ở mối quan hệ nào trong cấu trúc nhân cách?",
+    opts: [
+      "Giữa Id và Ego",
+      "Giữa Ego và Superego",
+      "Giữa Ego và thế giới thực",
+      "Giữa Superego và Id"
     ],
     ans: 3,
-    explain: "r = -0.78 cho thấy mối quan hệ nghịch biến mạnh (gần -1)."
+    explain: "Hoàng bị giằng co giữa khao khát tự do (Id), thực tế trách nhiệm (Ego) và chuẩn mực xã hội, gia đình (Superego), dẫn đến xung đột nội tâm."
   },
   {
-    q: "Một nhà nghiên cứu thị trường đã thu thập dữ liệu về mức độ hài lòng của khách hàng với các sản phẩm khác nhau và xếp hạng chúng từ cao đến thấp. Thang đo nào được thể hiện trong dữ liệu này?",
+    q: "Trong tình huống Hoàng muốn nghỉ việc theo đuổi nghệ thuật nhưng sợ không lo được cho gia đình, trạng thái tâm lý nào là đặc trưng?",
     opts: [
-      "Thang đo tỉ lệ.",
-      "Thang đo thứ bậc.",
-      "Thang đo khoảng.",
-      "Thang đo định danh."
+      "Lo âu đạo đức",
+      "Lo âu thực tế",
+      "Lo âu thần kinh",
+      "Thoái lui"
     ],
-    ans: 1,
-    explain: "Xếp hạng từ cao đến thấp là thang đo thứ bậc (ordinal)."
+    ans: 0,
+    explain: "Lo âu đạo đức phát sinh khi Ego bị kẹt giữa Id (mong muốn cá nhân) và Superego (chuẩn mực, trách nhiệm với gia đình)."
   },
   {
-    q: "Đâu là diễn giải chính xác nhất về ý nghĩa của giá trị p?",
+    q: "Một người mẹ vẫn bày cơm cho con trai đã mất, từ chối chấp nhận sự thật. Cơ chế phòng vệ nào của Freud được thể hiện rõ?",
     opts: [
-      "Giá trị p cho biết xác suất Ho là đúng.",
-      "Giá trị p là xác suất để mẫu bạn chọn là sai.",
-      "Giá trị p cho biết khả năng thu được dữ liệu như vậy nếu giả thuyết không là đúng.",
-      "Giá trị p cho biết mức độ tương quan giữa hai biến."
+      "Dồn nén",
+      "Thoái lui",
+      "Phủ nhận (denial)",
+      "Phóng chiếu"
     ],
     ans: 2,
-    explain: "P-value là xác suất quan sát được dữ liệu như vậy hoặc cực đoan hơn nếu Ho đúng."
+    explain: "Bà mẹ sử dụng phủ nhận – từ chối chấp nhận thực tế đau buồn – để giảm bớt lo âu."
   },
   {
-    q: "Trong một nghiên cứu về ảnh hưởng của thời gian tập thể dục đến sức khỏe tâm lý của người trưởng thành, nhà nghiên cứu đã thu thập dữ liệu từ 150 người tham gia. Nhà nghiên cứu nên sử dụng phương pháp hồi quy nào?",
+    q: "Một người vợ khó chịu với sếp nhưng luôn nhẫn nhịn, về nhà lại thường xuyên bực bội với chồng con. Cơ chế phòng vệ nào đang hoạt động?",
     opts: [
-      "Hồi quy đa biến.",
-      "Hồi quy Poisson.",
-      "Hồi quy logistic.",
-      "Hồi quy đơn biến."
-    ],
-    ans: 3,
-    explain: "Chỉ có một biến độc lập (thời gian tập) nên dùng hồi quy đơn biến."
-  },
-  {
-    q: "Cronbach's alpha là một chỉ số được sử dụng để đo lường:",
-    opts: [
-      "Tính hợp lệ của một thang đo.",
-      "Độ tin cậy nội tại của một thang đo.",
-      "Mối quan hệ giữa hai biến.",
-      "Sự khác biệt giữa các nhóm."
+      "Phóng chiếu",
+      "Chuyển di (displacement)",
+      "Hình thành phản ứng",
+      "Dồn nén"
     ],
     ans: 1,
-    explain: "Cronbach's alpha đo độ tin cậy nội tại (internal consistency) của thang đo."
+    explain: "Chuyển di là chuyển cảm xúc gây hấn từ đối tượng mạnh (sếp) sang đối tượng yếu hơn (gia đình)."
   },
   {
-    q: "Khi nào thì việc diễn giải hệ số hồi quy không chuẩn hóa là phù hợp nhất?",
+    q: "Một học sinh thường bị cha mẹ la mắng về điểm số, dần trở nên khép kín, tự đánh giá thấp bản thân. Theo Adler, biểu hiện tâm lý này có thể dẫn tới điều gì?",
     opts: [
-      "Khi muốn so sánh tầm quan trọng tương đối của các biến độc lập khác nhau trong cùng một mô hình.",
-      "Khi các biến độc lập có đơn vị đo lường khác nhau và cần quy về cùng một thang đo.",
-      "Khi muốn dự đoán giá trị thực tế của biến phụ thuộc bằng cách sử dụng các đơn vị đo lường ban đầu của các biến độc lập.",
-      "Khi cần kiểm tra ý nghĩa thống kê của từng biến độc lập."
+      "Phức cảm tự ti",
+      "Tăng động lực học",
+      "Cảm thức cộng đồng mạnh",
+      "Phong cách sống lạc quan"
+    ],
+    ans: 0,
+    explain: "Phức cảm tự ti hình thành khi trẻ liên tục cảm thấy kém cỏi, bất lực và không được công nhận."
+  },
+  {
+    q: "Minh, 30 tuổi, luôn trốn tránh giải quyết vấn đề vào phút chót, nghi ngờ người yêu và không thích kết bạn. Theo Adler, đặc điểm nào nổi bật nhất?",
+    opts: [
+      "Phong cách sống né tránh",
+      "Ý thức tự do mạnh",
+      "Hiện thực hóa bản thân",
+      "Sự thống hợp bản ngã"
+    ],
+    ans: 0,
+    explain: "Phong cách sống né tránh – tránh đối diện khó khăn, ít hợp tác xã hội – là vấn đề chính theo quan điểm của Adler."
+  },
+  {
+    q: "Một thanh niên có hành vi bắt nạt bạn cùng lớp, nhưng thực ra thầm thích bạn đó. Freud giải thích đây là cơ chế phòng vệ nào?",
+    opts: [
+      "Dồn nén",
+      "Hình thành phản ứng (reaction formation)",
+      "Chuyển di",
+      "Lý trí hóa"
+    ],
+    ans: 1,
+    explain: "Hình thành phản ứng – thể hiện cảm xúc, hành vi trái ngược với cảm xúc thật bị dồn nén."
+  },
+  {
+    q: "Case: Một người luôn sợ bị chỉ trích nên hay tự nhận lỗi trước để tránh bị nhắc nhở. Đây là biểu hiện của cơ chế phòng vệ nào?",
+    opts: [
+      "Thoái lui",
+      "Phóng chiếu",
+      "Hình thành phản ứng",
+      "Dồn nén"
     ],
     ans: 2,
-    explain: "Hệ số không chuẩn hóa phù hợp khi muốn dự đoán giá trị thực tế với đơn vị ban đầu."
+    explain: "Đây là hình thành phản ứng – thể hiện quá mức đặc điểm đối lập với cảm xúc thật để bảo vệ Ego."
   },
   {
-    q: "Trong hồi quy đa biến, nếu Residual plots cho thấy phần dư phân bố theo hình parabol, điều đó cho thấy vi phạm giả định nào?",
+    q: "Nam thường xuyên nhớ về tuổi thơ bị bố mẹ bỏ bê, hiện tại Nam luôn nghi ngờ tình cảm của bạn gái và khó tin tưởng người khác. Theo Erikson, Nam đã gặp vấn đề ở giai đoạn nào?",
     opts: [
-      "Vi phạm giả định phân phối chuẩn; cần sử dụng hồi quy logistic.",
-      "Vi phạm giả định tuyến tính; có thể thử biến đổi biến độc lập (vd: log, bình phương).",
-      "Vi phạm giả định độc lập; cần kiểm tra VIF.",
-      "Vi phạm giả định phương sai không đổi; giải pháp là loại bỏ biến gây nhiễu."
+      "Khởi xướng vs. Mặc cảm tội lỗi",
+      "Tin tưởng vs. Mất lòng tin",
+      "Gắn bó vs. Cô lập",
+      "Tự trị vs. Xấu hổ/Nghi ngờ"
     ],
     ans: 1,
-    explain: "Phần dư hình parabol thường chỉ ra mối quan hệ phi tuyến, cần biến đổi biến."
+    explain: "Kinh nghiệm tuổi thơ thiếu gắn bó dẫn đến mất lòng tin, ảnh hưởng tới khả năng tin tưởng ở tuổi trưởng thành."
   },
   {
-    q: "Trong mô hình hồi quy đa biến, hệ số R² hiệu chỉnh (Adjusted R²) giảm sau khi thêm một biến độc lập mới. Điều này ngụ ý:",
+    q: "Một thanh niên thường xuyên đổi việc, không xác định được mục tiêu lâu dài. Erikson gọi đây là khủng hoảng ở giai đoạn nào?",
     opts: [
-      "Biến mới có ảnh hưởng tích cực đến mô hình.",
-      "Biến mới có thể gây đa cộng tuyến nghiêm trọng.",
-      "Biến mới không cải thiện khả năng giải thích và có thể không nên giữ trong mô hình.",
-      "Mô hình bị sai lệch nghiêm trọng và cần loại bỏ tất cả biến độc lập."
+      "Khởi xướng vs. Mặc cảm tội lỗi",
+      "Cảm nhận bản dạng vs. Bối rối bản dạng",
+      "Tạo tác vs. Trì trệ",
+      "Gắn bó vs. Cô lập"
+    ],
+    ans: 1,
+    explain: "Vấn đề không xác định được bản thân, lạc lối, thuộc về giai đoạn bản dạng cá nhân (Identity vs. Role confusion) của Erikson."
+  },
+  {
+    q: "Một học sinh đi học muộn và viện lý do bị kẹt xe, nhưng thực ra do dậy muộn. Đây là cơ chế phòng vệ nào?",
+    opts: [
+      "Dồn nén",
+      "Lý trí hóa (rationalization)",
+      "Phủ nhận",
+      "Thoái lui"
+    ],
+    ans: 1,
+    explain: "Lý trí hóa là bào chữa, viện cớ hợp lý cho một hành vi nhằm giảm cảm giác tội lỗi hoặc xấu hổ."
+  },
+  {
+    q: "Một thân chủ kể: 'Tôi thấy mình rất vô dụng mỗi khi làm hỏng máy móc.' Theo Carl Rogers, điều gì xảy ra nếu trải nghiệm thực tế không hòa hợp với self-concept?",
+    opts: [
+      "Xuất hiện lo âu và phản ứng phòng vệ",
+      "Tự tin tăng lên",
+      "Ý chí mạnh mẽ hơn",
+      "Hiện thực hóa bản thân tốt hơn"
+    ],
+    ans: 0,
+    explain: "Theo Rogers, khi trải nghiệm và self-concept không hòa hợp sẽ gây ra lo âu và xuất hiện các phản ứng phòng vệ như bóp méo, phủ nhận."
+  },
+  {
+    q: "Lan luôn cảm thấy áp lực khi không đạt được sự công nhận của người khác, tự so sánh bản thân với bạn bè trên mạng xã hội. Theo Maslow, nhu cầu nào của Lan chưa được thỏa mãn?",
+    opts: [
+      "Nhu cầu thuộc về",
+      "Nhu cầu an toàn",
+      "Nhu cầu tự trọng/tự tin",
+      "Nhu cầu hiện thực hóa bản thân"
     ],
     ans: 2,
-    explain: "Adjusted R² giảm cho thấy biến mới không cải thiện đủ để bù cho độ phức tạp thêm vào."
+    explain: "Lan đang tìm kiếm sự công nhận, đánh giá cao từ người khác – đây là nhu cầu tự trọng/tự tin trong tháp Maslow."
   },
   {
-    q: "Bạn chạy một hồi quy đa biến và phát hiện chỉ số VIF của một biến là 12.5. Điều nào sau đây là đánh giá hợp lý nhất?",
+    q: "Một sinh viên được khen ngợi khi học giỏi, nhưng bị phê bình khi học kém. Theo Rogers, loại quan tâm nào mà sinh viên này nhận được?",
     opts: [
-      "Biến này không có vấn đề gì vì VIF càng cao mô hình càng chính xác.",
-      "Đây là dấu hiệu của đa cộng tuyến nghiêm trọng, nên xem xét loại bỏ hoặc kết hợp biến.",
-      "Cần biến đổi biến phụ thuộc thành thang chuẩn hóa.",
-      "Nên giữ nguyên biến vì VIF không liên quan đến chất lượng mô hình."
+      "Quan tâm tích cực vô điều kiện",
+      "Quan tâm tích cực có điều kiện",
+      "Chân thật",
+      "Thấu cảm"
     ],
     ans: 1,
-    explain: "VIF > 10 thường chỉ ra đa cộng tuyến nghiêm trọng."
+    explain: "Quan tâm tích cực có điều kiện là khi tình cảm, sự yêu quý chỉ đến khi cá nhân làm vừa lòng người khác."
   },
   {
-    q: "Trong thống kê mô tả, đại lượng nào sau đây đo lường mức độ phân tán của dữ liệu xung quanh giá trị trung bình?",
+    q: "Một thân chủ luôn cảm thấy không yên tâm về mối quan hệ, thường xuyên kiểm tra tin nhắn, gọi điện cho bạn đời. Theo học thuyết hành vi, hành vi này có thể do đâu?",
     opts: [
-      "Trung bình cộng.",
-      "Yếu vị.",
-      "Phương sai.",
-      "Trung vị."
+      "Củng cố tiêu cực",
+      "Trừng phạt",
+      "Củng cố tích cực (reinforcement)",
+      "Điều kiện hóa cổ điển"
     ],
     ans: 2,
-    explain: "Phương sai đo lường mức độ phân tán của dữ liệu quanh giá trị trung bình."
+    explain: "Việc bạn đời trả lời tin nhắn/gọi điện giúp giảm lo âu, tạo ra củng cố tích cực cho hành vi kiểm tra liên tục."
   },
   {
-    q: "Đại lượng nào sau đây không phải là thước đo xu hướng trung tâm?",
+    q: "Một thân chủ luôn kể lại những trải nghiệm thành công của mình quá mức, khoe khoang về bản thân nhưng dễ thất vọng khi bị phê bình. Theo Adler, đây là biểu hiện gì?",
     opts: [
-      "Trung bình.",
-      "Khoảng từ phân vị (IQR).",
-      "Yếu vị.",
-      "Trung vị."
+      "Phức cảm tự tôn",
+      "Phức cảm tự ti",
+      "Phong cách sống lạc quan",
+      "Cảm thức cộng đồng mạnh"
     ],
-    ans: 1,
-    explain: "IQR đo độ phân tán, không phải xu hướng trung tâm."
+    ans: 0,
+    explain: "Phức cảm tự tôn là khuynh hướng bù trừ quá mức cho tự ti bằng tự đề cao, khoe khoang thành tích cá nhân."
   },
   {
-    q: "Kiểm định giả thuyết là một quy trình được sử dụng để làm gì?",
+    q: "Một thân chủ lớn tuổi thường xuyên cảm thấy hối tiếc về những gì đã không làm được, hay nhắc lại quá khứ, đôi khi rơi vào trạng thái tuyệt vọng. Erikson gọi đây là khủng hoảng giai đoạn nào?",
     opts: [
-      "Mô tả các đặc điểm của một mẫu cụ thể.",
-      "Chỉ để ước lượng các tham số tổng thể.",
-      "Tìm kiếm các mẫu trong dữ liệu mà không có giả thuyết ban đầu.",
-      "Quyết định xem một giả định về dân số (population) có được hỗ trợ bởi dữ liệu mẫu (sample) hay không."
-    ],
-    ans: 3,
-    explain: "Kiểm định giả thuyết dùng để đánh giá giả thuyết về tổng thể dựa trên dữ liệu mẫu."
-  },
-  {
-    q: "Một nghiên cứu tâm lý học xã hội so sánh mức độ 'tính xã hội' của sinh viên từ ba nền văn hóa khác nhau (Á, Âu, Mỹ Latinh). Sau khi chạy one-way ANOVA, bạn nhận được F-statistic có p-value là 0.04. Giả định nào sau đây là quan trọng nhất cần được kiểm tra để tin tưởng vào kết quả này?",
-    opts: [
-      "Các cá nhân trong mỗi nền văn hóa phải có mối quan hệ phụ thuộc lẫn nhau.",
-      "Các nhóm phải có cùng kích thước mẫu.",
-      "Các biến độc lập (nền văn hóa) phải là định lượng.",
-      "Phương sai của điểm 'tính xã hội' phải đồng nhất giữa ba nền văn hóa."
-    ],
-    ans: 3,
-    explain: "Giả định phương sai đồng nhất (homogeneity of variance) quan trọng trong ANOVA."
-  },
-  {
-    q: "Mục tiêu chính của phân tích hồi quy tuyến tính đơn biến là gì?",
-    opts: [
-      "Kiểm tra mối quan hệ phi tuyến giữa các biến.",
-      "So sánh trung bình của nhiều nhóm.",
-      "Dự đoán giá trị của một biến phụ thuộc dựa trên một biến độc lập duy nhất.",
-      "Xác định các mối quan hệ nguyên nhân - kết quả."
+      "Tin tưởng vs. Mất lòng tin",
+      "Tạo tác vs. Trì trệ",
+      "Trọn vẹn vs. Tuyệt vọng",
+      "Gắn bó vs. Cô lập"
     ],
     ans: 2,
-    explain: "Hồi quy đơn biến dùng để dự đoán biến phụ thuộc từ một biến độc lập."
+    explain: "Ở tuổi già, Erikson mô tả khủng hoảng là trọn vẹn vs. tuyệt vọng khi cá nhân nhìn lại cuộc đời."
   },
   {
-    q: "Trong phương trình hồi quy tuyến tính (y=b0+b1x), b1 đại diện cho điều gì?",
+    q: "Case: Một người thường 'diễn' vai mẫu mực trong môi trường công sở nhưng về nhà lại cảm thấy không phải là chính mình, dễ cáu gắt. Theo Jung, đây là biểu hiện của?",
     opts: [
-      "Giá trị trung bình của biến độc lập x.",
-      "Giá trị của y khi x có giá trị là 0 (điểm chặn).",
-      "Sai số chuẩn của ước tính hồi quy.",
-      "Thay đổi dự kiến của y khi x tăng một đơn vị."
-    ],
-    ans: 3,
-    explain: "b1 là hệ số góc, thể hiện sự thay đổi của y khi x tăng 1 đơn vị."
-  },
-  {
-    q: "Hệ số xác định R² trong hồi quy cho biết điều gì?",
-    opts: [
-      "Độ mạnh của mối quan hệ tuyến tính giữa hai biến.",
-      "Giá trị của biến phụ thuộc khi biến độc lập bằng 0.",
-      "Phần trăm biến thiên của biến phụ thuộc được giải thích bởi biến độc lập.",
-      "Mức ý nghĩa của mô hình hồi quy."
-    ],
-    ans: 2,
-    explain: "R² cho biết tỷ lệ phương sai của biến phụ thuộc được giải thích bởi biến độc lập."
-  },
-  {
-    q: "Khi một phân phối dữ liệu bị lệch dương (positive skew), mối quan hệ giữa trung bình (mean), trung vị (median) và yếu vị (mode) thường là gì?",
-    opts: [
-      "Trung bình = trung vị = yếu vị.",
-      "Yếu vị < trung vị < trung bình.",
-      "Trung vị < yếu vị < trung bình.",
-      "Trung bình < trung vị < yếu vị."
-    ],
-    ans: 1,
-    explain: "Với phân phối lệch phải: mode < median < mean."
-  },
-  {
-    q: "Nếu kết quả ANOVA cho thấy giá trị F-statistic không có ý nghĩa thống kê (ví dụ: P-value > 0.05), điều này ngụ ý gì về trung bình của các nhóm được so sánh?",
-    opts: [
-      "Có ít nhất một cặp trung bình nhóm khác biệt đáng kể.",
-      "Tất cả các trung bình nhóm chắc chắn bằng nhau.",
-      "Phương sai trong các nhóm lớn hơn nhiều so với phương sai giữa các nhóm.",
-      "Không có đủ bằng chứng để kết luận rằng có sự khác biệt đáng kể nào giữa bất kỳ trung bình nhóm nào."
-    ],
-    ans: 3,
-    explain: "P-value > 0.05 có nghĩa là không đủ bằng chứng để kết luận có sự khác biệt giữa các nhóm."
-  },
-  {
-    q: "Một nhà tâm lý học đang nghiên cứu hiệu quả của hai phương pháp trị liệu mới (A và B) so với phương pháp tiêu chuẩn trong việc giảm triệu chứng trầm cảm. Ông chia ngẫu nhiên 150 bệnh nhân thành ba nhóm và đo lường mức độ trầm cảm sau 8 tuần. Kiểm định thống kê nào là phù hợp nhất?",
-    opts: [
-      "ANOVA một yếu tố (one-way ANOVA).",
-      "t-test độc lập (Independent Samples t-test).",
-      "t-test cặp (Paired t-test).",
-      "Kiểm định Chi-bình phương (Chi-square test)."
+      "Persona quá mạnh, xa rời bản chất thật",
+      "Shadow được thống hợp",
+      "Hòa hợp cá nhân",
+      "Tự trị tối ưu"
     ],
     ans: 0,
-    explain: "So sánh 3 nhóm độc lập nên dùng one-way ANOVA."
+    explain: "Persona là mặt nạ xã hội. Khi đồng nhất hóa quá mức với persona, cá nhân dễ xa rời cái tôi thật."
   },
   {
-    q: "Trong một thử nghiệm lâm sàng, một nhà nghiên cứu muốn kiểm tra xem một loại thuốc mới có làm giảm mức độ lo âu hiệu quả hơn giả dược hay không. Lỗi loại I (Type I error) trong tình huống này là gì?",
+    q: "Một thiếu niên chuyển nhà nhiều lần, khó kết bạn và cảm thấy lạc lõng, không thuộc về đâu cả. Theo Maslow, điều gì chưa được thỏa mãn?",
     opts: [
-      "Kết luận rằng cả thuốc mới và giả dược đều không có hiệu quả.",
-      "Kết luận rằng thuốc mới hiệu quả hơn giả dược, trong khi thực tế nó không có hiệu quả.",
-      "Không thể kết luận gì về hiệu quả của thuốc.",
-      "Kết luận rằng thuốc mới không hiệu quả hơn giả dược, trong khi thực tế nó có hiệu quả."
+      "Nhu cầu thể lý",
+      "Nhu cầu thuộc về/yêu thương",
+      "Nhu cầu thẩm mỹ",
+      "Nhu cầu tự trọng"
     ],
     ans: 1,
-    explain: "Lỗi loại I là bác bỏ Ho khi nó đúng (kết luận thuốc hiệu quả trong khi thực tế không)."
+    explain: "Nhu cầu thuộc về là nhu cầu được gắn bó, có nhóm, có cảm giác mình là một phần của tập thể, rất quan trọng với trẻ và thiếu niên."
   },
   {
-    q: "Khi thực hiện t-test độc lập để so sánh điểm trung bình về lo âu giữa sinh viên ngành tâm lý và sinh viên ngành kinh tế, nếu kích thước mẫu trong mỗi ngành là nhỏ (ví dụ, dưới 30) và giả định phân phối chuẩn bị vi phạm nghiêm trọng, điều gì sẽ xảy ra?",
+    q: "Một thân chủ luôn lo sợ thất bại, dù trước đó từng thành công. Khi gặp thử thách mới lại chần chừ không dám thử sức. Theo học thuyết nhân cách nào, điều trị cần tập trung vào điều gì?",
     opts: [
-      "Kiểm định t-test vẫn rất mạnh mẽ và không bị ảnh hưởng.",
-      "Cần chuyển đổi dữ liệu thành biến định tính trước khi phân tích.",
-      "Kết quả t-test có thể không đáng tin cậy, và p-value có thể bị sai lệch.",
-      "Nên sử dụng kiểm định Chi-bình phương thay thế."
-    ],
-    ans: 2,
-    explain: "Với mẫu nhỏ và vi phạm giả định chuẩn, t-test có thể không đáng tin cậy."
-  },
-  {
-    q: "Một nhà tâm lý học lâm sàng muốn dự đoán mức độ giảm lo âu (thang điểm 0-100) dựa trên số buổi trị liệu đã tham gia và mức độ hỗ trợ xã hội của bệnh nhân. Biến phụ thuộc trong mô hình này là gì?",
-    opts: [
-      "Mức độ giảm lo âu.",
-      "Số buổi trị liệu đã tham gia.",
-      "Thời gian bệnh nhân mắc bệnh.",
-      "Mức độ hỗ trợ xã hội của bệnh nhân."
+      "Cảm giác tự ti và bù trừ của Adler",
+      "Nhu cầu hiện thực hóa của Maslow",
+      "Quan tâm tích cực vô điều kiện của Rogers",
+      "Cơ chế phòng vệ của Freud"
     ],
     ans: 0,
-    explain: "Biến phụ thuộc là kết quả cần dự đoán (mức độ giảm lo âu)."
-  },
-  {
-    q: "Trong một mô hình hồi quy tuyến tính bội dự đoán thành công trong học tập, hệ số hồi quy chuẩn hóa (standardized regression coefficient) cho 'số giờ học mỗi tuần' là 0.55 và cho 'điểm kiểm tra động lực' là 0.30. Điều này có ý nghĩa gì?",
-    opts: [
-      "Số giờ học mỗi tuần là biến dự đoán quan trọng hơn (mạnh hơn) điểm động lực trong việc giải thích thành công trong học tập.",
-      "Khi số giờ học tăng một đơn vị, thành công trong học tập tăng 0.55 đơn vị (giữ động lực không đổi).",
-      "Cả hai biến đều không có ảnh hưởng đáng kể lên thành công trong học tập.",
-      "Số giờ học mỗi tuần có ảnh hưởng gấp đôi điểm động lực lên thành công trong học tập."
-    ],
-    ans: 0,
-    explain: "Hệ số chuẩn hóa lớn hơn cho thấy biến có ảnh hưởng mạnh hơn."
-  },
-  {
-    q: "Khi kiểm tra giả định của hồi quy tuyến tính, một nhà nghiên cứu vẽ biểu đồ phần dư (residuals) so với các giá trị dự đoán. Nếu các phần dư cho thấy một mô hình hình quạt (fan-shaped), điều này cho thấy vi phạm giả định nào?",
-    opts: [
-      "Tính tuyến tính (Linearity).",
-      "Tính độc lập của các phần dư.",
-      "Phân phối chuẩn của phần dư.",
-      "Tính đồng nhất phương sai (Homoscedasticity)."
-    ],
-    ans: 3,
-    explain: "Hình quạt chỉ ra phương sai không đồng nhất (heteroscedasticity)."
-  },
-  {
-    q: "Nếu một nhà nghiên cứu tiến hành một nghiên cứu tâm lý và đặt mức ý nghĩa (α) là 0.10, điều này có ý nghĩa gì về khả năng mắc lỗi loại I?",
-    opts: [
-      "Có 10% khả năng không bác bỏ giả thuyết không khi nó thực sự đúng.",
-      "Có 10% rủi ro bác bỏ giả thuyết không khi nó thực sự đúng.",
-      "Nghiên cứu có 10% sức mạnh thống kê.",
-      "Có 10% khả năng mắc lỗi loại II."
-    ],
-    ans: 1,
-    explain: "α = 0.10 nghĩa là 10% khả năng mắc lỗi loại I (bác bỏ Ho khi nó đúng)."
-  },
-  {
-    q: "Một nhà tâm lý học đang xây dựng mô hình hồi quy để dự đoán điểm hài lòng cuộc sống từ các biến như thu nhập, mối quan hệ xã hội và sức khỏe thể chất. Nếu anh ta thêm biến 'số lượng thú cưng' vào mô hình, điều gì có thể xảy ra với R² và Adjusted R²?",
-    opts: [
-      "R² sẽ luôn tăng, và Adjusted R² cũng sẽ luôn tăng.",
-      "Cả R² và Adjusted R² đều sẽ giảm.",
-      "R² sẽ giảm, Adjusted R² sẽ tăng.",
-      "R² sẽ tăng hoặc giữ nguyên, trong khi Adjusted R² có thể tăng, giảm hoặc giữ nguyên."
-    ],
-    ans: 3,
-    explain: "Thêm biến luôn làm tăng hoặc giữ nguyên R², nhưng Adjusted R² có thể tăng/giảm tùy vào đóng góp của biến mới."
-  },
-  {
-    q: "Một nhà nghiên cứu tâm lý học phát triển một thang đo mới về khả năng phục hồi (resilience) và muốn kiểm tra xem liệu một can thiệp mới có làm tăng khả năng phục hồi hay không. Sau khi tiến hành một thử nghiệm ngẫu nhiên có đối chứng, ông thu được p-value là 0.048 và một cỡ hiệu ứng Cohen's d là 0.15. Nếu alpha=0.05, kết luận nào sau đây là chính xác nhất?",
-    opts: [
-      "Can thiệp có ý nghĩa thống kê và hiệu quả thực tế lớn.",
-      "Can thiệp không có ý nghĩa thống kê nhưng có hiệu quả thực tế lớn.",
-      "Can thiệp có ý nghĩa thống kê, nhưng hiệu quả thực tế của nó rất nhỏ.",
-      "Không thể rút ra kết luận nào về ý nghĩa thống kê hay thực tế từ dữ liệu này."
-    ],
-    ans: 2,
-    explain: "P-value < 0.05 có ý nghĩa thống kê, nhưng d = 0.15 là hiệu ứng nhỏ."
-  },
-  {
-    q: "Một nhà tâm lý học thực hiện một phân tích hồi quy tuyến tính bội và phát hiện đa cộng tuyến (multicollinearity) nghiêm trọng. Điều này sẽ ảnh hưởng đến mô hình như thế nào?",
-    opts: [
-      "Giảm giá trị R² tổng thể của mô hình.",
-      "Làm tăng sai số chuẩn của các hệ số hồi quy, dẫn đến p-value lớn hơn và khoảng tin cậy rộng hơn cho các biến độc lập liên quan.",
-      "Làm cho ước lượng hệ số hồi quy bị lệch (biased).",
-      "Chỉ ảnh hưởng đến tính đồng nhất phương sai của phần dư."
-    ],
-    ans: 1,
-    explain: "Đa cộng tuyến làm tăng sai số chuẩn của hệ số, giảm độ chính xác ước lượng."
-  },
-  {
-    q: "Nếu một nhà tâm lý học quyết định giảm α từ 0.05 xuống 0.01 để giảm rủi ro Lỗi loại I, điều gì có khả năng xảy ra với sức mạnh thống kê của kiểm định?",
-    opts: [
-      "Sức mạnh thống kê sẽ tăng lên.",
-      "Sức mạnh thống kê sẽ giảm xuống.",
-      "Sức mạnh thống kê sẽ không thay đổi.",
-      "Sức mạnh thống kê sẽ trở nên không liên quan."
-    ],
-    ans: 1,
-    explain: "Giảm α làm tăng ngưỡng bác bỏ Ho, dẫn đến giảm power (khả năng phát hiện hiệu ứng thực)."
-  },
-  {
-    q: "Một nhà quản lý giáo dục đã nhận được báo cáo từ tỉnh liệt kê thứ hạng của các trường học theo thành tích của học sinh. Thang đo nào được thể hiện trong báo cáo này?",
-    opts: [
-      "Thang đo tỉ lệ.",
-      "Thang đo thứ bậc.",
-      "Thang đo khoảng.",
-      "Thang đo định danh."
-    ],
-    ans: 1,
-    explain: "Thứ bậc: có thể so sánh thứ tự (ví dụ: xếp hạng)"
-  },
-  //Các câu hỏi trong Slide
-  {
-    q: "Trong một thí nghiệm so sánh các phản ứng hung hăng sau khi tiếp xúc với bạo lực trên phương tiện truyền thông trong chương trình truyền hình và trò chơi điện tử, “phản ứng hung hăng” là __________ và “tiếp xúc với bạo lực trên phương tiện truyền thông” là__________.",
-    opts: [
-      "Biến độc lập; biến phụ thuộc",
-      "Biến phụ thuộc; biến độc lập",
-      "Biến kiểm soát; biến phụ thuộc",
-      "Biến độc lập; biến nhân khẩu"
-    ],
-    ans: 1,
-    explain: "Phản ứng hung hăng là biến phụ thuộc (đo lường kết quả), tiếp xúc với bạo lực là biến độc lập (nguyên nhân)."
-  },
-  {
-    q: "Năm đứa trẻ được yêu cầu chọn màu sắc yêu thích của chúng bên dưới. Yếu vị trong chuỗi [Hồng, hồng, xanh, hồng, hồng] này là gì?",
-    opts: [
-      "Hồng",
-      "Xanh",
-      "Không có yếu vị",
-      "Không thể xác định"
-    ],
-    ans: 0,
-    explain: "Yếu vị là giá trị xuất hiện nhiều nhất trong tập dữ liệu. Trong trường hợp này, 'Hồng' xuất hiện 4 lần, nhiều hơn bất kỳ màu nào khác."
-  },
-  {
-    q: "Một nhóm gồm 20 học sinh được lựa chọn ngẫu nhiên tham gia một khoá học Yoga kéo dài 3 tuần. Mục tiêu của nghiên cứu này nhằm so sánh phong cách sống lành mạnh (wellness life style) của nhóm có tham gia khoá học yoga và một nhóm khác không tham gia khoá học yoga. Loại kiểm định thống kê nào sẽ phù hợp để kiểm tra mục tiêu này? Biết rằng phong cách sống lành mạnh được nghiệm thể trả lời câu hỏi tự đánh giá theo mức độ từ 1 đến 10.",
-    opts: [
-      "Kiểm định t-test độc lập (Independent Samples t-test)",
-      "Kiểm định t-test cặp (Paired Samples t-test)",
-      "ANOVA một chiều (One-Way ANOVA)",
-      "Kiểm định Chi-bình phương (Chi-Square Test)"
-    ],
-    ans: 0,
-    explain: "T-test độc lập phù hợp để so sánh hai nhóm khác nhau về phong cách sống lành mạnh."
-  },
-  {
-    q: "Các biểu đồ histogram dưới đây hiển thị phân phối mức tiêu thụ rượu ở những bệnh nhân được chẩn đoán mắc bệnh gan do rượu tại thời điểm trước (xem Before) và sau (xem After) khi tiếp nhận can thiệp. Một biểu đồ histogram về sự khác biệt (Before trừ After) (xem Difference) cũng được trình bày.<br> <img src='img/img_q_1.png' alt='Histogram of Alcohol Consumption Before and After Intervention' style='width: 400px; height: auto;'><br> Nếu bạn quan tâm đến việc kiểm tra xem có sự thay đổi đáng kể nào trong mức tiêu thụ rượu trước và sau can thiệp hay không, bạn sẽ sử dụng?",
-    opts: [
-      "One sample t-test do biểu đồ “Before” đạt phân phối chuẩn",
-      "Independent samples t-test do biểu đồ “Before” đạt phân phối chuẩn",
-      "Paired samples t-test do biểu đồ “Difference” đạt phân phối chuẩn",
-      "Không có kiểm định nào phù hợp do biểu đồ “After” không đạt phân phối chuẩn"
-    ],
-    ans: 2,
-    explain: "Để kiểm tra sự thay đổi trước và sau can thiệp, paired samples t-test là phù hợp nhất vì nó so sánh hai nhóm liên quan (trước và sau) và biểu đồ 'Difference' đạt phân phối chuẩn.",
-  },
-  {
-    q: "Tính điểm trung bình trong chuỗi dưới đây: 10, 10, 40, 30, 10",
-    opts: [
-      "10",
-      "20",
-      "30",
-      "40"
-    ],
-    ans: 1,
-    explain: "Điểm trung bình được tính bằng tổng các giá trị chia cho số lượng giá trị. (10 + 10 + 40 + 30 + 10) / 5 = 20."
-  },
-  {
-    q: "Tính số trung vị trong chuỗi dưới đây: 13, 12, 11, 15, 22}",
-    opts: [
-      "12",
-      "13",
-      "15",
-      "11"
-    ],
-    ans: 1,
-    explain: "Sắp xếp chuỗi theo thứ tự tăng dần: 11, 12, 13, 15, 22. Số trung vị là giá trị ở giữa, tức là 13."
-  },
-  // Các câu hỏi về biến độc lập và phụ thuộc
-  {
-    q: "Trong một nghiên cứu về ảnh hưởng của việc uống cà phê lên chất lượng giấc ngủ, đâu là biến độc lập?",
-    opts: [
-      "Số giờ ngủ mỗi đêm",
-      "Chất lượng giấc ngủ",
-      "Lượng cà phê uống mỗi ngày",
-      "Tâm trạng buổi sáng"
-    ],
-    ans: 2,
-    explain: "Biến độc lập là lượng cà phê uống mỗi ngày vì đây là yếu tố mà nhà nghiên cứu muốn kiểm soát hoặc thay đổi để xem ảnh hưởng lên các biến khác."
-  },
-  {
-    q: "Trong nghiên cứu xem việc luyện tập thể dục ảnh hưởng đến cân nặng như thế nào, biến phụ thuộc là gì?",
-    opts: [
-      "Thời gian luyện tập mỗi ngày",
-      "Cân nặng của người tham gia",
-      "Độ tuổi của người tham gia",
-      "Thói quen ăn uống"
-    ],
-    ans: 1,
-    explain: "Biến phụ thuộc là cân nặng vì nó thay đổi theo mức độ luyện tập, và là kết quả mà nhà nghiên cứu muốn đo."
-  },
-  {
-    q: "Nếu nghiên cứu xem tác động của âm nhạc đến điểm kiểm tra, biến độc lập là gì?",
-    opts: [
-      "Điểm kiểm tra sau khi nghe nhạc",
-      "Loại nhạc được nghe",
-      "Thời gian làm bài kiểm tra",
-      "Số lượng câu hỏi trong bài"
-    ],
-    ans: 1,
-    explain: "Loại nhạc được nghe là biến độc lập vì đây là yếu tố được thay đổi để xem ảnh hưởng đến điểm kiểm tra."
-  },
-  {
-    q: "Trong một thí nghiệm, nhà khoa học điều chỉnh ánh sáng trong phòng để xem ảnh hưởng đến tốc độ đọc, biến phụ thuộc là gì?",
-    opts: [
-      "Độ sáng của phòng",
-      "Tốc độ đọc của người tham gia",
-      "Số trang sách",
-      "Loại sách được đọc"
-    ],
-    ans: 1,
-    explain: "Tốc độ đọc là biến phụ thuộc vì nó là kết quả bị ảnh hưởng bởi mức độ sáng trong phòng."
-  },
-  {
-    q: "Một nghiên cứu xem xét ảnh hưởng của loại phân bón lên năng suất cây trồng. Biến độc lập là gì?",
-    opts: [
-      "Loại phân bón sử dụng",
-      "Năng suất cây trồng",
-      "Diện tích ruộng",
-      "Lượng nước tưới"
-    ],
-    ans: 0,
-    explain: "Loại phân bón là biến độc lập vì đây là yếu tố mà nhà nghiên cứu chủ động thay đổi."
-  },
-  {
-    q: "Trong nghiên cứu kiểm tra mối quan hệ giữa số giờ học và điểm thi, đâu là biến phụ thuộc?",
-    opts: [
-      "Số giờ học mỗi tuần",
-      "Điểm thi cuối kỳ",
-      "Tên môn học",
-      "Tuổi học sinh"
-    ],
-    ans: 1,
-    explain: "Điểm thi cuối kỳ là biến phụ thuộc vì nó thay đổi tùy theo số giờ học."
-  },
-  {
-    q: "Nếu muốn kiểm tra ảnh hưởng của chế độ ăn đến mức cholesterol, biến độc lập là?",
-    opts: [
-      "Mức cholesterol trong máu",
-      "Chế độ ăn áp dụng",
-      "Giới tính người tham gia",
-      "Tuổi người tham gia"
-    ],
-    ans: 1,
-    explain: "Chế độ ăn là biến độc lập vì đó là yếu tố được thay đổi để kiểm tra ảnh hưởng đến cholesterol."
-  },
-  {
-    q: "Trong thí nghiệm dùng hai loại thuốc khác nhau để giảm đau, biến phụ thuộc là?",
-    opts: [
-      "Loại thuốc sử dụng",
-      "Liều lượng thuốc",
-      "Mức độ giảm đau đo được",
-      "Thời gian dùng thuốc"
-    ],
-    ans: 2,
-    explain: "Mức độ giảm đau đo được là biến phụ thuộc, vì đó là kết quả nhà nghiên cứu muốn đo."
-  },
-  {
-    q: "Một nhà nghiên cứu thay đổi nhiệt độ phòng để xem ảnh hưởng đến mức độ tỉnh táo của sinh viên. Biến độc lập là?",
-    opts: [
-      "Nhiệt độ phòng",
-      "Mức độ tỉnh táo",
-      "Số lượng sinh viên",
-      "Giờ trong ngày"
-    ],
-    ans: 0,
-    explain: "Nhiệt độ phòng là biến độc lập vì được chủ động điều chỉnh để xem ảnh hưởng đến tỉnh táo."
-  },
-  {
-    q: "Khi nghiên cứu tác động của stress đến huyết áp, biến phụ thuộc là gì?",
-    opts: [
-      "Mức độ stress",
-      "Mức huyết áp đo được",
-      "Số lần đo huyết áp",
-      "Thời gian làm việc"
-    ],
-    ans: 1,
-    explain: "Mức huyết áp đo được là biến phụ thuộc vì nó thay đổi dựa trên mức độ stress."
-  },
-  // Các câu hỏi về kiểm đinh thống kê
-  {
-    q: "Khi nào nên sử dụng kiểm định Chi-square (Kiểm định Chi bình phương)?",
-    opts: [
-      "A. Khi cả biến độc lập và biến phụ thuộc đều là biến định lượng.",
-      "B. Khi cả biến độc lập và biến phụ thuộc đều là biến phân loại.",
-      "C. Khi biến độc lập là phân loại, biến phụ thuộc là định lượng.",
-      "D. Khi cả hai biến đều là liên tục."
-    ],
-    ans: 1,
-    explain: "Kiểm định Chi-square dùng để kiểm tra mối liên hệ giữa hai biến phân loại (categorical)."
-  },
-
-  {
-    q: "Mục đích chính của kiểm định t-test độc lập là gì?",
-    opts: [
-      "A. So sánh trung bình giữa nhiều nhóm.",
-      "B. So sánh trung bình giữa hai nhóm độc lập.",
-      "C. Kiểm tra mối quan hệ giữa hai biến liên tục.",
-      "D. So sánh phương sai giữa hai nhóm."
-    ],
-    ans: 1,
-    explain: "T-test độc lập dùng để so sánh trung bình của hai nhóm độc lập với nhau."
-  },
-
-  {
-    q: "Khi nào dùng t-test paired (t-test cặp)?",
-    opts: [
-      "A. So sánh hai nhóm độc lập.",
-      "B. So sánh trước-sau của cùng một nhóm.",
-      "C. So sánh nhiều nhóm.",
-      "D. So sánh phương sai giữa các nhóm."
-    ],
-    ans: 1,
-    explain: "T-test paired dùng khi cùng một nhóm đối tượng được đo lường hai lần (trước-sau can thiệp)."
-  },
-
-  {
-    q: "Hệ số tương quan Pearson r cho biết điều gì?",
-    opts: [
-      "A. Độ mạnh và chiều hướng mối quan hệ tuyến tính giữa hai biến liên tục.",
-      "B. Sự khác biệt giữa trung bình các nhóm.",
-      "C. Tỷ lệ phần trăm phương sai giải thích.",
-      "D. Số lượng nhóm cần so sánh."
-    ],
-    ans: 0,
-    explain: "Pearson r đo lường độ mạnh và chiều hướng mối liên hệ tuyến tính giữa hai biến liên tục."
-  },
-
-  {
-    q: "Giả định quan trọng khi dùng Pearson r là gì?",
-    opts: [
-      "A. Hai biến phải là phân loại.",
-      "B. Mối quan hệ giữa hai biến là tuyến tính và dữ liệu phân phối chuẩn.",
-      "C. Biến phụ thuộc phải là nhị phân.",
-      "D. Không cần giả định nào."
-    ],
-    ans: 1,
-    explain: "Pearson r yêu cầu dữ liệu liên tục, tuyến tính và phân phối chuẩn."
-  },
-
-  {
-    q: "Khi dữ liệu vi phạm giả định phân phối chuẩn, thay vì dùng Pearson r nên dùng kiểm định nào?",
-    opts: [
-      "A. t-test độc lập.",
-      "B. Spearman’s rho.",
-      "C. Chi-square.",
-      "D. ANOVA."
-    ],
-    ans: 1,
-    explain: "Spearman’s rho là kiểm định phi tham số thay thế cho Pearson r khi dữ liệu không phân phối chuẩn."
-  },
-
-  {
-    q: "ANOVA là gì và khi nào sử dụng?",
-    opts: [
-      "A. Kiểm tra mối quan hệ giữa hai biến liên tục.",
-      "B. So sánh trung bình của hai nhóm độc lập.",
-      "C. So sánh trung bình của ba nhóm trở lên.",
-      "D. Kiểm tra tần suất xuất hiện của các giá trị."
-    ],
-    ans: 2,
-    explain: "ANOVA được sử dụng để so sánh trung bình của ba nhóm trở lên dựa trên biến độc lập phân loại."
-  },
-
-  {
-    q: "Khác biệt giữa One-way ANOVA và Two-way ANOVA là gì?",
-    opts: [
-      "A. One-way ANOVA dùng cho một biến độc lập, Two-way ANOVA cho hai biến độc lập.",
-      "B. One-way ANOVA dùng cho dữ liệu định tính.",
-      "C. Two-way ANOVA không so sánh tương tác.",
-      "D. Không có sự khác biệt."
-    ],
-    ans: 0,
-    explain: "One-way ANOVA kiểm tra tác động của một biến độc lập; Two-way ANOVA kiểm tra đồng thời hai biến độc lập và hiệu ứng tương tác."
-  },
-
-  {
-    q: "Điều kiện bắt buộc khi sử dụng ANOVA là gì?",
-    opts: [
-      "A. Các nhóm phải độc lập, dữ liệu phân phối chuẩn và phương sai đồng nhất.",
-      "B. Chỉ cần các nhóm độc lập.",
-      "C. Chỉ cần dữ liệu phân phối chuẩn.",
-      "D. Không cần điều kiện nào."
-    ],
-    ans: 0,
-    explain: "ANOVA yêu cầu các nhóm độc lập, dữ liệu phân phối chuẩn trong từng nhóm, phương sai đồng nhất."
-  },
-
-  {
-    q: "Sau khi ANOVA cho kết quả có ý nghĩa, bước tiếp theo là gì?",
-    opts: [
-      "A. Kết luận nhóm nào khác nhau.",
-      "B. Làm post-hoc test để biết nhóm nào khác nhóm nào.",
-      "C. Vẽ biểu đồ tán xạ.",
-      "D. Không cần làm gì thêm."
-    ],
-    ans: 1,
-    explain: "ANOVA chỉ cho biết có sự khác biệt, post-hoc test giúp xác định cặp nhóm nào khác biệt."
-  },
-
-  {
-    q: "Khi nào sử dụng hồi quy tuyến tính đơn giản?",
-    opts: [
-      "A. Dự đoán giá trị của một biến phụ thuộc từ một biến độc lập liên tục.",
-      "B. So sánh trung bình nhiều nhóm.",
-      "C. Kiểm tra tần suất.",
-      "D. So sánh tỷ lệ."
-    ],
-    ans: 0,
-    explain: "Hồi quy tuyến tính đơn giản dùng để dự đoán một biến Y từ một biến X (cả hai liên tục)."
-  },
-
-  {
-    q: "Hệ số hồi quy (b1) trong phương trình hồi quy tuyến tính (y=a+b1x) nghĩa là gì?",
-    opts: [
-      "A. Giá trị trung bình của biến độc lập.",
-      "B. Sự thay đổi kỳ vọng của Y khi X tăng 1 đơn vị.",
-      "C. Phương sai của Y.",
-      "D. Sai số chuẩn."
-    ],
-    ans: 1,
-    explain: "b1 cho biết Y thay đổi bao nhiêu khi X tăng lên một đơn vị."
-  },
-
-  {
-    q: "Khi nào sử dụng hồi quy đa biến (multivariate regression)?",
-    opts: [
-      "A. Khi muốn dự đoán Y từ nhiều biến X.",
-      "B. Khi có một biến độc lập.",
-      "C. Khi so sánh trung bình.",
-      "D. Khi phân tích bảng tần suất."
-    ],
-    ans: 0,
-    explain: "Hồi quy đa biến dùng khi có nhiều biến độc lập dự đoán biến phụ thuộc."
-  },
-
-  {
-    q: "Để kiểm tra đa cộng tuyến trong hồi quy, nên xem chỉ số nào?",
-    opts: [
-      "A. R².",
-      "B. Cronbach’s alpha.",
-      "C. VIF (Variance Inflation Factor).",
-      "D. p-value."
-    ],
-    ans: 2,
-    explain: "VIF dùng để kiểm tra hiện tượng đa cộng tuyến giữa các biến độc lập trong hồi quy."
-  },
-
-  {
-    q: "Khi biến phụ thuộc là nhị phân (có/không, đậu/trượt), nên dùng loại hồi quy nào?",
-    opts: [
-      "A. Hồi quy tuyến tính.",
-      "B. Hồi quy logistic.",
-      "C. ANOVA.",
-      "D. Pearson."
-    ],
-    ans: 1,
-    explain: "Hồi quy logistic dùng để dự đoán biến phụ thuộc nhị phân."
-  },
-
-  {
-    q: "Mục đích chính của kiểm định Chi-square độc lập là gì?",
-    opts: [
-      "A. So sánh trung bình hai nhóm.",
-      "B. Kiểm tra mối liên hệ giữa hai biến phân loại.",
-      "C. Kiểm tra phương sai.",
-      "D. Kiểm tra tính tuyến tính."
-    ],
-    ans: 1,
-    explain: "Chi-square test kiểm tra xem hai biến phân loại có liên quan với nhau không."
-  },
-
-  {
-    q: "Khi nào sử dụng kiểm định t-test Welch?",
-    opts: [
-      "A. Khi dữ liệu hai nhóm có phương sai bằng nhau.",
-      "B. Khi dữ liệu hai nhóm có phương sai không đồng nhất.",
-      "C. Khi so sánh nhiều nhóm.",
-      "D. Khi dữ liệu không phân phối chuẩn."
-    ],
-    ans: 1,
-    explain: "Welch t-test dùng khi hai nhóm có phương sai không đồng nhất."
-  },
-
-  {
-    q: "Trong phân tích tương quan Pearson, giá trị r = -0.78 có ý nghĩa gì?",
-    opts: [
-      "A. Hai biến có tương quan nghịch mạnh.",
-      "B. Hai biến độc lập hoàn toàn.",
-      "C. Hai biến đồng biến chặt chẽ.",
-      "D. Không có mối liên hệ."
-    ],
-    ans: 0,
-    explain: "r = -0.78 thể hiện tương quan nghịch rất mạnh giữa hai biến liên tục."
-  },
-
-  {
-    q: "Nếu trong ANOVA, p-value > 0.05, ta kết luận điều gì?",
-    opts: [
-      "A. Có sự khác biệt ý nghĩa giữa các nhóm.",
-      "B. Không có đủ bằng chứng về sự khác biệt ý nghĩa giữa các nhóm.",
-      "C. Phải làm thêm test khác.",
-      "D. Không thể kết luận gì."
-    ],
-    ans: 1,
-    explain: "p-value > 0.05 nghĩa là không đủ bằng chứng thống kê về sự khác biệt giữa các nhóm."
-  },
-
-  {
-    q: "Khi nào nên dùng kiểm định phi tham số (non-parametric test)?",
-    opts: [
-      "A. Khi dữ liệu phân phối chuẩn, phương sai đồng nhất.",
-      "B. Khi dữ liệu không phân phối chuẩn hoặc không thỏa mãn giả định của kiểm định tham số.",
-      "C. Khi phân tích nhiều biến.",
-      "D. Khi chỉ có hai nhóm so sánh."
-    ],
-    ans: 1,
-    explain: "Kiểm định phi tham số phù hợp khi dữ liệu không đáp ứng giả định của kiểm định tham số."
-  },
-
-  {
-    q: "Sự khác biệt chính giữa hồi quy và tương quan là gì?",
-    opts: [
-      "A. Hồi quy dùng để dự đoán, tương quan chỉ đo mối liên hệ.",
-      "B. Cả hai đều giống nhau.",
-      "C. Tương quan cho biết phương sai.",
-      "D. Hồi quy không dùng cho dữ liệu liên tục."
-    ],
-    ans: 0,
-    explain: "Tương quan đo lường mức độ liên hệ giữa hai biến; hồi quy ngoài ra còn cho biết chiều và lượng thay đổi để dự đoán."
+    explain: "Adler cho rằng cảm giác tự ti và cách cá nhân bù trừ cho nó là trung tâm của trị liệu."
   }
+
 ];
