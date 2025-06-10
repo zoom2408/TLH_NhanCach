@@ -960,3 +960,53 @@
     .tooltip:hover::after {
       opacity: 1;
     }
+/* Responsive sidebar toggle */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1201;
+  background: #021B79;
+  color: #fff;
+  border: none;
+  font-size: 1.8em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+  transition: left 0.3s;
+}
+
+body.sidebar-open #sidebarToggle {
+  left: 335px;
+}
+
+@media (max-width:700px) {
+  .layout {
+    overflow-x: hidden;
+  }
+  .sidebar {
+    position: fixed;
+    left: -320px;
+    top: 0;
+    height: 100vh;
+    z-index: 1200;
+    transition: left 0.3s;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+  .sidebar-toggle {
+    display: block;
+  }
+  .content {
+    width: 100vw;
+  }
+}
+
+@media (min-width:701px) {
+  .content {
+    width: calc(100vw - 320px);
+  }
+}
+
