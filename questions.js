@@ -517,7 +517,7 @@ const allQuestions = [
       "Giữa Superego và Id"
     ],
     ans: 3,
-    explain: "Hoàng bị giằng co giữa khao khát tự do (Id), thực tế trách nhiệm (Ego) và chuẩn mực xã hội, gia đình (Superego), dẫn đến xung đột nội tâm."
+    explain: "Hoàng bị giằng co giữa mong muốn cá nhân (Id - theo đuổi nghệ thuật) và trách nhiệm với gia đình (Superego - làm kế toán nuôi gia đình)."
   },
   {
     q: "Trong tình huống Hoàng muốn nghỉ việc theo đuổi nghệ thuật nhưng sợ không lo được cho gia đình, trạng thái tâm lý nào là đặc trưng?",
