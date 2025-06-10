@@ -37,6 +37,7 @@
             <a href="https://drive.google.com/drive/folders/1wT2HLSqZK0eMaAsRYa3kJI6lSA-GhiX_?usp=drive_link" target="_blank" rel="noopener noreferrer">Slide tài liệu</a>
 
     </div>
+    <button id="sidebarToggle" class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
     <div class="content">
       <iframe id="viewer" src="01_intro.html" class="page-frame" data-default="01_intro.html"></iframe>
     </div>
@@ -55,6 +56,14 @@
         }
       });
     });
+    function toggleSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      const btn = document.getElementById("sidebarToggle");
+      if (!sidebar || !btn) return;
+      sidebar.classList.toggle("open");
+      document.body.classList.toggle("sidebar-open", sidebar.classList.contains("open"));
+      btn.textContent = sidebar.classList.contains("open") ? "✖" : "☰";
+    }
   </script>
 </body>
 
