@@ -58,6 +58,7 @@ if (typeof window !== 'undefined') {
     document.getElementById('quiz-actions').style.display = 'flex';
     document.getElementById('quiz-setup').style.display = 'none';
     document.getElementById('quiz-score').innerHTML = '';
+    document.getElementById('printQuizBtn').style.display = '';
     document.getElementById('quiz-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -107,11 +108,15 @@ if (typeof window !== 'undefined') {
   function printQuiz() {
     const printWin = window.open('', '_blank');
     let html = `<html><head><title>In Quiz</title><link rel="stylesheet" href="styles.css"></head><body>`;
-    allQuestions.forEach((q, idx) => {
+    quizQuestions.forEach((q, idx) => {
       html += `<div class="question"><h4>Câu ${idx + 1}: ${q.q}</h4><ul class="options">` +
         q.opts.map(opt => `<li>${opt}</li>`).join('') + `</ul></div>`;
     });
-    html += '</body></html>';
+    html += '<h2>\u0110\u00e1p \u00e1n</h2><ol>';
+    quizQuestions.forEach((q, idx) => {
+      html += `<li><strong>Câu ${idx + 1}:</strong> ${q.opts[q.ans]} - ${q.explain}</li>`;
+    });
+    html += '</ol></body></html>';
     printWin.document.write(html);
     printWin.document.close();
     printWin.focus();
@@ -124,5 +129,6 @@ if (typeof window !== 'undefined') {
     document.getElementById('quiz-actions').style.display = 'none';
     document.getElementById('quiz-setup').style.display = '';
     document.getElementById('quiz-score').innerHTML = '';
+    document.getElementById('printQuizBtn').style.display = 'none';
   }
 }
