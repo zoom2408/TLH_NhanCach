@@ -366,14 +366,35 @@
                 align-items: center;
             }
         }
-    </style>
-    <link rel="stylesheet" href="styles.css">
 
+        /* Print PDF Button */
+        #printPdfBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background 0.3s ease;
+        }
+
+        #printPdfBtn:hover {
+            background: #2b6cb0;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Print PDF Button -->
     <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
+    
     <div class="hero">
         <div class="container">
             <h1>🧠 Carl Jung & Tâm Lý Học Phân Tích</h1>
