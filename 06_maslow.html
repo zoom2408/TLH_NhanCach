@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,7 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
         }
 
@@ -64,14 +65,15 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-btn:hover, .nav-btn.active {
+        .nav-btn:hover,
+        .nav-btn.active {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .content-section {
@@ -80,7 +82,7 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             animation: fadeIn 0.5s ease-in;
         }
@@ -90,8 +92,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .pyramid {
@@ -122,7 +131,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.6s;
         }
 
@@ -132,14 +141,41 @@
 
         .pyramid-level:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .level-1 { background: linear-gradient(135deg, #ff6b6b, #ff5722); width: 100%; }
-        .level-2 { background: linear-gradient(135deg, #feca57, #ff9800); width: 85%; margin-left: auto; margin-right: auto; }
-        .level-3 { background: linear-gradient(135deg, #48dbfb, #2196f3); width: 70%; margin-left: auto; margin-right: auto; }
-        .level-4 { background: linear-gradient(135deg, #0abde3, #006ba6); width: 55%; margin-left: auto; margin-right: auto; }
-        .level-5 { background: linear-gradient(135deg, #5f27cd, #341f97); width: 40%; margin-left: auto; margin-right: auto; }
+        .level-1 {
+            background: linear-gradient(135deg, #ff6b6b, #ff5722);
+            width: 100%;
+        }
+
+        .level-2 {
+            background: linear-gradient(135deg, #feca57, #ff9800);
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .level-3 {
+            background: linear-gradient(135deg, #48dbfb, #2196f3);
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .level-4 {
+            background: linear-gradient(135deg, #0abde3, #006ba6);
+            width: 55%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .level-5 {
+            background: linear-gradient(135deg, #5f27cd, #341f97);
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         .level-detail {
             display: none;
@@ -167,8 +203,15 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .question h3 {
@@ -226,7 +269,7 @@
 
         .quiz-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .case-study {
@@ -258,7 +301,7 @@
             border-radius: 50%;
             margin: 20px auto;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="%23667eea"/><text x="100" y="110" text-anchor="middle" fill="white" font-size="20" font-family="Arial">Maslow</text></svg>') center/cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .timeline {
@@ -307,7 +350,7 @@
 
         .characteristic-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .score-display {
@@ -322,16 +365,38 @@
         }
 
         @media (max-width: 768px) {
-            .container { padding: 10px; }
-            .header h1 { font-size: 2em; }
-            .navigation { gap: 10px; }
-            .nav-btn { padding: 10px 20px; font-size: 0.9em; }
-            .pyramid-level { padding: 15px; font-size: 0.9em; }
-            .characteristics-grid { grid-template-columns: 1fr; }
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .navigation {
+                gap: 10px;
+            }
+
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .pyramid-level {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+
+            .characteristics-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
     <div class="container">
         <div class="header">
             <h1>🧠 Thuyết Thang Bậc Nhu Cầu Maslow</h1>
@@ -354,11 +419,13 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>🏠 Tuổi Thơ Khốn Khổ</h3>
-                    <p>Là con cả trong gia đình nghèo 7 anh chị em, cha bỏ bê, mẹ "độc ác". Đến lúc chết, vẫn không thể điều hòa cảm xúc căm ghét với mẹ.</p>
+                    <p>Là con cả trong gia đình nghèo 7 anh chị em, cha bỏ bê, mẹ "độc ác". Đến lúc chết, vẫn không thể
+                        điều hòa cảm xúc căm ghét với mẹ.</p>
                 </div>
                 <div class="timeline-item">
                     <h3>💕 Tình Yêu Đích Thực</h3>
-                    <p>Cưới người em họ mà ông yêu cho ông cảm giác yêu thương và thuộc về - điều ông thiếu thốn trong tuổi thơ.</p>
+                    <p>Cưới người em họ mà ông yêu cho ông cảm giác yêu thương và thuộc về - điều ông thiếu thốn trong
+                        tuổi thơ.</p>
                 </div>
                 <div class="timeline-item">
                     <h3>🎓 Học Hỏi Từ Bậc Thầy</h3>
@@ -366,7 +433,8 @@
                 </div>
                 <div class="timeline-item">
                     <h3>🌟 Chuyển Hướng Nhân Văn</h3>
-                    <p>Từ tâm lý học hành vi đến trào lưu nhân văn - hướng đến tìm hiểu sức mạnh, hoài bão, ý chí, hiện thực hóa tiềm năng của con người.</p>
+                    <p>Từ tâm lý học hành vi đến trào lưu nhân văn - hướng đến tìm hiểu sức mạnh, hoài bão, ý chí, hiện
+                        thực hóa tiềm năng của con người.</p>
                 </div>
             </div>
         </div>
@@ -377,7 +445,8 @@
             <div class="characteristics-grid">
                 <div class="characteristic-card">
                     <h3>🎯 Quan Điểm Toàn Diện</h3>
-                    <p>Hành vi của con người được thúc đẩy bởi toàn bộ con người, chứ không phải chỉ một bộ phận hay chức năng riêng lẻ.</p>
+                    <p>Hành vi của con người được thúc đẩy bởi toàn bộ con người, chứ không phải chỉ một bộ phận hay
+                        chức năng riêng lẻ.</p>
                 </div>
                 <div class="characteristic-card">
                     <h3>🔄 Động Cơ Phức Tạp</h3>
@@ -408,7 +477,8 @@
                 </div>
                 <div class="level-detail" id="detail-5" style="border-left-color: #5f27cd;">
                     <h4>🌟 Nhu Cầu Hiện Thực Hóa Bản Thân</h4>
-                    <p><strong>Định nghĩa:</strong> Nhận ra và hiện thực hóa những tiềm năng, tài năng và năng lực của bản thân ở mức cao nhất có thể.</p>
+                    <p><strong>Định nghĩa:</strong> Nhận ra và hiện thực hóa những tiềm năng, tài năng và năng lực của
+                        bản thân ở mức cao nhất có thể.</p>
                     <ul>
                         <li>✨ Tự do khỏi những ràng buộc xã hội</li>
                         <li>🧘 Không quá ưu tư về những nhu cầu thấp hơn</li>
@@ -425,7 +495,8 @@
                     <h4>👑 Nhu Cầu Tự Tin/Tự Trọng</h4>
                     <p><strong>Bao gồm:</strong></p>
                     <ul>
-                        <li>🏆 <strong>Tự trọng:</strong> Khát khao đạt được năng lực, sự thành thạo, sức mạnh và sự tự tin</li>
+                        <li>🏆 <strong>Tự trọng:</strong> Khát khao đạt được năng lực, sự thành thạo, sức mạnh và sự tự
+                            tin</li>
                         <li>⭐ <strong>Uy tín và danh tiếng:</strong> Được người khác tôn trọng, chú ý, cảm kích</li>
                         <li>✅ Khi được thỏa mãn: cảm thấy tự tin, có giá trị, có năng lực</li>
                         <li>❌ Khi không được đáp ứng: tự ti, thấp kém, bất lực, sợ thất bại</li>
@@ -438,7 +509,8 @@
                 </div>
                 <div class="level-detail" id="detail-3" style="border-left-color: #48dbfb;">
                     <h4>❤️ Nhu Cầu Yêu Và Thuộc Về</h4>
-                    <p><strong>Nội dung:</strong> Thiết lập được các mối quan hệ mật thiết với gia đình, bạn bè, người yêu.</p>
+                    <p><strong>Nội dung:</strong> Thiết lập được các mối quan hệ mật thiết với gia đình, bạn bè, người
+                        yêu.</p>
                     <ul>
                         <li>🤝 Kết nối, gần gũi, gắn bó, yêu và được yêu</li>
                         <li>🏠 Thuộc về một nhóm, hội, làng, xóm, gia đình, đất nước</li>
@@ -510,7 +582,8 @@
             </div>
 
             <h3>🌟 Đặc Điểm Người Hiện Thực Hóa Bản Thân</h3>
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
+            <div
+                style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin: 20px 0;">
                 <ul style="list-style: none;">
                     <li>👁️ Tri giác đúng và hiệu quả về hiện tại</li>
                     <li>🤝 Chấp nhận bản thân, người khác và tạo hóa</li>
@@ -527,10 +600,12 @@
         <!-- HẬU QUẢ KHI KHÔNG THỎA MÃN NHU CẦU -->
         <div id="consequences" class="content-section">
             <h2>⚠️ Hậu Quả Khi Nhu Cầu Không Được Thỏa Mãn</h2>
-            
-            <div style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;">
+
+            <div
+                style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center;">
                 <h3>🚨 Nguyên Lý Cơ Bản</h3>
-                <p><strong>"Khi các nhu cầu cơ bản không được thỏa mãn có thể dẫn đến một số triệu chứng tâm bệnh"</strong></p>
+                <p><strong>"Khi các nhu cầu cơ bản không được thỏa mãn có thể dẫn đến một số triệu chứng tâm
+                        bệnh"</strong></p>
             </div>
 
             <div class="characteristics-grid">
@@ -605,22 +680,28 @@
                 </div>
             </div>
 
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; margin: 30px 0;">
+            <div
+                style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; margin: 30px 0;">
                 <h3>🔄 Chu Trình Bệnh Lý</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div
+                        style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
                         <h4>1️⃣ Thiếu Thốn</h4>
                         <p>Nhu cầu không được thỏa mãn</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <div
+                        style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
                         <h4>2️⃣ Stress</h4>
                         <p>Căng thẳng tâm lý xuất hiện</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <div
+                        style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
                         <h4>3️⃣ Triệu Chứng</h4>
                         <p>Biểu hiện các vấn đề tâm lý</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <div
+                        style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
                         <h4>4️⃣ Suy Giảm</h4>
                         <p>Chức năng sống bị ảnh hưởng</p>
                     </div>
@@ -651,7 +732,8 @@
             <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; border-left: 5px solid #dc3545;">
                 <h3>⚡ Lưu Ý Quan Trọng</h3>
                 <ul>
-                    <li><strong>Tác động cộng hưởng:</strong> Thiếu một nhu cầu có thể ảnh hưởng đến các nhu cầu khác</li>
+                    <li><strong>Tác động cộng hưởng:</strong> Thiếu một nhu cầu có thể ảnh hưởng đến các nhu cầu khác
+                    </li>
                     <li><strong>Khác biệt cá nhân:</strong> Mức độ ảnh hưởng khác nhau tùy từng người</li>
                     <li><strong>Có thể phục hồi:</strong> Khi nhu cầu được thỏa mãn, triệu chứng có thể cải thiện</li>
                     <li><strong>Cần can thiệp:</strong> Những trường hợp nghiêm trọng cần sự hỗ trợ chuyên môn</li>
@@ -674,7 +756,8 @@
                     <div class="option" data-answer="d">D. Nhu cầu tự trọng</div>
                     <div class="correct-answer" style="display: none;">b</div>
                     <div class="explanation" style="display: none;">
-                        <p><strong>Giải thích:</strong> Nhu cầu sinh lý là nhu cầu căn bản nhất, bao gồm thức ăn, nước uống, oxy, giấc ngủ. Chúng cần được thỏa mãn trước tiên.</p>
+                        <p><strong>Giải thích:</strong> Nhu cầu sinh lý là nhu cầu căn bản nhất, bao gồm thức ăn, nước
+                            uống, oxy, giấc ngủ. Chúng cần được thỏa mãn trước tiên.</p>
                     </div>
                 </div>
 
@@ -698,7 +781,8 @@
                     <div class="option" data-answer="d">D. Nhu cầu an toàn</div>
                     <div class="correct-answer" style="display: none;">c</div>
                     <div class="explanation" style="display: none;">
-                        <p><strong>Giải thích:</strong> Nhu cầu tự thực hiện (hiện thực hóa bản thân) là tầng cao nhất, liên quan đến việc phát huy tiềm năng và sáng tạo.</p>
+                        <p><strong>Giải thích:</strong> Nhu cầu tự thực hiện (hiện thực hóa bản thân) là tầng cao nhất,
+                            liên quan đến việc phát huy tiềm năng và sáng tạo.</p>
                     </div>
                 </div>
 
@@ -710,7 +794,8 @@
                     <div class="option" data-answer="d">D. Thiếu tự tin</div>
                     <div class="correct-answer" style="display: none;">b</div>
                     <div class="explanation" style="display: none;">
-                        <p><strong>Giải thích:</strong> Khi nhu cầu yêu thương và thuộc về không được đáp ứng, người ta có thể trở nên phòng vệ, quá hung hăng hoặc quá nhút nhát trong giao tiếp xã hội.</p>
+                        <p><strong>Giải thích:</strong> Khi nhu cầu yêu thương và thuộc về không được đáp ứng, người ta
+                            có thể trở nên phòng vệ, quá hung hăng hoặc quá nhút nhát trong giao tiếp xã hội.</p>
                     </div>
                 </div>
 
@@ -722,7 +807,8 @@
                     <div class="option" data-answer="d">D. Tâm lý học phát triển</div>
                     <div class="correct-answer" style="display: none;">a</div>
                     <div class="explanation" style="display: none;">
-                        <p><strong>Giải thích:</strong> Maslow chuyển từ tâm lý học hành vi sang trào lưu nhân văn, tập trung vào sức mạnh và tiềm năng của con người thay vì chỉ nghiên cứu bệnh lý.</p>
+                        <p><strong>Giải thích:</strong> Maslow chuyển từ tâm lý học hành vi sang trào lưu nhân văn, tập
+                            trung vào sức mạnh và tiềm năng của con người thay vì chỉ nghiên cứu bệnh lý.</p>
                     </div>
                 </div>
 
@@ -734,7 +820,8 @@
                     <div class="option" data-answer="d">D. Sợ hãi và bất an</div>
                     <div class="correct-answer" style="display: none;">b</div>
                     <div class="explanation" style="display: none;">
-                        <p><strong>Giải thích:</strong> Thiếu sự tôn trọng có thể dẫn đến nghi ngờ bản thân, đánh giá thấp bản thân, thiếu tự tin và sợ thất bại.</p>
+                        <p><strong>Giải thích:</strong> Thiếu sự tôn trọng có thể dẫn đến nghi ngờ bản thân, đánh giá
+                            thấp bản thân, thiếu tự tin và sợ thất bại.</p>
                     </div>
                 </div>
 
@@ -746,14 +833,17 @@
                     <div class="option" data-answer="d">D. Nhu cầu yêu thương</div>
                     <div class="correct-answer" style="display: none;">c</div>
                     <div class="explanation" style="display: none;">
-                        <p><strong>Giải thích:</strong> Thiếu thốn nhu cầu hiện thực hóa bản thân có thể dẫn đến siêu bệnh lý: không có giá trị sống, thiếu sự thành toàn, mất ý nghĩa trong cuộc sống.</p>
+                        <p><strong>Giải thích:</strong> Thiếu thốn nhu cầu hiện thực hóa bản thân có thể dẫn đến siêu
+                            bệnh lý: không có giá trị sống, thiếu sự thành toàn, mất ý nghĩa trong cuộc sống.</p>
                     </div>
                 </div>
 
                 <div class="quiz-controls">
                     <button class="quiz-btn" onclick="checkAnswer()">Kiểm Tra</button>
-                    <button class="quiz-btn" onclick="nextQuestion()" style="display: none;" id="next-btn">Câu Tiếp Theo</button>
-                    <button class="quiz-btn" onclick="resetQuiz()" style="display: none;" id="reset-btn">Làm Lại</button>
+                    <button class="quiz-btn" onclick="nextQuestion()" style="display: none;" id="next-btn">Câu Tiếp
+                        Theo</button>
+                    <button class="quiz-btn" onclick="resetQuiz()" style="display: none;" id="reset-btn">Làm
+                        Lại</button>
                 </div>
             </div>
             <div id="score-display" class="score-display" style="display: none;">
@@ -764,58 +854,67 @@
         <!-- CASE STUDY -->
         <div id="case-study" class="content-section">
             <h2>📚 Case Study - Phân Tích Tình Huống</h2>
-            
+
             <div class="case-study">
                 <h3>🏢 Tình Huống 1: Nhân Viên Công Ty</h3>
-                <p><strong>Bối cảnh:</strong> Minh là một lập trình viên 25 tuổi, mới tốt nghiệp đại học và làm việc tại một công ty IT. Gần đây, anh cảm thấy căng thẳng và mất động lực làm việc.</p>
-                
+                <p><strong>Bối cảnh:</strong> Minh là một lập trình viên 25 tuổi, mới tốt nghiệp đại học và làm việc tại
+                    một công ty IT. Gần đây, anh cảm thấy căng thẳng và mất động lực làm việc.</p>
+
                 <h4>🔍 Phân Tích Theo Thang Bậc Maslow:</h4>
                 <ul>
                     <li><strong>Nhu cầu sinh lý:</strong> ✅ Được thỏa mãn (có lương ổn định)</li>
-                    <li><strong>Nhu cầu an toàn:</strong> ⚠️ Chưa hoàn toàn (lo sợ bị sa thải, công việc không ổn định)</li>
-                    <li><strong>Nhu cầu yêu thương:</strong> ❌ Thiếu (ít bạn bè, xa gia đình, đồng nghiệp không thân thiện)</li>
+                    <li><strong>Nhu cầu an toàn:</strong> ⚠️ Chưa hoàn toàn (lo sợ bị sa thải, công việc không ổn định)
+                    </li>
+                    <li><strong>Nhu cầu yêu thương:</strong> ❌ Thiếu (ít bạn bè, xa gia đình, đồng nghiệp không thân
+                        thiện)</li>
                     <li><strong>Nhu cầu tự trọng:</strong> ❌ Thiếu (không được ghi nhận, cảm thấy vô dụng)</li>
                     <li><strong>Nhu cầu tự thực hiện:</strong> ❌ Chưa thể đạt được</li>
                 </ul>
-                
+
                 <h4>💡 Giải Pháp Đề Xuất:</h4>
                 <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
-                    <p>1. <strong>Tăng cường an toàn công việc:</strong> Đào tạo kỹ năng, tìm hiểu chính sách công ty</p>
-                    <p>2. <strong>Xây dựng mối quan hệ:</strong> Tham gia hoạt động team building, kết bạn với đồng nghiệp</p>
+                    <p>1. <strong>Tăng cường an toàn công việc:</strong> Đào tạo kỹ năng, tìm hiểu chính sách công ty
+                    </p>
+                    <p>2. <strong>Xây dựng mối quan hệ:</strong> Tham gia hoạt động team building, kết bạn với đồng
+                        nghiệp</p>
                     <p>3. <strong>Tìm kiếm sự ghi nhận:</strong> Chủ động báo cáo thành tích, đề xuất ý tưởng mới</p>
                 </div>
             </div>
 
             <div class="case-study">
                 <h3>🎓 Tình Huống 2: Sinh Viên Xa Nhà</h3>
-                <p><strong>Bối cảnh:</strong> Lan là sinh viên năm nhất, lần đầu sống xa gia đình. Em cảm thấy cô đơn và áp lực học tập lớn.</p>
-                
+                <p><strong>Bối cảnh:</strong> Lan là sinh viên năm nhất, lần đầu sống xa gia đình. Em cảm thấy cô đơn và
+                    áp lực học tập lớn.</p>
+
                 <h4>🔍 Phân Tích:</h4>
                 <ul>
                     <li><strong>Nhu cầu sinh lý:</strong> ⚠️ Ăn uống không đều, thiếu ngủ</li>
                     <li><strong>Nhu cầu an toàn:</strong> ❌ Lo lắng về tài chính, môi trường mới</li>
                     <li><strong>Nhu cầu yêu thương:</strong> ❌ Nhớ gia đình, chưa có bạn thân</li>
                 </ul>
-                
+
                 <h4>💡 Giải Pháp:</h4>
                 <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
                     <p>1. <strong>Chăm sóc sức khỏe:</strong> Lập thời gian biểu ăn uống, ngủ nghỉ hợp lý</p>
-                    <p>2. <strong>Tạo cảm giác an toàn:</strong> Học cách quản lý tài chính, tìm hiểu môi trường xung quanh</p>
-                    <p>3. <strong>Xây dựng mối quan hệ:</strong> Tham gia CLB, hoạt động nhóm, giữ liên lạc với gia đình</p>
+                    <p>2. <strong>Tạo cảm giác an toàn:</strong> Học cách quản lý tài chính, tìm hiểu môi trường xung
+                        quanh</p>
+                    <p>3. <strong>Xây dựng mối quan hệ:</strong> Tham gia CLB, hoạt động nhóm, giữ liên lạc với gia đình
+                    </p>
                 </div>
             </div>
 
             <div class="case-study">
                 <h3>⚠️ Tình Huống 3: Hậu Quả Thiếu Nhu Cầu</h3>
-                <p><strong>Bối cảnh:</strong> An là một nhân viên bán hàng, bị sếp thường xuyên chỉ trích và đồng nghiệp xa lánh. Sau 6 tháng, An bắt đầu có những biểu hiện bất thường.</p>
-                
+                <p><strong>Bối cảnh:</strong> An là một nhân viên bán hàng, bị sếp thường xuyên chỉ trích và đồng nghiệp
+                    xa lánh. Sau 6 tháng, An bắt đầu có những biểu hiện bất thường.</p>
+
                 <h4>🔍 Phân Tích Hậu Quả:</h4>
                 <ul>
                     <li><strong>Thiếu an toàn:</strong> ➡️ Sợ hãi mỗi khi đến công ty, lo âu thường xuyên</li>
                     <li><strong>Thiếu yêu thương:</strong> ➡️ Trở nên phòng vệ, tránh giao tiếp với đồng nghiệp</li>
                     <li><strong>Thiếu tự trọng:</strong> ➡️ Mất tự tin, nghi ngờ khả năng bản thân, sợ thất bại</li>
                 </ul>
-                
+
                 <h4>📊 Tiến Triển Bệnh Lý:</h4>
                 <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px; margin: 10px 0;">
                     <p><strong>Tuần 1-4:</strong> Lo âu nhẹ, mất ngủ thỉnh thoảng</p>
@@ -832,9 +931,12 @@
                     <li>Liệu thang bậc nhu cầu có áp dụng được cho mọi văn hóa không?</li>
                     <li>Trong thời đại công nghệ, những nhu cầu nào có thể thay đổi?</li>
                     <li>Bạn đang ở tầng nào trong thang bậc? Làm thế nào để phát triển lên tầng cao hơn?</li>
-                    <li><strong>Về hậu quả:</strong> Bạn có từng trải qua tình huống thiếu thốn nhu cầu nào? Hậu quả như thế nào?</li>
-                    <li><strong>Ứng dụng thực tế:</strong> Làm thế nào để nhận biết sớm các dấu hiệu thiếu thốn nhu cầu ở người khác?</li>
-                    <li><strong>Can thiệp:</strong> Khi phát hiện ai đó thiếu thốn nhu cầu cơ bản, chúng ta nên làm gì?</li>
+                    <li><strong>Về hậu quả:</strong> Bạn có từng trải qua tình huống thiếu thốn nhu cầu nào? Hậu quả như
+                        thế nào?</li>
+                    <li><strong>Ứng dụng thực tế:</strong> Làm thế nào để nhận biết sớm các dấu hiệu thiếu thốn nhu cầu
+                        ở người khác?</li>
+                    <li><strong>Can thiệp:</strong> Khi phát hiện ai đó thiếu thốn nhu cầu cơ bản, chúng ta nên làm gì?
+                    </li>
                 </ol>
             </div>
         </div>
@@ -850,10 +952,10 @@
             // Ẩn tất cả sections
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => section.classList.remove('active'));
-            
+
             // Hiển thị section được chọn
             document.getElementById(sectionId).classList.add('active');
-            
+
             // Cập nhật navigation
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -876,13 +978,13 @@
 
         function checkAnswer() {
             if (answered) return;
-            
+
             const currentQ = document.querySelector(`.question[data-question="${currentQuestion}"]`);
             const options = currentQ.querySelectorAll('.option');
             const correctAnswer = currentQ.querySelector('.correct-answer').textContent;
             let selectedOption = null;
             let selectedAnswer = null;
-            
+
             // Tìm option được chọn
             options.forEach(option => {
                 if (option.classList.contains('selected')) {
@@ -890,12 +992,12 @@
                     selectedAnswer = option.dataset.answer;
                 }
             });
-            
+
             if (!selectedAnswer) {
                 alert('Vui lòng chọn một đáp án!');
                 return;
             }
-            
+
             // Hiển thị kết quả
             options.forEach(option => {
                 if (option.dataset.answer === correctAnswer) {
@@ -911,7 +1013,7 @@
                 }
                 option.style.pointerEvents = 'none';
             });
-            
+
             // Hiển thị giải thích
             const explanation = currentQ.querySelector('.explanation');
             explanation.style.display = 'block';
@@ -919,14 +1021,14 @@
             explanation.style.padding = '15px';
             explanation.style.borderRadius = '10px';
             explanation.style.marginTop = '15px';
-            
+
             if (selectedAnswer === correctAnswer) {
                 score++;
             }
-            
+
             answered = true;
             document.getElementById('next-btn').style.display = 'inline-block';
-            
+
             // Cập nhật progress
             updateProgress();
         }
@@ -935,15 +1037,15 @@
             if (currentQuestion < totalQuestions) {
                 // Ẩn câu hỏi hiện tại
                 document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.remove('active');
-                
+
                 currentQuestion++;
-                
+
                 // Hiển thị câu hỏi tiếp theo
                 document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.add('active');
-                
+
                 answered = false;
                 document.getElementById('next-btn').style.display = 'none';
-                
+
                 // Thiết lập lại event listener cho câu hỏi mới
                 setupQuizEvents();
             } else {
@@ -960,7 +1062,7 @@
         function showFinalScore() {
             const percentage = Math.round((score / totalQuestions) * 100);
             let message = '';
-            
+
             if (percentage >= 80) {
                 message = '🏆 Xuất sắc! Bạn đã nắm vững lý thuyết Maslow!';
             } else if (percentage >= 60) {
@@ -968,8 +1070,8 @@
             } else {
                 message = '📚 Cần cố gắng thêm! Hãy đọc lại lý thuyết nhé!';
             }
-            
-            document.getElementById('final-score').innerHTML = 
+
+            document.getElementById('final-score').innerHTML =
                 `${message}<br>Điểm số: ${score}/${totalQuestions} (${percentage}%)`;
             document.getElementById('score-display').style.display = 'block';
             document.getElementById('reset-btn').style.display = 'inline-block';
@@ -980,13 +1082,13 @@
             currentQuestion = 1;
             score = 0;
             answered = false;
-            
+
             // Reset tất cả câu hỏi
             const questions = document.querySelectorAll('.question');
             questions.forEach((q, index) => {
                 q.classList.remove('active');
                 if (index === 0) q.classList.add('active');
-                
+
                 const options = q.querySelectorAll('.option');
                 options.forEach(option => {
                     option.classList.remove('correct', 'wrong', 'selected');
@@ -995,16 +1097,16 @@
                     option.style.color = '';
                     option.style.pointerEvents = '';
                 });
-                
+
                 q.querySelector('.explanation').style.display = 'none';
             });
-            
+
             // Reset UI
             document.getElementById('quiz-progress').style.width = '0%';
             document.getElementById('score-display').style.display = 'none';
             document.getElementById('reset-btn').style.display = 'none';
             document.getElementById('next-btn').style.display = 'none';
-            
+
             // Thiết lập lại event listener
             setupQuizEvents();
             updateProgress();
@@ -1014,9 +1116,9 @@
         function setupQuizEvents() {
             const options = document.querySelectorAll('.option');
             options.forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     if (answered) return;
-                    
+
                     // Remove selection from siblings
                     const siblings = this.parentNode.querySelectorAll('.option');
                     siblings.forEach(sib => {
@@ -1024,7 +1126,7 @@
                         sib.style.borderColor = '#e9ecef';
                         sib.classList.remove('selected');
                     });
-                    
+
                     // Select this option
                     this.style.backgroundColor = '#f8f9ff';
                     this.style.borderColor = '#667eea';
@@ -1033,7 +1135,7 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             setupQuizEvents();
             updateProgress();
         });
@@ -1045,9 +1147,23 @@
         }
 
         // Gọi khởi tạo khi trang load
-        window.onload = function() {
+        window.onload = function () {
             initQuiz();
         };
+        // Function to print the PDF
+        function printPDF() {
+            const pdfUrl = 'print_pdf/05_maslow.pdf'; // đường dẫn tới file PDF
+            // Tạo một iframe ẩn để in PDF
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pdfUrl;
+            iframe.onload = function () {
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+            };
+            document.body.appendChild(iframe);
+        }
     </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
         .header {
             text-align: center;
             padding: 40px 0;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
@@ -67,15 +68,16 @@
             font-weight: bold;
         }
 
-        .nav-btn:hover, .nav-btn.active {
+        .nav-btn:hover,
+        .nav-btn.active {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             background: linear-gradient(45deg, #ff6b6b, #ee5a52);
         }
 
         .section {
             display: none;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
@@ -88,12 +90,19 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .concept-card {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             padding: 25px;
             margin: 20px 0;
@@ -103,7 +112,7 @@
 
         .concept-card:hover {
             transform: translateX(10px);
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .concept-title {
@@ -114,7 +123,7 @@
         }
 
         .diagram-container {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 30px;
             margin: 25px 0;
@@ -151,21 +160,21 @@
         }
 
         .anxiety-box {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 20px;
             text-align: center;
         }
 
         .quiz-container {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 25px;
             margin: 20px 0;
         }
 
         .question {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
@@ -177,7 +186,7 @@
         }
 
         .option {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border: 2px solid transparent;
             border-radius: 8px;
             padding: 12px;
@@ -188,7 +197,7 @@
 
         .option:hover {
             border-color: #FFD700;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .option.selected {
@@ -220,7 +229,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .reset-btn {
@@ -228,7 +237,7 @@
         }
 
         .progress-bar {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             height: 20px;
             margin: 20px 0;
@@ -248,7 +257,7 @@
             font-size: 1.2rem;
             margin: 20px 0;
             padding: 15px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
         }
 
@@ -271,7 +280,7 @@
 
         .hidden-content {
             display: none;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
             margin-top: 15px;
@@ -279,8 +288,15 @@
         }
 
         @keyframes slideDown {
-            from { opacity: 0; max-height: 0; }
-            to { opacity: 1; max-height: 200px; }
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+
+            to {
+                opacity: 1;
+                max-height: 200px;
+            }
         }
 
         .diagram-svg {
@@ -292,23 +308,26 @@
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .nav-menu {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .three-worlds {
                 grid-template-columns: 1fr;
             }
-            
+
             .anxiety-comparison {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
     <div class="container">
         <div class="header">
             <h1>TÂM LÝ HỌC HIỆN SINH</h1>
@@ -328,18 +347,20 @@
         <!-- GIỚI THIỆU -->
         <div id="intro" class="section active">
             <h2>🌟 Giới Thiệu Tâm Lý Học Hiện Sinh</h2>
-            
+
             <div class="concept-card">
                 <div class="concept-title">Tâm lý học hiện sinh là gì?</div>
-                <p>Tâm lý học hiện sinh là một trường phái tâm lý học tập trung vào <strong>trải nghiệm sống của con người</strong>, 
-                ý nghĩa cuộc sống, và cách con người đối mặt với những thách thức cơ bản của sự tồn tại.</p>
+                <p>Tâm lý học hiện sinh là một trường phái tâm lý học tập trung vào <strong>trải nghiệm sống của con
+                        người</strong>,
+                    ý nghĩa cuộc sống, và cách con người đối mặt với những thách thức cơ bản của sự tồn tại.</p>
             </div>
 
             <div class="concept-card">
                 <div class="concept-title">Đặc điểm chính</div>
                 <ul>
                     <li>🎯 <strong>Tập trung vào ý nghĩa:</strong> Tìm kiếm ý nghĩa trong cuộc sống</li>
-                    <li>🗽 <strong>Tự do và trách nhiệm:</strong> Con người có quyền tự do lựa chọn và chịu trách nhiệm</li>
+                    <li>🗽 <strong>Tự do và trách nhiệm:</strong> Con người có quyền tự do lựa chọn và chịu trách nhiệm
+                    </li>
                     <li>😰 <strong>Lo âu hiện sinh:</strong> Lo âu như cánh cửa khám phá bản thân</li>
                     <li>💖 <strong>Tình yêu và ý chí:</strong> Sự hợp nhất giữa cảm xúc và quyết tâm</li>
                 </ul>
@@ -348,19 +369,20 @@
             <div class="diagram-container">
                 <h3>Vị trí của Tâm Lý Học Hiện Sinh trong các Trường Phái</h3>
                 <svg width="400" height="300" class="diagram-svg">
-                    <circle cx="200" cy="150" r="120" fill="#667eea" opacity="0.7"/>
-                    <text x="200" y="100" text-anchor="middle" fill="white" font-size="14" font-weight="bold">TÂM LÝ HỌC</text>
-                    
-                    <circle cx="120" cy="120" r="40" fill="#ff6b6b" opacity="0.8"/>
+                    <circle cx="200" cy="150" r="120" fill="#667eea" opacity="0.7" />
+                    <text x="200" y="100" text-anchor="middle" fill="white" font-size="14" font-weight="bold">TÂM LÝ
+                        HỌC</text>
+
+                    <circle cx="120" cy="120" r="40" fill="#ff6b6b" opacity="0.8" />
                     <text x="120" y="125" text-anchor="middle" fill="white" font-size="10">Phân Tâm</text>
-                    
-                    <circle cx="280" cy="120" r="40" fill="#4CAF50" opacity="0.8"/>
+
+                    <circle cx="280" cy="120" r="40" fill="#4CAF50" opacity="0.8" />
                     <text x="280" y="125" text-anchor="middle" fill="white" font-size="10">Hành Vi</text>
-                    
-                    <circle cx="150" cy="200" r="40" fill="#FFD700" opacity="0.8"/>
+
+                    <circle cx="150" cy="200" r="40" fill="#FFD700" opacity="0.8" />
                     <text x="150" y="205" text-anchor="middle" fill="black" font-size="10">Nhân Văn</text>
-                    
-                    <circle cx="250" cy="200" r="40" fill="#9C27B0" opacity="0.8"/>
+
+                    <circle cx="250" cy="200" r="40" fill="#9C27B0" opacity="0.8" />
                     <text x="250" y="200" text-anchor="middle" fill="white" font-size="9">HIỆN SINH</text>
                     <text x="250" y="210" text-anchor="middle" fill="white" font-size="9">(Rollo May)</text>
                 </svg>
@@ -370,18 +392,19 @@
         <!-- TRIẾT HỌC HIỆN SINH -->
         <div id="philosophy" class="section">
             <h2>🧠 Triết Học Hiện Sinh</h2>
-            
+
             <div class="concept-card">
                 <div class="concept-title">Nguyên lý cơ bản: "Sự tồn tại có trước tính chất"</div>
-                <p><strong>Existence precedes essence</strong> - Con người không sinh ra với bản chất cố định, 
-                mà tự tạo ra ý nghĩa và bản chất của mình thông qua những lựa chọn và hành động.</p>
-                
+                <p><strong>Existence precedes essence</strong> - Con người không sinh ra với bản chất cố định,
+                    mà tự tạo ra ý nghĩa và bản chất của mình thông qua những lựa chọn và hành động.</p>
+
                 <div class="interactive-element" onclick="toggleContent('essence-content')">
                     <strong>🔍 Nhấn để xem ví dụ minh họa</strong>
                 </div>
                 <div id="essence-content" class="hidden-content">
-                    <p><strong>Ví dụ:</strong> Một chiếc búa được tạo ra với mục đích đóng đinh (essence trước existence). 
-                    Nhưng con người sinh ra không có "mục đích" định sẵn - chúng ta tự tạo ra ý nghĩa cuộc sống.</p>
+                    <p><strong>Ví dụ:</strong> Một chiếc búa được tạo ra với mục đích đóng đinh (essence trước
+                        existence).
+                        Nhưng con người sinh ra không có "mục đích" định sẵn - chúng ta tự tạo ra ý nghĩa cuộc sống.</p>
                 </div>
             </div>
 
@@ -417,11 +440,11 @@
         <!-- ROLLO MAY -->
         <div id="rollo-may" class="section">
             <h2>👨‍🎓 Rollo May (1909-1994)</h2>
-            
+
             <div class="concept-card">
                 <div class="concept-title">Tiểu sử và Ảnh hưởng</div>
-                <p>Rollo May trở thành nhà tâm lý học hiện sinh qua <strong>trải nghiệm đối diện với cái chết</strong>. 
-                Ông là người có ảnh hưởng lớn trong việc phát triển và mở rộng tâm lý học hiện sinh tại Mỹ.</p>
+                <p>Rollo May trở thành nhà tâm lý học hiện sinh qua <strong>trải nghiệm đối diện với cái chết</strong>.
+                    Ông là người có ảnh hưởng lớn trong việc phát triển và mở rộng tâm lý học hiện sinh tại Mỹ.</p>
             </div>
 
             <div class="diagram-container">
@@ -449,48 +472,49 @@
 
             <div class="concept-card">
                 <div class="concept-title">"Lòng can đảm" - Trích dẫn nổi tiếng</div>
-                <blockquote style="font-style: italic; font-size: 1.1rem; border-left: 4px solid #FFD700; padding-left: 20px;">
-                    "Courage is the capacity to meet the anxiety which arises as one achieves freedom. 
-                    It is the willingness to differentiate, to move from the protecting realms of parental 
+                <blockquote
+                    style="font-style: italic; font-size: 1.1rem; border-left: 4px solid #FFD700; padding-left: 20px;">
+                    "Courage is the capacity to meet the anxiety which arises as one achieves freedom.
+                    It is the willingness to differentiate, to move from the protecting realms of parental
                     dependence to new levels of freedom and integration."
                 </blockquote>
-                <p><em>Lòng can đảm là khả năng đối mặt với lo âu phát sinh khi đạt được tự do. 
-                Đó là sự sẵn sàng phân biệt, di chuyển từ vùng an toàn phụ thuộc vào cha mẹ 
-                sang những mức độ tự do và hòa nhập mới.</em></p>
+                <p><em>Lòng can đảm là khả năng đối mặt với lo âu phát sinh khi đạt được tự do.
+                        Đó là sự sẵn sàng phân biệt, di chuyển từ vùng an toàn phụ thuộc vào cha mẹ
+                        sang những mức độ tự do và hòa nhập mới.</em></p>
             </div>
         </div>
 
         <!-- KHÁI NIỆM CHÍNH -->
         <div id="concepts" class="section">
             <h2>🎯 Các Khái Niệm Chính</h2>
-            
+
             <!-- BA THẾ GIỚI SỐNG -->
             <div class="concept-card">
                 <div class="concept-title">🌍 Ba Thế Giới Sống (Being-in-the-World)</div>
-                <p>Con người sống TRONG thế giới, không tách biệt. Trải nghiệm của chúng ta là một 
-                (Oneness) với thế giới qua ba chiều kích:</p>
-                
+                <p>Con người sống TRONG thế giới, không tách biệt. Trải nghiệm của chúng ta là một
+                    (Oneness) với thế giới qua ba chiều kích:</p>
+
                 <div class="three-worlds">
                     <div class="world-box" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
                         <h4>🌱 Umwelt</h4>
                         <h5>Thế giới vật chất</h5>
                         <p>• Mối quan hệ với tự nhiên<br>
-                        • Quy luật sinh học, vũ trụ<br>
-                        • Nhu cầu sinh tồn cơ bản</p>
+                            • Quy luật sinh học, vũ trụ<br>
+                            • Nhu cầu sinh tồn cơ bản</p>
                     </div>
                     <div class="world-box" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
                         <h4>👥 Mitwelt</h4>
                         <h5>Thế giới tương quan</h5>
                         <p>• Mối quan hệ với người khác<br>
-                        • Tương tác xã hội có ý nghĩa<br>
-                        • Tránh xem người khác như vật thể</p>
+                            • Tương tác xã hội có ý nghĩa<br>
+                            • Tránh xem người khác như vật thể</p>
                     </div>
                     <div class="world-box" style="background: linear-gradient(135deg, #9C27B0, #7B1FA2);">
                         <h4>🧘 Eigenwelt</h4>
                         <h5>Thế giới nội tâm</h5>
                         <p>• Mối quan hệ với chính bản thân<br>
-                        • Tự nhận thức và hiểu biết<br>
-                        • Kết nối với chính mình</p>
+                            • Tự nhận thức và hiểu biết<br>
+                            • Kết nối với chính mình</p>
                     </div>
                 </div>
             </div>
@@ -522,14 +546,15 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="interactive-element" onclick="toggleContent('anxiety-quote')">
                     <strong>💬 Xem trích dẫn về lo âu</strong>
                 </div>
                 <div id="anxiety-quote" class="hidden-content">
-                    <blockquote>"Lo âu là một người thầy thậm chí còn tốt hơn thực tế cuộc sống, 
-                    vì người ta có thể tạm thời trốn tránh thực tế bằng cách lảng tránh tình huống buồn bực; 
-                    nhưng lo âu là một nguồn giáo dục luôn luôn hiện hữu vì chúng ta mang nó ở bên trong mình."</blockquote>
+                    <blockquote>"Lo âu là một người thầy thậm chí còn tốt hơn thực tế cuộc sống,
+                        vì người ta có thể tạm thời trốn tránh thực tế bằng cách lảng tránh tình huống buồn bực;
+                        nhưng lo âu là một nguồn giáo dục luôn luôn hiện hữu vì chúng ta mang nó ở bên trong mình."
+                    </blockquote>
                 </div>
             </div>
 
@@ -557,32 +582,32 @@
                     <h4>Sự Hợp Nhất Tình Yêu và Ý Chí</h4>
                     <svg width="500" height="250" class="diagram-svg">
                         <!-- Tình yêu -->
-                        <circle cx="150" cy="125" r="60" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="150" cy="125" r="60" fill="#ff6b6b" opacity="0.7" />
                         <text x="150" y="130" text-anchor="middle" fill="white" font-weight="bold">TÌNH YÊU</text>
-                        
+
                         <!-- Ý chí -->
-                        <circle cx="350" cy="125" r="60" fill="#2196F3" opacity="0.7"/>
+                        <circle cx="350" cy="125" r="60" fill="#2196F3" opacity="0.7" />
                         <text x="350" y="130" text-anchor="middle" fill="white" font-weight="bold">Ý CHÍ</text>
-                        
+
                         <!-- Giao điểm -->
-                        <circle cx="250" cy="125" r="40" fill="#9C27B0" opacity="0.8"/>
+                        <circle cx="250" cy="125" r="40" fill="#9C27B0" opacity="0.8" />
                         <text x="250" y="130" text-anchor="middle" fill="white" font-weight="bold">HỢP NHẤT</text>
-                        
+
                         <!-- Mũi tên -->
-                        <path d="M 210 125 L 290 125" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead)"/>
-                        <path d="M 290 125 L 210 125" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead2)"/>
-                        
+                        <path d="M 210 125 L 290 125" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead)" />
+                        <path d="M 290 125 L 210 125" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead2)" />
+
                         <defs>
                             <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#FFD700"/>
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#FFD700" />
                             </marker>
                             <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
-                                <polygon points="10 0, 0 3.5, 10 7" fill="#FFD700"/>
+                                <polygon points="10 0, 0 3.5, 10 7" fill="#FFD700" />
                             </marker>
                         </defs>
                     </svg>
                 </div>
-                
+
                 <div class="three-worlds">
                     <div class="world-box" style="background: linear-gradient(135deg, #ff6b6b, #ee5a52);">
                         <h4>❤️ Sự Quan Tâm (Care)</h4>
@@ -603,7 +628,7 @@
         <!-- GÓC NHÌN TÂM LÝ HỌC -->
         <div id="psychology" class="section">
             <h2>🧭 Góc Nhìn Tâm Lý Học</h2>
-            
+
             <div class="concept-card">
                 <div class="concept-title">🔄 So sánh với các Trường phái khác</div>
                 <div class="diagram-container">
@@ -615,22 +640,26 @@
                             <th style="padding: 10px; border: 1px solid #ddd;">Hiện Sinh</th>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Tự do vs Định mệnh</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Tự do vs Định mệnh
+                            </td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Định mệnh bởi quá khứ</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Điều kiện hóa</td>
                             <td style="padding: 10px; border: 1px solid #ddd;"><strong>Tự do lựa chọn</strong></td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Bi quan vs Lạc quan</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Bi quan vs Lạc quan
+                            </td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Bi quan</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Trung tính</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Lạc quan có trách nhiệm</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Lạc quan có trách nhiệm</strong>
+                            </td>
                         </tr>
                         <tr>
                             <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Ý thức vs Vô thức</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Vô thức quyết định</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Hành vi quan sát được</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Ý thức và trải nghiệm</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Ý thức và trải nghiệm</strong>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -681,9 +710,9 @@
 
             <div class="case-study">
                 <h4>📋 Case Study: Minh và Khủng hoảng Ý nghĩa</h4>
-                <p><strong>Tình huống:</strong> Minh, 35 tuổi, thành công trong sự nghiệp nhưng cảm thấy trống rỗng. 
-                Anh thường xuyên tự hỏi "Cuộc sống này có ý nghĩa gì?" và cảm thấy lo âu khi nghĩ về tương lai.</p>
-                
+                <p><strong>Tình huống:</strong> Minh, 35 tuổi, thành công trong sự nghiệp nhưng cảm thấy trống rỗng.
+                    Anh thường xuyên tự hỏi "Cuộc sống này có ý nghĩa gì?" và cảm thấy lo âu khi nghĩ về tương lai.</p>
+
                 <div class="interactive-element" onclick="toggleContent('case-analysis')">
                     <strong>🔍 Nhấn để xem phân tích theo góc nhìn hiện sinh</strong>
                 </div>
@@ -691,7 +720,8 @@
                     <h5>Phân tích Hiện sinh:</h5>
                     <ul>
                         <li><strong>Lo âu hiện sinh:</strong> Minh đang trải qua lo âu bình thường về ý nghĩa</li>
-                        <li><strong>Ba thế giới:</strong> Cần cân bằng Umwelt (thành công vật chất), Mitwelt (mối quan hệ), Eigenwelt (bản thân)</li>
+                        <li><strong>Ba thế giới:</strong> Cần cân bằng Umwelt (thành công vật chất), Mitwelt (mối quan
+                            hệ), Eigenwelt (bản thân)</li>
                         <li><strong>Tự do lựa chọn:</strong> Minh có quyền tự do tạo ra ý nghĩa riêng</li>
                         <li><strong>Hướng trị liệu:</strong> Khám phá giá trị cá nhân, tìm mục đích sống</li>
                     </ul>
@@ -730,7 +760,7 @@
                 question: "Nguyên lý cơ bản của triết học hiện sinh là gì?",
                 options: [
                     "Tính chất có trước sự tồn tại",
-                    "Sự tồn tại có trước tính chất", 
+                    "Sự tồn tại có trước tính chất",
                     "Con người sinh ra với bản chất cố định",
                     "Vô thức quyết định hành vi"
                 ],
@@ -826,7 +856,7 @@
                 question: "Case Study: Phong, 40 tuổi, cảm thấy xa lánh với chính bản thân mình và không hiểu mình thực sự muốn gì. Vấn đề này liên quan đến thế giới nào?",
                 options: [
                     "Umwelt - thế giới vật chất",
-                    "Mitwelt - thế giới tương quan", 
+                    "Mitwelt - thế giới tương quan",
                     "Eigenwelt - thế giới nội tâm",
                     "Cả ba thế giới"
                 ],
@@ -851,30 +881,30 @@
             // Ẩn tất cả sections
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
-            
+
             // Hiện section được chọn
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
             }
-            
+
             // Cập nhật nút active
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            
+
             // Tìm và active nút tương ứng
             if (clickedButton) {
                 clickedButton.classList.add('active');
             } else {
                 // Tìm nút theo section id
-                const targetButton = Array.from(buttons).find(btn => 
+                const targetButton = Array.from(buttons).find(btn =>
                     btn.getAttribute('onclick').includes(`'${sectionId}'`)
                 );
                 if (targetButton) {
                     targetButton.classList.add('active');
                 }
             }
-            
+
             // Nếu chọn quiz, load quiz
             if (sectionId === 'quiz') {
                 loadQuiz();
@@ -895,7 +925,7 @@
         function loadQuiz() {
             const container = document.getElementById('quizContainer');
             container.innerHTML = '';
-            
+
             quizData.forEach((q, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.className = 'question';
@@ -924,7 +954,7 @@
                     option.classList.remove('selected');
                 }
             }
-            
+
             // Add selection to clicked option
             const selectedOption = document.getElementById(`q${questionId}_option${optionIndex}`);
             if (selectedOption) {
@@ -935,25 +965,25 @@
 
         function checkAnswers() {
             let score = 0;
-            
+
             quizData.forEach(q => {
                 const correctAnswer = q.correct;
-                
+
                 // Show explanation
                 const explanation = document.getElementById(`explanation${q.id}`);
                 if (explanation) {
                     explanation.style.display = 'block';
                 }
-                
+
                 // Check each option
                 for (let i = 0; i < q.options.length; i++) {
                     const option = document.getElementById(`q${q.id}_option${i}`);
-                    
+
                     if (option) {
                         if (i === correctAnswer) {
                             option.classList.add('correct');
                         }
-                        
+
                         if (option.classList.contains('selected')) {
                             if (i === correctAnswer) {
                                 score++;
@@ -964,18 +994,18 @@
                     }
                 }
             });
-            
+
             // Update score display
             const scoreElement = document.getElementById('score');
             const progressBar = document.getElementById('progressBar');
-            
+
             if (scoreElement) {
                 scoreElement.textContent = score;
             }
             if (progressBar) {
                 progressBar.style.width = (score / 10 * 100) + '%';
             }
-            
+
             currentScore = score;
             quizCompleted = true;
         }
@@ -988,30 +1018,30 @@
                     delete option.dataset.selected;
                 }
             });
-            
+
             const explanations = document.querySelectorAll('[id^="explanation"]');
             explanations.forEach(exp => {
                 if (exp) {
                     exp.style.display = 'none';
                 }
             });
-            
+
             const scoreElement = document.getElementById('score');
             const progressBar = document.getElementById('progressBar');
-            
+
             if (scoreElement) {
                 scoreElement.textContent = '0';
             }
             if (progressBar) {
                 progressBar.style.width = '0%';
             }
-            
+
             currentScore = 0;
             quizCompleted = false;
         }
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Load intro section by default
             try {
                 showSection('intro');
@@ -1019,6 +1049,20 @@
                 console.error('Error initializing page:', error);
             }
         });
+        // Function to print the PDF
+        function printPDF() {
+            const pdfUrl = 'print_pdf/08_hiensinh.pdf'; // đường dẫn tới file PDF
+            // Tạo một iframe ẩn để in PDF
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pdfUrl;
+            iframe.onload = function () {
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+            };
+            document.body.appendChild(iframe);
+        }
     </script>
 </body>
+
 </html>

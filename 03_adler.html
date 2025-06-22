@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +38,7 @@
         .header h1 {
             font-size: 3rem;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin-bottom: 10px;
         }
 
@@ -65,10 +66,11 @@
             font-weight: bold;
         }
 
-        .nav-btn:hover, .nav-btn.active {
+        .nav-btn:hover,
+        .nav-btn.active {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .content-section {
@@ -77,7 +79,7 @@
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: fadeIn 0.5s ease-out;
         }
 
@@ -135,7 +137,7 @@
             width: 100%;
             max-width: 300px;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .timeline {
@@ -150,7 +152,7 @@
             padding: 20px;
             margin: 20px 0;
             border-left: 5px solid #667eea;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             animation: slideIn 0.6s ease-out;
         }
 
@@ -223,7 +225,7 @@
             border-radius: 15px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -256,7 +258,7 @@
 
         .interactive-element:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .progress-bar {
@@ -277,18 +279,37 @@
         }
 
         @keyframes slideDown {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideIn {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         @media (max-width: 768px) {
@@ -296,11 +317,11 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .birth-order-grid {
                 grid-template-columns: 1fr;
             }
@@ -313,16 +334,18 @@
             background: rgba(255, 255, 255, 0.9);
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
     </style>
 </head>
+
 <body>
     <div class="score-display">
         <strong>Điểm Quiz: <span id="score">0</span></strong>
     </div>
-
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
     <div class="container">
         <div class="header">
             <h1>🧠 Alfred Adler & Tâm Lý Học Cá Nhân</h1>
@@ -344,7 +367,7 @@
         <!-- Phần Giới Thiệu -->
         <div id="intro" class="content-section active">
             <h2 class="section-title">Alfred Adler (1870-1937)</h2>
-            
+
             <div class="adler-info">
                 <div>
                     <h3>🎯 Cuộc đời và sự nghiệp</h3>
@@ -353,7 +376,8 @@
                             <strong>1870:</strong> Sinh ra tại Áo, con thứ 2 trong gia đình có 7 anh chị em
                         </div>
                         <div class="timeline-item">
-                            <strong>Thời thơ ấu:</strong> Trải qua nhiều khó khăn về sức khỏe (bệnh còi xương, viêm phổi)
+                            <strong>Thời thơ ấu:</strong> Trải qua nhiều khó khăn về sức khỏe (bệnh còi xương, viêm
+                            phổi)
                         </div>
                         <div class="timeline-item">
                             <strong>1895:</strong> Trở thành bác sĩ, chuyên về tâm thần học
@@ -366,27 +390,32 @@
                         </div>
                     </div>
                 </div>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiByeD0iMTUiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KPGVsbGlwc2UgY3g9IjE0MCIgY3k9IjExMCIgcng9IjgiIHJ5PSIxMiIgZmlsbD0iIzMzMyIvPgo8ZWxsaXBzZSBjeD0iMTYwIiBjeT0iMTEwIiByeD0iOCIgcnk9IjEyIiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMzAgMTQwIFExNTAgMTUwIDE3MCA0MCIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iODAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KPHRleHQgeD0iMTUwIiB5PSIyNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5BbGZyZWQgQWRsZXI8L3RleHQ+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF9saW5lYXJfMV8xIiB4MT0iMCIgeTE9IjAiIHgyPSIzMDAiIHkyPSIzMDAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzY2N2VlYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" alt="Alfred Adler" class="adler-portrait">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiByeD0iMTUiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KPGVsbGlwc2UgY3g9IjE0MCIgY3k9IjExMCIgcng9IjgiIHJ5PSIxMiIgZmlsbD0iIzMzMyIvPgo8ZWxsaXBzZSBjeD0iMTYwIiBjeT0iMTEwIiByeD0iOCIgcnk9IjEyIiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMzAgMTQwIFExNTAgMTUwIDE3MCA0MCIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KPHJlY3QgeD0iMTAwIiB5PSIxODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iODAiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KPHRleHQgeD0iMTUwIiB5PSIyNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5BbGZyZWQgQWRsZXI8L3RleHQ+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF9saW5lYXJfMV8xIiB4MT0iMCIgeTE9IjAiIHgyPSIzMDAiIHkyPSIzMDAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzY2N2VlYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K"
+                    alt="Alfred Adler" class="adler-portrait">
             </div>
 
             <div class="concept-card">
                 <h3>🌟 Triết lý cốt lõi</h3>
-                <p><em>"Mục tiêu của tâm hồn con người là chinh phục, hoàn thiện, yên ổn, tính ưu việt. Mọi đứa trẻ đều phải đối mặt với rất nhiều trở ngại trong cuộc sống đến nỗi không đứa trẻ nào lớn lên mà không phấn đấu vì một ý nghĩa quan trọng nào đó."</em></p>
+                <p><em>"Mục tiêu của tâm hồn con người là chinh phục, hoàn thiện, yên ổn, tính ưu việt. Mọi đứa trẻ đều
+                        phải đối mặt với rất nhiều trở ngại trong cuộc sống đến nỗi không đứa trẻ nào lớn lên mà không
+                        phấn đấu vì một ý nghĩa quan trọng nào đó."</em></p>
             </div>
 
             <div class="interactive-element" onclick="showFact()">
                 <h3>💡 Nhấn để khám phá thực tế thú vị về Adler!</h3>
-                <p id="factText">Adler đã vượt qua chính cảm giác tự ti của mình để trở thành một nhà tâm lý học vĩ đại!</p>
+                <p id="factText">Adler đã vượt qua chính cảm giác tự ti của mình để trở thành một nhà tâm lý học vĩ đại!
+                </p>
             </div>
         </div>
 
         <!-- Phần Khái Niệm Chính -->
         <div id="concepts" class="content-section">
             <h2 class="section-title">🎯 Các Khái Niệm Chính</h2>
-            
+
             <div class="concept-card">
                 <h3>1. Phấn đấu để vượt trội (Striving for Superiority)</h3>
-                <p>Động lực duy nhất đằng sau hành vi của con người là sự phấn đấu để thành công hay để vượt trội. Đây là động lực bẩm sinh thúc đẩy con người phát triển.</p>
+                <p>Động lực duy nhất đằng sau hành vi của con người là sự phấn đấu để thành công hay để vượt trội. Đây
+                    là động lực bẩm sinh thúc đẩy con người phát triển.</p>
             </div>
 
             <div class="diagram">
@@ -411,20 +440,23 @@
 
             <div class="concept-card">
                 <h3>3. Cảm thức cộng đồng (Social Interest)</h3>
-                <p><em>"Tất cả những thất bại - rối loạn tâm lý, tội phạm, nghiện rượu, trẻ em có vấn đề - đều là vì họ thiếu cảm thức cộng đồng."</em> - Alfred Adler</p>
+                <p><em>"Tất cả những thất bại - rối loạn tâm lý, tội phạm, nghiện rượu, trẻ em có vấn đề - đều là vì họ
+                        thiếu cảm thức cộng đồng."</em> - Alfred Adler</p>
             </div>
 
             <div class="concept-card">
                 <h3>4. Phong cách sống (Lifestyle)</h3>
-                <p>Cách thức độc đáo mà mỗi cá nhân vận dụng để đạt được mục tiêu và đương đầu với các vấn đề của cuộc sống. Được hình thành từ tuổi thơ và ảnh hưởng đến toàn bộ cuộc đời.</p>
+                <p>Cách thức độc đáo mà mỗi cá nhân vận dụng để đạt được mục tiêu và đương đầu với các vấn đề của cuộc
+                    sống. Được hình thành từ tuổi thơ và ảnh hưởng đến toàn bộ cuộc đời.</p>
             </div>
         </div>
 
         <!-- Phần Thứ Tự Sinh -->
         <div id="birth-order" class="content-section">
             <h2 class="section-title">👶 Thứ Tự Sinh Trong Gia Đình</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">Vị trí trong gia đình tạo ra những điều kiện sống khác nhau và định hình nhân cách</p>
-            
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">Vị trí trong gia đình tạo ra những
+                điều kiện sống khác nhau và định hình nhân cách</p>
+
             <div class="birth-order-grid">
                 <div class="birth-order-card" style="border-top: 5px solid #e74c3c;">
                     <h4>👑 Con cả</h4>
@@ -479,10 +511,11 @@
         <!-- Phần Phương Pháp Trị Liệu -->
         <div id="therapy" class="content-section">
             <h2 class="section-title">🔬 Phương Pháp Lượng Giá & Trị Liệu</h2>
-            
+
             <div class="concept-card">
                 <h3>1. Hồi ức tuổi thơ (Early Recollections)</h3>
-                <p>Những ký ức tuổi thơ phản ánh phong cách sống hiện tại. Không quan trọng là thật hay tưởng tượng, quan trọng là cách cá nhân nhận thức về chúng.</p>
+                <p>Những ký ức tuổi thơ phản ánh phong cách sống hiện tại. Không quan trọng là thật hay tưởng tượng,
+                    quan trọng là cách cá nhân nhận thức về chúng.</p>
                 <div class="interactive-element" onclick="showEarlyMemoryExample()">
                     <p>💭 Nhấn để xem ví dụ phân tích ký ức tuổi thơ của Adler</p>
                 </div>
@@ -490,12 +523,14 @@
 
             <div class="concept-card">
                 <h3>2. Chòm sao gia đình (Family Constellation)</h3>
-                <p>Phân tích thứ tự sinh, giới tính anh chị em, khoảng cách tuổi, không khí gia đình để hiểu phong cách sống.</p>
+                <p>Phân tích thứ tự sinh, giới tính anh chị em, khoảng cách tuổi, không khí gia đình để hiểu phong cách
+                    sống.</p>
             </div>
 
             <div class="concept-card">
                 <h3>3. Phân tích giấc mơ</h3>
-                <p>Giấc mơ là cầu nối giữa phong cách sống và những khó khăn hiện tại, biểu hiện giải pháp phù hợp với cá nhân.</p>
+                <p>Giấc mơ là cầu nối giữa phong cách sống và những khó khăn hiện tại, biểu hiện giải pháp phù hợp với
+                    cá nhân.</p>
             </div>
 
             <div class="concept-card">
@@ -503,7 +538,8 @@
                 <ul style="list-style: none; padding-left: 0;">
                     <li>🎭 <strong>Sắm vai (Role Playing):</strong> Thực hành hành vi mới</li>
                     <li>🎬 <strong>Hành động như thể (Acting As If):</strong> Thay đổi hành vi để thay đổi cảm xúc</li>
-                    <li>🔍 <strong>Quan sát và phát hiện (Catching Oneself):</strong> Nhận thức về các mẫu hành vi tiêu cực</li>
+                    <li>🔍 <strong>Quan sát và phát hiện (Catching Oneself):</strong> Nhận thức về các mẫu hành vi tiêu
+                        cực</li>
                 </ul>
             </div>
         </div>
@@ -511,7 +547,7 @@
         <!-- Phần Quiz -->
         <div id="quiz" class="content-section">
             <h2 class="section-title">🧩 Quiz Kiểm Tra Kiến Thức</h2>
-            
+
             <div class="quiz-container">
                 <div class="question">Câu 1: Theo Adler, động lực chính của con người là gì?</div>
                 <div class="option" onclick="selectAnswer(this, false)">A. Theo đuổi khoái cảm</div>
@@ -523,7 +559,8 @@
             <div class="quiz-container">
                 <div class="question">Câu 2: Phức cảm tự ti hình thành khi nào?</div>
                 <div class="option" onclick="selectAnswer(this, false)">A. Khi sinh ra</div>
-                <div class="option" onclick="selectAnswer(this, true)">B. Khi không thể bù trừ và vượt qua cảm giác thua kém</div>
+                <div class="option" onclick="selectAnswer(this, true)">B. Khi không thể bù trừ và vượt qua cảm giác thua
+                    kém</div>
                 <div class="option" onclick="selectAnswer(this, false)">C. Khi gặp thất bại</div>
                 <div class="option" onclick="selectAnswer(this, false)">D. Khi thiếu tình yêu thương</div>
             </div>
@@ -556,22 +593,27 @@
         <!-- Phần Case Study -->
         <div id="case-study" class="content-section">
             <h2 class="section-title">📋 Case Study</h2>
-            
+
             <div class="case-study">
                 <h3>🔍 Trường hợp 1: Minh - Học sinh 16 tuổi</h3>
-                <p><strong>Bối cảnh:</strong> Minh là con cả trong gia đình có 3 anh em. Gần đây em cảm thấy lo lắng và căng thẳng vì áp lực học tập. Em luôn muốn làm mọi việc hoàn hảo và sợ làm thất vọng cha mẹ.</p>
-                
-                <p><strong>Hồi ức tuổi thơ:</strong> "Em nhớ khi 5 tuổi, em đã cố gắng giúp mẹ chăm sóc em trai nhỏ. Em cảm thấy mình rất quan trọng và có trách nhiệm."</p>
-                
+                <p><strong>Bối cảnh:</strong> Minh là con cả trong gia đình có 3 anh em. Gần đây em cảm thấy lo lắng và
+                    căng thẳng vì áp lực học tập. Em luôn muốn làm mọi việc hoàn hảo và sợ làm thất vọng cha mẹ.</p>
+
+                <p><strong>Hồi ức tuổi thơ:</strong> "Em nhớ khi 5 tuổi, em đã cố gắng giúp mẹ chăm sóc em trai nhỏ. Em
+                    cảm thấy mình rất quan trọng và có trách nhiệm."</p>
+
                 <div class="interactive-element" onclick="showAnalysis1()">
                     <p>🔍 Nhấn để xem phân tích theo lý thuyết Adler</p>
-                    <div id="analysis1" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                    <div id="analysis1"
+                        style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;">
                         <strong>Phân tích:</strong>
                         <ul>
-                            <li><strong>Thứ tự sinh:</strong> Con cả - có khuynh hướng chịu trách nhiệm và muốn kiểm soát</li>
+                            <li><strong>Thứ tự sinh:</strong> Con cả - có khuynh hướng chịu trách nhiệm và muốn kiểm
+                                soát</li>
                             <li><strong>Phong cách sống:</strong> Hoàn hảo chủ nghĩa, cần được công nhận</li>
                             <li><strong>Cảm giác tự ti:</strong> Sợ thất vọng người khác, không đáp ứng kỳ vọng</li>
-                            <li><strong>Hướng trị liệu:</strong> Giúp em hiểu rằng giá trị bản thân không phụ thuộc vào thành tích hoàn hảo</li>
+                            <li><strong>Hướng trị liệu:</strong> Giúp em hiểu rằng giá trị bản thân không phụ thuộc vào
+                                thành tích hoàn hảo</li>
                         </ul>
                     </div>
                 </div>
@@ -579,19 +621,25 @@
 
             <div class="case-study">
                 <h3>🔍 Trường hợp 2: An - Nhân viên văn phòng 28 tuổi</h3>
-                <p><strong>Bối cảnh:</strong> An là con thứ hai, luôn cảm thấy bị che khuất bởi anh trai xuất sắc. Trong công việc, An rất cạnh tranh và khó hợp tác với đồng nghiệp.</p>
-                
-                <p><strong>Hồi ức tuổi thơ:</strong> "Tôi nhớ mình luôn cố gắng chạy nhanh hơn anh để được bố mẹ khen, nhưng anh luôn thắng."</p>
-                
+                <p><strong>Bối cảnh:</strong> An là con thứ hai, luôn cảm thấy bị che khuất bởi anh trai xuất sắc. Trong
+                    công việc, An rất cạnh tranh và khó hợp tác với đồng nghiệp.</p>
+
+                <p><strong>Hồi ức tuổi thơ:</strong> "Tôi nhớ mình luôn cố gắng chạy nhanh hơn anh để được bố mẹ khen,
+                    nhưng anh luôn thắng."</p>
+
                 <div class="interactive-element" onclick="showAnalysis2()">
                     <p>🔍 Nhấn để xem phân tích theo lý thuyết Adler</p>
-                    <div id="analysis2" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                    <div id="analysis2"
+                        style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px;">
                         <strong>Phân tích:</strong>
                         <ul>
-                            <li><strong>Thứ tự sinh:</strong> Con thứ hai - tính cạnh tranh cao nhưng có thể dẫn đến cảm giác thua kém</li>
+                            <li><strong>Thứ tự sinh:</strong> Con thứ hai - tính cạnh tranh cao nhưng có thể dẫn đến cảm
+                                giác thua kém</li>
                             <li><strong>Phong cách sống:</strong> Cần chứng minh bản thân, khó hợp tác</li>
-                            <li><strong>Thiếu cảm thức cộng đồng:</strong> Tập trung vào cạnh tranh cá nhân thay vì hợp tác</li>
-                            <li><strong>Hướng trị liệu:</strong> Phát triển cảm thức cộng đồng, hiểu giá trị của hợp tác</li>
+                            <li><strong>Thiếu cảm thức cộng đồng:</strong> Tập trung vào cạnh tranh cá nhân thay vì hợp
+                                tác</li>
+                            <li><strong>Hướng trị liệu:</strong> Phát triển cảm thức cộng đồng, hiểu giá trị của hợp tác
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -623,16 +671,16 @@
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
-            
+
             // Ẩn tất cả nav buttons
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
+
             // Hiển thị section được chọn
             document.getElementById(sectionId).classList.add('active');
             event.target.classList.add('active');
-            
+
             currentSection = sectionId;
             updateProgress();
         }
@@ -733,7 +781,7 @@ Ví dụ: "Nam, 25 tuổi, con út, hay lo lắng về tương lai, nhớ lúc n
 
             if (userCase) {
                 let analysis = "Phân tích theo lý thuyết Adler:\n\n";
-                
+
                 if (userCase.toLowerCase().includes('con cả') || userCase.toLowerCase().includes('con đầu')) {
                     analysis += "- Thứ tự sinh: Con cả thường có khuynh hướng lãnh đạo và chịu trách nhiệm\n";
                 } else if (userCase.toLowerCase().includes('con thứ hai') || userCase.toLowerCase().includes('con thứ 2')) {
@@ -763,7 +811,7 @@ Ví dụ: "Nam, 25 tuổi, con út, hay lo lắng về tương lai, nhớ lúc n
 
         // Khởi tạo
         updateProgress();
-        
+
         // Tự động chuyển slide sau 30 giây nếu không có tương tác
         let autoSlideTimer;
         function resetAutoSlideTimer() {
@@ -780,8 +828,22 @@ Ví dụ: "Nam, 25 tuổi, con út, hay lo lắng về tương lai, nhớ lúc n
         // Lắng nghe các tương tác để reset timer
         document.addEventListener('click', resetAutoSlideTimer);
         document.addEventListener('scroll', resetAutoSlideTimer);
-        
+
         resetAutoSlideTimer();
+        // Function to print the PDF
+        function printPDF() {
+            const pdfUrl = 'print_pdf/02_adler.pdf'; // đường dẫn tới file PDF
+            // Tạo một iframe ẩn để in PDF
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pdfUrl;
+            iframe.onload = function () {
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+            };
+            document.body.appendChild(iframe);
+        }
     </script>
 </body>
+
 </html>

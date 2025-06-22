@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,8 +92,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .theory-section {
@@ -278,19 +286,22 @@
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .nav-tabs {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .process-steps {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
     <div class="header">
         <h1>🧠 Các Thuyết Học Tập</h1>
         <p>Hành trình khám phá cơ chế học tập của con người</p>
@@ -315,8 +326,9 @@
                     <p>Khám phá bản chất của quá trình học tập</p>
                 </div>
                 <div class="theory-content">
-                    <p><strong>Học tập (Learning)</strong> là <span class="highlight">sự thay đổi hành vi của sinh vật do kinh nghiệm</span>.</p>
-                    
+                    <p><strong>Học tập (Learning)</strong> là <span class="highlight">sự thay đổi hành vi của sinh vật
+                            do kinh nghiệm</span>.</p>
+
                     <h3>🚫 Những hành vi KHÔNG cần học tập:</h3>
                     <div class="process-steps">
                         <div class="step">
@@ -339,14 +351,18 @@
                         <div class="interactive-element" onclick="showExample('association')">
                             <strong>💡 Ví dụ tương tác:</strong> Nhấp để xem ví dụ về liên tưởng!
                         </div>
-                        <div id="association-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #e3f2fd; border-radius: 10px;">
-                            <p><strong>Ví dụ:</strong> Khi nghe tiếng chuông trường → Liên tưởng đến giờ ra chơi → Cảm thấy vui vẻ</p>
+                        <div id="association-example"
+                            style="display: none; margin-top: 1rem; padding: 1rem; background: #e3f2fd; border-radius: 10px;">
+                            <p><strong>Ví dụ:</strong> Khi nghe tiếng chuông trường → Liên tưởng đến giờ ra chơi → Cảm
+                                thấy vui vẻ</p>
                         </div>
                     </div>
 
                     <div class="case-study">
                         <h4>📚 Case Study: Học tập trong cuộc sống</h4>
-                        <p>Một em học sinh ban đầu sợ toán học. Sau khi được giáo viên khuyến khích và giải thích dễ hiểu, em dần cảm thấy hứng thú với môn học này. Đây là ví dụ của quá trình học tập thay đổi thái độ và hành vi.</p>
+                        <p>Một em học sinh ban đầu sợ toán học. Sau khi được giáo viên khuyến khích và giải thích dễ
+                            hiểu, em dần cảm thấy hứng thú với môn học này. Đây là ví dụ của quá trình học tập thay đổi
+                            thái độ và hành vi.</p>
                     </div>
                 </div>
             </div>
@@ -360,7 +376,9 @@
                     <p>Ivan Pavlov & John B. Watson</p>
                 </div>
                 <div class="theory-content">
-                    <p><strong>Định nghĩa:</strong> Một kiểu học tập mà trong đó một <span class="highlight">kích thích trung tính</span>, sau khi được ghép đôi với một <span class="highlight">kích thích không điều kiện</span> bắt đầu kích hoạt một phản ứng tương tự.</p>
+                    <p><strong>Định nghĩa:</strong> Một kiểu học tập mà trong đó một <span class="highlight">kích thích
+                            trung tính</span>, sau khi được ghép đôi với một <span class="highlight">kích thích không
+                            điều kiện</span> bắt đầu kích hoạt một phản ứng tương tự.</p>
 
                     <div class="diagram">
                         <h3>🐕 Thí nghiệm kinh điển của Pavlov</h3>
@@ -387,17 +405,20 @@
                     <div class="process-steps">
                         <div class="step">
                             <h4>🎯 Sự thu nhận (Acquisition)</h4>
-                            <p>Giai đoạn học tập ban đầu, tạo mối liên hệ giữa kích thích trung tính và kích thích không điều kiện</p>
+                            <p>Giai đoạn học tập ban đầu, tạo mối liên hệ giữa kích thích trung tính và kích thích không
+                                điều kiện</p>
                         </div>
                         <div class="step">
                             <h4>🔥 Sự dập tắt (Extinction)</h4>
-                            <p>Khi kích thích có điều kiện được thực hiện một mình, phản ứng có điều kiện sẽ chấm dứt</p>
+                            <p>Khi kích thích có điều kiện được thực hiện một mình, phản ứng có điều kiện sẽ chấm dứt
+                            </p>
                         </div>
                     </div>
 
                     <div class="case-study">
                         <h4>📚 Case Study: Phòng khám nha sĩ</h4>
-                        <p><strong>Tình huống:</strong> Một đứa trẻ ban đầu không sợ tiếng máy khoan nha sĩ. Nhưng sau vài lần đi khám và cảm thấy đau, trẻ bắt đầu sợ hãi ngay khi nghe tiếng máy khoan.</p>
+                        <p><strong>Tình huống:</strong> Một đứa trẻ ban đầu không sợ tiếng máy khoan nha sĩ. Nhưng sau
+                            vài lần đi khám và cảm thấy đau, trẻ bắt đầu sợ hãi ngay khi nghe tiếng máy khoan.</p>
                         <p><strong>Phân tích:</strong></p>
                         <ul>
                             <li>Kích thích không điều kiện: Cảm giác đau</li>
@@ -409,8 +430,10 @@
 
                     <div class="psychology-connection">
                         <h3>🧠 Kết nối với Tâm lý học</h3>
-                        <p><strong>Ứng dụng trong trị liệu:</strong> Kỹ thuật khử nhạy cảm có hệ thống sử dụng nguyên lý điều kiện hóa cổ điển để điều trị các chứng sợ hãi (phobia).</p>
-                        <p><strong>Trong phát triển cảm xúc:</strong> Nhiều phản ứng cảm xúc của chúng ta được hình thành thông qua điều kiện hóa cổ điển trong thời thơ ấu.</p>
+                        <p><strong>Ứng dụng trong trị liệu:</strong> Kỹ thuật khử nhạy cảm có hệ thống sử dụng nguyên lý
+                            điều kiện hóa cổ điển để điều trị các chứng sợ hãi (phobia).</p>
+                        <p><strong>Trong phát triển cảm xúc:</strong> Nhiều phản ứng cảm xúc của chúng ta được hình
+                            thành thông qua điều kiện hóa cổ điển trong thời thơ ấu.</p>
                     </div>
                 </div>
             </div>
@@ -424,26 +447,32 @@
                     <p>B.F. Skinner</p>
                 </div>
                 <div class="theory-content">
-                    <p><strong>Nguyên lý cốt lõi:</strong> <span class="highlight">Sự củng cố (Reinforcement)</span> một hành vi ngay sau khi nó diễn ra làm tăng khả năng lặp lại của hành vi đó.</p>
-                    
+                    <p><strong>Nguyên lý cốt lõi:</strong> <span class="highlight">Sự củng cố (Reinforcement)</span> một
+                        hành vi ngay sau khi nó diễn ra làm tăng khả năng lặp lại của hành vi đó.</p>
+
                     <div class="diagram">
                         <h3>🔄 Quy trình Điều kiện hóa Thao tác</h3>
-                        <p><strong>Công thức:</strong> Sinh vật làm một điều gì đó → Được củng cố bởi môi trường → Lặp lại hành vi</p>
-                        <p><em>Theo Skinner, hầu hết hành vi của con người được học thông qua điều kiện hóa thao tác</em></p>
+                        <p><strong>Công thức:</strong> Sinh vật làm một điều gì đó → Được củng cố bởi môi trường → Lặp
+                            lại hành vi</p>
+                        <p><em>Theo Skinner, hầu hết hành vi của con người được học thông qua điều kiện hóa thao
+                                tác</em></p>
                     </div>
 
                     <h3>⚖️ Củng cố và Trừng phạt - Cốt lõi của Điều kiện hóa Thao tác</h3>
-                    
+
                     <div class="diagram">
                         <h4>📚 Quy luật Ảnh hưởng (Law of Effect) - Thorndike</h4>
-                        <p><em>"Những phản hồi tạo ra hiệu ứng hài lòng thỏa mãn trong một tình huống cụ thể sẽ có nhiều khả năng lặp lại hơn và những phản hồi tạo ra hiệu ứng không như mong muốn sẽ ít xảy ra hơn trong tình huống tương tự."</em></p>
+                        <p><em>"Những phản hồi tạo ra hiệu ứng hài lòng thỏa mãn trong một tình huống cụ thể sẽ có nhiều
+                                khả năng lặp lại hơn và những phản hồi tạo ra hiệu ứng không như mong muốn sẽ ít xảy ra
+                                hơn trong tình huống tương tự."</em></p>
                     </div>
 
                     <div class="interactive-element" onclick="showExample('reinforcement-matrix')">
                         <h4>🎯 Ma trận Củng cố - Nhấp để khám phá!</h4>
                         <p>Hiểu rõ sự khác biệt giữa củng cố tích cực và tiêu cực</p>
                     </div>
-                    <div id="reinforcement-matrix-example" style="display: none; margin-top: 1rem; padding: 2rem; background: #f0f8ff; border-radius: 15px;">
+                    <div id="reinforcement-matrix-example"
+                        style="display: none; margin-top: 1rem; padding: 2rem; background: #f0f8ff; border-radius: 15px;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center;">
                             <div style="grid-column: 1; background: #e8f5e8; padding: 1rem; border-radius: 10px;">
                                 <strong>MỤC TIÊU</strong><br>📈 Tăng hành vi
@@ -457,7 +486,7 @@
                                 <small>Bỏ thứ tiêu cực</small>
                             </div>
                         </div>
-                        
+
                         <div style="margin-top: 2rem;">
                             <h4>🔍 Ví dụ dễ hiểu:</h4>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
@@ -476,9 +505,11 @@
                     </div>
 
                     <h4>🛡️ Trừng phạt (Punishment)</h4>
-                    <div class="psychology-connection" style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);">
-                        <p><strong>Định nghĩa:</strong> Thêm vào kích thích khó chịu hoặc lấy đi kích thích yêu thích nhằm <span class="highlight">ngăn chặn/giảm hành vi</span></p>
-                        
+                    <div class="psychology-connection"
+                        style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);">
+                        <p><strong>Định nghĩa:</strong> Thêm vào kích thích khó chịu hoặc lấy đi kích thích yêu thích
+                            nhằm <span class="highlight">ngăn chặn/giảm hành vi</span></p>
+
                         <h5>⚠️ Hiệu ứng của Trừng phạt:</h5>
                         <ul>
                             <li>❌ Chỉ dồn nén hành vi không mong muốn mà không cho thấy hành vi nào nên làm</li>
@@ -490,7 +521,8 @@
                         <div class="case-study" style="background: #f8d7da; margin-top: 1rem;">
                             <h5>📚 Ví dụ về hậu quả của Trừng phạt:</h5>
                             <p><strong>Tình huống:</strong> Đứa trẻ chọc ghẹo em mình → bị đánh → dừng chọc ghẹo</p>
-                            <p><strong>Hậu quả không mong muốn:</strong> Có thể sẽ càng ghét em mình hơn, hoặc gây hấn chọc ghẹo khi không có mặt cha mẹ</p>
+                            <p><strong>Hậu quả không mong muốn:</strong> Có thể sẽ càng ghét em mình hơn, hoặc gây hấn
+                                chọc ghẹo khi không có mặt cha mẹ</p>
                         </div>
                     </div>
 
@@ -518,32 +550,38 @@
                         <h4>📅 Lịch trình Củng cố - Nhấp để tìm hiểu!</h4>
                         <p>Khi nào và như thế nào để củng cố hiệu quả nhất?</p>
                     </div>
-                    <div id="reinforcement-schedules-example" style="display: none; margin-top: 1rem; padding: 1.5rem; background: #f3e5f5; border-radius: 15px;">
+                    <div id="reinforcement-schedules-example"
+                        style="display: none; margin-top: 1rem; padding: 1.5rem; background: #f3e5f5; border-radius: 15px;">
                         <h4>⏰ 4 Loại Lịch trình Củng cố</h4>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                            <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                            <div
+                                style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #4CAF50;">
                                 <h5>📏 Tỉ lệ Cố định (Fixed Ratio)</h5>
                                 <p>Củng cố sau khi thực hiện đủ số phản ứng cố định</p>
                                 <p><strong>VD:</strong> Bán hàng được thưởng khi bán được 6 laptop</p>
                             </div>
-                            <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #2196F3;">
+                            <div
+                                style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #2196F3;">
                                 <h5>🎲 Tỉ lệ Biến thiên (Variable Ratio)</h5>
                                 <p>Củng cố sau khi thực hiện đủ số phản ứng biến thiên</p>
                                 <p><strong>VD:</strong> Câu cá, đánh bạc, chơi game</p>
                             </div>
-                            <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #FF9800;">
+                            <div
+                                style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #FF9800;">
                                 <h5>⏰ Khoảng thời gian Cố định (Fixed Interval)</h5>
                                 <p>Củng cố sau một khoảng thời gian cố định</p>
                                 <p><strong>VD:</strong> Nhận lương mỗi tháng, kiểm tra email định kỳ</p>
                             </div>
-                            <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #9C27B0;">
+                            <div
+                                style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #9C27B0;">
                                 <h5>🔀 Khoảng thời gian Biến thiên (Variable Interval)</h5>
                                 <p>Củng cố sau khoảng thời gian biến thiên</p>
                                 <p><strong>VD:</strong> Kiểm tra Facebook, nhận tin nhắn bất ngờ</p>
                             </div>
                         </div>
                         <div style="margin-top: 1rem; padding: 1rem; background: #e1f5fe; border-radius: 10px;">
-                            <p><strong>💡 Tip cho giáo viên:</strong> Lịch trình biến thiên thường tạo ra hành vi bền vững nhất!</p>
+                            <p><strong>💡 Tip cho giáo viên:</strong> Lịch trình biến thiên thường tạo ra hành vi bền
+                                vững nhất!</p>
                         </div>
                     </div>
 
@@ -567,17 +605,20 @@
                         <h4>🧪 Khám phá Skinner Box</h4>
                         <p>Nhấp để tìm hiểu về thiết bị thí nghiệm nổi tiếng!</p>
                     </div>
-                    <div id="skinner-box-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #f3e5f5; border-radius: 10px;">
+                    <div id="skinner-box-example"
+                        style="display: none; margin-top: 1rem; padding: 1rem; background: #f3e5f5; border-radius: 10px;">
                         <h4>📦 Skinner Box</h4>
                         <p><strong>Cấu trúc:</strong> Hộp có đèn, cần gạt, máy phân phối thức ăn/nước, và lưới điện</p>
-                        <p><strong>Cách hoạt động:</strong> Chuột ấn cần gạt → Nhận thức ăn → Tăng hành vi ấn cần gạt</p>
-                        <p><strong>Ý nghĩa:</strong> Chứng minh tầm quan trọng của củng cố trong việc hình thành hành vi</p>
+                        <p><strong>Cách hoạt động:</strong> Chuột ấn cần gạt → Nhận thức ăn → Tăng hành vi ấn cần gạt
+                        </p>
+                        <p><strong>Ý nghĩa:</strong> Chứng minh tầm quan trọng của củng cố trong việc hình thành hành vi
+                        </p>
                     </div>
 
                     <div class="case-study">
                         <h4>📚 Case Study tích hợp: Lớp học thực tế</h4>
                         <p><strong>Tình huống:</strong> Cô giáo Mai quản lý lớp học bằng nhiều kỹ thuật khác nhau.</p>
-                        
+
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                             <div style="background: #e8f5e8; padding: 1rem; border-radius: 10px;">
                                 <h5>✅ Củng cố Tích cực</h5>
@@ -592,14 +633,15 @@
                                 <p><strong>Kết quả:</strong> Tăng tỷ lệ hoàn thành bài tập</p>
                             </div>
                         </div>
-                        
+
                         <div style="background: #ffebee; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
                             <h5>⚠️ Trừng phạt (không khuyến khích)</h5>
                             <p><strong>Hành vi không mong muốn:</strong> Nói chuyện riêng trong giờ học</p>
                             <p><strong>Trừng phạt:</strong> Phải đứng ngoài hành lang</p>
-                            <p><strong>Vấn đề:</strong> Học sinh có thể cảm thấy xấu hổ, ghét môn học, hoặc tìm cách trốn tránh thay vì thay đổi hành vi tích cực</p>
+                            <p><strong>Vấn đề:</strong> Học sinh có thể cảm thấy xấu hổ, ghét môn học, hoặc tìm cách
+                                trốn tránh thay vì thay đổi hành vi tích cực</p>
                         </div>
-                        
+
                         <div style="background: #e1f5fe; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
                             <h5>🎯 Định hình Hành vi</h5>
                             <p><strong>Mục tiêu:</strong> Dạy học sinh thuyết trình tự tin</p>
@@ -611,7 +653,8 @@
 
                     <div class="psychology-connection">
                         <h3>🧠 Kết nối với Tâm lý học</h3>
-                        <p><strong>Liệu pháp hành vi:</strong> Sử dụng nguyên lý củng cố để điều chỉnh hành vi có vấn đề.</p>
+                        <p><strong>Liệu pháp hành vi:</strong> Sử dụng nguyên lý củng cố để điều chỉnh hành vi có vấn
+                            đề.</p>
                         <p><strong>Giáo dục:</strong> Hệ thống thưởng phạt trong trường học dựa trên nguyên lý này.</p>
                         <p><strong>Tâm lý tổ chức:</strong> Chế độ khen thưởng nhân viên để tăng hiệu suất làm việc.</p>
                     </div>
@@ -627,16 +670,21 @@
                     <p>Albert Bandura</p>
                 </div>
                 <div class="theory-content">
-                    <p><strong>Ý tưởng cốt lõi:</strong> Con người không những học tập qua trải nghiệm trực tiếp mà <span class="highlight">đa số những gì con người học được là thông qua quan sát người khác</span>.</p>
+                    <p><strong>Ý tưởng cốt lõi:</strong> Con người không những học tập qua trải nghiệm trực tiếp mà
+                        <span class="highlight">đa số những gì con người học được là thông qua quan sát người
+                            khác</span>.
+                    </p>
 
                     <div class="diagram">
                         <h3>🔺 Mô hình Nhân quả Tương hỗ của Bandura</h3>
                         <div style="text-align: center; margin: 2rem 0;">
-                            <div style="display: inline-block; padding: 1rem; background: #e8f5e8; border-radius: 10px; margin: 0.5rem;">
+                            <div
+                                style="display: inline-block; padding: 1rem; background: #e8f5e8; border-radius: 10px; margin: 0.5rem;">
                                 <strong>Hành vi (Behavior)</strong>
                             </div>
                             <div style="margin: 1rem 0;">⬇️ ⬆️</div>
-                            <div style="display: flex; justify-content: space-between; max-width: 600px; margin: 0 auto;">
+                            <div
+                                style="display: flex; justify-content: space-between; max-width: 600px; margin: 0 auto;">
                                 <div style="padding: 1rem; background: #fff3e0; border-radius: 10px;">
                                     <strong>Yếu tố cá nhân</strong><br>
                                     (Nhận thức, cảm xúc, sinh học)
@@ -673,7 +721,8 @@
                         <h4>📺 Ảnh hưởng của Media</h4>
                         <p>Nhấp để xem ví dụ về học tập qua quan sát từ media!</p>
                     </div>
-                    <div id="media-influence-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #e1f5fe; border-radius: 10px;">
+                    <div id="media-influence-example"
+                        style="display: none; margin-top: 1rem; padding: 1rem; background: #e1f5fe; border-radius: 10px;">
                         <h4>📱 Ví dụ: Học tập qua Social Media</h4>
                         <p><strong>Quan sát:</strong> Xem video hướng dẫn nấu ăn trên YouTube</p>
                         <p><strong>Chú ý:</strong> Tập trung vào các bước làm bánh</p>
@@ -684,17 +733,23 @@
 
                     <div class="case-study">
                         <h4>📚 Case Study: Thí nghiệm Búp bê Bobo</h4>
-                        <p><strong>Thí nghiệm:</strong> Bandura cho trẻ em xem người lớn đánh búp bê Bobo, sau đó quan sát hành vi của trẻ.</p>
+                        <p><strong>Thí nghiệm:</strong> Bandura cho trẻ em xem người lớn đánh búp bê Bobo, sau đó quan
+                            sát hành vi của trẻ.</p>
                         <p><strong>Kết quả:</strong> Trẻ em bắt chước hành vi hung hãn mà họ đã quan sát được.</p>
-                        <p><strong>Ý nghĩa:</strong> Chứng minh rằng học tập có thể xảy ra thông qua quan sát mà không cần trải nghiệm trực tiếp hay củng cố.</p>
+                        <p><strong>Ý nghĩa:</strong> Chứng minh rằng học tập có thể xảy ra thông qua quan sát mà không
+                            cần trải nghiệm trực tiếp hay củng cố.</p>
                     </div>
 
                     <div class="psychology-connection">
                         <h3>🧠 Kết nối với Tâm lý học</h3>
-                        <p><strong>Tâm lý phát triển:</strong> Giải thích cách trẻ em học được các kỹ năng xã hội và ngôn ngữ.</p>
-                        <p><strong>Tâm lý xã hội:</strong> Lý thuyết về ảnh hưởng của nhóm đồng trang lứa và vai trò mẫu mực.</p>
-                        <p><strong>Tâm lý lâm sàng:</strong> Sử dụng trong liệu pháp mô hình (modeling therapy) để điều trị các rối loạn hành vi.</p>
-                        <p><strong>Giáo dục:</strong> Tầm quan trọng của giáo viên làm hình mẫu tích cực cho học sinh.</p>
+                        <p><strong>Tâm lý phát triển:</strong> Giải thích cách trẻ em học được các kỹ năng xã hội và
+                            ngôn ngữ.</p>
+                        <p><strong>Tâm lý xã hội:</strong> Lý thuyết về ảnh hưởng của nhóm đồng trang lứa và vai trò mẫu
+                            mực.</p>
+                        <p><strong>Tâm lý lâm sàng:</strong> Sử dụng trong liệu pháp mô hình (modeling therapy) để điều
+                            trị các rối loạn hành vi.</p>
+                        <p><strong>Giáo dục:</strong> Tầm quan trọng của giáo viên làm hình mẫu tích cực cho học sinh.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -710,7 +765,8 @@
                 <div class="theory-content">
                     <h3>🏛️ Vị trí trong Tâm lý học Nhân cách</h3>
                     <div class="diagram">
-                        <p>Các thuyết học tập thuộc nhóm <span class="highlight">"Thuyết Hành vi"</span> trong Tâm lý học Nhân cách, cùng với:</p>
+                        <p>Các thuyết học tập thuộc nhóm <span class="highlight">"Thuyết Hành vi"</span> trong Tâm lý
+                            học Nhân cách, cùng với:</p>
                         <div class="process-steps">
                             <div class="step">🧠 Tâm lý chiều sâu</div>
                             <div class="step">👤 Tâm lý học cá nhân</div>
@@ -725,10 +781,14 @@
                     <div class="psychology-connection">
                         <h4>💡 Quan điểm cốt lõi:</h4>
                         <ul>
-                            <li><strong>Môi trường quyết định hành vi:</strong> Nhân cách được hình thành chủ yếu qua học tập và kinh nghiệm</li>
-                            <li><strong>Hành vi có thể đo lường:</strong> Tập trung vào những gì quan sát được thay vì các quá trình nội tâm</li>
-                            <li><strong>Khả năng thay đổi:</strong> Nhân cách có thể được điều chỉnh thông qua các kỹ thuật học tập</li>
-                            <li><strong>Tính khoa học:</strong> Sử dụng phương pháp thực nghiệm để nghiên cứu hành vi</li>
+                            <li><strong>Môi trường quyết định hành vi:</strong> Nhân cách được hình thành chủ yếu qua
+                                học tập và kinh nghiệm</li>
+                            <li><strong>Hành vi có thể đo lường:</strong> Tập trung vào những gì quan sát được thay vì
+                                các quá trình nội tâm</li>
+                            <li><strong>Khả năng thay đổi:</strong> Nhân cách có thể được điều chỉnh thông qua các kỹ
+                                thuật học tập</li>
+                            <li><strong>Tính khoa học:</strong> Sử dụng phương pháp thực nghiệm để nghiên cứu hành vi
+                            </li>
                         </ul>
                     </div>
 
@@ -762,10 +822,12 @@
 
                     <div class="case-study">
                         <h4>📚 Case Study tích hợp: Điều trị chứng sợ nói trước đám đông</h4>
-                        <p><strong>Vấn đề:</strong> Một sinh viên sợ nói trước đám đông do trải nghiệm xấu trong quá khứ.</p>
+                        <p><strong>Vấn đề:</strong> Một sinh viên sợ nói trước đám đông do trải nghiệm xấu trong quá
+                            khứ.</p>
                         <p><strong>Phân tích đa chiều:</strong></p>
                         <ul>
-                            <li><strong>Điều kiện hóa cổ điển:</strong> Nói trước đám đông → Cảm giác xấu hổ → Sợ hãi</li>
+                            <li><strong>Điều kiện hóa cổ điển:</strong> Nói trước đám đông → Cảm giác xấu hổ → Sợ hãi
+                            </li>
                             <li><strong>Điều kiện hóa thao tác:</strong> Tránh nói → Giảm lo âu (củng cố tiêu cực)</li>
                             <li><strong>Học tập xã hội:</strong> Quan sát người khác thành công → Học cách mới</li>
                         </ul>
@@ -776,7 +838,8 @@
                         <h4>🔄 Tích hợp ba thuyết trong thực tế</h4>
                         <p>Nhấp để xem ví dụ về cách ba thuyết hoạt động cùng nhau!</p>
                     </div>
-                    <div id="integration-example" style="display: none; margin-top: 1rem; padding: 1rem; background: #fff8e1; border-radius: 10px;">
+                    <div id="integration-example"
+                        style="display: none; margin-top: 1rem; padding: 1rem; background: #fff8e1; border-radius: 10px;">
                         <h4>🏃‍♂️ Ví dụ: Học lái xe</h4>
                         <p><strong>Điều kiện hóa cổ điển:</strong> Tiếng còi xe → Căng thẳng → Phản xạ phanh</p>
                         <p><strong>Điều kiện hóa thao tác:</strong> Lái đúng → Khen ngợi → Tăng hành vi đúng</p>
@@ -792,15 +855,19 @@
             <div class="quiz-container">
                 <h2>📝 Kiểm tra kiến thức - Các Thuyết Học tập</h2>
                 <p>10 câu hỏi về khái niệm và case study</p>
-                
+
                 <div id="quiz-questions">
                     <div class="question">
                         <h3>Câu 1: Theo định nghĩa, học tập là gì?</h3>
                         <div class="options">
-                            <div class="option" onclick="selectOption(this, false)">A. Sự thay đổi theo tuổi tác của sinh vật</div>
-                            <div class="option" onclick="selectOption(this, true)">B. Sự thay đổi hành vi của sinh vật do kinh nghiệm</div>
-                            <div class="option" onclick="selectOption(this, false)">C. Các phản xạ bẩm sinh của con người</div>
-                            <div class="option" onclick="selectOption(this, false)">D. Quá trình phát triển tự nhiên của cơ thể</div>
+                            <div class="option" onclick="selectOption(this, false)">A. Sự thay đổi theo tuổi tác của
+                                sinh vật</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Sự thay đổi hành vi của sinh vật
+                                do kinh nghiệm</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Các phản xạ bẩm sinh của con
+                                người</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Quá trình phát triển tự nhiên của
+                                cơ thể</div>
                         </div>
                     </div>
 
@@ -817,15 +884,20 @@
                     <div class="question">
                         <h3>Câu 3: Sự khác biệt chính giữa củng cố tích cực và củng cố tiêu cực là gì?</h3>
                         <div class="options">
-                            <div class="option" onclick="selectOption(this, false)">A. Củng cố tích cực tăng hành vi, củng cố tiêu cực giảm hành vi</div>
-                            <div class="option" onclick="selectOption(this, true)">B. Củng cố tích cực thêm vào thứ tích cực, củng cố tiêu cực lấy đi thứ tiêu cực</div>
-                            <div class="option" onclick="selectOption(this, false)">C. Củng cố tích cực cho trẻ em, củng cố tiêu cực cho người lớn</div>
-                            <div class="option" onclick="selectOption(this, false)">D. Không có sự khác biệt, chỉ là cách gọi khác nhau</div>
+                            <div class="option" onclick="selectOption(this, false)">A. Củng cố tích cực tăng hành vi,
+                                củng cố tiêu cực giảm hành vi</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Củng cố tích cực thêm vào thứ tích
+                                cực, củng cố tiêu cực lấy đi thứ tiêu cực</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Củng cố tích cực cho trẻ em, củng
+                                cố tiêu cực cho người lớn</div>
+                            <div class="option" onclick="selectOption(this, false)">D. Không có sự khác biệt, chỉ là
+                                cách gọi khác nhau</div>
                         </div>
                     </div>
 
                     <div class="question">
-                        <h3>Câu 4: Case Study - Sinh viên đeo dây an toàn để tắt tiếng bíp khó chịu trong xe. Đây là ví dụ của:</h3>
+                        <h3>Câu 4: Case Study - Sinh viên đeo dây an toàn để tắt tiếng bíp khó chịu trong xe. Đây là ví
+                            dụ của:</h3>
                         <div class="options">
                             <div class="option" onclick="selectOption(this, false)">A. Củng cố tích cực</div>
                             <div class="option" onclick="selectOption(this, true)">B. Củng cố tiêu cực</div>
@@ -837,10 +909,13 @@
                     <div class="question">
                         <h3>Câu 5: Theo tài liệu, tại sao trừng phạt không được khuyến khích trong giáo dục?</h3>
                         <div class="options">
-                            <div class="option" onclick="selectOption(this, true)">A. Chỉ dồn nén hành vi không mong muốn mà không chỉ ra hành vi đúng</div>
+                            <div class="option" onclick="selectOption(this, true)">A. Chỉ dồn nén hành vi không mong
+                                muốn mà không chỉ ra hành vi đúng</div>
                             <div class="option" onclick="selectOption(this, false)">B. Hoàn toàn không có tác dụng</div>
-                            <div class="option" onclick="selectOption(this, false)">C. Chỉ áp dụng được với trẻ nhỏ</div>
-                            <div class="option" onclick="selectOption(this, false)">D. Tốn quá nhiều thời gian thực hiện</div>
+                            <div class="option" onclick="selectOption(this, false)">C. Chỉ áp dụng được với trẻ nhỏ
+                            </div>
+                            <div class="option" onclick="selectOption(this, false)">D. Tốn quá nhiều thời gian thực hiện
+                            </div>
                         </div>
                     </div>
 
@@ -858,14 +933,17 @@
                         <h3>Câu 7: Lịch trình củng cố nào tạo ra hành vi bền vững nhất?</h3>
                         <div class="options">
                             <div class="option" onclick="selectOption(this, false)">A. Tỉ lệ cố định (Fixed Ratio)</div>
-                            <div class="option" onclick="selectOption(this, true)">B. Tỉ lệ biến thiên (Variable Ratio)</div>
-                            <div class="option" onclick="selectOption(this, false)">C. Khoảng thời gian cố định (Fixed Interval)</div>
+                            <div class="option" onclick="selectOption(this, true)">B. Tỉ lệ biến thiên (Variable Ratio)
+                            </div>
+                            <div class="option" onclick="selectOption(this, false)">C. Khoảng thời gian cố định (Fixed
+                                Interval)</div>
                             <div class="option" onclick="selectOption(this, false)">D. Tất cả đều như nhau</div>
                         </div>
                     </div>
 
                     <div class="question">
-                        <h3>Câu 8: Case Study - Trẻ em học cách đánh răng bằng cách xem bố mẹ làm. Đây là ví dụ của:</h3>
+                        <h3>Câu 8: Case Study - Trẻ em học cách đánh răng bằng cách xem bố mẹ làm. Đây là ví dụ của:
+                        </h3>
                         <div class="options">
                             <div class="option" onclick="selectOption(this, false)">A. Điều kiện hóa cổ điển</div>
                             <div class="option" onclick="selectOption(this, false)">B. Điều kiện hóa thao tác</div>
@@ -875,7 +953,8 @@
                     </div>
 
                     <div class="question">
-                        <h3>Câu 8: Case Study - Một đứa trẻ sợ chó sau khi bị chó cắn. Đây là ví dụ của loại học tập nào?</h3>
+                        <h3>Câu 8: Case Study - Một đứa trẻ sợ chó sau khi bị chó cắn. Đây là ví dụ của loại học tập
+                            nào?</h3>
                         <div class="options">
                             <div class="option" onclick="selectOption(this, true)">A. Điều kiện hóa cổ điển</div>
                             <div class="option" onclick="selectOption(this, false)">B. Điều kiện hóa thao tác</div>
@@ -885,7 +964,8 @@
                     </div>
 
                     <div class="question">
-                        <h3>Câu 9: Khi một kích thích có điều kiện được thực hiện một mình và phản ứng có điều kiện chấm dứt, quá trình này được gọi là:</h3>
+                        <h3>Câu 9: Khi một kích thích có điều kiện được thực hiện một mình và phản ứng có điều kiện chấm
+                            dứt, quá trình này được gọi là:</h3>
                         <div class="options">
                             <div class="option" onclick="selectOption(this, false)">A. Sự thu nhận (Acquisition)</div>
                             <div class="option" onclick="selectOption(this, true)">B. Sự dập tắt (Extinction)</div>
@@ -899,7 +979,8 @@
                         <div class="options">
                             <div class="option" onclick="selectOption(this, false)">A. Kích thích và phản ứng</div>
                             <div class="option" onclick="selectOption(this, false)">B. Hành vi và củng cố</div>
-                            <div class="option" onclick="selectOption(this, true)">C. Hành vi, yếu tố cá nhân và yếu tố môi trường</div>
+                            <div class="option" onclick="selectOption(this, true)">C. Hành vi, yếu tố cá nhân và yếu tố
+                                môi trường</div>
                             <div class="option" onclick="selectOption(this, false)">D. Quan sát và bắt chước</div>
                         </div>
                     </div>
@@ -955,11 +1036,11 @@
 
             const question = option.parentElement.parentElement;
             const questionIndex = Array.from(question.parentElement.children).indexOf(question);
-            
+
             // Remove previous selection
             const options = question.querySelectorAll('.option');
             options.forEach(opt => opt.classList.remove('selected'));
-            
+
             // Select current option
             option.classList.add('selected');
             selectedAnswers[questionIndex] = isCorrect;
@@ -967,10 +1048,10 @@
 
         function submitQuiz() {
             if (quizSubmitted) return;
-            
+
             quizSubmitted = true;
             let correctAnswers = 0;
-            
+
             const questions = document.querySelectorAll('.question');
             questions.forEach((question, index) => {
                 const options = question.querySelectorAll('.option');
@@ -982,7 +1063,7 @@
                         option.classList.add('incorrect');
                     }
                 });
-                
+
                 if (selectedAnswers[index] === true) {
                     correctAnswers++;
                 }
@@ -992,10 +1073,10 @@
             const resultDiv = document.getElementById('quiz-result');
             const scoreText = document.getElementById('score-text');
             const feedbackText = document.getElementById('feedback-text');
-            
+
             const percentage = (correctAnswers / 10) * 100;
             scoreText.textContent = `Điểm số: ${correctAnswers}/10 (${percentage}%)`;
-            
+
             if (percentage >= 80) {
                 feedbackText.textContent = '🌟 Xuất sắc! Bạn đã nắm vững các thuyết học tập!';
                 feedbackText.style.color = '#4CAF50';
@@ -1006,31 +1087,31 @@
                 feedbackText.textContent = '📚 Cần cố gắng thêm! Hãy đọc lại bài giảng.';
                 feedbackText.style.color = '#F44336';
             }
-            
+
             resultDiv.style.display = 'block';
         }
 
         function resetQuiz() {
             quizSubmitted = false;
             selectedAnswers = [];
-            
+
             const options = document.querySelectorAll('.option');
             options.forEach(option => {
                 option.classList.remove('selected', 'correct', 'incorrect');
             });
-            
+
             document.getElementById('quiz-result').style.display = 'none';
         }
 
         // Add some interactive animations
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Animate elements on scroll
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.animation = 'fadeIn 0.6s ease forwards';
@@ -1043,6 +1124,20 @@
                 observer.observe(el);
             });
         });
+        // Function to print the PDF
+        function printPDF() {
+            const pdfUrl = 'print_pdf/07_hoctap.pdf'; // đường dẫn tới file PDF
+            // Tạo một iframe ẩn để in PDF
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pdfUrl;
+            iframe.onload = function () {
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+            };
+            document.body.appendChild(iframe);
+        }
     </script>
 </body>
+
 </html>

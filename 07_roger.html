@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +44,13 @@
         }
 
         @keyframes glow {
-            from { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
-            to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.8)); }
+            from {
+                filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5));
+            }
+
+            to {
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.8));
+            }
         }
 
         .navigation {
@@ -92,8 +98,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section h2 {
@@ -377,8 +390,15 @@
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .question h3 {
@@ -533,59 +553,60 @@
             .header h1 {
                 font-size: 2em;
             }
-            
+
             .section {
                 padding: 20px;
             }
-            
+
             .self-diagram {
                 flex-direction: column;
             }
-            
+
             .circle {
                 width: 150px;
                 height: 150px;
             }
-            
+
             /* Timeline mobile styles */
             .timeline {
                 max-width: 100%;
                 padding: 10px;
             }
-            
+
             .timeline::after {
                 left: 30px;
                 margin-left: 0;
             }
-            
+
             .timeline-item {
                 width: auto;
                 padding: 20px 20px 20px 70px;
                 margin: 15px 0;
             }
-            
-            .left, .right {
+
+            .left,
+            .right {
                 left: 0 !important;
             }
-            
+
             .timeline-item::after {
                 left: 20px !important;
                 right: auto !important;
             }
-            
+
             .timeline-item::before {
                 display: none;
             }
-            
+
             .three-conditions {
                 grid-template-columns: 1fr;
             }
-            
+
             .navigation {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .nav-btn {
                 width: 200px;
                 margin: 5px 0;
@@ -593,7 +614,10 @@
         }
     </style>
 </head>
+
 <body>
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
     <div class="container">
         <div class="header">
             <h1>Học Thuyết Nhân Vị Trọng Tâm</h1>
@@ -617,15 +641,17 @@
         <!-- GIỚI THIỆU -->
         <div class="section active" id="intro">
             <h2>Carl Rogers và Học Thuyết Nhân Vị Trọng Tâm</h2>
-            
+
             <div class="timeline">
                 <div class="timeline-item left">
                     <h3>Thời thơ ấu (1902-1920)</h3>
-                    <p>Con thứ 4 trong gia đình 6 anh chị em. Lớn lên trong không khí gia đình truyền thống tôn giáo và đạo đức khắt khe. Rất ít giao lưu xã hội, tập trung vào học tập chăm chỉ.</p>
+                    <p>Con thứ 4 trong gia đình 6 anh chị em. Lớn lên trong không khí gia đình truyền thống tôn giáo và
+                        đạo đức khắt khe. Rất ít giao lưu xã hội, tập trung vào học tập chăm chỉ.</p>
                 </div>
                 <div class="timeline-item right">
                     <h3>Năm 12 tuổi - Chuyển đến nông trại</h3>
-                    <p>Phát triển niềm yêu thích với nông nghiệp và khoa học. Quan điểm sống chịu ảnh hưởng chủ yếu từ gia đình.</p>
+                    <p>Phát triển niềm yêu thích với nông nghiệp và khoa học. Quan điểm sống chịu ảnh hưởng chủ yếu từ
+                        gia đình.</p>
                 </div>
                 <div class="timeline-item left">
                     <h3>Học đại học - Muốn trở thành mục sư</h3>
@@ -633,24 +659,27 @@
                 </div>
                 <div class="timeline-item right">
                     <h3>Chuyến đi Trung Quốc - Thay đổi quan điểm</h3>
-                    <p>Chuyến đi này tác động mạnh mẽ đến quan điểm sống, khiến ông trở thành người độc lập, tách khỏi những giáo điều thời thơ ấu.</p>
+                    <p>Chuyến đi này tác động mạnh mẽ đến quan điểm sống, khiến ông trở thành người độc lập, tách khỏi
+                        những giáo điều thời thơ ấu.</p>
                 </div>
                 <div class="timeline-item left">
                     <h3>Trở thành nhà trị liệu</h3>
-                    <p>Chuyển sang học tâm lý và thực hành trị liệu. Qua nhiều năm kinh nghiệm lâm sàng, dần hình thành quan điểm riêng về tâm lý và trị liệu.</p>
+                    <p>Chuyển sang học tâm lý và thực hành trị liệu. Qua nhiều năm kinh nghiệm lâm sàng, dần hình thành
+                        quan điểm riêng về tâm lý và trị liệu.</p>
                 </div>
             </div>
 
             <div class="concept-card">
                 <h3>🎯 Khởi xướng liệu pháp "Thân chủ trọng tâm"</h3>
-                <p>Rogers phát triển phương pháp trị liệu đặt người bệnh làm trung tâm, tin tưởng vào khả năng tự chữa lành và phát triển của con người.</p>
+                <p>Rogers phát triển phương pháp trị liệu đặt người bệnh làm trung tâm, tin tưởng vào khả năng tự chữa
+                    lành và phát triển của con người.</p>
             </div>
         </div>
 
         <!-- XU HƯỚNG HIỆN THỰC HÓA -->
         <div class="section" id="actualization">
             <h2>Xu Hướng Hiện Thực Hóa</h2>
-            
+
             <div class="concept-card">
                 <h3>🌱 Động lực duy nhất của con người</h3>
                 <p>Phát triển hướng đến hiện thực hóa là động lực duy nhất thúc đẩy hành vi con người.</p>
@@ -659,7 +688,8 @@
             <div class="diagram">
                 <h3>Hai khía cạnh của Xu hướng Hiện thực hóa</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
-                    <div class="concept-card" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>🛡️ DUY TRÌ</h4>
                         <ul style="text-align: left; margin-top: 15px;">
                             <li>Nhu cầu thể lý và an toàn</li>
@@ -667,7 +697,8 @@
                             <li>Bảo vệ khái niệm bản thân hiện tại</li>
                         </ul>
                     </div>
-                    <div class="concept-card" style="background: linear-gradient(135deg, #2980b9 0%, #3498db 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #2980b9 0%, #3498db 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>🚀 PHÁT TRIỂN</h4>
                         <ul style="text-align: left; margin-top: 15px;">
                             <li>Hiếu kỳ, tìm tòi khám phá</li>
@@ -694,12 +725,12 @@
         <!-- SELF VÀ CẤU TRÚC -->
         <div class="section" id="self">
             <h2>Self và Sự Phát Triển của Self</h2>
-            
+
             <div class="diagram">
                 <h3>Cấu Trúc Nhân Cách theo Rogers</h3>
                 <div class="self-diagram">
                     <div class="circle self-structure tooltip">
-                        <span>SELF<br/>STRUCTURE<br/>(Cấu trúc Self)</span>
+                        <span>SELF<br />STRUCTURE<br />(Cấu trúc Self)</span>
                         <span class="tooltiptext">Những gì ta tin về bản thân</span>
                     </div>
                     <div class="overlap tooltip">
@@ -707,7 +738,7 @@
                         <span class="tooltiptext">Khi Self và Trải nghiệm phù hợp</span>
                     </div>
                     <div class="circle experience tooltip">
-                        <span>EXPERIENCE<br/>(Trải nghiệm)</span>
+                        <span>EXPERIENCE<br />(Trải nghiệm)</span>
                         <span class="tooltiptext">Những gì ta thực sự trải nghiệm</span>
                     </div>
                 </div>
@@ -715,8 +746,9 @@
 
             <div class="case-study">
                 <h4>📚 Case Study: Nam và chiếc máy tính</h4>
-                <p><strong>Tình huống:</strong> Cha mẹ của Nam nói Nam là một người không có khả năng với máy tính. Khi con nhỏ Nam hay mở những máy mồ (quạt điện, máy tính) và làm hư chúng.</p>
-                
+                <p><strong>Tình huống:</strong> Cha mẹ của Nam nói Nam là một người không có khả năng với máy tính. Khi
+                    con nhỏ Nam hay mở những máy mồ (quạt điện, máy tính) và làm hư chúng.</p>
+
                 <p><strong>Phân tích:</strong></p>
                 <ul style="margin-top: 10px;">
                     <li><strong>a:</strong> "Tôi không có khả năng làm việc với máy tính" (Self-concept)</li>
@@ -727,34 +759,39 @@
 
             <div class="concept-card">
                 <h3>🌟 Sự Phát Triển của Self</h3>
-                <p>Cái self lúc mới sinh rất nhỏ, phát triển qua sự tự trải nghiệm bản thân (self-experience). Self phát triển theo xu hướng hiện thực hóa, nhưng cần điều kiện nuôi dưỡng của môi trường.</p>
+                <p>Cái self lúc mới sinh rất nhỏ, phát triển qua sự tự trải nghiệm bản thân (self-experience). Self phát
+                    triển theo xu hướng hiện thực hóa, nhưng cần điều kiện nuôi dưỡng của môi trường.</p>
             </div>
         </div>
 
         <!-- 3 ĐIỀU KIỆN -->
         <div class="section" id="conditions">
             <h2>Ba Điều Kiện Cần và Đủ</h2>
-            
+
             <div class="three-conditions">
                 <div class="condition-card">
-                    <h3>🎭 CHÂN THẬT, HÀI HÒA<br/>(Congruence)</h3>
-                    <p>Nhà trị liệu thật, chân thành, thống hợp, thể hiện con người thật của mình. Không đeo mặt nạ, chấp nhận tất cả cảm xúc của chính mình.</p>
+                    <h3>🎭 CHÂN THẬT, HÀI HÒA<br />(Congruence)</h3>
+                    <p>Nhà trị liệu thật, chân thành, thống hợp, thể hiện con người thật của mình. Không đeo mặt nạ,
+                        chấp nhận tất cả cảm xúc của chính mình.</p>
                     <blockquote style="margin-top: 15px; font-style: italic;">
-                        "Chẳng ích gì để tỏ ra bình tĩnh và dễ chịu khi thực sự tôi đang tức giận và chỉ trích" - Carl Rogers
+                        "Chẳng ích gì để tỏ ra bình tĩnh và dễ chịu khi thực sự tôi đang tức giận và chỉ trích" - Carl
+                        Rogers
                     </blockquote>
                 </div>
-                
+
                 <div class="condition-card">
-                    <h3>❤️ QUAN TÂM TÍCH CỰC VÔ ĐIỀU KIỆN<br/>(Unconditional Positive Regard)</h3>
-                    <p>Trải nghiệm thái độ ấm áp, tích cực và chấp nhận thân chủ một cách vô điều kiện. Không muốn chiếm hữu, kiểm soát, đánh giá hay phân tích.</p>
+                    <h3>❤️ QUAN TÂM TÍCH CỰC VÔ ĐIỀU KIỆN<br />(Unconditional Positive Regard)</h3>
+                    <p>Trải nghiệm thái độ ấm áp, tích cực và chấp nhận thân chủ một cách vô điều kiện. Không muốn chiếm
+                        hữu, kiểm soát, đánh giá hay phân tích.</p>
                     <blockquote style="margin-top: 15px; font-style: italic;">
                         "Bởi vì tôi quan tâm đến bạn, tôi có thể cho phép bạn tự chủ và độc lập"
                     </blockquote>
                 </div>
-                
+
                 <div class="condition-card">
-                    <h3>🔍 THẤU CẢM<br/>(Empathy)</h3>
-                    <p>Bước vào thế giới riêng tư của người kia và trở nên hoàn toàn "như ở nhà" trong thế giới đó. Tạm thời sống trong cuộc sống của họ, di chuyển nhẹ nhàng mà không phán xét.</p>
+                    <h3>🔍 THẤU CẢM<br />(Empathy)</h3>
+                    <p>Bước vào thế giới riêng tư của người kia và trở nên hoàn toàn "như ở nhà" trong thế giới đó. Tạm
+                        thời sống trong cuộc sống của họ, di chuyển nhẹ nhàng mà không phán xét.</p>
                 </div>
             </div>
 
@@ -788,31 +825,41 @@
         <!-- TIẾN TRÌNH THÀNH NHÂN -->
         <div class="section" id="process">
             <h2>Tiến Trình Thành Nhân</h2>
-            
+
             <div class="concept-card">
                 <h3>🌊 Trải nghiệm trọn vẹn cảm xúc</h3>
-                <p>Có hàng ngàn lý do vì sao chúng ta không trải nghiệm những cảm xúc, thái độ của chúng ta một cách trọn vẹn, chân thật. Trong mối quan hệ trị liệu an toàn và tự do, những cảm xúc có thể được trải nghiệm trọn vẹn.</p>
+                <p>Có hàng ngàn lý do vì sao chúng ta không trải nghiệm những cảm xúc, thái độ của chúng ta một cách
+                    trọn vẹn, chân thật. Trong mối quan hệ trị liệu an toàn và tự do, những cảm xúc có thể được trải
+                    nghiệm trọn vẹn.</p>
             </div>
 
             <div class="case-study">
                 <h4>📖 Trích dẫn từ Carl Rogers: "On becoming a person"</h4>
                 <p style="font-style: italic;">
-                "Khi tôi nhìn lại nó bây giờ, tôi thấy mình đã lớt vỏ hết lớp này đến lớp khác của những lớp phòng vệ. Tôi sẽ xây dựng chúng, thử chúng và sau đó loại bỏ chúng khi ông ấy vẫn như vậy. Tôi không biết điều gì ở dưới cùng và tôi rất sợ phải tìm hiểu, những tôi phải tiếp tục có gắng... Tôi cảm thấy như thể tôi đang kim hãm sức mạnh của những dòng nước này và nếu tôi mở ra đi chỉ là một cái lỗ nhỏ xiíu thì tôi và tất cả những gì xung quanh tôi sẽ bị phá hủy trong dòng cảm xúc tiếp theo mà nước là đại diện..."
+                    "Khi tôi nhìn lại nó bây giờ, tôi thấy mình đã lớt vỏ hết lớp này đến lớp khác của những lớp phòng
+                    vệ. Tôi sẽ xây dựng chúng, thử chúng và sau đó loại bỏ chúng khi ông ấy vẫn như vậy. Tôi không biết
+                    điều gì ở dưới cùng và tôi rất sợ phải tìm hiểu, những tôi phải tiếp tục có gắng... Tôi cảm thấy như
+                    thể tôi đang kim hãm sức mạnh của những dòng nước này và nếu tôi mở ra đi chỉ là một cái lỗ nhỏ xiíu
+                    thì tôi và tất cả những gì xung quanh tôi sẽ bị phá hủy trong dòng cảm xúc tiếp theo mà nước là đại
+                    diện..."
                 </p>
             </div>
 
             <div class="diagram">
                 <h3>Đặc điểm của Tiến trình Thành Nhân</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                    <div class="concept-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>🔄 Cởi mở với trải nghiệm</h4>
                         <p>Ngày càng cởi mở hơn với những cảm xúc và trải nghiệm của chính mình.</p>
                     </div>
-                    <div class="concept-card" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>🎯 Sống hiện sinh</h4>
                         <p>Sống trong từng khoảnh khắc hiện tại thay vì bị ràng buộc bởi quá khứ.</p>
                     </div>
-                    <div class="concept-card" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>💪 Tin vào bản thân</h4>
                         <p>Ngày càng tin vào cảm nhận của chính mình để chỉ dẫn hành vi phù hợp.</p>
                     </div>
@@ -823,7 +870,7 @@
         <!-- CUỘC SỐNG TỐT -->
         <div class="section" id="goodlife">
             <h2>Cuộc Sống Tốt (The Good Life)</h2>
-            
+
             <div class="concept-card">
                 <h3>🎯 Bản chất của Cuộc Sống Tốt</h3>
                 <ul style="text-align: left; margin-top: 15px;">
@@ -838,15 +885,18 @@
             <div class="diagram">
                 <h3>Đặc điểm của người "Fully Functioning"</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                    <div class="concept-card" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>🌸 Cởi mở với trải nghiệm</h4>
                         <p>Không có cơ chế phòng vệ, sẵn sàng đón nhận mọi trải nghiệm một cách trực tiếp.</p>
                     </div>
-                    <div class="concept-card" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>⏰ Sống hiện sinh</h4>
                         <p>Mỗi khoảnh khắc đều là khoảnh khắc mới, linh hoạt thích ứng với từng tình huống.</p>
                     </div>
-                    <div class="concept-card" style="background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
+                    <div class="concept-card"
+                        style="background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);">
                         <h4>🧭 Tin vào sinh thể của mình</h4>
                         <p>Tin tưởng vào khả năng đưa ra quyết định đúng đắn dựa trên cảm nhận nội tại.</p>
                     </div>
@@ -857,7 +907,7 @@
         <!-- SO SÁNH LÝ THUYẾT -->
         <div class="section" id="comparison">
             <h2>So Sánh với Các Học Thuyết Khác</h2>
-            
+
             <table class="comparison-table">
                 <tr>
                     <th>Khía cạnh</th>
@@ -917,7 +967,7 @@
         <!-- BÀI TEST -->
         <div class="section" id="quiz">
             <h2>Bài Test Kiến Thức về Carl Rogers</h2>
-            
+
             <div class="quiz-container">
                 <div class="question active" id="q1">
                     <h3>Câu 1: Động lực duy nhất thúc đẩy hành vi con người theo Rogers là gì?</h3>
@@ -933,7 +983,8 @@
                     <h3>Câu 2: Ba điều kiện cần và đủ trong liệu pháp Rogers gồm:</h3>
                     <div class="options">
                         <div class="option" onclick="selectOption(this, false)">A. Chân thật, Kiểm soát, Phân tích</div>
-                        <div class="option" onclick="selectOption(this, true)">B. Chân thật, Thấu cảm, Quan tâm vô điều kiện</div>
+                        <div class="option" onclick="selectOption(this, true)">B. Chân thật, Thấu cảm, Quan tâm vô điều
+                            kiện</div>
                         <div class="option" onclick="selectOption(this, false)">C. Diễn giải, Chuyển tải, Kháng cự</div>
                         <div class="option" onclick="selectOption(this, false)">D. Ý thức, Tiền ý thức, Vô thức</div>
                     </div>
@@ -943,16 +994,19 @@
                     <h3>Câu 3: Khi Self và Experience không khớp nhau, điều gì xảy ra?</h3>
                     <div class="options">
                         <div class="option" onclick="selectOption(this, false)">A. Người đó trở nên hoàn hảo</div>
-                        <div class="option" onclick="selectOption(this, true)">B. Người đó trải nghiệm sự bất hòa và lo âu</div>
+                        <div class="option" onclick="selectOption(this, true)">B. Người đó trải nghiệm sự bất hòa và lo
+                            âu</div>
                         <div class="option" onclick="selectOption(this, false)">C. Không có gì xảy ra</div>
-                        <div class="option" onclick="selectOption(this, false)">D. Người đó phát triển siêu năng lực</div>
+                        <div class="option" onclick="selectOption(this, false)">D. Người đó phát triển siêu năng lực
+                        </div>
                     </div>
                 </div>
 
                 <div class="question" id="q4">
                     <h3>Câu 4: Case study về Nam và máy tính minh họa điều gì?</h3>
                     <div class="options">
-                        <div class="option" onclick="selectOption(this, true)">A. Sự bất hòa giữa Self-concept và Experience</div>
+                        <div class="option" onclick="selectOption(this, true)">A. Sự bất hòa giữa Self-concept và
+                            Experience</div>
                         <div class="option" onclick="selectOption(this, false)">B. Tầm quan trọng của giáo dục</div>
                         <div class="option" onclick="selectOption(this, false)">C. Vai trò của công nghệ</div>
                         <div class="option" onclick="selectOption(this, false)">D. Ảnh hưởng của di truyền</div>
@@ -962,7 +1016,8 @@
                 <div class="question" id="q5">
                     <h3>Câu 5: "Cuộc sống tốt" theo Rogers là:</h3>
                     <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">A. Một trạng thái hạnh phúc cố định</div>
+                        <div class="option" onclick="selectOption(this, false)">A. Một trạng thái hạnh phúc cố định
+                        </div>
                         <div class="option" onclick="selectOption(this, true)">B. Một tiến trình, một phương hướng</div>
                         <div class="option" onclick="selectOption(this, false)">C. Đạt được tất cả mục tiêu</div>
                         <div class="option" onclick="selectOption(this, false)">D. Không có khó khăn</div>
@@ -972,7 +1027,8 @@
                 <div class="question" id="q6">
                     <h3>Câu 6: Quan tâm tích cực có điều kiện dẫn đến:</h3>
                     <div class="options">
-                        <div class="option" onclick="selectOption(this, true)">A. Hình thành tiêu chuẩn chấp nhận/chối bỏ trải nghiệm</div>
+                        <div class="option" onclick="selectOption(this, true)">A. Hình thành tiêu chuẩn chấp nhận/chối
+                            bỏ trải nghiệm</div>
                         <div class="option" onclick="selectOption(this, false)">B. Sự phát triển hoàn hảo</div>
                         <div class="option" onclick="selectOption(this, false)">C. Tăng cường lòng tự tin</div>
                         <div class="option" onclick="selectOption(this, false)">D. Cải thiện khả năng học tập</div>
@@ -983,9 +1039,12 @@
                     <h3>Câu 7: Khác biệt chính giữa Rogers và Freud là:</h3>
                     <div class="options">
                         <div class="option" onclick="selectOption(this, false)">A. Rogers tập trung vào quá khứ</div>
-                        <div class="option" onclick="selectOption(this, true)">B. Rogers có quan điểm tích cực về con người</div>
-                        <div class="option" onclick="selectOption(this, false)">C. Rogers dùng phương pháp phân tích</div>
-                        <div class="option" onclick="selectOption(this, false)">D. Rogers không quan tâm đến cảm xúc</div>
+                        <div class="option" onclick="selectOption(this, true)">B. Rogers có quan điểm tích cực về con
+                            người</div>
+                        <div class="option" onclick="selectOption(this, false)">C. Rogers dùng phương pháp phân tích
+                        </div>
+                        <div class="option" onclick="selectOption(this, false)">D. Rogers không quan tâm đến cảm xúc
+                        </div>
                     </div>
                 </div>
 
@@ -1004,7 +1063,8 @@
                     <div class="options">
                         <div class="option" onclick="selectOption(this, false)">A. Phân tích vấn đề của thân chủ</div>
                         <div class="option" onclick="selectOption(this, false)">B. Đưa ra lời khuyên</div>
-                        <div class="option" onclick="selectOption(this, true)">C. Bước vào thế giới riêng tư của thân chủ</div>
+                        <div class="option" onclick="selectOption(this, true)">C. Bước vào thế giới riêng tư của thân
+                            chủ</div>
                         <div class="option" onclick="selectOption(this, false)">D. Kiểm soát cảm xúc của thân chủ</div>
                     </div>
                 </div>
@@ -1012,9 +1072,12 @@
                 <div class="question" id="q10">
                     <h3>Câu 10: Một người "fully functioning" có đặc điểm:</h3>
                     <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">A. Luôn hạnh phúc và không có vấn đề</div>
-                        <div class="option" onclick="selectOption(this, true)">B. Cởi mở với trải nghiệm và tin vào bản thân</div>
-                        <div class="option" onclick="selectOption(this, false)">C. Hoàn hảo và không bao giờ sai lầm</div>
+                        <div class="option" onclick="selectOption(this, false)">A. Luôn hạnh phúc và không có vấn đề
+                        </div>
+                        <div class="option" onclick="selectOption(this, true)">B. Cởi mở với trải nghiệm và tin vào bản
+                            thân</div>
+                        <div class="option" onclick="selectOption(this, false)">C. Hoàn hảo và không bao giờ sai lầm
+                        </div>
                         <div class="option" onclick="selectOption(this, false)">D. Kiểm soát được mọi tình huống</div>
                     </div>
                 </div>
@@ -1023,7 +1086,8 @@
                     <button class="btn" onclick="previousQuestion()" id="prevBtn" disabled>⬅️ Câu trước</button>
                     <span id="questionCounter">1 / 10</span>
                     <button class="btn" onclick="nextQuestion()" id="nextBtn">Câu sau ➡️</button>
-                    <button class="btn" onclick="showResults()" id="resultsBtn" style="display: none;">Xem kết quả 🎯</button>
+                    <button class="btn" onclick="showResults()" id="resultsBtn" style="display: none;">Xem kết quả
+                        🎯</button>
                 </div>
 
                 <div class="score" id="scoreDisplay" style="display: none;">
@@ -1045,14 +1109,14 @@
             // Hide all sections
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
-            
+
             // Remove active class from all nav buttons
             const navBtns = document.querySelectorAll('.nav-btn');
             navBtns.forEach(btn => btn.classList.remove('active'));
-            
+
             // Show selected section
             document.getElementById(sectionId).classList.add('active');
-            
+
             // Add active class to clicked button
             event.target.classList.add('active');
         }
@@ -1061,10 +1125,10 @@
             // Remove selection from other options in the same question
             const options = optionElement.parentElement.querySelectorAll('.option');
             options.forEach(opt => opt.classList.remove('selected'));
-            
+
             // Select the clicked option
             optionElement.classList.add('selected');
-            
+
             // Store the answer
             userAnswers[currentQuestion] = isCorrect;
         }
@@ -1073,11 +1137,11 @@
             if (currentQuestion < totalQuestions) {
                 // Hide current question
                 document.getElementById(`q${currentQuestion}`).classList.remove('active');
-                
+
                 // Show next question
                 currentQuestion++;
                 document.getElementById(`q${currentQuestion}`).classList.add('active');
-                
+
                 // Update controls
                 updateQuizControls();
             }
@@ -1087,11 +1151,11 @@
             if (currentQuestion > 1) {
                 // Hide current question
                 document.getElementById(`q${currentQuestion}`).classList.remove('active');
-                
+
                 // Show previous question
                 currentQuestion--;
                 document.getElementById(`q${currentQuestion}`).classList.add('active');
-                
+
                 // Update controls
                 updateQuizControls();
             }
@@ -1100,7 +1164,7 @@
         function updateQuizControls() {
             document.getElementById('questionCounter').textContent = `${currentQuestion} / ${totalQuestions}`;
             document.getElementById('prevBtn').disabled = currentQuestion === 1;
-            
+
             if (currentQuestion === totalQuestions) {
                 document.getElementById('nextBtn').style.display = 'none';
                 document.getElementById('resultsBtn').style.display = 'inline-block';
@@ -1123,7 +1187,7 @@
             for (let i = 1; i <= totalQuestions; i++) {
                 const questionElement = document.getElementById(`q${i}`);
                 const options = questionElement.querySelectorAll('.option');
-                
+
                 options.forEach(option => {
                     if (option.classList.contains('selected')) {
                         if (userAnswers[i] === true) {
@@ -1136,8 +1200,8 @@
             }
 
             // Display score
-            document.getElementById('finalScore').textContent = `${score}/${totalQuestions} (${Math.round(score/totalQuestions*100)}%)`;
-            
+            document.getElementById('finalScore').textContent = `${score}/${totalQuestions} (${Math.round(score / totalQuestions * 100)}%)`;
+
             let feedback = '';
             if (score >= 9) {
                 feedback = '🏆 Xuất sắc! Bạn đã nắm vững lý thuyết Carl Rogers!';
@@ -1148,10 +1212,10 @@
             } else {
                 feedback = '💪 Hãy học kỹ hơn về lý thuyết Rogers và thử lại nhé!';
             }
-            
+
             document.getElementById('feedback').textContent = feedback;
             document.getElementById('scoreDisplay').style.display = 'block';
-            
+
             // Hide quiz controls
             document.querySelector('.quiz-controls').style.display = 'none';
         }
@@ -1161,21 +1225,21 @@
             currentQuestion = 1;
             userAnswers = {};
             score = 0;
-            
+
             // Hide all questions
             for (let i = 1; i <= totalQuestions; i++) {
                 document.getElementById(`q${i}`).classList.remove('active');
-                
+
                 // Reset option states
                 const options = document.getElementById(`q${i}`).querySelectorAll('.option');
                 options.forEach(option => {
                     option.classList.remove('selected', 'correct', 'incorrect');
                 });
             }
-            
+
             // Show first question
             document.getElementById('q1').classList.add('active');
-            
+
             // Reset controls
             document.querySelector('.quiz-controls').style.display = 'block';
             document.getElementById('scoreDisplay').style.display = 'none';
@@ -1183,15 +1247,15 @@
         }
 
         // Interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add hover effects to concept cards
             const conceptCards = document.querySelectorAll('.concept-card');
             conceptCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
+                card.addEventListener('mouseenter', function () {
                     this.style.transform = 'translateY(-5px) scale(1.02)';
                 });
-                
-                card.addEventListener('mouseleave', function() {
+
+                card.addEventListener('mouseleave', function () {
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
@@ -1199,7 +1263,7 @@
             // Add click effects to circles
             const circles = document.querySelectorAll('.circle');
             circles.forEach(circle => {
-                circle.addEventListener('click', function() {
+                circle.addEventListener('click', function () {
                     this.style.animation = 'glow 1s ease-in-out';
                     setTimeout(() => {
                         this.style.animation = '';
@@ -1207,6 +1271,20 @@
                 });
             });
         });
+        // Function to print the PDF
+        function printPDF() {
+            const pdfUrl = 'print_pdf/06_roger.pdf'; // đường dẫn tới file PDF
+            // Tạo một iframe ẩn để in PDF
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pdfUrl;
+            iframe.onload = function () {
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+            };
+            document.body.appendChild(iframe);
+        }
     </script>
 </body>
+
 </html>
