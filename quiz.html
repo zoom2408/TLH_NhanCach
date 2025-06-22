@@ -6,9 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz trắc nghiệm</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Print Quiz Button */
+    #printQuizBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4299e1;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      transition: background 0.3s ease;
+    }
+
+    #printQuizBtn:hover {
+      background: #2b6cb0;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Print Quiz Button -->
+  <button onclick="printQuiz()" id="printQuizBtn">🖨️ In Quiz</button>
   <header>
     <h1>Quiz trắc nghiệm</h1>
     <p>Làm bài kiểm tra trắc nghiệm vui vẻ.</p>

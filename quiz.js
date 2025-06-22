@@ -104,6 +104,20 @@ if (typeof window !== 'undefined') {
     window.quizSubmitted = true;
   }
 
+  function printQuiz() {
+    const printWin = window.open('', '_blank');
+    let html = `<html><head><title>In Quiz</title><link rel="stylesheet" href="styles.css"></head><body>`;
+    allQuestions.forEach((q, idx) => {
+      html += `<div class="question"><h4>Câu ${idx + 1}: ${q.q}</h4><ul class="options">` +
+        q.opts.map(opt => `<li>${opt}</li>`).join('') + `</ul></div>`;
+    });
+    html += '</body></html>';
+    printWin.document.write(html);
+    printWin.document.close();
+    printWin.focus();
+    printWin.print();
+  }
+
   function resetQuiz() {
     ensureMaxOption();
     document.getElementById('quiz-area').style.display = 'none';
