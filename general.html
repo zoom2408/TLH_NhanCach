@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -304,11 +305,30 @@
             transform: scale(1.05);
         }
 
-        .level-1 { background: linear-gradient(45deg, #e74c3c, #c0392b); width: 90%; }
-        .level-2 { background: linear-gradient(45deg, #f39c12, #e67e22); width: 75%; }
-        .level-3 { background: linear-gradient(45deg, #27ae60, #2ecc71); width: 60%; }
-        .level-4 { background: linear-gradient(45deg, #3498db, #2980b9); width: 45%; }
-        .level-5 { background: linear-gradient(45deg, #9b59b6, #8e44ad); width: 30%; }
+        .level-1 {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            width: 90%;
+        }
+
+        .level-2 {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            width: 75%;
+        }
+
+        .level-3 {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            width: 60%;
+        }
+
+        .level-4 {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            width: 45%;
+        }
+
+        .level-5 {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            width: 30%;
+        }
 
         .jung-types {
             display: grid;
@@ -388,52 +408,108 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .personality-structure {
                 flex-direction: column;
             }
-            
+
             .jung-types {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .toc-item {
                 min-width: 100px;
                 padding: 10px 15px;
                 font-size: 0.9em;
             }
-            
+
             .timeline-item {
                 width: 100% !important;
                 left: 0 !important;
             }
-            
+
             .timeline::before {
                 left: 20px;
             }
         }
 
         /* Color schemes for different theories */
-        .freud { border-bottom-color: #e74c3c; }
-        .freud .theory-title h2 { color: #e74c3c; }
+        .freud {
+            border-bottom-color: #e74c3c;
+        }
 
-        .adler { border-bottom-color: #f39c12; }
-        .adler .theory-title h2 { color: #f39c12; }
+        .freud .theory-title h2 {
+            color: #e74c3c;
+        }
 
-        .jung { border-bottom-color: #9b59b6; }
-        .jung .theory-title h2 { color: #9b59b6; }
+        .adler {
+            border-bottom-color: #f39c12;
+        }
 
-        .maslow { border-bottom-color: #27ae60; }
-        .maslow .theory-title h2 { color: #27ae60; }
+        .adler .theory-title h2 {
+            color: #f39c12;
+        }
 
-        .rogers { border-bottom-color: #3498db; }
-        .rogers .theory-title h2 { color: #3498db; }
+        .jung {
+            border-bottom-color: #9b59b6;
+        }
 
-        .behaviorist { border-bottom-color: #34495e; }
-        .behaviorist .theory-title h2 { color: #34495e; }
+        .jung .theory-title h2 {
+            color: #9b59b6;
+        }
+
+        .maslow {
+            border-bottom-color: #27ae60;
+        }
+
+        .maslow .theory-title h2 {
+            color: #27ae60;
+        }
+
+        .rogers {
+            border-bottom-color: #3498db;
+        }
+
+        .rogers .theory-title h2 {
+            color: #3498db;
+        }
+
+        .behaviorist {
+            border-bottom-color: #34495e;
+        }
+
+        .behaviorist .theory-title h2 {
+            color: #34495e;
+        }
+
+        /* Print PDF Button */
+        #printPdfBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background 0.3s ease;
+        }
+
+        #printPdfBtn:hover {
+            background: #2b6cb0;
+        }
     </style>
 </head>
+
 <body>
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
+
     <div class="container">
         <div class="header">
             <h1>🧠 Các Trường Phái Tâm Lý Học Định Hình Nhân Cách</h1>
@@ -533,10 +609,14 @@
             <div class="case-study">
                 <h4>📖 Case Study: Cơ Chế Phòng Vệ Phóng Chiếu</h4>
                 <div class="case-content">
-                    <strong>Tình huống:</strong> A sâu trong lòng muốn được chú ý nhưng luôn tránh né, sợ thành spotlight. Khi thấy đồng nghiệp tự tin trong các buổi họp, A thường nói với đồng nghiệp khác: <em>"Anh ta cứ muốn làm trung tâm của vũ trụ"</em>
+                    <strong>Tình huống:</strong> A sâu trong lòng muốn được chú ý nhưng luôn tránh né, sợ thành
+                    spotlight. Khi thấy đồng nghiệp tự tin trong các buổi họp, A thường nói với đồng nghiệp khác:
+                    <em>"Anh ta cứ muốn làm trung tâm của vũ trụ"</em>
                 </div>
                 <div class="case-content">
-                    <strong>📝 Phân tích:</strong> Đây là cơ chế <span class="highlight">phóng chiếu</span> - A gán mong muốn được chú ý của mình (điều mà Superego không chấp nhận) lên đồng nghiệp. Thay vì thừa nhận "Tôi muốn được chú ý", A nói "Anh ấy muốn được chú ý".
+                    <strong>📝 Phân tích:</strong> Đây là cơ chế <span class="highlight">phóng chiếu</span> - A gán mong
+                    muốn được chú ý của mình (điều mà Superego không chấp nhận) lên đồng nghiệp. Thay vì thừa nhận "Tôi
+                    muốn được chú ý", A nói "Anh ấy muốn được chú ý".
                 </div>
             </div>
 
@@ -599,24 +679,34 @@
             <div class="case-study">
                 <h4>📖 Case Study Chi Tiết: Minh và Phong Cách Sống Né Tránh</h4>
                 <div class="case-content">
-                    <strong>🧑 Nhân vật:</strong> Minh, 30 tuổi, luôn trốn tránh giải quyết vấn đề ở phút chót. Có bạn gái nhưng luôn nghi ngờ nên tình cảm không tiến triển. Không thích kết bạn, thường im lặng khi có người khác xung quanh. Rất ngượng ngùng khi phát biểu nhưng khi vượt qua được thì nói chuyện rất tốt.
+                    <strong>🧑 Nhân vật:</strong> Minh, 30 tuổi, luôn trốn tránh giải quyết vấn đề ở phút chót. Có bạn
+                    gái nhưng luôn nghi ngờ nên tình cảm không tiến triển. Không thích kết bạn, thường im lặng khi có
+                    người khác xung quanh. Rất ngượng ngùng khi phát biểu nhưng khi vượt qua được thì nói chuyện rất
+                    tốt.
                 </div>
                 <div class="case-content">
-                    <strong>💼 Công việc:</strong> Luôn sợ thất bại nên làm việc quá sức ngày đêm, ảnh hưởng sức khỏe và không đáp ứng được yêu cầu.
+                    <strong>💼 Công việc:</strong> Luôn sợ thất bại nên làm việc quá sức ngày đêm, ảnh hưởng sức khỏe và
+                    không đáp ứng được yêu cầu.
                 </div>
                 <div class="case-content">
-                    <strong>👨‍👩‍👧‍👦 Gia đình:</strong> Con cả, có em trai sinh khi Minh 3 tuổi. Hồi ức đáng nhớ: Khi mưa, mẹ bế Minh lên nhưng bỗng nhớ ra em trai nên đặt Minh xuống để bế em.
+                    <strong>👨‍👩‍👧‍👦 Gia đình:</strong> Con cả, có em trai sinh khi Minh 3 tuổi. Hồi ức đáng nhớ: Khi
+                    mưa, mẹ bế Minh lên nhưng bỗng nhớ ra em trai nên đặt Minh xuống để bế em.
                 </div>
                 <div class="case-content">
-                    <strong>💭 Giấc mơ:</strong> Mơ thấy tổ chức tiệc nhưng mọi người không thích. Minh cười lớn nói: "Không ai thích ở bên tôi hết."
+                    <strong>💭 Giấc mơ:</strong> Mơ thấy tổ chức tiệc nhưng mọi người không thích. Minh cười lớn nói:
+                    "Không ai thích ở bên tôi hết."
                 </div>
                 <div class="case-content">
                     <strong>📝 Phân tích Adler:</strong>
                     <ul>
-                        <li><span class="highlight">Phong cách sống né tránh:</span> Minh phát triển chiến lược tránh thất bại bằng cách không tham gia đầy đủ</li>
-                        <li><span class="highlight">Mặc cảm tự ti:</span> Cảm giác bị "truất ngôi" khi có em trai tạo ra mặc cảm về giá trị bản thân</li>
-                        <li><span class="highlight">Mục tiêu hư cấu:</span> "Nếu tôi không cố gắng hết mình thì thất bại không phải lỗi của tôi"</li>
-                        <li><span class="highlight">Cảm thức cộng đồng thấp:</span> Tránh kết nối xã hội vì sợ bị từ chối</li>
+                        <li><span class="highlight">Phong cách sống né tránh:</span> Minh phát triển chiến lược tránh
+                            thất bại bằng cách không tham gia đầy đủ</li>
+                        <li><span class="highlight">Mặc cảm tự ti:</span> Cảm giác bị "truất ngôi" khi có em trai tạo ra
+                            mặc cảm về giá trị bản thân</li>
+                        <li><span class="highlight">Mục tiêu hư cấu:</span> "Nếu tôi không cố gắng hết mình thì thất bại
+                            không phải lỗi của tôi"</li>
+                        <li><span class="highlight">Cảm thức cộng đồng thấp:</span> Tránh kết nối xã hội vì sợ bị từ
+                            chối</li>
                     </ul>
                 </div>
             </div>
@@ -718,18 +808,24 @@
             <div class="case-study">
                 <h4>📖 Case Study: Anima và Animus trong Mối Quan Hệ</h4>
                 <div class="case-content">
-                    <strong>Tình huống:</strong> Nam, 35 tuổi, kỹ sư thành công, luôn tự hào về tính logic và kiểm soát cảm xúc. Tuy nhiên, anh thường bị thu hút bởi những phụ nữ "bí ẩn" và cảm tính. Trong các mối quan hệ, Nam thường trở nên ghen tuông và không kiểm soát được cảm xúc.
+                    <strong>Tình huống:</strong> Nam, 35 tuổi, kỹ sư thành công, luôn tự hào về tính logic và kiểm soát
+                    cảm xúc. Tuy nhiên, anh thường bị thu hút bởi những phụ nữ "bí ẩn" và cảm tính. Trong các mối quan
+                    hệ, Nam thường trở nên ghen tuông và không kiểm soát được cảm xúc.
                 </div>
                 <div class="case-content">
                     <strong>📝 Phân tích Jung:</strong>
                     <ul>
-                        <li><span class="highlight">Anima chưa được thống hợp:</span> Nam phóng chiếu các đặc tính nữ tính (cảm xúc, trực giác) lên phụ nữ thay vì phát triển ở chính mình</li>
-                        <li><span class="highlight">Mặt nạ quá mạnh:</span> Hình ảnh "người đàn ông logic" che giấu khía cạnh cảm xúc tự nhiên</li>
-                        <li><span class="highlight">Bóng tối:</span> Những cảm xúc "không nam tính" bị đẩy xuống vô thức và bùng phát trong tình yêu</li>
+                        <li><span class="highlight">Anima chưa được thống hợp:</span> Nam phóng chiếu các đặc tính nữ
+                            tính (cảm xúc, trực giác) lên phụ nữ thay vì phát triển ở chính mình</li>
+                        <li><span class="highlight">Mặt nạ quá mạnh:</span> Hình ảnh "người đàn ông logic" che giấu khía
+                            cạnh cảm xúc tự nhiên</li>
+                        <li><span class="highlight">Bóng tối:</span> Những cảm xúc "không nam tính" bị đẩy xuống vô thức
+                            và bùng phát trong tình yêu</li>
                     </ul>
                 </div>
                 <div class="case-content">
-                    <strong>💡 Hướng phát triển:</strong> Nam cần học cách thống hợp anima - chấp nhận và phát triển khía cạnh cảm xúc, trực giác để trở thành người toàn diện hơn.
+                    <strong>💡 Hướng phát triển:</strong> Nam cần học cách thống hợp anima - chấp nhận và phát triển
+                    khía cạnh cảm xúc, trực giác để trở thành người toàn diện hơn.
                 </div>
             </div>
         </div>
@@ -768,14 +864,19 @@
             <div class="case-study">
                 <h4>📖 Case Study: Cản Trở Ở Nhu Cầu An Toàn</h4>
                 <div class="case-content">
-                    <strong>Tình huống:</strong> Lan, 28 tuổi, có việc làm ổn định với mức lương tốt. Tuy nhiên, cô liên tục lo lắng về khả năng mất việc, thường xuyên kiểm tra email công việc vào cuối tuần và không dám nghỉ phép. Điều này ảnh hưởng đến khả năng xây dựng mối quan hệ và phát triển sở thích cá nhân.
+                    <strong>Tình huống:</strong> Lan, 28 tuổi, có việc làm ổn định với mức lương tốt. Tuy nhiên, cô liên
+                    tục lo lắng về khả năng mất việc, thường xuyên kiểm tra email công việc vào cuối tuần và không dám
+                    nghỉ phép. Điều này ảnh hưởng đến khả năng xây dựng mối quan hệ và phát triển sở thích cá nhân.
                 </div>
                 <div class="case-content">
                     <strong>📝 Phân tích Maslow:</strong>
                     <ul>
-                        <li><span class="highlight">Bị kẹt ở nhu cầu an toàn:</span> Mặc dù có việc làm ổn định, Lan vẫn cảm thấy không an toàn về tương lai</li>
-                        <li><span class="highlight">Không thể tiến lên nhu cầu cao hơn:</span> Lo lắng về an toàn công việc ngăn cản việc đầu tư vào mối quan hệ và sở thích</li>
-                        <li><span class="highlight">Chu kỳ tiêu cực:</span> Càng lo lắng càng làm việc nhiều, càng kiệt sức càng lo lắng hơn</li>
+                        <li><span class="highlight">Bị kẹt ở nhu cầu an toàn:</span> Mặc dù có việc làm ổn định, Lan vẫn
+                            cảm thấy không an toàn về tương lai</li>
+                        <li><span class="highlight">Không thể tiến lên nhu cầu cao hơn:</span> Lo lắng về an toàn công
+                            việc ngăn cản việc đầu tư vào mối quan hệ và sở thích</li>
+                        <li><span class="highlight">Chu kỳ tiêu cực:</span> Càng lo lắng càng làm việc nhiều, càng kiệt
+                            sức càng lo lắng hơn</li>
                     </ul>
                 </div>
             </div>
@@ -840,17 +941,23 @@
             <div class="case-study">
                 <h4>📖 Case Study: Quan Tâm Tích Cực Vô Điều Kiện vs Có Điều Kiện</h4>
                 <div class="case-content">
-                    <strong>Tình huống A (Có điều kiện):</strong> "Con sẽ được mẹ yêu khi con ngoan và học giỏi. Khi con nanh nọc, mẹ không thích con."
+                    <strong>Tình huống A (Có điều kiện):</strong> "Con sẽ được mẹ yêu khi con ngoan và học giỏi. Khi con
+                    nanh nọc, mẹ không thích con."
                 </div>
                 <div class="case-content">
-                    <strong>Tình huống B (Vô điều kiện):</strong> <em>"Mẹ có thể hiểu cảm giác thỏa mãn của con khi con đánh em trai... và mẹ yêu con và hoàn toàn sẵn lòng để con có những cảm giác đó. Nhưng mẹ cũng có cảm xúc riêng và mẹ buồn khi em trai bị đau, vì vậy mẹ sẽ không để con đánh em nữa."</em>
+                    <strong>Tình huống B (Vô điều kiện):</strong> <em>"Mẹ có thể hiểu cảm giác thỏa mãn của con khi con
+                        đánh em trai... và mẹ yêu con và hoàn toàn sẵn lòng để con có những cảm giác đó. Nhưng mẹ cũng
+                        có cảm xúc riêng và mẹ buồn khi em trai bị đau, vì vậy mẹ sẽ không để con đánh em nữa."</em>
                 </div>
                 <div class="case-content">
                     <strong>📝 Phân tích Rogers:</strong>
                     <ul>
-                        <li><span class="highlight">Tình huống A:</span> Tạo ra sự bất hợp - đứa trẻ học cách dấu diếm cảm xúc thật để được chấp nhận</li>
-                        <li><span class="highlight">Tình huống B:</span> Chấp nhận cảm xúc của trẻ nhưng đặt ranh giới hành vi, giúp phát triển self-concept lành mạnh</li>
-                        <li><span class="highlight">Kết quả:</span> Trẻ ở tình huống B có xu hướng trở thành người chân thực và tự tin hơn</li>
+                        <li><span class="highlight">Tình huống A:</span> Tạo ra sự bất hợp - đứa trẻ học cách dấu diếm
+                            cảm xúc thật để được chấp nhận</li>
+                        <li><span class="highlight">Tình huống B:</span> Chấp nhận cảm xúc của trẻ nhưng đặt ranh giới
+                            hành vi, giúp phát triển self-concept lành mạnh</li>
+                        <li><span class="highlight">Kết quả:</span> Trẻ ở tình huống B có xu hướng trở thành người chân
+                            thực và tự tin hơn</li>
                     </ul>
                 </div>
             </div>
@@ -901,7 +1008,8 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h4>🔔 Điều Kiện Hóa Cổ Điển (Pavlov)</h4>
-                        <p><strong>Nguyên lý:</strong> Kích thích trung tính + Kích thích tự nhiên → Phản ứng học được</p>
+                        <p><strong>Nguyên lý:</strong> Kích thích trung tính + Kích thích tự nhiên → Phản ứng học được
+                        </p>
                         <p><strong>Ví dụ:</strong> Chuông + Thức ăn → Chó tiết nước dãi khi nghe chuông</p>
                     </div>
                 </div>
@@ -924,14 +1032,19 @@
             <div class="case-study">
                 <h4>📖 Case Study: Củng Cố Tiêu Cực trong Gia Đình</h4>
                 <div class="case-content">
-                    <strong>Tình huống:</strong> Hạnh từ nhỏ sống trong gia đình nghiêm khắc. Mỗi khi làm bài tập xong, mẹ sẽ không la mắng con về việc khác. Kết quả: Hạnh làm bài tập ngày càng chăm chỉ. Bây giờ ở tuổi 25, cô rất tuân thủ quy tắc và luôn hoàn thành công việc để tránh bị chỉ trích.
+                    <strong>Tình huống:</strong> Hạnh từ nhỏ sống trong gia đình nghiêm khắc. Mỗi khi làm bài tập xong,
+                    mẹ sẽ không la mắng con về việc khác. Kết quả: Hạnh làm bài tập ngày càng chăm chỉ. Bây giờ ở tuổi
+                    25, cô rất tuân thủ quy tắc và luôn hoàn thành công việc để tránh bị chỉ trích.
                 </div>
                 <div class="case-content">
                     <strong>📝 Phân tích Skinner:</strong>
                     <ul>
-                        <li><span class="highlight">Củng cố tiêu cực:</span> Loại bỏ kích thích khó chịu (việc la mắng) để tăng hành vi mong muốn</li>
-                        <li><span class="highlight">Hình thành tính cách:</span> Qua nhiều năm, hành vi trở thành đặc điểm nhân cách</li>
-                        <li><span class="highlight">Khái quát hóa:</strong> Hạnh áp dụng mô hình này vào mọi tình huống sống</li>
+                        <li><span class="highlight">Củng cố tiêu cực:</span> Loại bỏ kích thích khó chịu (việc la mắng)
+                            để tăng hành vi mong muốn</li>
+                        <li><span class="highlight">Hình thành tính cách:</span> Qua nhiều năm, hành vi trở thành đặc
+                            điểm nhân cách</li>
+                        <li><span class="highlight">Khái quát hóa:</strong> Hạnh áp dụng mô hình này vào mọi tình huống
+                                sống</li>
                     </ul>
                 </div>
             </div>
@@ -1008,7 +1121,8 @@
                 <div class="critique-section">
                     <h4>🎯 Điểm Mạnh Chung</h4>
                     <ul>
-                        <li><strong>Đa dạng quan điểm:</strong> Mỗi lý thuyết giải thích khía cạnh khác nhau của nhân cách</li>
+                        <li><strong>Đa dạng quan điểm:</strong> Mỗi lý thuyết giải thích khía cạnh khác nhau của nhân
+                            cách</li>
                         <li><strong>Ứng dụng thực tế:</strong> Đều có giá trị trong liệu pháp và giáo dục</li>
                         <li><strong>Phát triển lịch sử:</strong> Mỗi lý thuyết bổ sung cho những lý thuyết trước</li>
                         <li><strong>Nghiên cứu khởi đầu:</strong> Mở đường cho các nghiên cứu hiện đại</li>
@@ -1028,20 +1142,29 @@
             <div class="case-study">
                 <h4>📖 Case Study Tổng Hợp: Phân Tích Đa Quan Điểm</h4>
                 <div class="case-content">
-                    <strong>Tình huống:</strong> Mai, 26 tuổi, nhân viên marketing thành công nhưng luôn cảm thấy lo âu về hiệu suất công việc. Cô thường làm việc overtime, không dám từ chối yêu cầu của sếp, và có xu hướng hoàn hảo trong mọi việc. Mai ít giao tiếp xã hội và cảm thấy cô đơn dù được đồng nghiệp yêu quý.
+                    <strong>Tình huống:</strong> Mai, 26 tuổi, nhân viên marketing thành công nhưng luôn cảm thấy lo âu
+                    về hiệu suất công việc. Cô thường làm việc overtime, không dám từ chối yêu cầu của sếp, và có xu
+                    hướng hoàn hảo trong mọi việc. Mai ít giao tiếp xã hội và cảm thấy cô đơn dù được đồng nghiệp yêu
+                    quý.
                 </div>
                 <div class="case-content">
                     <strong>🔍 Phân tích đa quan điểm:</strong>
                     <ul>
-                        <li><span class="highlight">Freud:</span> Superego mạnh tạo ra cảm giác tội lỗi khi không hoàn hảo</li>
-                        <li><span class="highlight">Adler:</span> Mặc cảm tự ti đẩy Mai phấn đấu quá mức để chứng minh giá trị</li>
-                        <li><span class="highlight">Maslow:</span> Bị kẹt ở nhu cầu tự trọng, chưa thỏa mãn nhu cầu thuộc về</li>
-                        <li><span class="highlight">Rogers:</span> Self-concept có điều kiện: "Tôi có giá trị khi làm việc tốt"</li>
-                        <li><span class="highlight">Học tập:</span> Hành vi hoàn hảo được củng cố bởi thành công và sự khen ngợi</li>
+                        <li><span class="highlight">Freud:</span> Superego mạnh tạo ra cảm giác tội lỗi khi không hoàn
+                            hảo</li>
+                        <li><span class="highlight">Adler:</span> Mặc cảm tự ti đẩy Mai phấn đấu quá mức để chứng minh
+                            giá trị</li>
+                        <li><span class="highlight">Maslow:</span> Bị kẹt ở nhu cầu tự trọng, chưa thỏa mãn nhu cầu
+                            thuộc về</li>
+                        <li><span class="highlight">Rogers:</span> Self-concept có điều kiện: "Tôi có giá trị khi làm
+                            việc tốt"</li>
+                        <li><span class="highlight">Học tập:</span> Hành vi hoàn hảo được củng cố bởi thành công và sự
+                            khen ngợi</li>
                     </ul>
                 </div>
                 <div class="case-content">
-                    <strong>💡 Kết luận:</strong> Không có lý thuyết nào đơn lẻ giải thích đầy đủ. Cách tiếp cận tích hợp có thể hiệu quả nhất trong việc hiểu và hỗ trợ Mai.
+                    <strong>💡 Kết luận:</strong> Không có lý thuyết nào đơn lẻ giải thích đầy đủ. Cách tiếp cận tích
+                    hợp có thể hiệu quả nhất trong việc hiểu và hỗ trợ Mai.
                 </div>
             </div>
 
@@ -1071,7 +1194,10 @@
 
             <div class="strengths" style="margin-top: 30px;">
                 <h4>🎓 Bài Học Quan Trọng</h4>
-                <p>Mỗi trường phái đều có giá trị riêng trong việc hiểu con người. Thay vì tranh luận lý thuyết nào đúng, chúng ta nên xem chúng như những <strong>lăng kính khác nhau</strong> để quan sát và hiểu sự phức tạp của nhân cách con người. Trong thực hành, <strong>cách tiếp cận đa chiều và tích hợp</strong> thường mang lại hiệu quả tốt nhất.</p>
+                <p>Mỗi trường phái đều có giá trị riêng trong việc hiểu con người. Thay vì tranh luận lý thuyết nào
+                    đúng, chúng ta nên xem chúng như những <strong>lăng kính khác nhau</strong> để quan sát và hiểu sự
+                    phức tạp của nhân cách con người. Trong thực hành, <strong>cách tiếp cận đa chiều và tích
+                        hợp</strong> thường mang lại hiệu quả tốt nhất.</p>
             </div>
         </div>
     </div>
@@ -1079,10 +1205,10 @@
     <script>
         // Table of contents navigation
         document.querySelectorAll('.toc-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 const text = this.textContent;
                 let targetId = '';
-                
+
                 if (text.includes('Freud')) targetId = 'freud';
                 else if (text.includes('Adler')) targetId = 'adler';
                 else if (text.includes('Jung')) targetId = 'jung';
@@ -1090,7 +1216,7 @@
                 else if (text.includes('Rogers')) targetId = 'rogers';
                 else if (text.includes('Học Tập')) targetId = 'behaviorist';
                 else if (text.includes('So Sánh')) targetId = 'comparison';
-                
+
                 if (targetId) {
                     document.getElementById(targetId).scrollIntoView({
                         behavior: 'smooth',
@@ -1102,11 +1228,25 @@
 
         // Add hover effect to pyramid levels
         document.querySelectorAll('.pyramid-level').forEach(level => {
-            level.addEventListener('click', function() {
+            level.addEventListener('click', function () {
                 const tooltip = this.getAttribute('title');
                 alert(tooltip);
             });
         });
+        // Function to print the PDF
+        function printPDF() {
+            const pdfUrl = 'print_pdf/0_all.pdf'; // đường dẫn tới file PDF
+            // Tạo một iframe ẩn để in PDF
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pdfUrl;
+            iframe.onload = function () {
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+            };
+            document.body.appendChild(iframe);
+        }
     </script>
 </body>
+
 </html>
