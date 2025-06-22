@@ -492,6 +492,28 @@
                 width: 90%;
             }
         }
+
+        /* Print PDF Button */
+        #printPdfBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background 0.3s ease;
+        }
+
+        #printPdfBtn:hover {
+            background: #2b6cb0;
+        }
     </style>
 </head>
 
@@ -507,12 +529,13 @@
             style="width: 120px; height: 120px; background: linear-gradient(45deg, #fdcb6e, #e17055); border-radius: 50%;">
         </div>
     </div>
-
+    <!-- Print PDF Button -->
+    <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
+    <!-- Nội dung -->
     <div class="container">
         <div class="header">
             <h1>🧠 Sigmund Freud và Phân Tâm Học</h1>
             <p>Bài Giảng Tương Tác Chuyên Sâu - Ths. Lê Thị Hương Giang</p>
-            <button onclick="printPDF()" id="printPdfBtn">🖨️ In PDF</button>
 
         </div>
 
